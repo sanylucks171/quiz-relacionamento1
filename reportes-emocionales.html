@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Reporte Emocional Completo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET Y BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --rose: #C84B6A;
+  --rose-dk: #8B2E48;
+  --rose-lt: #FFF0F4;
+  --rose-mid: #E8748F;
+  --gold: #C89B3C;
+  --gold-lt: #FDF5E4;
+  --ink: #1A1A2E;
+  --ink2: #2D2D44;
+  --off: #FAFAF8;
+  --border: #E8E4E0;
+  --text: #2C2C3E;
+  --muted: #7A7A8C;
+  --green: #2E7D5A;
+  --green-lt: #EDF7F2;
+  --warn: #9B4F00;
+  --warn-lt: #FFF3E0;
+}
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ── PORTADA ── */
+.cover {
+  background: linear-gradient(160deg, #1A1A2E 0%, #2D1A35 50%, #1A2D35 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,75,106,0.25) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cover-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+}
+.cover-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+.cover-tag {
+  display: inline-block;
+  background: rgba(200,75,106,0.2);
+  border: 1px solid rgba(200,75,106,0.4);
+  color: #E8748F;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 6px 16px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.cover h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  max-width: 600px;
+}
+.cover h1 em { font-style: italic; color: #E8748F; }
+.cover-subtitle {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+.cover-profiles {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 1.2rem 2rem;
+  margin-bottom: 2rem;
+}
+.cp { text-align: center; }
+.cp-icon { font-size: 2rem; margin-bottom: 4px; }
+.cp-label { font-size: 10px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+.cp-name { font-family: 'Playfair Display', serif; font-size: 14px; color: #fff; font-style: italic; }
+.cp-arrow { font-size: 1.4rem; color: rgba(200,75,106,0.6); }
+.cover-dynamic {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  font-style: italic;
+}
+.cover-footer {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+  text-align: center;
+}
+
+/* ── CONTENIDO PRINCIPAL ── */
+.report-body { max-width: 760px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+/* ── ÍNDICE ── */
+.toc {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  page-break-after: always;
+}
+.toc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--rose);
+  display: inline-block;
+}
+.toc-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #F0EDE8;
+  font-size: 14px;
+  color: var(--text);
+}
+.toc-item:last-child { border-bottom: none; }
+.toc-num { font-size: 12px; font-weight: 700; color: var(--rose); min-width: 24px; }
+.toc-ico { font-size: 1rem; }
+.toc-name { flex: 1; }
+.toc-pg { font-size: 12px; color: var(--muted); }
+
+/* ── SECCIONES ── */
+.section {
+  margin-bottom: 2.5rem;
+  page-break-inside: avoid;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.4rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid var(--border);
+}
+.section-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--rose);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.section-icon { font-size: 1.4rem; }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.section-subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* ── BLOQUES DE TEXTO ── */
+.lead {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+}
+.lead strong { color: var(--ink); font-weight: 600; }
+p { margin-bottom: 1rem; color: var(--text); line-height: 1.75; }
+p:last-child { margin-bottom: 0; }
+
+/* ── CITAS / FRASES CLAVE ── */
+.quote-block {
+  border-left: 4px solid var(--rose);
+  padding: 1rem 1.3rem;
+  margin: 1.4rem 0;
+  background: var(--rose-lt);
+  border-radius: 0 10px 10px 0;
+}
+.quote-block p {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--rose-dk);
+  margin: 0;
+  line-height: 1.6;
+}
+.quote-source { font-size: 11px; color: var(--muted); margin-top: 6px; font-style: normal; }
+
+/* ── HIGHLIGHT BOX ── */
+.highlight {
+  background: var(--gold-lt);
+  border: 1px solid rgba(200,155,60,0.3);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  margin: 1.4rem 0;
+}
+.highlight-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.highlight p { color: #5C4A00; margin: 0; font-size: 14px; }
+
+/* ── WARNING BOX ── */
+.warning {
+  background: var(--warn-lt);
+  border: 1px solid rgba(155,79,0,0.25);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  margin: 1.4rem 0;
+}
+.warning-label { font-size: 10px; font-weight: 700; color: var(--warn); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+.warning p { color: #6B3600; margin: 0; font-size: 14px; }
+
+/* ── INSIGHT BOX ── */
+.insight {
+  background: var(--green-lt);
+  border: 1px solid rgba(46,125,90,0.25);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  margin: 1.4rem 0;
+}
+.insight-label { font-size: 10px; font-weight: 700; color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+.insight p { color: #1A4A30; margin: 0; font-size: 14px; }
+
+/* ── LISTAS ── */
+.check-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 1rem 0; }
+.check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text); line-height: 1.55; }
+.check-list li::before { content: '→'; color: var(--rose); flex-shrink: 0; font-weight: 700; margin-top: 1px; }
+.check-list.green li::before { content: '✓'; color: var(--green); }
+.check-list.warn li::before { content: '⚠'; color: var(--warn); font-style: normal; }
+
+/* ── PERFIL CARD ── */
+.profile-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.profile-card-header {
+  background: linear-gradient(135deg, var(--ink) 0%, var(--ink2) 100%);
+  padding: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.profile-icon { font-size: 2.2rem; }
+.profile-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #fff; }
+.profile-type { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+.profile-card-body { padding: 1.4rem; }
+
+/* ── DINÂMICA VISUAL ── */
+.dynamic-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 1.2rem 0;
+}
+.flow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  position: relative;
+}
+.flow-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 14px; top: 38px;
+  width: 2px; height: calc(100% - 14px);
+  background: var(--border);
+}
+.flow-num {
+  min-width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--rose-lt);
+  border: 2px solid var(--rose);
+  color: var(--rose-dk);
+  font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; position: relative; z-index: 1;
+}
+.flow-text { font-size: 14px; color: var(--text); line-height: 1.55; padding-top: 2px; }
+
+/* ── SCORE VISUAL ── */
+.score-section {
+  background: linear-gradient(135deg, var(--ink) 0%, var(--ink2) 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: #fff;
+}
+.score-ring-large {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: rgba(200,75,106,0.15);
+  border: 4px solid var(--rose);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+}
+.score-big { font-size: 2.2rem; font-weight: 800; color: var(--rose); font-family: 'Playfair Display', serif; line-height: 1; }
+.score-sublabel { font-size: 9px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ── BARRAS DE INTENSIDAD ── */
+.bar-group { margin: 1rem 0; }
+.bar-item { margin-bottom: 10px; }
+.bar-label-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.bar-bg { height: 8px; background: #EDE9E3; border-radius: 4px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 4px; }
+.bar-rose { background: linear-gradient(90deg, var(--rose), var(--rose-mid)); }
+.bar-gold { background: linear-gradient(90deg, var(--gold), #e8b84a); }
+.bar-green { background: linear-gradient(90deg, var(--green), #4CAF50); }
+
+/* ── TABLA DE SEÑALES ── */
+.signals-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 13px;
+}
+.signals-table th {
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.signals-table th:first-child { border-radius: 8px 0 0 0; }
+.signals-table th:last-child { border-radius: 0 8px 0 0; }
+.signals-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text); line-height: 1.5; }
+.signals-table tr:last-child td { border-bottom: none; }
+.signals-table tr:nth-child(even) td { background: #FAFAF7; }
+
+/* ── SEPARADOR ── */
+.divider { height: 1px; background: var(--border); margin: 2rem 0; }
+.divider-rose { height: 2px; background: linear-gradient(90deg, var(--rose), transparent); margin: 2rem 0; }
+
+/* ── VEREDICTO FINAL ── */
+.verdict-section {
+  background: linear-gradient(135deg, var(--ink) 0%, #2D1A35 100%);
+  border-radius: 20px;
+  padding: 2.5rem;
+  color: #fff;
+  margin: 2rem 0;
+  page-break-inside: avoid;
+}
+.verdict-label { font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem; }
+.verdict-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--rose-mid); font-style: italic; margin-bottom: 1rem; }
+.verdict-desc { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.75; margin-bottom: 1.5rem; }
+.verdict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 520px) { .verdict-grid { grid-template-columns: 1fr; } }
+.vg-box { border-radius: 12px; padding: 1rem; }
+.vg-bad { background: rgba(200,75,106,0.12); border: 1px solid rgba(200,75,106,0.25); }
+.vg-good { background: rgba(58,180,122,0.1); border: 1px solid rgba(58,180,122,0.25); }
+.vg-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+.vg-bad .vg-label { color: var(--rose-mid); }
+.vg-good .vg-label { color: #3AB47A; }
+.vg-text { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+/* ── PLAN DE ACCIÓN ── */
+.plan-section { page-break-before: always; }
+.plan-step {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.plan-num {
+  min-width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--rose);
+  color: #fff;
+  font-size: 15px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.plan-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.plan-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.plan-week { font-size: 10px; font-weight: 700; color: var(--rose); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+
+/* ── CIERRE ── */
+.closing {
+  background: var(--rose-lt);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  border: 1px solid rgba(200,75,106,0.15);
+}
+.closing-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+.closing h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--rose-dk); margin-bottom: 0.75rem; }
+.closing p { font-size: 13px; color: var(--rose-dk); line-height: 1.7; max-width: 440px; margin: 0 auto; opacity: 0.8; }
+
+/* ── PRINT ── */
+@media print {
+  .no-print { display: none !important; }
+  body { font-size: 13px; }
+  .cover { min-height: auto; padding: 4cm 3cm; }
+  .section { page-break-inside: avoid; }
+  .verdict-section { page-break-inside: avoid; }
+  .plan-section { page-break-before: always; }
+}
+
+/* ── SELECTOR (solo para demo) ── */
+.demo-selector {
+  position: fixed;
+  top: 1rem; right: 1rem;
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 1rem;
+  z-index: 100;
+  width: 240px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.demo-selector h4 { font-size: 12px; color: #fff; margin-bottom: 8px; }
+.demo-selector select {
+  width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  color: #fff; border-radius: 8px; padding: 8px; font-size: 12px;
+  font-family: 'DM Sans', sans-serif; margin-bottom: 6px; cursor: pointer;
+}
+.demo-selector button {
+  width: 100%; background: var(--rose); border: none; color: #fff;
+  border-radius: 8px; padding: 8px; font-size: 12px; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; font-weight: 600;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     SELECTOR DEMO — en producción esto se
+     genera automáticamente con los datos
+     del quiz. Eliminar antes de publicar.
+     ══════════════════════════════════════════ -->
+<div class="demo-selector no-print">
+  <h4>Vista previa del reporte</h4>
+  <select id="sel-ella">
+    <option value="0">🌹 La Reparadora</option>
+    <option value="1">🌊 La Adicta a la Intensidad</option>
+    <option value="2">🪞 La que Busca su Reflejo</option>
+    <option value="3">🦋 La Enamorada del Potencial</option>
+  </select>
+  <select id="sel-el">
+    <option value="Evitativo">👨 El Evitativo</option>
+    <option value="Narcisista">👨 El Narcisista</option>
+    <option value="Imaturo">👨 El Imaturo</option>
+    <option value="Seguro">👨 El Seguro</option>
+  </select>
+  <button onclick="generarReporte()">Ver reporte</button>
+</div>
+
+<!-- REPORTE SE INYECTA AQUÍ -->
+<div id="reporte-root"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   BASE DE DATOS CLÍNICA — 4 perfiles ella × 4 perfiles él
+   Redactada como terapeuta de relaciones real
+   ═══════════════════════════════════════════════════════════ */
+
+const ELLA = [
+  /* ────────────────────────────────
+     PERFIL 0: LA REPARADORA
+  ──────────────────────────────── */
+  {
+    icon: "🌹",
+    tipo: "La Reparadora",
+    etiqueta: "Cuidado compulsivo · Apego ansioso",
+    resumen: "Amor que cura al otro... y agota a quien lo da.",
+    intro: `Hay algo en ti que se activa de manera casi automática cuando alguien sufre frente a tus ojos. No es solo empatía — es una llamada interna que dice: <em>"yo puedo arreglar esto"</em>. Esa capacidad de ver el dolor ajeno y querer hacer algo con él es genuinamente hermosa. El problema no está en que cuides. El problema está en que necesitas curar para sentirte valiosa en una relación.`,
+    descripcion_profunda: `Probablemente aprendiste desde pequeña que el amor se gana siendo útil. Tal vez había alguien en tu casa cuyas emociones dependían de ti — un padre inestable, una madre que necesitaba apoyo, una dinámica familiar donde tú eras el ancla. Sin darte cuenta, internalizaste la creencia de que tu valor como persona está ligado a cuánto puedes hacer por los demás.
+
+Eso te convierte en una pareja extraordinariamente atenta, generosa y capaz de una intimidad profunda. Pero también te hace vulnerable a un tipo específico de hombre: el que tiene heridas visibles, el que muestra su vulnerabilidad, el que parece necesitar que alguien lo salve. Para ti, ese hombre no es una señal de peligro — es una invitación.`,
+    patron_cognitivo: `Tu mente opera bajo una lógica que se parece a esto: "Si lo entiendo lo suficiente, si soy paciente, si lo amo bien, él va a cambiar." Es una esperanza genuina, pero también es una trampa. Porque el cambio emocional de una persona adulta no es responsabilidad de quien lo ama — es responsabilidad propia.
+
+Cada vez que él "mejora" un poco, tu cerebro lo registra como evidencia de que tu estrategia funciona. Y cada vez que recae, en lugar de cuestionarlo a él, te cuestionas a ti: ¿qué hice mal?, ¿cómo puedo hacerlo mejor?`,
+    senales: [
+      "Sientes que 'nadie lo entendería como yo'",
+      "Te cuesta mucho poner límites por miedo a herirlo",
+      "Sus problemas ocupan más espacio mental que los tuyos",
+      "Te sientes culpable cuando priorizas tus propias necesidades",
+      "La relación se siente más como un proyecto que como un vínculo",
+      "Cuando él está bien, tú estás bien — y cuando él está mal, tú también"
+    ],
+    herida_raiz: `La herida detrás de este patrón suele ser la <strong>necesidad de ser indispensable</strong>. En algún momento de tu historia, probablemente aprendiste que el amor condicionado era el único disponible — y que para recibirlo, tenías que ganártelo siendo útil. El miedo profundo es este: "Si no cuido, si no soluciono, si no me necesitan, ¿me van a querer de todas formas?"`,
+    fortalezas: [
+      "Capacidad de empatía genuina y profunda",
+      "Paciencia excepcional en momentos de crisis",
+      "Intuición emocional muy desarrollada",
+      "Habilidad para crear espacios de confianza y apertura",
+      "Amor real y comprometido, no superficial"
+    ],
+    barras: [82, 88, 74, 65]
+  },
+
+  /* ────────────────────────────────
+     PERFIL 1: LA ADICTA A LA INTENSIDAD
+  ──────────────────────────────── */
+  {
+    icon: "🌊",
+    tipo: "La Adicta a la Intensidad",
+    etiqueta: "Adicción afectiva · Sistema nervioso hiperactivo",
+    resumen: "Cuando la calma se siente como vacío.",
+    intro: `Hay relaciones que se sienten como un incendio — intensas, totales, consumidoras. Y hay relaciones que se sienten como una tarde tranquila en casa. Para ti, las primeras se sienten como amor real; las segundas, como aburrimiento. Eso no es un defecto de carácter ni una falla tuya. Es la huella que dejó tu historia en tu sistema nervioso.`,
+    descripcion_profunda: `En algún punto de tu vida — probablemente en la infancia o en una relación temprana muy significativa — el amor y la tensión emocional llegaron juntos y de manera consistente. Cuando el afecto siempre viene acompañado de ansiedad, incertidumbre o drama, el cerebro termina asociando esas sensaciones con la idea de "amor verdadero".
+
+El resultado es una neurología calibrada para el caos. Las relaciones estables, aunque sean amorosas y consistentes, activan en ti una sensación de que "algo falta". Lo que en realidad falta es el subidón de adrenalina — no la conexión.`,
+    patron_cognitivo: `Tu cerebro tiene un nivel de activación basal muy alto. Cuando estás en una relación tranquila, tu sistema nervioso no encuentra los estímulos que aprendió a interpretar como amor. Eso genera lo que en psicología se llama "hambre de estímulos" — una incomodidad difusa que empuja a buscar más drama, más intensidad, más tensión.
+
+El peligro es que puedes autosabotear relaciones sanas buscando conflictos que no existen, o elegir sistemáticamente a personas que sí los generan.`,
+    senales: [
+      "Las relaciones sin tensión te parecen poco atractivas",
+      "El período de enamoramiento es el más adictivo — luego todo 'se apaga'",
+      "Puedes confundir los celos o el miedo con señales de que 'lo amas de verdad'",
+      "Las reconciliaciones después de un conflicto son muy intensas y casi adictivas",
+      "Sientes que el dolor que él te genera también prueba la profundidad del amor",
+      "Te aburres rápido de quien es predecible, aunque sea bueno contigo"
+    ],
+    herida_raiz: `La herida raíz aquí suele ser la <strong>ausencia de amor estable en etapas tempranas</strong>. Cuando el cariño que recibiste de pequeña era inconsistente — muy presente a veces, ausente otras — tu sistema de apego quedó programado para la incertidumbre. Ahora, lo que conoces como amor tiene ese patrón: alto voltaje, baja predictibilidad.`,
+    fortalezas: [
+      "Capacidad de vivir el amor con una intensidad y presencia pocas veces vistas",
+      "Valentía emocional — no tienes miedo de la profundidad",
+      "Creatividad y vitalidad dentro de la relación",
+      "Habilidad para hacer que el otro se sienta realmente vivo",
+      "Cuando estás en una relación sana, la enriqueces con una energía extraordinaria"
+    ],
+    barras: [75, 65, 92, 58]
+  },
+
+  /* ────────────────────────────────
+     PERFIL 2: LA QUE BUSCA SU REFLEJO
+  ──────────────────────────────── */
+  {
+    icon: "🪞",
+    tipo: "La que Busca su Reflejo",
+    etiqueta: "Dependencia emocional · Autoestima frágil",
+    resumen: "Buscando en él lo que todavía no encontraste en ti.",
+    intro: `Hay algo que la mayoría de las personas no se atreve a decir en voz alta: a veces no sabemos muy bien quiénes somos cuando no estamos en relación con alguien. Para ti, la pareja no es solo compañía — es un espejo en el que buscas confirmación de que eres suficiente, que eres deseable, que mereces estar aquí.`,
+    descripcion_profunda: `Tu autoestima está construida, en parte, sobre cimientos externos. Eso no significa que seas débil — significa que en algún punto de tu formación, las señales de aprobación vinieron principalmente de afuera, y aprendiste a depender de ellas para regular cómo te sientes contigo misma.
+
+El resultado es una sensibilidad muy alta al comportamiento de la pareja. Si él está atento y cariñoso, te sientes bien contigo misma. Si se distancia o actúa de manera fría, entras en un ciclo de autoevaluación ansiosa: "¿Hice algo mal? ¿Soy suficiente? ¿Me sigue queriendo?"`,
+    patron_cognitivo: `Este patrón crea lo que los psicólogos llaman "regulación emocional a través del otro". No puedes calmarte a ti sola cuando él se distancia — necesitas de su presencia o aprobación para estabilizarte. Eso le da a la pareja un poder enorme sobre tu estado emocional, y te hace especialmente vulnerable a personas que usan ese poder de manera inconsistente o manipuladora.`,
+    senales: [
+      "Tu estado de ánimo depende mucho de cómo estuvo él ese día",
+      "La posibilidad de que se vaya genera un miedo desproporcionado",
+      "Tiendes a ceder en tus opiniones o necesidades para evitar conflictos",
+      "Interpretas su silencio o distancia como señal de que algo está mal contigo",
+      "Buscas constantemente señales de que él todavía te quiere",
+      "Cuando la relación va bien, tú vas bien — y viceversa, de manera casi perfecta"
+    ],
+    herida_raiz: `La raíz de este patrón suele ser una <strong>validación inconsistente en la infancia</strong>. Si el amor que recibiste dependía de tu desempeño, tu comportamiento o el humor de quien te criaba — si tenías que "ganarte" el cariño — tu psique aprendió que el amor es condicional y que tu valor depende de la aprobación externa.`,
+    fortalezas: [
+      "Sensibilidad emocional muy fina — percibes matices que otros no ven",
+      "Compromiso profundo en las relaciones que valoras",
+      "Gran capacidad de adaptación y escucha",
+      "Generosidad real y genuina con quien amas",
+      "Cuando construyes autoestima interna, tu capacidad de amar se vuelve extraordinaria"
+    ],
+    barras: [92, 70, 85, 78]
+  },
+
+  /* ────────────────────────────────
+     PERFIL 3: LA ENAMORADA DEL POTENCIAL
+  ──────────────────────────────── */
+  {
+    icon: "🦋",
+    tipo: "La Enamorada del Potencial",
+    etiqueta: "Amor proyectivo · Idealización",
+    resumen: "Amas a quien podría ser, no a quien es.",
+    intro: `Tienes un don particular: ves en las personas una versión de sí mismas que ellas mismas todavía no conocen. Ves el brillo detrás del caos, el corazón detrás de la coraza, el potencial detrás de la persona incompleta que tienes frente a ti. Es una forma extraordinaria de amar. Y también puede convertirse en una trampa que te mantiene años en relaciones que no terminan de funcionar.`,
+    descripcion_profunda: `No te enamoras de quien él es hoy — te enamoras de quien crees que puede llegar a ser con tu amor y tu apoyo. Eso te hace una acompañante increíblemente paciente, generosa y visionaria. El problema es que el crecimiento emocional de una persona adulta no depende de cuánto la amen — depende de cuánto trabaje en sí misma.
+
+Sin darte cuenta, puedes pasar meses o años esperando que la "versión potencial" de él aparezca. Y cada pequeño destello de esa versión — una actitud madura, un momento de apertura emocional — te convence de que está por llegar el cambio definitivo.`,
+    patron_cognitivo: `Tu mente es extraordinariamente buena creando narrativas sobre las personas. Cuando te interesas por alguien, construyes mentalmente su versión ideal basada en destellos reales pero amplificados por tu imaginación y tu deseo. Luego, sin notarlo, empiezas a relacionarte con esa versión imaginada — no con la persona real.
+
+Cuando la persona real no coincide con la imagen que construiste, en lugar de actualizar la imagen, sueles esforzarte más para "ayudarlo" a llegar a ser lo que ya imaginaste.`,
+    senales: [
+      "Con frecuencia dices cosas como 'si tan solo se lo propusiera...'",
+      "Sientes que ves en él algo que nadie más ve",
+      "Justificas sus comportamientos problemáticos como parte del proceso de su 'crecimiento'",
+      "Te quedas más tiempo del razonable esperando la 'versión mejorada'",
+      "El amor que sientes a veces parece más un proyecto que una elección diaria",
+      "Cuando termina una relación, sueles lamentar no tanto a la persona real sino al futuro que imaginabas con ella"
+    ],
+    herida_raiz: `La raíz de este patrón muchas veces es haber crecido en un entorno donde el <strong>amor era prometido pero raramente cumplido</strong>. Si esperaste mucho tiempo la versión "mejor" de un padre, una madre o un cuidador que tenía potencial pero no siempre lo mostraba — aprendiste que esperar y creer es una forma de amor.`,
+    fortalezas: [
+      "Visión extraordinaria del potencial humano",
+      "Paciencia y fe profundas en las personas",
+      "Capacidad de sostener un espacio de crecimiento para quien amas",
+      "Amor incondicional y transformador cuando es bien dirigido",
+      "Cuando te enamoras de alguien que sí trabaja en sí mismo, eres una compañera de vida incomparable"
+    ],
+    barras: [68, 88, 76, 82]
+  }
+];
+
+const EL = {
+  Evitativo: {
+    tipo: "El Evitativo",
+    etiqueta: "Apego evitativo · Miedo a la intimidad",
+    resumen: "Necesita amor pero le aterra recibirlo de verdad.",
+    desc_corta: "Se acerca cuando siente que te puede perder, y se aleja en cuanto la relación se profundiza. No es indiferencia — es miedo disfrazado de frialdad.",
+    descripcion: `El hombre con apego evitativo no es una persona sin emociones. Es una persona con emociones intensas que aprendió muy temprano que mostrarlas era peligroso o innecesario. Tal vez creció en un entorno donde la vulnerabilidad no era bien recibida, donde pedir ayuda era señal de debilidad, o donde el afecto era escaso o impredecible.
+
+El resultado es un adulto que valora profundamente la independencia — no como una elección filosófica, sino como una estrategia de supervivencia emocional. La intimidad real le genera ansiedad aunque la desee.`,
+    mecanismo: `Cuando la relación se profundiza y tú empiezas a necesitar más cercanía, su sistema nervioso lo interpreta como una amenaza a su autonomía. Eso activa su mecanismo de distancia — no porque no le importes, sino porque le importas demasiado y eso le genera vulnerabilidad.
+
+Irónicamente, cuanto más te aleja, más lo persigues. Y cuanto más lo persigues, más se aleja. Es el ciclo clásico de la dinámica Perseguidor / Distante.`,
+    senales: [
+      "Dice que necesita 'espacio' justo cuando la relación se profundiza",
+      "Es más abierto emocionalmente por mensaje que en persona",
+      "Minimiza el conflicto o lo evita en lugar de abordarlo",
+      "Cuando sientes que se aleja y reduces la presión, él vuelve",
+      "Raramente toma la iniciativa emocional de manera espontánea",
+      "Le cuesta decir 'te quiero' o expresar afecto sin que lo provoquen primero"
+    ]
+  },
+  Narcisista: {
+    tipo: "El Narcisista Emocional",
+    etiqueta: "Narcisismo relacional · Manipulación afectiva",
+    resumen: "El amor como transacción: funciona mientras le conviene.",
+    desc_corta: "Encantador al principio, frío cuando ya te tiene. La relación gira alrededor de sus necesidades — siempre.",
+    descripcion: `Es importante aclarar algo: no todo hombre difícil es narcisista, y el narcisismo tiene diferentes grados. Lo que describes aquí es un patrón de relación donde el vínculo funciona de manera asimétrica: él recibe atención, cuidado y admiración — y da lo mínimo necesario para mantenerte cerca.
+
+El narcisista emocional ha aprendido a usar la intimidad de manera estratégica. No es que no sienta — es que procesa las relaciones principalmente en términos de lo que le aportan a él.`,
+    mecanismo: `El ciclo tiene fases muy reconocibles. Primero hay una etapa de idealización intensa — te hace sentir especial, única, la persona más interesante que ha conocido. Después, cuando ya te sientes segura en la relación, el trato cambia. Se vuelve más frío, más crítico, menos disponible.
+
+Esa inconsistencia no es accidental. Crea un estado de incertidumbre en ti que te mantiene buscando recuperar la versión inicial de él. Y esa búsqueda es exactamente lo que él necesita para sentirse en control.`,
+    senales: [
+      "Las conversaciones tienden a volver siempre a él, sus necesidades, sus problemas",
+      "Cuando tú necesitas apoyo, de alguna manera la conversación termina siendo sobre él",
+      "Puede ser extremadamente encantador en público y muy diferente en privado",
+      "Las críticas que hace de ti suelen disfrazarse de 'preocupación' o 'honestidad'",
+      "Cuando lo confrontas, reacciona con víctimismo, enojo o indiferencia",
+      "Raras veces acepta responsabilidad genuina sin minimizar o contraatacar"
+    ]
+  },
+  Imaturo: {
+    tipo: "El Emocionalmente Inmaduro",
+    etiqueta: "Inmadurez emocional · Regulación deficiente",
+    resumen: "Buen corazón, herramientas insuficientes.",
+    desc_corta: "No te daña por maldad — te daña porque no sabe gestionar sus propias emociones. Y eso, a largo plazo, duele igual.",
+    descripcion: `La inmadurez emocional no siempre se ve como lo que es. Este hombre puede ser genuinamente cariñoso, divertido y presente en los buenos momentos. El problema aparece cuando hay tensión, conflicto, frustración o demanda emocional. Ahí es donde sus herramientas se quedan cortas.
+
+No aprendió a identificar sus emociones, a regularlas ni a comunicarlas de manera constructiva. Cuando algo lo incomoda, reacciona desde el instinto — a veces con explosión, a veces con silencio, a veces con comportamientos que él mismo no sabría explicar.`,
+    mecanismo: `El ciclo con un hombre emocionalmente inmaduro suele verse así: hay un conflicto → él reacciona de manera desproporcionada o se cierra → hay distancia y tensión → viene la reconciliación con mucho afecto y promesas → todo vuelve a "estar bien" — hasta el próximo detonador.
+
+El problema es que las reconciliaciones son muy intensas emocionalmente, y esa intensidad puede confundirse con profundidad de amor. Pero la profundidad de amor no se mide en la intensidad del reencuentro — se mide en la capacidad de ambos de manejar el conflicto con madurez.`,
+    senales: [
+      "Reacciones emocionales desproporcionadas ante situaciones menores",
+      "Promete cambiar con sinceridad, pero el cambio no se sostiene",
+      "Dificultad para hablar de emociones sin ponerse a la defensiva",
+      "Los momentos de afecto son intensos — los de conflicto, también",
+      "Puede culparte de su estado emocional sin darse cuenta",
+      "Tiene buenas intenciones pero no siempre las herramientas para cumplirlas"
+    ]
+  },
+  Seguro: {
+    tipo: "El Seguro (con potencial real)",
+    etiqueta: "Apego seguro · Madurez emocional",
+    resumen: "La calma que confundes con falta de pasión.",
+    desc_corta: "Está presente, es consistente y tiene emociones reales. El reto no es él — eres tú aprendiendo a reconocer el amor estable como amor.",
+    descripcion: `El hombre con apego seguro es emocionalmente predecible — y eso, para quien está acostumbrada al caos, puede sentirse como ausencia de chispa. Pero hay algo importante que distinguir: la intensidad no es lo mismo que la profundidad. El drama no es lo mismo que el amor.
+
+Este hombre sabe quién es, qué siente y cómo comunicarlo. No juega con tu cabeza porque no necesita hacerlo. No desaparece cuando hay conflicto porque no le tiene miedo. No alterna entre el cielo y el infierno porque tiene la capacidad de regularse emocionalmente.`,
+    mecanismo: `El "problema" con una relación segura, cuando vienes de dinámicas caóticas, es que el sistema nervioso no la reconoce como emocionante. Estás acostumbrada a la adrenalina del "¿me quiere? ¿no me quiere?", y cuando eso no está presente, interpretas la ausencia de ansiedad como ausencia de amor.
+
+En realidad, lo que sientes es algo que probablemente nunca tuviste del todo: <em>seguridad</em>. Y el cerebro, que aprendió a confundir ansiedad con pasión, no sabe qué hacer con la seguridad.`,
+    senales: [
+      "Sus acciones son consistentes con sus palabras — lo que dice, lo cumple",
+      "Maneja el conflicto buscando entendimiento, no victoria",
+      "Puede estar presente sin necesidad de controlar ni de distanciarse",
+      "No juega con tu cabeza ni con tus inseguridades",
+      "Expresa lo que siente de manera directa, sin codificaciones",
+      "La relación con él se siente segura... aunque a veces eso se sienta 'raro'"
+    ]
+  }
+};
+
+/* ─── DINÁMICAS (16 combinaciones) ─── */
+const DIN = {
+  /* Reparadora + Evitativo */
+  "0-Evitativo": {
+    nombre: "La Perseguida y el Huidizo",
+    score: 38,
+    desc: `Esta es una de las dinámicas más frecuentes en consulta y, probablemente, una de las más dolorosas. Funciona como una coreografía: cuanto más te acercas tú, más se aleja él. Cuanto más se aleja él, más urgencia sientes de acercarte. Ninguno de los dos lo hace por maldad — ambos están siguiendo el guion que su historia de apego les enseñó.`,
+    ciclo: [
+      "Tú sientes el distanciamiento de él → se activa tu instinto de cuidado y rescate",
+      "Aumentas la atención, el contacto, el esfuerzo para reconectarlo",
+      "Él siente esa presión como una amenaza a su autonomía → se aleja más",
+      "El silencio de él te genera ansiedad de abandono → intensificas",
+      "Él finalmente regresa — pero solo porque la distancia le generó nostalgia",
+      "La reconciliación es intensa → el ciclo reinicia desde el principio"
+    ],
+    quimica: `La química entre ustedes es poderosa precisamente porque es química del <em>anhelo</em>. El cerebro libera dopamina en anticipación del contacto — y cuanto más escaso es ese contacto, más intensa es la recompensa cuando llega. Es el mismo mecanismo que hace que los juegos de azar sean adictivos: la recompensa irregular es la más potente.`,
+    desgaste: [
+      "Vives en un estado constante de alerta emocional — nunca sabes dónde estás parada",
+      "Gastas enormes cantidades de energía intentando descifrar lo que él siente",
+      "La intimidad real nunca se consolida porque él se cierra justo cuando te acercas",
+      "Con el tiempo, empiezas a dudar de tu propia percepción: '¿estoy exigiendo demasiado?'",
+      "Tu mundo emocional empieza a girar alrededor de su comportamiento"
+    ],
+    verdict: "Atracción intensa. Estabilidad imposible sin trabajo mutuo.",
+    v_desc: `Pueden amarse genuinamente. El problema no es la falta de amor — es la incompatibilidad de sus estrategias de apego tal como están hoy. Sin trabajo emocional de ambas partes (especialmente él trabajando su evitación y tú tu ansiedad de apego), la dinámica se perpetúa indefinidamente.`,
+    bad: `Si continúan sin intervención, la relación probablemente siga en ciclos de acercamiento y alejamiento durante años. Tú irás perdiendo confianza en ti misma y él nunca desarrollará la capacidad de intimidad real.`,
+    good: `Si trabajas tu herida de abandono y él trabaja su miedo a la intimidad — ya sea en terapia individual o de pareja — esta relación tiene posibilidades reales. La atracción es auténtica. Solo necesita herramientas que ninguno de los dos aprendió solo.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Identifica el ciclo en tiempo real", desc:"La próxima vez que sientas el impulso de 'perseguirlo', detente. Anota qué sentiste, qué hiciste y qué pasó. No para juzgarte — para conocerte." },
+      { sem:"Semana 3-4", titulo:"Practica la pausa antes de reaccionar", desc:"Cuando él se distancie, en lugar de contactarlo de inmediato, espera. No por estrategia — para entender qué está pasando en ti cuando la ansiedad sube." },
+      { sem:"Semana 5-6", titulo:"Construye fuentes de seguridad que no dependan de él", desc:"¿Qué cosas te hacen sentir bien contigo misma sin que él tenga que estar presente? Empieza a cultivarlas activamente." },
+      { sem:"Semana 7-8", titulo:"Habla del ciclo — cuando ambos estén en calma", desc:"No durante el conflicto. Elige un momento neutro y nómbralo: 'Noto que cuando me acerco, tú te alejas. Y cuando tú te alejas, yo me pongo más ansiosa. ¿Podemos hablar de eso?'" }
+    ]
+  },
+
+  "0-Narcisista": {
+    nombre: "La Sanadora y el Devorador",
+    score: 18,
+    desc: `Esta combinación es de las que más daño emocional acumulado generan, precisamente porque el inicio es tan prometedor. Él mostró vulnerabilidad — exactamente lo que activa tu impulso de cuidar. Pero esa vulnerabilidad, en este caso, fue la herramienta de entrada, no la realidad de fondo.`,
+    ciclo: [
+      "Él muestra heridas y vulnerabilidad → tú te activas para sanar",
+      "La relación se profundiza bajo esa premisa: ella cuida, él recibe",
+      "Cuando tú empiezas a necesitar reciprocidad, el trato cambia",
+      "Él devalúa, critica o desaparece — tú sientes que fallaste en algo",
+      "Redoblas el esfuerzo para recuperar la versión inicial de él",
+      "El ciclo se repite con él recuperando terreno cuando necesita validación"
+    ],
+    quimica: `La química aquí está construida sobre un gancho muy específico: él te hizo sentir la única capaz de entenderlo. Esa sensación de ser "elegida" para sanar a alguien es profundamente adictiva para el perfil reparador. No es debilidad — es que él encontró exactamente el punto de acceso a tu sistema emocional.`,
+    desgaste: [
+      "Tu autoestima se fue erosionando sin que lo notaras del todo",
+      "Empezaste a caminar en puntas de pie para no 'provocar' sus cambios de humor",
+      "Sientes que das el 100% y recibes el 20% — y te dices que 'así es el amor'",
+      "Te cuesta recordar quién eras antes de esta relación",
+      "Has justificado comportamientos de él que antes nunca habrías tolerado"
+    ],
+    verdict: "Alta incompatibilidad estructural. El amor que sientes es real. La reciprocidad no está.",
+    v_desc: `El amor que tienes por él probablemente es genuino. Pero el amor unilateral no sostiene una relación — la agota. La pregunta más honesta no es si lo quieres, sino si esta relación te hace sentir vista, valorada y respetada de manera consistente.`,
+    bad: `Sin cambios, esta dinámica continuará erosionando tu sentido de ti misma. Los narcisistas emocionales no cambian bajo presión del amor del otro — cambian (cuando cambian) con trabajo terapéutico serio y una motivación genuina propia.`,
+    good: `Sanar esta herida empieza por ti, no por él. Cuando trabajas tu necesidad de ser indispensable y empiezas a creer que mereces amor sin tener que ganártelo — se vuelve más difícil que ese tipo de vínculo te sostenga.`,
+    plan: [
+      { sem:"Semana 1", titulo:"Haz el inventario honesto", desc:"Escribe en papel: ¿qué das en esta relación? ¿Qué recibes? Sin filtros, sin justificaciones. Solo los hechos." },
+      { sem:"Semana 2-3", titulo:"Identifica los momentos de autocensura", desc:"¿Cuándo callaste algo que necesitabas decir por miedo a su reacción? Empieza a notar esos momentos sin cambiar nada todavía." },
+      { sem:"Semana 4-5", titulo:"Reconstruye un límite pequeño", desc:"No tienes que salir de la relación hoy. Pero sí puedes empezar a poner un límite pequeño y observar qué pasa cuando lo haces." },
+      { sem:"Semana 6-8", titulo:"Busca acompañamiento terapéutico", desc:"Este patrón tiene raíces profundas. Un espacio terapéutico te ayudará a entender por qué lo elegiste y cómo elegir diferente en el futuro." }
+    ]
+  },
+
+  "0-Imaturo": {
+    nombre: "La Madre Amorosa y el Niño Grande",
+    score: 45,
+    desc: `Hay mucho amor genuino en esta relación. El problema es que el amor entre dos adultos no debería tener la estructura de una relación padre-hijo. Cuando tú cuidas, sostienes y contienes a alguien que tiene la edad de una pareja adulta pero las herramientas emocionales de un adolescente — el desgaste es inevitable.`,
+    ciclo: [
+      "Él reacciona de manera impulsiva → tú contienes y calmas",
+      "La crisis pasa → hay una reconciliación intensa y amorosa",
+      "Promete cambiar → tú crees (y tienes razón en creer en su buena intención)",
+      "El cambio no se sostiene → nueva crisis",
+      "Tú te preguntas si estás siendo demasiado exigente",
+      "El ciclo se vuelve el idioma de la relación"
+    ],
+    quimica: `La química entre ustedes existe y es real. Los momentos de ternura y conexión son genuinos. El problema no es que no se quieran — es que la estructura de la relación no es simétrica. Tú sostienes más de lo que él puede ofrecer en este momento de su desarrollo emocional.`,
+    desgaste: [
+      "La responsabilidad emocional de la relación recae principalmente sobre ti",
+      "Cuando estás agotada, no hay quien te sostenga a ti",
+      "Las promesas de cambio sinceras pero incumplidas generan un ciclo de esperanza y decepción",
+      "Sientes que eres su terapeuta, su madre y su pareja — pero rara vez solo su pareja"
+    ],
+    verdict: "Amor genuino, estructura asimétrica.",
+    v_desc: `Este hombre te quiere — eso probablemente no está en duda. El problema es que todavía no tiene las herramientas para amarte de la manera que necesitas. Y ese trabajo es solo de él.`,
+    bad: `Si la dinámica no cambia, el agotamiento emocional tuyo será la consecuencia más probable. El amor no es suficiente cuando la madurez emocional no acompaña.`,
+    good: `Si él decide trabajar en su desarrollo emocional — en terapia, con compromiso real — esta relación puede transformarse. Pero ese movimiento tiene que ser de él, no empujado por ti.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Deja de anticiparte a sus crisis", desc:"Cada vez que anticipas su reacción y actúas para evitarla, le quitas la oportunidad de aprender a gestionarla él. Observa qué pasa si das un paso atrás." },
+      { sem:"Semana 3-4", titulo:"Expresa lo que necesitas — claramente", desc:"No como crítica, sino como información: 'Cuando hago X y no recibo apoyo, me siento Y.' Sin rodeos, sin suavizar." },
+      { sem:"Semana 5-8", titulo:"Establece un límite estructural real", desc:"Si él no busca herramientas propias para cambiar (terapia, grupos de apoyo, trabajo personal), ¿cuánto tiempo más estás dispuesta a esperar? Esa respuesta es tuya, no de nadie más." }
+    ]
+  },
+
+  "0-Seguro": {
+    nombre: "La Sanadora frente a la Estabilidad",
+    score: 76,
+    desc: `Esta es, paradójicamente, una de las combinaciones más prometedoras — y una de las que más trabajo interno requiere de tu parte. No porque él sea el problema. Sino porque tu sistema emocional todavía no sabe cómo relacionarse con alguien que no necesita que lo salves.`,
+    ciclo: [
+      "Él está presente y disponible → tú lo percibes como 'aburrido' o 'sin profundidad'",
+      "Buscas inconscientemente su punto débil para activar tu rol de cuidadora",
+      "Al no encontrarlo, puedes sentir que 'algo falta'",
+      "Empiezas a dudar de tus sentimientos hacia él",
+      "Puedes boicotear la relación buscando intensidad donde no la hay",
+      "O te quedas — y poco a poco aprendes que la calma también es amor"
+    ],
+    quimica: `La química aquí no es adrenalina — es calor. No es urgencia — es presencia. Eso es nuevo para ti, y lo nuevo que no conocemos tiende a activar desconfianza en lugar de gratitud. Lo que sientes no es falta de amor — es tu sistema nervioso intentando reconocer algo que nunca aprendió a identificar como amor.`,
+    desgaste: [
+      "La sensación de que 'falta algo' sin poder definir qué",
+      "Dudas crónicas sobre si lo que sientes es suficiente",
+      "Riesgo de autosabotaje buscando conflictos que no existen",
+      "Dificultad para relajarte en la relación sin esperar que algo salga mal"
+    ],
+    verdict: "Alta compatibilidad potencial. El trabajo es aprender a recibirlo.",
+    v_desc: `Esta relación tiene todo para ser lo que siempre dijiste querer. El reto es que para recibirla, necesitas desaprender la ecuación 'amor = ansiedad' que tu historia te enseñó.`,
+    bad: `Si no trabajas tu tolerancia a la estabilidad, es probable que abandones esta relación buscando la intensidad conocida — y lo lamentes cuando encuentres en otro lo que querías evitar.`,
+    good: `Si aprendes a quedarte en la calma sin interpretarla como vacío, descubrirás que la intimidad profunda no necesita el caos para ser real. Esta puede ser la relación que genuinamente te nutre.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Registra los momentos de 'esto no me llena'", desc:"¿Cuándo aparece esa sensación? ¿Qué estaba pasando? ¿Él estaba siendo demasiado tranquilo, demasiado disponible? Empieza a notar el patrón." },
+      { sem:"Semana 3-4", titulo:"Practica recibir sin esperar el costo", desc:"Cuando él hace algo lindo por ti, en lugar de buscar el 'pero' — quédate un momento en el regalo. ¿Qué se siente?" },
+      { sem:"Semana 5-8", titulo:"Habla de lo que te genera la estabilidad", desc:"Con él, con una terapeuta o contigo misma. 'Me cuesta confiar en que esto puede durar porque no estoy acostumbrada a esto.' Nombrarlo ya es trabajarlo." }
+    ]
+  },
+
+  "1-Evitativo": {
+    nombre: "Fuego y Hielo",
+    score: 32,
+    desc: `Tú buscas intensidad — él huye de ella. La ironía es que su frialdad es exactamente lo que te activa. Su distancia se convierte en el mayor imán. Y ese imán tiene un costo emocional enorme.`,
+    ciclo: [
+      "Tú buscas la intensidad que necesitas → él lo percibe como presión",
+      "Él se aleja para recuperar su equilibrio",
+      "Su distancia activa tu ansiedad → buscas más contacto",
+      "Él se cierra más → la distancia crece",
+      "Cuando tú finalmente te alejas, él vuelve — y la reconciliación es explosiva",
+      "Esa explosión confirma que 'esto es amor de verdad' → el ciclo reinicia"
+    ],
+    quimica: `La tensión entre su frialdad y tu intensidad crea una fricción que el cerebro interpreta como pasión. No es accidental — es neuroquímica. La ansiedad de no saber dónde estás parada mantiene tu sistema nervioso en un estado de activación permanente que, literalmente, se siente como estar muy viva.`,
+    desgaste: [
+      "Nunca tienes la intensidad que necesitas de manera sostenida",
+      "Alternan entre la conexión total y el vacío completo — sin término medio",
+      "Su distancia te hace sentir que hiciste algo mal, aunque no sea así",
+      "El ciclo de acercamiento-alejamiento te agota sin que ninguno lo quiera"
+    ],
+    verdict: "Atracción real. Necesidades incompatibles tal como están.",
+    v_desc: `Ambos tienen emociones genuinas. El problema es estructural: tus necesidades relacionales son incompatibles con las suyas en este momento. Eso no los convierte en personas malas — los convierte en personas que necesitan trabajo emocional diferente.`,
+    bad: `Sin cambios, la relación será una fuente crónica de ansiedad que interpretas como pasión — hasta que el agotamiento sea mayor que la intensidad.`,
+    good: `Si aprendes a regular tu propio sistema nervioso (no dependiendo de él para calmarte) y él trabaja su evitación, pueden encontrar un punto de equilibrio real.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Encuentra fuentes de intensidad que no sean él", desc:"Deporte, arte, trabajo que te apasione, amistades que te activen. Tu sistema nervioso necesita estímulo — que no sea solo él quien lo provea." },
+      { sem:"Semana 3-4", titulo:"Practica tolerar su silencio sin llenarlo", desc:"Cuando él se distancia, en lugar de llenar el vacío de inmediato — espera. No para manipularlo, sino para aprender qué pasa en ti cuando la ansiedad sube." },
+      { sem:"Semana 5-8", titulo:"Pregúntate qué estás buscando en la intensidad", desc:"¿Qué sientes exactamente cuando la relación está 'caliente'? ¿Es amor? ¿Es alivio? ¿Es distracción? La respuesta honesta te dirá mucho." }
+    ]
+  },
+
+  "1-Narcisista": {
+    nombre: "Dos Fuegos. Ninguno se Nutre.",
+    score: 15,
+    desc: `Esta es la dinámica de mayor riesgo de las dieciséis. No porque sean mala persona ninguno de los dos — sino porque la combinación específica de sus patrones crea un circuito de validación y devaluación que puede erosionar la autoestima de manera profunda y silenciosa.`,
+    ciclo: [
+      "Fase de love bombing: él te da exactamente la intensidad que buscas",
+      "Te enganchas — finalmente alguien que 'está a tu nivel'",
+      "Él obtiene la validación que necesita → el interés empieza a cambiar",
+      "Comienza la devaluación: frío, crítico, distante",
+      "Tu sistema nervioso interpreta el cambio como un reto → quieres recuperar la intensidad inicial",
+      "Él regresa justo cuando está a punto de perderte → el ciclo reinicia con más fuerza"
+    ],
+    quimica: `Él sabe exactamente cómo encenderte porque observó bien qué te activa. La intensidad inicial fue diseñada (consciente o inconscientemente) para engancharte. Ahora tu cerebro persigue esa versión y está dispuesto a tolerar mucho para recuperarla.`,
+    desgaste: [
+      "Tu autoestima fluctúa según su estado de ánimo hacia ti",
+      "Empiezas a poner en duda tu propia percepción de la realidad",
+      "La energía que gastas en descifrar su comportamiento es enorme",
+      "Con el tiempo, la versión de ti misma que existía antes de él se va haciendo más pequeña"
+    ],
+    verdict: "Incompatibilidad estructural. El riesgo es muy alto.",
+    v_desc: `La atracción es real. Pero la dirección del vínculo te lleva hacia abajo, no hacia arriba. Una relación sana debe hacerte sentir más entera — no menos.`,
+    bad: `Sin trabajo interno significativo de tu parte, este tipo de vínculo puede repetirse con diferentes personas pero el mismo patrón central.`,
+    good: `Cuando entiendas qué función cumple la intensidad para ti — y aprendas a generarla desde adentro en lugar de buscarla en otro — dejarás de ser vulnerable a este tipo de enganche.`,
+    plan: [
+      { sem:"Semana 1", titulo:"Nombra el patrón sin juzgarte", desc:"'Me enganché a alguien que me dio exactamente lo que mi sistema nervioso busca, y ahora que no lo da, estoy persiguiendo esa sensación.' Eso es información, no vergüenza." },
+      { sem:"Semana 2-4", titulo:"Aprende a distinguir ansiedad de amor", desc:"¿Cómo se siente en el cuerpo la ansiedad cuando él desaparece? ¿Dónde la sientes físicamente? Esa sensación no es amor — es activación de tu sistema de apego." },
+      { sem:"Semana 5-8", titulo:"Construye la base contigo misma", desc:"¿Quién eres sin la intensidad de esta relación? ¿Qué te gusta? ¿Qué te activa? Empieza a habitarte de nuevo." }
+    ]
+  },
+
+  "1-Imaturo": {
+    nombre: "Dos Volcanes",
+    score: 42,
+    desc: `Ambos tienen mucha energía emocional y poca estructura para contenerla. El resultado es una relación que puede ser extraordinariamente viva y también extraordinariamente agotadora. Hay amor real — y también hay demasiada reactividad de ambos lados.`,
+    ciclo: [
+      "Ambos reaccionan desde el instinto en momentos de tensión",
+      "El conflicto se escala rápidamente — los dos tienen mucha carga emocional",
+      "La reconciliación es intensa y muy afectiva",
+      "Esa intensidad del reencuentro refuerza el ciclo",
+      "Con el tiempo, la relación vive entre dos polos: todo o nada"
+    ],
+    quimica: `Se entienden en la intensidad. Los dos viven las emociones en el cuerpo, de manera total. Eso crea una sensación de ser "almas afines" que es parcialmente real — pero la afinidad en la intensidad no implica afinidad en la madurez emocional.`,
+    desgaste: [
+      "El nivel de activación emocional constante es físicamente agotador",
+      "Ninguno de los dos suele tener la calma necesaria para contener al otro en crisis",
+      "Las reconciliaciones intensas normalizan ciclos de conflicto que podrían evitarse",
+      "Ambos pueden herir al otro con palabras o acciones impulsivas que luego lamentan"
+    ],
+    verdict: "Química real. Estructura que necesita trabajo de ambos.",
+    v_desc: `Esta relación tiene potencial — pero requiere que ambos trabajen en sus propias regulaciones emocionales, no solo en la relación. Dos personas emocionalmente reactivas no se vuelven estables por estar juntas.`,
+    bad: `Sin trabajo individual, la relación seguirá en ciclos de intensidad y desgaste que pueden durar muchos años sin evolucionar.`,
+    good: `Si ambos buscan herramientas de regulación emocional propias — por separado — la relación puede transformarse de manera genuina.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Identifica tu detonador personal", desc:"¿Qué es lo que más rápido te activa emocionalmente en esta relación? ¿Una palabra, un tono, un comportamiento específico? Nombrarlo ya cambia algo." },
+      { sem:"Semana 3-4", titulo:"Practica la pausa de 20 minutos", desc:"Cuando sientas que la emoción sube, acuerda con él que cualquiera de los dos puede pedir '20 minutos' antes de seguir hablando. Sin reproches por pedirlo." },
+      { sem:"Semana 5-8", titulo:"Busca que cada uno tenga su propio espacio de trabajo interno", desc:"Terapia individual, no de pareja, en esta primera etapa. Cada uno necesita entenderse a sí mismo antes de entenderse juntos." }
+    ]
+  },
+
+  "1-Seguro": {
+    nombre: "La Tormenta y el Puerto",
+    score: 68,
+    desc: `Esta combinación tiene algo muy valioso: él tiene la estabilidad que tú necesitas pero que todavía no reconoces como amor. El reto es que tu sistema nervioso, calibrado para la intensidad, puede no saber qué hacer con alguien que está simplemente ahí — sin drama, sin urgencia, sin caos.`,
+    ciclo: [
+      "Él está disponible y tranquilo → tú sientes que 'falta algo'",
+      "Buscas la intensidad creando tensión o leyendo problemas donde no los hay",
+      "Él responde con calma → su calma a veces te frustra más",
+      "Puedes alejar la relación intentando 'probar' si le importas",
+      "Él, desde su seguridad, no cae en el juego — y eso puede sentirse como indiferencia",
+      "O decides quedarte — y poco a poco aprendes que la calma es un lenguaje de amor que no conocías"
+    ],
+    quimica: `La química aquí no se parece a lo que conoces. No hay urgencia, no hay ansiedad, no hay espiral. Hay algo más difícil de identificar pero más valioso: presencia real. El reto es aprender a reconocerla como lo que es.`,
+    desgaste: [
+      "Sensación crónica de que 'algo falta', aunque no puedas definir qué",
+      "Tentación de boicotear la relación por el hecho de que va bien",
+      "Confusión entre la ausencia de drama y la ausencia de amor",
+      "Dificultad para relajarte porque esperas que algo salga mal"
+    ],
+    verdict: "Alta compatibilidad. Requiere aprender un idioma nuevo.",
+    v_desc: `Lo que él ofrece es exactamente lo que dices querer — pero en un idioma que todavía no dominas. Aprenderlo es posible. Requiere tiempo y voluntad de desaprender la ecuación amor = adrenalina.`,
+    bad: `Si no trabajas tu tolerancia a la estabilidad, es probable que te vayas buscando la intensidad conocida — y lo lamentes.`,
+    good: `Si te quedas y aprendes a recibir lo que él da, esta puede ser la relación que cambie el patrón para siempre.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Escribe qué significa para ti 'amor de verdad'", desc:"Sé honesta. ¿Lo que escribiste incluye dolor, ansiedad o incertidumbre? ¿O puedes imaginarte un amor que se sienta seguro?" },
+      { sem:"Semana 3-4", titulo:"Practica la gratitud específica", desc:"Cada día, nombra una cosa concreta que él hizo que fue un acto de amor — aunque no haya sido dramático. 'Llegó cuando dijo que iba a llegar. Eso es amor.'" },
+      { sem:"Semana 5-8", titulo:"Habla de lo que te genera la calma", desc:"No como queja — como información compartida: 'A veces cuando todo va bien me pongo nerviosa porque no estoy acostumbrada a esto. Quiero que sepas que lo estoy trabajando.'" }
+    ]
+  },
+
+  "2-Evitativo": {
+    nombre: "El Espejo Que Se Aleja",
+    score: 28,
+    desc: `Buscas en él confirmación de que eres suficiente. Él, en su evitación, raramente te la da de manera consistente. El resultado es que tu autoestima vive en una montaña rusa determinada por su disponibilidad emocional — que varía sin que tú puedas controlarlo.`,
+    ciclo: [
+      "Tú necesitas señales de que te quiere → él no las da de manera consistente",
+      "Interpretas su silencio o distancia como rechazo → tu autoestima baja",
+      "Aumentas el esfuerzo para recuperar su atención",
+      "Él siente la presión → se aleja más",
+      "Cuando finalmente muestra afecto, el alivio es tan intenso que refuerza el ciclo",
+      "Tu bienestar emocional queda atado al ritmo de sus vaivenes"
+    ],
+    quimica: `El hombre evitativo te da validación de manera intermitente — justo suficiente para mantenerte enganchada, nunca suficiente para que te sientas segura. Ese patrón de refuerzo intermitente es, neurológicamente, el más adictivo que existe.`,
+    desgaste: [
+      "Tu autoestima sube y baja según él esté presente o distante",
+      "Interpretas su comportamiento como información sobre tu valor, cuando en realidad habla del suyo",
+      "Gastas energía enorme intentando descifrar lo que él siente",
+      "Te has vuelto experta en no necesitar demasiado — por miedo a alejar a quien ya tiene un pie afuera"
+    ],
+    verdict: "Intensidad real. Autoestima en riesgo.",
+    v_desc: `El problema central de esta dinámica no es él — es que dejaste que él se convirtiera en el árbitro de tu valor. Recuperar esa función para ti misma es el trabajo más importante que puedes hacer, con o sin esta relación.`,
+    bad: `Si nada cambia, tu autoestima seguirá construida sobre arena — dependiente de alguien que no tiene la capacidad de sostenerse emocionalmente, mucho menos de sostenerte a ti.`,
+    good: `Cuando empieces a construir autoestima desde adentro — independientemente de lo que él haga — la dinámica cambiará sola. O te irás. O él tendrá que crecer para estar a tu lado.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Separa su comportamiento de tu valor", desc:"Cuando él se distancie esta semana, practica decirte: 'Lo que él hace habla de él, no de mí.' Repítelo. No porque lo creas todavía — sino para empezar a instalarlo." },
+      { sem:"Semana 3-4", titulo:"Haz una lista de 10 cosas que te hacen sentir bien contigo misma", desc:"Sin que él esté involucrado. Luego haz una de esas cosas esta semana." },
+      { sem:"Semana 5-8", titulo:"Construye pequeñas victorias propias cada semana", desc:"No relacionadas con la relación. Proyectos, metas, conexiones. Tu autoestima necesita fundamentos propios." }
+    ]
+  },
+
+  "2-Narcisista": {
+    nombre: "El Espejo Que Distorsiona",
+    score: 14,
+    desc: `Esta es una de las combinaciones más dañinas para la autoestima. Tú buscas en él un reflejo que te diga que eres suficiente — y él usa exactamente esa necesidad para mantenerte en un estado de inseguridad que le conviene.`,
+    ciclo: [
+      "Él te idealiza al principio → te sientes finalmente vista y valorada",
+      "Esa validación inicial es tan intensa que crea una referencia difícil de replicar",
+      "Cuando empieza la devaluación, buscas recuperar esa validación haciendo más",
+      "Él sube y baja la validación de manera estratégica",
+      "Tu autoestima queda completamente atada a su aprobación",
+      "Cuando intenta irse o tú planteas irse, el terror al vacío te mantiene"
+    ],
+    quimica: `La primera versión de él fue el espejo perfecto. Te hizo sentir extraordinaria. Ahora tu sistema emocional persigue esa sensación — y él la administra con precisión suficiente para mantenerte cerca.`,
+    desgaste: [
+      "Ya no recuerdas muy bien cómo eras antes de conocerlo",
+      "Tus opiniones, gustos y necesidades se fueron achicando para hacer espacio a los suyos",
+      "El miedo a perderlo es desproporcionado — no porque él sea insustituible, sino porque tu autoestima está depositada en él",
+      "Has normalizado tratos que antes nunca habrías aceptado"
+    ],
+    verdict: "Daño emocional acumulado. Prioridad: recuperarte a ti misma.",
+    v_desc: `No hay una versión de esta relación que funcione mientras tú sigas buscando en él tu sentido de valor. La recuperación tiene que empezar desde ti, sola.`,
+    bad: `Cada mes que pasa en esta dinámica es un mes más de desgaste de tu sentido de identidad. El costo es real y acumulativo.`,
+    good: `Cuando salgas de esta relación — o cuando dejes de buscar en ella tu valor — vas a encontrar una versión de ti misma que lleva un tiempo sin poder expresarse. Ella sigue ahí.`,
+    plan: [
+      { sem:"Semana 1", titulo:"Un diario solo tuyo", desc:"Sin filtro, sin autocensura. Solo escribe lo que piensas y lo que sientes. Puede ser la primera vez en mucho tiempo que te escuchas a ti misma sin que él esté de por medio." },
+      { sem:"Semana 2-3", titulo:"Recupera una relación que se fue quedando atrás", desc:"Una amiga, un familiar. Alguien que te conocía antes de esta relación. Reconéctate." },
+      { sem:"Semana 4-6", titulo:"Considera acompañamiento profesional", desc:"Este patrón — buscar el valor propio en otro — tiene raíces profundas. Un proceso terapéutico puede acelerar enormemente la recuperación." },
+      { sem:"Semana 7-8", titulo:"Define un límite concreto", desc:"No tiene que ser 'terminar'. Puede ser: 'No acepto más este comportamiento específico.' Uno solo. Y cumplirlo." }
+    ]
+  },
+
+  "2-Imaturo": {
+    nombre: "La Que Necesita Certeza y El Que No Puede Darla",
+    score: 44,
+    desc: `Tú necesitas señales consistentes de que eres amada. Él tiene buenas intenciones pero una capacidad irregular de sostener esa consistencia. El resultado es que tus necesidades de validación nunca quedan del todo satisfechas — no porque él no te quiera, sino porque no tiene las herramientas para mostrarlo de manera estable.`,
+    ciclo: [
+      "Tú necesitas confirmación de que todo está bien → él no siempre puede dártela",
+      "Cuando no la recibe, tu ansiedad sube → buscas más señales",
+      "Él, sin entender bien por qué, siente la presión → reacciona mal o se cierra",
+      "Su reacción confirma tus miedos → entras en pánico de abandono",
+      "La reconciliación es muy afectiva → tu ansiedad baja temporalmente",
+      "Pero el siguiente ciclo es inevitable"
+    ],
+    quimica: `Hay amor real aquí. El problema es que sus limitaciones emocionales coinciden exactamente con tus necesidades más profundas — creando una dinámica donde siempre sientes que estás a un paso de tener lo que necesitas, pero nunca del todo.`,
+    desgaste: [
+      "Nunca te sientes completamente segura, aunque la relación vaya 'bien'",
+      "Vives interpretando sus comportamientos en busca de señales",
+      "El esfuerzo de regularte emocionalmente en esta relación es enorme",
+      "Con el tiempo, la incertidumbre se vuelve el estado base"
+    ],
+    verdict: "Amor real. Necesidades relacionales no cubiertas.",
+    v_desc: `Él te quiere — eso no está en duda. Pero querer no siempre es suficiente cuando la brecha entre lo que alguien puede ofrecer y lo que el otro necesita es muy grande.`,
+    bad: `Si ninguno cambia, la relación seguirá generando en ti la misma ansiedad crónica que precisamente estás tratando de sanar.`,
+    good: `Si trabajas tu autoestima interna (para depender menos de su validación) y él trabaja su madurez emocional, la brecha puede cerrarse.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Identifica tus detonadores de inseguridad", desc:"¿Qué comportamientos de él son los que más rápido activan tu ansiedad? Haz la lista. No para recriminárselos — para conocerte." },
+      { sem:"Semana 3-4", titulo:"Practica la autovalidación", desc:"Cuando la ansiedad suba, antes de buscar su confirmación, pregúntate: ¿hay evidencia real de que algo está mal? ¿O es mi sistema de apego activado?" },
+      { sem:"Semana 5-8", titulo:"Comunica tus necesidades sin hacerlas una amenaza", desc:"'Necesito que cuando peleemos me digas que seguimos bien, aunque la pelea no esté resuelta.' Información concreta, no exigencia difusa." }
+    ]
+  },
+
+  "2-Seguro": {
+    nombre: "La Que Aprende a Confiar",
+    score: 80,
+    desc: `Él tiene exactamente lo que tu sistema de apego más necesita: consistencia. El reto es que tu historia te enseñó a desconfiar de la consistencia — a esperar que tarde o temprano el suelo se mueva. Esa espera puede convertirse en una profecía autocumplida.`,
+    ciclo: [
+      "Él es consistente y presente → tú esperas que algo cambie",
+      "Su tranquilidad activa tu desconfianza: '¿Dónde está el truco?'",
+      "Buscas señales de que el suelo se va a mover",
+      "Puedes poner a prueba la relación de manera inconsciente",
+      "Él, desde su seguridad, responde con calma — lo que puede generar aún más desconfianza",
+      "O — el mejor escenario — poco a poco vas creyendo que esto es real"
+    ],
+    quimica: `La química aquí es de otro tipo: es la del alivio profundo que viene de estar con alguien que no te hace adivinar qué piensa. Eso puede sentirse extraño al principio — incluso sospechoso. Pero es exactamente lo que tu sistema nervioso necesita para sanar.`,
+    desgaste: [
+      "La desconfianza activa puede tensionar una relación que objetivamente va bien",
+      "Las 'pruebas' inconscientes pueden crear conflictos innecesarios",
+      "El miedo a que 'esto es demasiado bueno para ser verdad' puede ser agotador para ti"
+    ],
+    verdict: "La relación más sanadora que puedes tener.",
+    v_desc: `Si logras quedarte en esta relación y trabajar tu desconfianza — no como algo que él tiene que resolver, sino como algo que tú llevas de antes — tienes la posibilidad de romper el patrón de manera definitiva.`,
+    bad: `Si tu desconfianza es más fuerte que tu voluntad de intentarlo, puedes salir de una relación sana convencida de que era "demasiado aburrida" o "demasiado fácil".`,
+    good: `Cada semana que eliges quedarte y confiar un poco más es una semana donde tu sistema nervioso aprende que el amor seguro existe. Ese aprendizaje se queda.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Haz visible la desconfianza", desc:"Cuando notes que estás esperando que algo salga mal, nómbralo en tu cabeza: 'Ahí está el miedo. No es información sobre él — es mi historia hablando.'" },
+      { sem:"Semana 3-4", titulo:"Comparte una vulnerabilidad pequeña", desc:"Cuéntale algo que te dé algo de miedo contar. Observa cómo responde. Esa respuesta es información real — no la que imaginas de antemano." },
+      { sem:"Semana 5-8", titulo:"Construye evidencia de que puedes confiar", desc:"Cada vez que él cumple algo que dijo, anótalo. No como estrategia — como práctica de actualizar la narrativa que llevas sobre las relaciones." }
+    ]
+  },
+
+  "3-Evitativo": {
+    nombre: "El Sueño Que Huye",
+    score: 36,
+    desc: `Te enamoraste de quien él podría ser. Y él, en su evitación, se encarga de mantenerse siempre un paso más allá de la versión que imaginas. Eso puede convertirse en años de espera de un cambio que nunca llega de la manera que esperas.`,
+    ciclo: [
+      "Ves el potencial de él con claridad → te comprometes con esa visión",
+      "Él da destellos de esa versión mejor → los refuerzas con tu amor y atención",
+      "Pero cuando la relación se profundiza, él se aleja",
+      "Interpretas su distancia como parte del proceso de su 'crecimiento'",
+      "Esperas. Y mientras esperas, él no crece — tú te agotes",
+      "Los destellos ocasionales de su 'mejor versión' te convencen de seguir"
+    ],
+    quimica: `Esos momentos en que él muestra su versión más abierta y presente son extraordinariamente intensos — precisamente porque son raros. Tu cerebro los magnifica y los usa como evidencia de que estás en el camino correcto.`,
+    desgaste: [
+      "Años de energía invertida en alguien que 'todavía no está listo'",
+      "La relación tiene un techo de cristal que nunca se rompe",
+      "Pospones tus propias necesidades esperando que él llegue a la versión que imaginaste",
+      "Con el tiempo, el amor se mezcla con la frustración y la resignación"
+    ],
+    verdict: "El potencial que ves en él puede ser real. La pregunta es si él quiere trabajarlo.",
+    v_desc: `Tu visión del potencial de este hombre puede ser completamente acertada. El problema es que el potencial no es una promesa — y no es tu trabajo realizarlo por él.`,
+    bad: `Si sigues esperando que el amor que tú inviertes sea el catalizador de su cambio, probablemente sigas esperando.`,
+    good: `Si pones la pregunta directa — '¿está este hombre trabajando activamente en crecer?' — la respuesta te dará toda la información que necesitas.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Distingue lo que él es de lo que imaginas que podría ser", desc:"Escribe dos listas: una con lo que él ES (comportamientos reales, consistentes) y otra con lo que crees que podría llegar a ser. ¿Qué tamaño tienen?" },
+      { sem:"Semana 3-4", titulo:"Pon una fecha interna", desc:"No como ultimátum para él. Como información para ti: ¿hasta cuándo estoy dispuesta a esperar una señal concreta de crecimiento? Sé honesta." },
+      { sem:"Semana 5-8", titulo:"Invierte en tu propio potencial", desc:"La misma energía que pones en él — ¿qué pasaría si la pones en ti? Tu propio desarrollo, tus propias metas. Empieza esa ecuación." }
+    ]
+  },
+
+  "3-Narcisista": {
+    nombre: "La Visionaria y el Maestro del Enganche",
+    score: 20,
+    desc: `Ves lo mejor en las personas. Él sabe exactamente cómo mostrarte lo que quieres ver. Es una combinación peligrosa porque lo que él presenta como "vulnerabilidad" y "potencial" es exactamente el gancho para tu patrón.`,
+    ciclo: [
+      "Él muestra su 'mejor versión' estratégicamente → tú la reconoces y te conectas",
+      "Te enamorarás de esa versión con una profundidad real",
+      "Pero esa versión no es consistente — aparece y desaparece según lo que él necesite",
+      "Cada vez que desaparece, buscas maneras de que vuelva",
+      "Él aprende que con ciertos comportamientos te activa → los usa de forma cada vez más calculada",
+      "Tú sigues creyendo que estás cerca de la 'versión completa' de él"
+    ],
+    quimica: `El narcisista emocional es muy hábil para mostrar exactamente lo que cada persona necesita ver. Para ti, que amas el potencial, él muestra potencial. No es coincidencia — es observación y uso estratégico de lo que te activa.`,
+    desgaste: [
+      "Gastas enormes cantidades de energía tratando de 'sacar' su mejor versión",
+      "Cada progreso pequeño te re-engancha aunque venga seguido de un retroceso",
+      "Con el tiempo, empiezas a dudar de tu propio juicio: '¿Estoy exagerando?'",
+      "Tu capacidad de ver potencial — una fortaleza genuina — se convierte en el punto de entrada a la manipulación"
+    ],
+    verdict: "Tu don se está usando en tu contra.",
+    v_desc: `La capacidad de ver potencial en los demás es una de tus cualidades más hermosas. En esta relación, se está convirtiendo en una trampa. Ese mismo don, dirigido hacia alguien que también trabaja su potencial activamente, cambia todo.`,
+    bad: `Cada mes en esta relación es un mes donde tu energía se va hacia alguien que no la usa para crecer — la usa para mantenerte.`,
+    good: `Cuando dirijas esa visión hacia personas que también ponen de su parte, descubrirás lo que significa amar a alguien y sentirte amada en la misma proporción.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Distingue potencial declarado de potencial demostrado", desc:"¿Qué ha hecho él en los últimos 3 meses que sea evidencia concreta de crecimiento? No intenciones — acciones. Haz la lista." },
+      { sem:"Semana 3-4", titulo:"Observa cómo aparece su 'mejor versión'", desc:"¿Cuándo muestra lo que más te atrae de él? ¿Qué acaba de pasar justo antes? ¿Qué necesita de ti en ese momento?" },
+      { sem:"Semana 5-8", titulo:"Redirige la visión hacia ti", desc:"¿Cuál es tu potencial? ¿Qué podrías lograr con la mitad de la energía que estás invirtiendo en él?" }
+    ]
+  },
+
+  "3-Imaturo": {
+    nombre: "La Visionaria y El Trabajo en Construcción",
+    score: 52,
+    desc: `Ves lo que él podría llegar a ser. Y él, sinceramente, también quiere llegar ahí. El problema es que querer y tener las herramientas para lograrlo son cosas diferentes. Y tú llevas un tiempo siendo el andamiaje de su construcción — a veces sin que él lo pida, a veces sin que lo necesite.`,
+    ciclo: [
+      "Ves su potencial → decides invertir en que lo alcance",
+      "Él acepta el apoyo con buena intención pero sin el trabajo paralelo necesario",
+      "Cuando hay progreso, te sientes reafirmada en tu inversión",
+      "Cuando hay retroceso, sientes que tienes que esforzarte más",
+      "Poco a poco, eres tú quien lleva la mayor parte del peso de su crecimiento",
+      "Y él — sin darse cuenta — aprende que no necesita esforzarse tanto porque tú estás ahí"
+    ],
+    quimica: `Los momentos en que él muestra crecimiento real son genuinamente emotivos para ti. Esa conexión es real. El problema es que sin el esfuerzo propio de él, esos momentos se quedan en destellos que no se consolidan.`,
+    desgaste: [
+      "La sensación crónica de que 'está a punto' pero nunca del todo",
+      "Llevas más peso en su desarrollo que él mismo",
+      "Tu propio crecimiento y necesidades quedan en segundo plano",
+      "Con el tiempo, puedes pasar de amar a resentir — sin que ninguno de los dos entienda cómo llegaron ahí"
+    ],
+    verdict: "Potencial real. Desequilibrio de esfuerzo real también.",
+    v_desc: `Lo que ves en él puede ser completamente real. Pero el crecimiento genuino de una persona adulta tiene que salir de adentro — no puede ser importado de la energía de quien la ama.`,
+    bad: `Si continúas siendo el motor de su crecimiento sin que él ponga el suyo, el resentimiento llegará aunque el amor también esté.`,
+    good: `Si pones la pregunta honesta — '¿está él trabajando en esto por sí mismo o porque yo lo empujo?' — la respuesta te dará claridad para decidir.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Retira un andamiaje", desc:"Elige una cosa que normalmente haces para sostener su crecimiento o su vida emocional — y deja de hacerla esta semana. Observa qué pasa." },
+      { sem:"Semana 3-4", titulo:"Expresa una expectativa concreta", desc:"No una queja general. Una expectativa específica: 'Para el próximo mes, necesito ver que has dado este paso concreto.' Y pon la fecha." },
+      { sem:"Semana 5-8", titulo:"Invierte la misma energía en tu propio crecimiento", desc:"¿Qué estarías logrando tú si la mitad de la energía que pones en él la pusieras en ti?" }
+    ]
+  },
+
+  "3-Seguro": {
+    nombre: "La Visionaria y El Hombre Real",
+    score: 84,
+    desc: `Esta es, de todas las combinaciones, la que más posibilidades tiene de construir algo genuinamente bueno. El reto específico aquí es que tú puedes pasar por alto a alguien que ya ES lo que buscas porque estás tan acostumbrada a amar potencial futuro que no sabes muy bien cómo amar la realidad presente.`,
+    ciclo: [
+      "Él es quien dice ser — sin misterio, sin drama",
+      "Tú, acostumbrada a amar el potencial, buscas el proyecto donde mejorar",
+      "Al no encontrarlo, puedes sentir que 'no hay nada que construir'",
+      "Esa sensación puede confundirse con falta de atracción",
+      "O — el mejor escenario — te das cuenta de que lo que él es ya es suficiente",
+      "Y empiezas a aprender cómo es amar a alguien en su versión presente, no futura"
+    ],
+    quimica: `Con él, la química no es del desafío — es de la resonancia. No tienes que conquistarlo ni transformarlo. Ya está ahí. Eso puede sentirse extrañamente vacío al principio para alguien que ama amar proyectos. Pero no lo es.`,
+    desgaste: [
+      "La sensación de que 'no hay proyecto' puede confundirse con falta de amor",
+      "Puedes boicotear la relación buscando defectos o complejidades que no están",
+      "Dificultad para relajarte en algo que va bien sin que requiera tu intervención"
+    ],
+    verdict: "La combinación con mayor potencial de felicidad real.",
+    v_desc: `Si aprendes a amar a este hombre tal como es — sin convertirlo en un proyecto, sin esperar una versión mejorada — tienes delante la posibilidad de vivir lo que muchas personas buscan toda su vida.`,
+    bad: `Si tu patrón de amar el potencial es más fuerte que tu voluntad de quedarte, puedes alejarte de algo genuinamente bueno buscando algo que "te active más".`,
+    good: `Si te permites quedarte y aprender el idioma del amor estable, lo que construyan juntos puede ser más sólido que cualquier relación intensa que hayas tenido.`,
+    plan: [
+      { sem:"Semana 1-2", titulo:"Haz una lista de lo que él ya es", desc:"No lo que podría llegar a ser. Lo que es hoy, esta semana. Sus valores, sus acciones, su presencia. ¿Qué ves cuando lo miras sin el filtro del potencial futuro?" },
+      { sem:"Semana 3-4", titulo:"Practica amar el presente", desc:"Esta semana, cada vez que tu mente vaya al futuro o al potencial, tráela de vuelta: ¿qué hay aquí, hoy, que merece atención?" },
+      { sem:"Semana 5-8", titulo:"Construye algo juntos que no sea 'arreglarlo'", desc:"Un proyecto compartido, un viaje, un plan. Algo donde los dos sean iguales en la construcción — no tú como arquitecta y él como proyecto." }
+    ]
+  }
+};
+
+/* ═══════════════════════════════════════════════
+   FUNCIÓN PRINCIPAL: generarReporte(iElla, sEl)
+   ═══════════════════════════════════════════════
+   En producción, esta función recibe los datos
+   del quiz y genera el HTML del reporte completo.
+   En el selector demo, se llama con los valores
+   de los selects.
+═══════════════════════════════════════════════ */
+function generarReporte() {
+  var iElla = parseInt(document.getElementById('sel-ella').value);
+  var sEl   = document.getElementById('sel-el').value;
+  var key   = iElla + '-' + sEl;
+
+  var ella  = ELLA[iElla];
+  var el    = EL[sEl];
+  var din   = DIN[key] || { nombre:"Dinámica Compleja", score:50,
+    desc:"La combinación de sus perfiles crea una dinámica única.",
+    ciclo:[], quimica:"", desgaste:[], verdict:"Pendiente de análisis",
+    v_desc:"", bad:"", good:"",
+    plan:[{sem:"Semana 1-8",titulo:"Acompañamiento personalizado",desc:"Esta combinación requiere análisis más profundo."}] };
+
+  document.getElementById('reporte-root').innerHTML = construirHTML(ella, el, din);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function construirHTML(ella, el, din) {
+  return `
+<!-- ══════════ PORTADA ══════════ -->
+<div class="cover">
+  <div class="cover-logo">Diagnóstico Emocional · Reporte Confidencial</div>
+  <div class="cover-icon">${ella.icon}</div>
+  <div class="cover-tag">Análisis psicológico de pareja</div>
+  <h1>Tu Reporte Emocional<br><em>Completo</em></h1>
+  <p class="cover-subtitle">Un análisis profundo de tus patrones afectivos, los de él, y la dinámica que los une. Redactado para que lo entiendas — y para que puedas usarlo.</p>
+  <div class="cover-profiles">
+    <div class="cp">
+      <div class="cp-icon">${ella.icon}</div>
+      <div class="cp-label">Tú</div>
+      <div class="cp-name">${ella.tipo}</div>
+    </div>
+    <div class="cp-arrow">↔</div>
+    <div class="cp">
+      <div class="cp-icon">👨</div>
+      <div class="cp-label">Él</div>
+      <div class="cp-name">${el.tipo}</div>
+    </div>
+  </div>
+  <div class="cover-dynamic">Dinámica: <em>${din.nombre}</em></div>
+  <div class="cover-footer">Este reporte es personal y confidencial · © 2025 Diagnóstico Emocional</div>
+</div>
+
+<!-- ══════════ CUERPO ══════════ -->
+<div class="report-body">
+
+  <!-- ÍNDICE -->
+  <div class="toc">
+    <div class="toc-title">Contenido de tu reporte</div>
+    <div class="toc-item"><div class="toc-num">01</div><div class="toc-ico">👩</div><div class="toc-name">Tu perfil emocional</div><div class="toc-pg">Sección 1</div></div>
+    <div class="toc-item"><div class="toc-num">02</div><div class="toc-ico">👨</div><div class="toc-name">El perfil emocional de él</div><div class="toc-pg">Sección 2</div></div>
+    <div class="toc-item"><div class="toc-num">03</div><div class="toc-ico">🔄</div><div class="toc-name">La dinámica entre los dos</div><div class="toc-pg">Sección 3</div></div>
+    <div class="toc-item"><div class="toc-num">04</div><div class="toc-ico">⚡</div><div class="toc-name">Por qué sientes esa química</div><div class="toc-pg">Sección 4</div></div>
+    <div class="toc-item"><div class="toc-num">05</div><div class="toc-ico">💔</div><div class="toc-name">Lo que causa sufrimiento</div><div class="toc-pg">Sección 5</div></div>
+    <div class="toc-item"><div class="toc-num">06</div><div class="toc-ico">🔮</div><div class="toc-name">El veredicto y el pronóstico</div><div class="toc-pg">Sección 6</div></div>
+    <div class="toc-item"><div class="toc-num">07</div><div class="toc-ico">📋</div><div class="toc-name">Tu plan de acción</div><div class="toc-pg">Sección 7</div></div>
+  </div>
+
+  <!-- ═══ SECCIÓN 1: ELLA ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-icon">${ella.icon}</div>
+      <div>
+        <div class="section-title">Tu perfil emocional</div>
+        <div class="section-subtitle">${ella.tipo} · ${ella.etiqueta}</div>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-card-header">
+        <div class="profile-icon">${ella.icon}</div>
+        <div>
+          <div class="profile-name">${ella.tipo}</div>
+          <div class="profile-type">${ella.resumen}</div>
+        </div>
+      </div>
+      <div class="profile-card-body">
+        <p class="lead">${ella.intro}</p>
+      </div>
+    </div>
+
+    <p>${ella.descripcion_profunda.replace(/\n\n/g,'</p><p>')}</p>
+
+    <div class="quote-block">
+      <p>${ella.patron_cognitivo.split('\n\n')[0]}</p>
+    </div>
+    <p>${ella.patron_cognitivo.split('\n\n')[1] || ''}</p>
+
+    <div class="divider-rose"></div>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:#1A1A2E;margin-bottom:1rem">Señales que reconoces en ti misma</h3>
+    <ul class="check-list">
+      ${ella.senales.map(s => '<li>'+s+'</li>').join('')}
+    </ul>
+
+    <div class="highlight">
+      <div class="highlight-label">La herida raíz</div>
+      <p>${ella.herida_raiz}</p>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:#1A1A2E;margin:1.4rem 0 .8rem">Tus fortalezas emocionales</h3>
+    <ul class="check-list green">
+      ${ella.fortalezas.map(f => '<li>'+f+'</li>').join('')}
+    </ul>
+
+    <div class="bar-group">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:#1A1A2E;margin-bottom:1rem">Intensidad de tus rasgos</h3>
+      <div class="bar-item"><div class="bar-label-row"><span>Necesidad de validación externa</span><span>${ella.barras[0]}%</span></div><div class="bar-bg"><div class="bar-fill bar-rose" style="width:${ella.barras[0]}%"></div></div></div>
+      <div class="bar-item"><div class="bar-label-row"><span>Tendencia al sacrificio propio</span><span>${ella.barras[1]}%</span></div><div class="bar-bg"><div class="bar-fill bar-rose" style="width:${ella.barras[1]}%"></div></div></div>
+      <div class="bar-item"><div class="bar-label-row"><span>Apego ansioso</span><span>${ella.barras[2]}%</span></div><div class="bar-bg"><div class="bar-fill bar-gold" style="width:${ella.barras[2]}%"></div></div></div>
+      <div class="bar-item"><div class="bar-label-row"><span>Regulación emocional autónoma</span><span>${100-ella.barras[3]}%</span></div><div class="bar-bg"><div class="bar-fill bar-green" style="width:${100-ella.barras[3]}%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══ SECCIÓN 2: ÉL ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-icon">👨</div>
+      <div>
+        <div class="section-title">El perfil emocional de él</div>
+        <div class="section-subtitle">${el.tipo} · ${el.etiqueta}</div>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-card-header" style="background:linear-gradient(135deg,#1A2035,#2D3550)">
+        <div class="profile-icon">👨</div>
+        <div>
+          <div class="profile-name">${el.tipo}</div>
+          <div class="profile-type">${el.resumen}</div>
+        </div>
+      </div>
+      <div class="profile-card-body">
+        <p class="lead">${el.desc_corta}</p>
+      </div>
+    </div>
+
+    <p>${el.descripcion.replace(/\n\n/g,'</p><p>')}</p>
+
+    <div class="quote-block">
+      <p>${el.mecanismo.split('\n\n')[0]}</p>
+    </div>
+    <p>${el.mecanismo.split('\n\n')[1] || ''}</p>
+
+    <div class="warning">
+      <div class="warning-label">Señales para reconocerlo</div>
+      <ul class="check-list warn" style="margin:0">
+        ${el.senales.map(s => '<li style="color:#6B3600">'+s+'</li>').join('')}
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══ SECCIÓN 3: DINÁMICA ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-icon">🔄</div>
+      <div>
+        <div class="section-title">La dinámica entre los dos</div>
+        <div class="section-subtitle">"${din.nombre}"</div>
+      </div>
+    </div>
+
+    <p>${din.desc}</p>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:#1A1A2E;margin:1.4rem 0 .8rem">El ciclo que se repite</h3>
+    <div class="dynamic-flow">
+      ${din.ciclo.map((c,i) => `<div class="flow-step"><div class="flow-num">${i+1}</div><div class="flow-text">${c}</div></div>`).join('')}
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══ SECCIÓN 4: QUÍMICA ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-icon">⚡</div>
+      <div>
+        <div class="section-title">Por qué sientes esa química</div>
+        <div class="section-subtitle">La neurología del enganche</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p>${din.quimica}</p>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:#1A1A2E;margin:1.4rem 0 .8rem">Los puntos de atracción específicos</h3>
+    <ul class="check-list">
+      ${(din.attr || din.attraction || []).map(a => '<li>'+a+'</li>').join('')}
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══ SECCIÓN 5: DESGASTE ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-icon">💔</div>
+      <div>
+        <div class="section-title">Lo que causa sufrimiento</div>
+        <div class="section-subtitle">Los puntos de desgaste</div>
+      </div>
+    </div>
+
+    <ul class="check-list warn">
+      ${(din.desgaste || din.pain || []).map(d => '<li>'+d+'</li>').join('')}
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══ SECCIÓN 6: VEREDICTO ═══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-icon">🔮</div>
+      <div>
+        <div class="section-title">El veredicto</div>
+        <div class="section-subtitle">El pronóstico emocional honesto</div>
+      </div>
+    </div>
+
+    <div class="score-section">
+      <div class="score-ring-large">
+        <div class="score-big">${din.score}</div>
+        <div class="score-sublabel">de 100</div>
+      </div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.5rem">${din.verdict}</div>
+      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:480px;margin:0 auto">${din.v_desc}</p>
+    </div>
+
+    <div class="verdict-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.2rem 0">
+      <div class="vg-box vg-bad">
+        <div class="vg-label">Si continúas igual</div>
+        <div class="vg-text" style="color:#6B2233">${din.bad}</div>
+      </div>
+      <div class="vg-box vg-good">
+        <div class="vg-label">Si trabajas en ti</div>
+        <div class="vg-text" style="color:#1A4A30">${din.good}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══ SECCIÓN 7: PLAN DE ACCIÓN ═══ -->
+  <div class="section plan-section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-icon">📋</div>
+      <div>
+        <div class="section-title">Tu plan de acción</div>
+        <div class="section-subtitle">Pasos concretos para los próximos 2 meses</div>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label">Antes de empezar</div>
+      <p>Este plan no es para "arreglar la relación" — es para que tú crezcas, con o sin ella. El cambio real empieza desde adentro, no desde afuera.</p>
+    </div>
+
+    ${din.plan.map((p,i) => `
+    <div class="plan-step">
+      <div class="plan-num">${i+1}</div>
+      <div>
+        <div class="plan-week">${p.sem}</div>
+        <div class="plan-title">${p.titulo}</div>
+        <div class="plan-desc">${p.desc}</div>
+      </div>
+    </div>`).join('')}
+  </div>
+
+  <!-- CIERRE -->
+  <div class="closing">
+    <div class="closing-icon">❤️</div>
+    <h3>Una última cosa</h3>
+    <p>El autoconocimiento no resuelve todo de un día para otro. Pero sí cambia la dirección. Saber quién eres, qué necesitas y por qué eliges lo que eliges — es el comienzo de elegir diferente. Tú ya diste ese primer paso.</p>
+  </div>
+
+</div><!-- fin report-body -->
+  `;
+}
+
+// Render inicial al cargar
+generarReporte();
+</script>
+</body>
+</html>

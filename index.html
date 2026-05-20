@@ -38,12 +38,12 @@ const CFG = {
   // ============================================================
 
   // 🔗 1. Link de tu checkout en Hotmart / Kiwify / Stripe
-  URL_CHECKOUT: "PEGA_AQUI_TU_LINK_DE_CHECKOUT",
+  URL_CHECKOUT: "https://pay.hotmart.com/B105912832J",
 
   // 🔗 2. URL completa de tu página de reporte (donde está reportes-emocionales.html)
   //       Ejemplo: "https://tusitio.com/reporte.html"
   //       La plataforma de pago redirigirá aquí con ?status=paid&r=CODIGO
-  URL_RETORNO: "PEGA_AQUI_LA_URL_DE_TU_PAGINA_DE_REPORTE",
+  URL_RETORNO:  "https://descubretuapego.online/reporte.html",
 
   // 💲 Precios
   PRECIO_BUNDLE:    11.99,   // precio actual mostrado
@@ -865,7 +865,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <div style="font-size:11px;color:var(--txt3);text-align:center;margin-bottom:11px">Pago seguro · Redireccionamiento a checkout externo</div>
 
       <!-- 🔗 BOTÃO CHECKOUT — Coloque seu link aqui -->
-      <a id="co-btn" href="URL_CHECKOUT_AQUI" target="_blank" class="btn btn-rose" onclick="return validarCO()" style="text-decoration:none;margin-bottom:5px">
+      <a id="co-btn" href="https://pay.hotmart.com/B105912832J" target="_blank" class="btn btn-rose" onclick="return validarCO()" style="text-decoration:none;margin-bottom:5px">
         🔒 Finalizar pago · $<span id="co-btn-total"></span>
       </a>
 

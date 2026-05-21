@@ -103,7 +103,7 @@ html,body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--txt
 .btn-green{background:linear-gradient(135deg,#2ECC71,#27AE60);color:#fff}
 .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.14);color:var(--txt2);font-size:13px;min-height:44px;padding:10px}
 .btn-ghost:hover{border-color:rgba(255,255,255,.28);color:#fff}
-.btn-off{background:var(--ink4);color:rgba(255,255,255,.3);cursor:not-allowed}
+.btn-off{background:var(--ink4);color:rgba(255,255,255,.3);cursor:not-allowed;opacity:0.4}
 
 /* ── CARDS ── */
 .card{background:var(--ink3);border:1px solid var(--bd);border-radius:15px;padding:1.1rem}
@@ -715,7 +715,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <div id="q1-lbl" style="font-size:10px;color:var(--rose-mid);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem">Pregunta 1</div>
     <div id="q1-txt" class="serif" style="font-size:clamp(1rem,3.8vw,1.4rem);color:#fff;line-height:1.35;margin-bottom:1.3rem"></div>
     <div id="q1-opts" style="display:flex;flex-direction:column;gap:9px"></div>
-    <button class="btn btn-off" id="q1-next" disabled onclick="nextQ1()" style="margin-top:1.3rem">Siguiente →</button>
+    <button class="btn btn-off" id="q1-next" onclick="nextQ1()" style="margin-top:1.3rem">Siguiente →</button>
   </div>
 </div>
 
@@ -763,7 +763,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <div id="q2-lbl" style="font-size:10px;color:var(--gold);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem">Pregunta 1</div>
     <div id="q2-txt" class="serif" style="font-size:clamp(1rem,3.8vw,1.4rem);color:#fff;line-height:1.35;margin-bottom:1.3rem"></div>
     <div id="q2-opts" style="display:flex;flex-direction:column;gap:9px"></div>
-    <button class="btn btn-off" id="q2-next" disabled onclick="nextQ2()" style="margin-top:1.3rem">Siguiente →</button>
+    <button class="btn btn-off" id="q2-next" onclick="nextQ2()" style="margin-top:1.3rem">Siguiente →</button>
   </div>
 </div>
 
@@ -1222,7 +1222,7 @@ function selectQ1(i,el) {
   selOpt('q1-opts','sel'); el.classList.add('sel'); S.q1sel=i; setBtnOn('q1-next','btn-rose');
 }
 function nextQ1() {
-  if(S.q1sel===null)return;
+  if(S.q1sel===null){ return; }
   S.q1ans.push(S.q1sel); S.q1cur++;
   if(S.q1cur<Q1.length){ renderQ1(); } else { calcElla(); mostrarTrans(); }
 }
@@ -1262,7 +1262,7 @@ function selectQ2(i,el) {
   setBtnOn('q2-next','btn-rose');
 }
 function nextQ2() {
-  if(S.q2sel===null)return;
+  if(S.q2sel===null){ return; }
   S.q2ans.push(S.q2sel); S.q2cur++;
   if(S.q2cur<Q2.length){ renderQ2(); } else { calcEl(); calcDin(); guardar(); mostrarVenda(); }
 }
@@ -1454,16 +1454,16 @@ function setBtnOff(id){
 function setBtnOn(id,cls){
   var b=document.getElementById(id);
   if(!b)return;
-  b.removeAttribute('disabled');
   b.className='btn '+cls;
-  b.style.cssText='margin-top:1.3rem';
+  b.style.opacity='1';
+  b.style.cursor='pointer';
 }
 function setBtnOff(id){
   var b=document.getElementById(id);
   if(!b)return;
-  b.setAttribute('disabled','disabled');
   b.className='btn btn-off';
-  b.style.cssText='margin-top:1.3rem';
+  b.style.opacity='0.4';
+  b.style.cursor='not-allowed';
 }
 
 function selOpt(wrapId,cls){ document.querySelectorAll('#'+wrapId+' .opt').forEach(function(o){ o.classList.remove('sel'); o.classList.remove('sel-gold'); o.querySelectorAll('.opt-lt').forEach(function(l){l.style.background='';l.style.borderColor='';l.style.color='';}); }); }

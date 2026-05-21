@@ -1243,10 +1243,6 @@ function leerURLYGenerar() {
   var r      = params.get('r');
   var status = params.get('status');
 
-  /* ── Hotmart / Kiwify / Stripe — parámetros de retorno ──
-     Hotmart  → ?status=approved  o  ?status=paid
-     Kiwify   → ?status=paid
-     Stripe   → ?status=complete  o  ?payment_status=paid   */
   var compraAprobada = (
     status === 'paid'      ||
     status === 'approved'  ||
@@ -1255,36 +1251,44 @@ function leerURLYGenerar() {
     params.get('payment_status') === 'paid'
   );
 
-  /* ── Lee los resultados del quiz desde el parámetro ?r= ── */
-  if (r && compraAprobada) {
+  function ocultarDemo() {
+    var demo = document.querySelector('.demo-selector');
+    if (demo) demo.style.display = 'none';
+  }
+
+  /* ── 1. Parâmetro ?r= na URL (fluxo direto) ── */
+  if (r) {
     try {
       var datos = JSON.parse(atob(decodeURIComponent(r)));
       if (datos.ella !== undefined && datos.el) {
-        /* Oculta el selector demo */
-        var demo = document.querySelector('.demo-selector');
-        if (demo) demo.style.display = 'none';
+        ocultarDemo();
         generarReporte(datos.ella, datos.el);
-        return;
-      }
-    } catch(e) {
-      console.warn('No se pudieron leer los datos del quiz:', e);
-    }
-  }
-
-  /* ── Si hay ?r= pero sin status (testing directo) ── */
-  if (r) {
-    try {
-      var datos2 = JSON.parse(atob(decodeURIComponent(r)));
-      if (datos2.ella !== undefined && datos2.el) {
-        var demo2 = document.querySelector('.demo-selector');
-        if (demo2) demo2.style.display = 'none';
-        generarReporte(datos2.ella, datos2.el);
         return;
       }
     } catch(e) {}
   }
 
-  /* ── Modo demo: usa los selects ── */
+  /* ── 2. localStorage (Hotmart não passa parâmetros) ── */
+  if (compraAprobada) {
+    try {
+      var saved = localStorage.getItem('de_resultado');
+      var ts    = parseInt(localStorage.getItem('de_ts')||'0');
+      var age   = Date.now() - ts;
+      // Válido por 2 horas após o clique no botão
+      if (saved && age < 7200000) {
+        var datos3 = JSON.parse(saved);
+        if (datos3.ella !== undefined && datos3.el) {
+          localStorage.removeItem('de_resultado');
+          localStorage.removeItem('de_ts');
+          ocultarDemo();
+          generarReporte(datos3.ella, datos3.el);
+          return;
+        }
+      }
+    } catch(e) {}
+  }
+
+  /* ── 3. Modo demo: usa los selects ── */
   var iElla = parseInt(document.getElementById('sel-ella').value);
   var sEl   = document.getElementById('sel-el').value;
   generarReporte(iElla, sEl);

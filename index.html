@@ -1305,15 +1305,14 @@ function mostrarVenda() {
 
 /* ─── CHECKOUT ─── */
 function abrirCO() {
-  // Gera URL de retorno com resultados codificados
   try {
-    var codigo = btoa(JSON.stringify({ ella: S.iElla, el: S.sEl }));
-    var retorno = encodeURIComponent(CFG.URL_RETORNO + '?status=paid&r=' + codigo);
-    var url = CFG.URL_CHECKOUT + '?redirect=' + retorno;
-    window.location.href = url;
-  } catch(e) {
-    window.location.href = CFG.URL_CHECKOUT;
-  }
+    // Salva resultados no localStorage antes de ir para Hotmart
+    // O reporte vai ler daqui quando a pessoa voltar após pagar
+    var resultados = JSON.stringify({ ella: S.iElla, el: S.sEl });
+    localStorage.setItem('de_resultado', resultados);
+    localStorage.setItem('de_ts', Date.now().toString());
+  } catch(e) {}
+  window.location.href = CFG.URL_CHECKOUT;
 }
 function fecharCO() { document.getElementById('co-overlay').classList.remove('open'); pararTimer(); }
 

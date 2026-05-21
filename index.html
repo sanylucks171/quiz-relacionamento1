@@ -506,7 +506,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <div class="pc"><div class="pc-i">💔</div><div class="pc-t">Te enamoras de quien es frío</div><div class="pc-d">Su distancia te atrae más que la disponibilidad de otros.</div></div>
       <div class="pc"><div class="pc-i">🔁</div><div class="pc-t">Esperas que él cambie</div><div class="pc-d">Y una parte de ti cree que tu amor puede transformarlo.</div></div>
       <div class="pc"><div class="pc-i">😶</div><div class="pc-t">Las relaciones "estables" te aburren</div><div class="pc-d">Sin esa intensidad, sientes que algo falta.</div></div>
-      <div class="pc"><div class="pc-i">🪞</div><div class="pc-t">Minimizas lo que sientes</div><div class="pc-d">Para no parecer "demasiado exigente" o "intensa".</div></div>
+      <div class="pc"><div class="pc-i">💫</div><div class="pc-t">Minimizas lo que sientes</div><div class="pc-d">Para no parecer "demasiado exigente" o "intensa".</div></div>
     </div>
     <button class="btn btn-rose" onclick="goToQuiz1()" style="margin-top:1.2rem">Quiero entender mi patrón →</button>
   </div>
@@ -1039,7 +1039,7 @@ const PE = [
   { icon:"🌊", type:"La Adicta a la Intensidad", main:"Adicción a la adrenalina", bars:[82,65,90],
     desc:"Tu sistema nervioso está calibrado para el drama. La calma se siente como indiferencia. Buscas el subidón emocional sin darte cuenta del costo enorme que tiene.",
     teaser:"Para ti, el amor sin caos se siente vacío. En algún momento de tu vida, el amor y el dolor fueron aprendidos juntos — y tu sistema emocional aprendió que 'intenso' significa 'verdadero'." },
-  { icon:"🪞", type:"La que Busca su Reflejo", main:"Validación externa intensa", bars:[90,70,88],
+  { icon:"💫", type:"La que Busca su Reflejo", main:"Validación externa intensa", bars:[90,70,88],
     desc:"Tu autoestima oscila según cómo te trate él. Cuando él está bien contigo, estás bien. Cuando se aleja, entras en pánico. Esa dependencia emocional alimenta el ciclo.",
     teaser:"Buscas en los demás la validación que todavía no encontraste en ti misma. Los hombres inestables crean espacios de incertidumbre que intentas llenar — y eso es lo que te mantiene en el ciclo." },
   { icon:"🦋", type:"La Enamorada del Potencial", main:"Amor al potencial",      bars:[65,88,76],
@@ -1255,10 +1255,14 @@ function renderQ2() {
 }
 function selectQ2(i,el) {
   selOpt('q2-opts','sel-gold'); el.classList.add('sel-gold');
-  // Mudar cor da letra para gold
   el.querySelectorAll('.opt-lt').forEach(function(lt){lt.style.background='var(--gold)';lt.style.borderColor='var(--gold)';lt.style.color='#fff'});
-  S.q2sel=i; setBtnOn('q2-next','btn-gold');
-  document.getElementById('q2-next').style.background='linear-gradient(135deg,#C89B3C,#A07828)';
+  S.q2sel=i;
+  var btn = document.getElementById('q2-next');
+  btn.disabled=false;
+  btn.className='btn btn-rose';
+  btn.style.background='';
+  btn.style.opacity='1';
+  btn.style.cursor='pointer';
 }
 function nextQ2() {
   if(S.q2sel===null)return;
@@ -1437,10 +1441,26 @@ function showTab(i) {
 }
 
 /* ─── HELPERS ─── */
-function set(id,v){ var el=document.getElementById(id); if(el){ el.innerHTML=v; } }
+function set(id,v){ 
+  var el=document.getElementById(id); 
+  if(!el) return;
+  if(typeof v === 'string' && v.indexOf('<') === -1 && v.length < 100) {
+    el.textContent=v;
+  } else {
+    el.innerHTML=v;
+  }
+}
 function animBar(id,pct){ var el=document.getElementById(id); if(!el)return; el.style.width='0%'; setTimeout(function(){el.style.width=pct+'%';},120); }
 function setBtnOff(id){ var b=document.getElementById(id); b.disabled=true; b.className='btn btn-off'; }
-function setBtnOn(id,cls){ var b=document.getElementById(id); b.disabled=false; b.className='btn '+cls; }
+function setBtnOn(id,cls){ 
+  var b=document.getElementById(id); 
+  b.disabled=false; 
+  b.removeAttribute('disabled');
+  b.className='btn '+cls; 
+  b.style.opacity='1';
+  b.style.cursor='pointer';
+  b.style.pointerEvents='auto';
+}
 function selOpt(wrapId,cls){ document.querySelectorAll('#'+wrapId+' .opt').forEach(function(o){ o.classList.remove('sel'); o.classList.remove('sel-gold'); o.querySelectorAll('.opt-lt').forEach(function(l){l.style.background='';l.style.borderColor='';l.style.color='';}); }); }
 function renderOpts(wrapId,options,onSelect,selCls) {
   var wrap=document.getElementById(wrapId); wrap.innerHTML='';

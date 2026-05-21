@@ -1011,7 +1011,7 @@ const DIN = {
     ],
     verdict: "Intensidad real. Autoestima en riesgo.",
     v_desc: `El problema central de esta dinámica no es él — es que dejaste que él se convirtiera en el árbitro de tu valor. Recuperar esa función para ti misma es el trabajo más importante que puedes hacer, con o sin esta relación.`,
-    bad: `Si nada cambia, tu autoestima seguirá construida sobre arena — dependiente de alguien que no tiene la capacidad de sostenerse emocionalmente, mucho menos de sostenerte a ti.`,
+    bad: `⚠️ Si nada cambia, tu autoestima seguirá construida sobre arena — dependiente de alguien que no tiene la capacidad de sostenerse emocionalmente, mucho menos de sostenerte a ti.`,
     good: `Cuando empieces a construir autoestima desde adentro — independientemente de lo que él haga — la dinámica cambiará sola. O te irás. O él tendrá que crecer para estar a tu lado.`,
     plan: [
       { sem:"Semana 1-2", titulo:"Separa su comportamiento de tu valor", desc:"Cuando él se distancie esta semana, practica decirte: 'Lo que él hace habla de él, no de mí.' Repítelo. No porque lo creas todavía — sino para empezar a instalarlo." },
@@ -1476,7 +1476,7 @@ function construirHTML(ella, el, din) {
       <div class="section-icon">⚡</div>
       <div>
         <div class="section-title">Por qué sientes esa química</div>
-        <div class="section-subtitle">Por qué es tan difícil soltar</div>
+        <div class="section-subtitle">Por qué soltarlo se siente imposible — aunque sepas que deberías</div>
       </div>
     </div>
 
@@ -1517,7 +1517,7 @@ function construirHTML(ella, el, din) {
       <div class="section-icon">🔮</div>
       <div>
         <div class="section-title">El veredicto</div>
-        <div class="section-subtitle">El pronóstico real</div>
+        <div class="section-subtitle">Lo que va a pasar si nada cambia — y lo que puede cambiar si tú decides</div>
       </div>
     </div>
 
@@ -1532,11 +1532,11 @@ function construirHTML(ella, el, din) {
 
     <div class="verdict-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.2rem 0">
       <div class="vg-box vg-bad">
-        <div class="vg-label">Si nada cambia</div>
+        <div class="vg-label">⚠️ Si nada cambia</div>
         <div class="vg-text" style="color:#6B2233">${din.bad}</div>
       </div>
       <div class="vg-box vg-good">
-        <div class="vg-label">Si decides trabajar en ti</div>
+        <div class="vg-label">✓ Si decides trabajar en ti ahora</div>
         <div class="vg-text" style="color:#1A4A30">${din.good}</div>
       </div>
     </div>
@@ -1556,8 +1556,10 @@ function construirHTML(ella, el, din) {
     </div>
 
     <div class="insight">
-      <div class="insight-label">Antes de arrancar</div>
-      <p>Este plan no es para "arreglar la relación" — es para que tú crezcas, estés con él o no. El cambio de verdad siempre empieza desde adentro.</p>
+      <div class="insight-label">Antes de empezar — lee esto</div>
+      <p>Este plan no es para arreglar la relación. Es para que tú crezcas — estés con él o no.
+
+El cambio de verdad empieza desde adentro. Y los primeros pasos son más simples de lo que crees.</p>
     </div>
 
     ${din.plan.map((p,i) => `
@@ -1575,7 +1577,11 @@ function construirHTML(ella, el, din) {
   <div class="closing">
     <div class="closing-icon">❤️</div>
     <h3>Antes de cerrar</h3>
-    <p>El autoconocimiento no lo cambia todo de un día para otro. Pero sí cambia la dirección. Saber quién eres, qué necesitas y por qué eliges lo que eliges — es el punto de partida para elegir distinto. Ya lo diste.</p>
+    <p>El autoconocimiento no lo cambia todo de un día para otro. Pero sí cambia la dirección.
+
+Saber quién eres, qué necesitas y por qué eliges lo que eliges — es el punto de partida para elegir distinto.
+
+Ya lo diste. Y eso no es poca cosa.</p>
   </div>
 
 </div><!-- fin report-body -->

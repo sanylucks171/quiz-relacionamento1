@@ -441,6 +441,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 .wa-cta-below{margin-top:1.5rem;text-align:center}
 
 .co-ov.open{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;z-index:9999!important;display:flex!important;align-items:flex-end!important;justify-content:center!important;background:rgba(0,0,0,.75)!important}
+@keyframes urgencia{0%,100%{opacity:1}50%{opacity:.5}}
 </style>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23C84B6A'/><text y='.9em' font-size='60' x='50%25' text-anchor='middle' dy='0.1em'>❤️</text></svg>">
 </head>
@@ -771,6 +772,20 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
      ══════════════════════════════════════════════════ -->
 <div id="pg-venda" class="page">
   <div class="wrap">
+
+    <!-- ── TIMER DE PRIVACIDADE ── -->
+    <div id="privacy-timer-bar" style="background:rgba(200,75,106,.08);border:1px solid rgba(200,75,106,.25);border-radius:12px;padding:.9rem 1rem;margin-bottom:1.2rem;text-align:center">
+      <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:4px">
+        <span style="font-size:12px">⚠️</span>
+        <span style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.4">Por razones de privacidad, tus respuestas serán eliminadas en:</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:4px">
+        <span id="ptimer-min" style="font-size:1.8rem;font-weight:800;color:#ff4d6d;font-family:'Playfair Display',serif">15</span>
+        <span style="color:#ff4d6d;font-weight:700;font-size:1.4rem">:</span>
+        <span id="ptimer-sec" style="font-size:1.8rem;font-weight:800;color:#ff4d6d;font-family:'Playfair Display',serif">00</span>
+      </div>
+      <div style="font-size:11px;color:rgba(255,255,255,.3)">Una vez eliminadas, tendrás que volver a realizar el test para acceder a tu análisis</div>
+    </div>
 
     <!-- ── PERFIL DELA — conexão emocional ── -->
     <div style="text-align:center;margin-bottom:1.2rem">
@@ -1275,25 +1290,37 @@ function mostrarVenda() {
   set('v-type-el', el ? el.type : S.sEl);
   set('v-dinamica', d.name);
 
-  // ── Conexão emocional personalizada por perfil ──
+  // ── Frase cirúrgica — combinação dela + dele ──
+  var chave16 = S.iElla + '-' + S.sEl;
+  var fraseCirurgica = FRASES16[chave16] || '';
+  var frase1El = document.getElementById('v-frase1');
+  if (frase1El && fraseCirurgica) {
+    frase1El.innerHTML = '"' + fraseCirurgica + '"';
+  }
+
+  // ── Frases 2 e 3 do CONEXAO original ──
   var cx = CONEXAO[S.iElla];
   if (cx) {
-    set('v-frase1', '"' + cx.frase1 + '"');
     set('v-frase2', '"' + cx.frase2 + '"');
     set('v-frase3', cx.frase3);
     set('v-curiosidad', cx.curiosidad);
-    // Lista do que ela vai perder
-    var perderWrap = document.getElementById('v-perder');
-    if (perderWrap) {
-      perderWrap.innerHTML = '';
-      cx.perder.forEach(function(item) {
-        var d2 = document.createElement('div');
-        d2.style.cssText = 'display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.75)';
-        d2.innerHTML = '<span style="color:var(--rose-mid);flex-shrink:0;margin-top:1px">✗</span><span>' + item + '</span>';
-        perderWrap.appendChild(d2);
-      });
-    }
   }
+
+  // ── Benefícios reescritos por perfil dela ──
+  var bens = BENEFICIOS_PERFIL[S.iElla] || [];
+  var perderWrap = document.getElementById('v-perder');
+  if (perderWrap) {
+    perderWrap.innerHTML = '';
+    bens.forEach(function(item) {
+      var d2 = document.createElement('div');
+      d2.style.cssText = 'display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.82);line-height:1.5';
+      d2.innerHTML = '<span style="color:#ff4d6d;flex-shrink:0;margin-top:2px;font-weight:700">✗</span><span>' + item + '</span>';
+      perderWrap.appendChild(d2);
+    });
+  }
+
+  // ── Inicia timer de privacidade ──
+  iniciarPrivacyTimer();
   // Bundle info
   set('bi-p1',''+CFG.PRECIO_DIAG_SOLO.toFixed(2));
   set('bi-p2',''+CFG.PRECIO_COMPAT_SOLO.toFixed(2));
@@ -1500,6 +1527,55 @@ const CONEXAO = [
       "Cuándo es el momento de soltar — y cómo hacerlo sin sentirte traidora"
     ]
   }
+];
+
+
+/* ─── 16 FRASES CIRÚRGICAS — uma por combinação de perfil ─── */
+const FRASES16 = {
+  "0-Evitativo": "Mencionaste que cuando él desaparece, una parte de ti siente alivio cuando vuelve — aunque el dolor de la espera haya sido real. Eso tiene un nombre psicológico exacto, y tu análisis explica por qué ese alivio se convierte en el gancho más difícil de soltar.",
+  "0-Narcisista": "Dijiste que te quedas porque crees que tu amor puede cambiarlo. Tu análisis revela por qué alguien con su perfil usa exactamente esa creencia para mantenerte cerca — y qué está pasando realmente cuando él muestra vulnerabilidad.",
+  "0-Imaturo": "Respondiste que esperas que él cambie, y que a veces lo hace un poco. Tu análisis explica por qué esos pequeños cambios son suficientes para reactivar tu esperanza — y cuándo ese patrón tiene fecha de vencimiento.",
+  "0-Seguro": "Indicaste que las relaciones sin tensión a veces se sienten vacías. Tu análisis explica por qué lo que interpretas como falta de chispa es algo que tu sistema emocional nunca aprendió a reconocer como amor.",
+  "1-Evitativo": "Respondiste que su distancia te atrae más que su presencia. Tu análisis revela el mecanismo neurológico exacto por el que su frialdad activa en ti una respuesta que confundes con deseo — y cómo romper ese circuito.",
+  "1-Narcisista": "Dijiste que cuando la relación se calma, sientes que algo falta. Tu análisis explica por qué alguien con su perfil sabe exactamente cuándo volver a encender la intensidad — y por qué eso no es amor, aunque se sienta así.",
+  "1-Imaturo": "Mencionaste que las reconciliaciones son muy intensas. Tu análisis revela por qué esa intensidad del reencuentro es el motor que mantiene el ciclo vivo — y qué está pasando en tu cerebro cada vez que ocurre.",
+  "1-Seguro": "Indicaste que las relaciones estables a veces te aburren. Tu análisis explica por qué tu sistema nervioso interpreta la calma como ausencia de amor — y cuál es el primer paso para recalibrarlo sin perder tu intensidad.",
+  "2-Evitativo": "Respondiste que su silencio te hace sentir que hiciste algo mal. Tu análisis revela por qué alguien con su perfil genera exactamente esa sensación — y cómo dejar de tomar su distancia como información sobre tu valor.",
+  "2-Narcisista": "Dijiste que buscas señales constantes de que él todavía te quiere. Tu análisis explica el mecanismo que alguien con su perfil usa para administrar esas señales — dando justo lo suficiente para que te quedes, nunca lo suficiente para que te sientas segura.",
+  "2-Imaturo": "Mencionaste que tu estado de ánimo depende de cómo estuvo él ese día. Tu análisis revela por qué alguien con su perfil —sin darse cuenta— tiene ese nivel de control sobre tu bienestar, y cómo recuperar ese poder.",
+  "2-Seguro": "Indicaste que a veces dudas de tus sentimientos hacia él. Tu análisis explica por qué lo que sientes no es falta de amor — es tu historia emocional confundiendo seguridad con indiferencia.",
+  "3-Evitativo": "Respondiste que ves en él algo que nadie más ve. Tu análisis revela la diferencia entre el potencial real y el que él muestra para que te quedes — y cómo distinguirlos.",
+  "3-Narcisista": "Dijiste que crees que con el amor correcto él puede cambiar. Tu análisis explica por qué alguien con su perfil activa esa creencia casi de forma calculada — y la evidencia concreta que distingue a quien quiere crecer de quien usa ese discurso.",
+  "3-Imaturo": "Mencionaste que él tiene buenas intenciones pero no las cumple. Tu análisis revela la diferencia entre inmadurez emocional real y falta de voluntad — y la única pregunta que te dice si vale la pena seguir esperando.",
+  "3-Seguro": "Indicaste que sientes que algo falta aunque la relación vaya bien. Tu análisis explica por qué tu mente busca un problema donde no hay ninguno — y cuál es el trabajo interno que te permite quedarte en algo bueno sin sabotearlo."
+};
+
+/* ─── BENEFÍCIOS REESCRITOS POR PERFIL ─── */
+const BENEFICIOS_PERFIL = [
+  [ // 0: La Reparadora
+    "El truco psicológico que él usa para que sigas eligiéndolo a él antes que a ti misma — sin que te des cuenta",
+    "Por qué cuando intentas alejarte algo dentro de ti siempre cede, y cómo cortarlo de raíz",
+    "La señal exacta que revela si él puede cambiar de verdad o solo cuando le conviene",
+    "El método para dejar de necesitar su aprobación sin tener que dejar de amarlo"
+  ],
+  [ // 1: La Adicta a la Intensidad
+    "Por qué tu cerebro procesa su frialdad como atracción — y cómo revertir ese circuito desde adentro",
+    "El momento exacto en que una relación intensa cruza la línea hacia la adicción emocional",
+    "Cómo saber si lo que sientes por él es amor real o dependencia disfrazada de pasión",
+    "El primer paso concreto para atraer intensidad sin necesitar el caos para sentirte viva"
+  ],
+  [ // 2: La que Busca su Reflejo
+    "El patrón que él usa para desestabilizarte justo cuando empiezas a sentirte segura contigo misma",
+    "Por qué su silencio te afecta más que sus palabras — y qué dice eso de tu historia",
+    "El método de 3 pasos para que él vuelva a valorarte sin que tengas que rogarle ni perseguirlo",
+    "Cómo reconstruir tu identidad propia sin depender de lo que él piensa o deja de pensar de ti"
+  ],
+  [ // 3: La Enamorada del Potencial
+    "Cómo distinguir si él realmente quiere crecer — o si solo usa ese discurso para retenerte",
+    "La pregunta que revela si estás enamorada de él o de la historia que te contaste sobre él",
+    "Por qué seguir esperando su mejor versión puede costarte años que no vas a recuperar",
+    "El patrón que tienen en común los hombres que prometen cambiar pero nunca dan el primer paso"
+  ]
 ];
 
 /* ─── INIT ─── */

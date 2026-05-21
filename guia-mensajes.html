@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Mensajes · Descubre tu Apego</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --rose:#C84B6A;--rose-dk:#8B2E48;--rose-lt:#FFF0F4;--rose-mid:#E8748F;
+  --gold:#C89B3C;--gold-lt:#FDF5E4;--gold-bd:rgba(200,155,60,.28);
+  --ink:#1A1A2E;--ink2:#2D2D44;--off:#FAFAF8;
+  --border:#E8E4E0;--text:#2C2C3E;--muted:#7A7A8C;
+  --green:#2E7D5A;--green-lt:#EDF7F2;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);line-height:1.7}
+
+/* NAV */
+nav{background:var(--ink);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:'Playfair Display',serif;font-style:italic;color:#fff;font-size:16px;text-decoration:none}
+.nav-print{background:var(--rose);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif}
+
+/* PORTADA */
+.cover{background:linear-gradient(160deg,var(--ink) 0%,#2D1A35 50%,#1A2D35 100%);padding:3rem 1.5rem;text-align:center;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(200,75,106,.2) 0%,transparent 65%);pointer-events:none}
+.cover-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(200,75,106,.15);border:1px solid rgba(200,75,106,.3);color:var(--rose-mid);font-size:10px;font-weight:700;letter-spacing:.1em;padding:5px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:1.2rem;position:relative;z-index:1}
+.cover h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);color:#fff;line-height:1.2;margin-bottom:.8rem;position:relative;z-index:1}
+.cover h1 em{font-style:italic;color:var(--rose-mid)}
+.cover-sub{font-size:15px;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto 1.5rem;line-height:1.7;position:relative;z-index:1}
+.cover-profile{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:.8rem 1.4rem;position:relative;z-index:1}
+.cover-profile-icon{font-size:1.5rem}
+.cover-profile-name{font-family:'Playfair Display',serif;font-style:italic;color:#fff;font-size:14px}
+.cover-profile-label{font-size:10px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.08em}
+
+/* SELECTOR DEMO */
+.demo-bar{background:var(--ink2);padding:.8rem 1.5rem;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.07)}
+.demo-bar label{font-size:11px;color:rgba(255,255,255,.4);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.demo-bar select{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:8px;padding:6px 10px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer}
+.demo-bar button{background:var(--rose);border:none;color:#fff;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif}
+
+/* INTRO */
+.intro-section{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 0}
+.intro-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.4rem;margin-bottom:1.5rem}
+.intro-card p{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:.8rem}
+.intro-card p:last-child{margin-bottom:0}
+.intro-card strong{color:var(--ink)}
+.intro-warning{background:var(--gold-lt);border:1px solid var(--gold-bd);border-radius:12px;padding:1rem 1.3rem;margin-bottom:1.5rem}
+.intro-warning p{font-size:13px;color:#5C4A00;margin:0;line-height:1.6}
+
+/* SECCIONES */
+.section-wrap{max-width:720px;margin:0 auto;padding:0 1.5rem 4rem}
+.section{margin-bottom:2.5rem}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.2rem;padding-bottom:.8rem;border-bottom:2px solid var(--border)}
+.section-num{width:30px;height:30px;border-radius:50%;background:var(--rose);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.section-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--ink)}
+.section-sub{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* SITUACIÓN */
+.situacion{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1rem}
+.sit-header{background:var(--ink);padding:.9rem 1.2rem;display:flex;align-items:center;gap:10px}
+.sit-ico{font-size:1.1rem}
+.sit-title{font-size:14px;font-weight:700;color:#fff}
+.sit-desc{font-size:12px;color:rgba(255,255,255,.45);margin-top:2px}
+.sit-body{padding:1.2rem}
+
+/* SCRIPTS */
+.script-block{margin-bottom:1rem}
+.script-label{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.4rem}
+.script-context{font-size:12px;color:var(--muted);font-style:italic;margin-bottom:.5rem;line-height:1.5}
+.script-msg{background:#E8F5E9;border-radius:0 12px 12px 12px;padding:.9rem 1.1rem;margin-bottom:.4rem;position:relative}
+.script-msg::before{content:'Tú';position:absolute;top:-16px;left:0;font-size:10px;color:var(--muted);font-weight:600}
+.script-msg p{font-size:14px;color:#1B5E20;line-height:1.6;margin:0}
+.script-alt{background:#F5F5F5;border-radius:0 12px 12px 12px;padding:.9rem 1.1rem;margin-bottom:.4rem}
+.script-alt p{font-size:13px;color:var(--muted);line-height:1.6;margin:0;font-style:italic}
+.script-why{font-size:12px;color:var(--rose-dk);line-height:1.5;padding:.6rem .8rem;background:var(--rose-lt);border-radius:8px;margin-top:.4rem}
+.script-divider{height:1px;background:var(--border);margin:1.2rem 0}
+
+/* WHAT NOT */
+.not-section{background:#FFF8F8;border:1px solid rgba(200,75,106,.15);border-radius:14px;padding:1.2rem;margin-bottom:1rem}
+.not-title{font-size:12px;font-weight:700;color:var(--rose-dk);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem;display:flex;align-items:center;gap:6px}
+.not-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:.6rem;font-size:13px;color:var(--text);line-height:1.5}
+.not-item::before{content:'✗';color:var(--rose);font-weight:700;flex-shrink:0;margin-top:1px}
+.not-why{font-size:11px;color:var(--muted);margin-top:2px;font-style:italic}
+
+/* CIERRE */
+.closing{background:linear-gradient(135deg,var(--ink) 0%,#2D1A35 100%);border-radius:16px;padding:2rem;text-align:center;margin:2rem 0;color:#fff}
+.closing h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.8rem}
+.closing p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;max-width:440px;margin:0 auto}
+
+/* PRINT */
+@media print{
+  nav,.demo-bar{display:none!important}
+  body{font-size:12px}
+  .cover{padding:2cm;page-break-after:always}
+  .section{page-break-inside:avoid}
+  .situacion{page-break-inside:avoid}
+}
+
+/* TABS perfil */
+.perfil-content{display:none}
+.perfil-content.active{display:block}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">descubre tu apego</a>
+  <button class="nav-print" onclick="window.print()">📄 Guardar como PDF</button>
+</nav>
+
+<!-- DEMO SELECTOR -->
+<div class="demo-bar" id="demo-selector">
+  <label>Tu perfil:</label>
+  <select id="sel-perfil" onchange="mostrarPerfil()">
+    <option value="0">🌹 La Reparadora</option>
+    <option value="1">🌊 La Adicta a la Intensidad</option>
+    <option value="2">💫 La que Busca su Reflejo</option>
+    <option value="3">🦋 La Enamorada del Potencial</option>
+  </select>
+</div>
+
+<!-- PORTADA -->
+<div class="cover">
+  <div class="cover-tag">Guía exclusiva · Descubre tu Apego</div>
+  <h1>Qué decirle cuando<br><em>él se cierra</em></h1>
+  <p class="cover-sub">15 mensajes reales para cada situación — escritos para tu perfil emocional específico. Sin manipulación. Sin rogar. Con claridad.</p>
+  <div class="cover-profile">
+    <div>
+      <div class="cover-profile-label">Tu perfil emocional</div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span class="cover-profile-icon" id="cover-icon">🌹</span>
+        <span class="cover-profile-name" id="cover-name">La Reparadora</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<div class="intro-section">
+  <div class="intro-card">
+    <p>Esta guía no es un manual de manipulación. Es una herramienta para que puedas comunicarte desde un lugar de claridad — no desde el miedo, la ansiedad o la necesidad de que él reaccione de cierta manera.</p>
+    <p>Los mensajes que aquí encuentras están escritos específicamente para tu perfil emocional. No son guiones para "conquistarlo" — son formas de expresar lo que realmente sientes sin activar los mecanismos que hacen que él se cierre más.</p>
+    <p><strong>Cómo usarla:</strong> Lee primero la situación completa. Entiende el contexto. Luego adapta el mensaje a tu voz — estas son guías, no palabras exactas para copiar.</p>
+  </div>
+  <div class="intro-warning">
+    <p>⚠️ <strong>Importante:</strong> Ningún mensaje va a cambiar el patrón de fondo de él. Lo que sí puede hacer es cambiar la dinámica de la conversación — y darte más información sobre si él tiene capacidad real de estar presente contigo.</p>
+  </div>
+</div>
+
+<!-- ═══ PERFIL 0: LA REPARADORA ═══ -->
+<div class="perfil-content active section-wrap" id="perfil-0">
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <div class="section-title">Cuando él desaparece sin explicación</div>
+        <div class="section-sub">La situación que más activa tu patrón de cuidado compulsivo</div>
+      </div>
+    </div>
+
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">📵</span>
+        <div>
+          <div class="sit-title">Llevás días sin saber nada de él</div>
+          <div class="sit-desc">Él dejó de responder sin aviso. Tu impulso es escribirle, llamarle, buscarle.</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 1 — Si aún no le has escrito</div>
+          <div class="script-context">Antes de mandarle algo, espera 24 horas. Si después de ese tiempo él no ha dado señales, entonces:</div>
+          <div class="script-msg">
+            <p>Hola. Noto que hay silencio de tu parte y no sé qué está pasando. No te voy a perseguir, pero sí quiero que sepas que estoy aquí si necesitas hablar. Si decides no responder, también lo voy a entender.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No lo acusas ni lo presionas. Le das espacio real y al mismo tiempo pones un límite implícito — si no responde, tú lo vas a tomar como información.</div>
+        </div>
+
+        <div class="script-divider"></div>
+
+        <div class="script-block">
+          <div class="script-label">Mensaje 2 — Si ya le escribiste y no respondió</div>
+          <div class="script-context">No mandes un tercer mensaje. Si ya le escribiste dos veces, el siguiente movimiento es de él.</div>
+          <div class="script-msg">
+            <p>Ya te escribí. No voy a seguir insistiendo. Cuando quieras hablar, aquí voy a estar — pero no voy a estar esperando indefinidamente.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Rompe tu patrón de persecución. Le dice que tienes un límite sin hacerlo un drama. Esto, paradójicamente, tiene más peso que diez mensajes de ansiedad.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">❄️</span>
+        <div>
+          <div class="sit-title">Él responde con monosílabos o indiferencia</div>
+          <div class="sit-desc">Está presente pero emocionalmente ausente. Tú sientes que hiciste algo mal.</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 3 — Para nombrar lo que sientes sin atacar</div>
+          <div class="script-msg">
+            <p>Siento que estás lejos aunque estés aquí. No sé si es algo mío o algo tuyo, pero me gustaría saberlo. ¿Estás bien?</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Abre la conversación sin acusar. Le das la oportunidad de decir qué está pasando — y su respuesta te va a dar mucha información.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 4 — Si él dice "nada, estoy bien" pero no lo está</div>
+          <div class="script-msg">
+            <p>Okay. Te creo. Pero si en algún momento quieres hablar de verdad, te escucho sin juzgarte.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No lo persigues ni lo interrogas. Le dejas la puerta abierta sin quedarte pegada a ella esperando.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <div class="section-title">Cuando él vuelve después de alejarse</div>
+        <div class="section-sub">El momento donde más pierdes tu poder — aprende a recibirlo desde otro lugar</div>
+      </div>
+    </div>
+
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">🔄</span>
+        <div>
+          <div class="sit-title">Él reaparece como si nada hubiera pasado</div>
+          <div class="sit-desc">Manda un "hola" casual después de días de silencio. Tu impulso es responder de inmediato con alivio.</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 5 — Respuesta que no premia el silencio</div>
+          <div class="script-context">Espera al menos 2-3 horas antes de responder. Luego:</div>
+          <div class="script-msg">
+            <p>Hola. Estuve pensando en ti estos días. ¿Qué pasó? Me gustaría entender el silencio antes de seguir como si nada.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No lo recibes con los brazos abiertos como si no hubiera pasado nada. Pides una explicación de forma tranquila — eso cambia la dinámica por completo.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 6 — Si él dice "es que estaba ocupado"</div>
+          <div class="script-msg">
+            <p>Lo entiendo, todos tenemos épocas difíciles. Pero para mí el contacto importa, y cuando desapareces sin decirme nada me genera incertidumbre. ¿Podemos hablar de eso?</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No lo acusas de nada pero sí pones sobre la mesa lo que necesitas. Esto le da la oportunidad de estar presente — o de mostrarte que no puede.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <div class="section-title">Cuando quieres poner un límite sin perderlo</div>
+        <div class="section-sub">El equilibrio más difícil para La Reparadora</div>
+      </div>
+    </div>
+
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">🛑</span>
+        <div>
+          <div class="sit-title">Él hizo algo que te lastimó y lo minimizó</div>
+          <div class="sit-desc">Tú lo perdonaste rápido para no perderlo. Pero el malestar sigue ahí.</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 7 — Para retomar algo que quedó sin resolver</div>
+          <div class="script-msg">
+            <p>Sé que ya hablamos de lo que pasó, pero quiero ser honesta contigo: todavía me duele. No lo digo para pelearnos — lo digo porque creo que si no lo digo, va a quedar ahí entre los dos.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Vuelves al tema sin acusar. Le estás diciendo que eres una persona que habla sus cosas — eso es poder, no debilidad.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 8 — Cuando él minimiza lo que sientes</div>
+          <div class="script-msg">
+            <p>Entiendo que para ti no fue gran cosa. Para mí sí lo fue. No te estoy pidiendo que entiendas exactamente por qué — solo que lo reconozcas.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No cedes. No peleas. Simplemente mantienes tu verdad sin necesitar que él la valide completamente.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <div class="section-title">Mensajes que nunca deberías mandar</div>
+        <div class="section-sub">Los que activan el patrón de persecución — y alejan más</div>
+      </div>
+    </div>
+    <div class="not-section">
+      <div class="not-title">🚫 Evita estos mensajes</div>
+      <div class="not-item">
+        "¿Estás bien? ¿Qué pasó? ¿Por qué no me contestas? ¿Hice algo mal?"
+        <div class="not-why">Cuatro preguntas en una = ansiedad visible = él se cierra más.</div>
+      </div>
+      <div class="not-item">
+        "Ya sé que estás ocupado, no te molesto más, perdona si fui intensa"
+        <div class="not-why">Te disculpas por existir. Eso le enseña que puede desaparecer sin consecuencias.</div>
+      </div>
+      <div class="not-item">
+        "Solo quería saber si sigues vivo jaja"
+        <div class="not-why">El humor como disfraz de ansiedad. Él lo lee exactamente así.</div>
+      </div>
+      <div class="not-item">
+        "Está bien, no importa" — cuando sí importa
+        <div class="not-why">Le dices que lo que sientes no vale la pena decirlo. Con el tiempo, dejas de decirte a ti misma que importa.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div>
+        <div class="section-title">Cuando necesitas espacio para ti</div>
+        <div class="section-sub">Algo que La Reparadora casi nunca hace — pero necesita aprender</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">🌿</span>
+        <div>
+          <div class="sit-title">Quieres tomar distancia para cuidarte</div>
+          <div class="sit-desc">No como castigo para él — como acto de amor propio para ti.</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 9 — Para pedir espacio sin drama</div>
+          <div class="script-msg">
+            <p>Necesito un tiempo para mí. No es un castigo ni una señal de que algo está mal entre nosotros. Solo necesito estar conmigo unos días. Te escribo cuando esté lista.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Lo más contracultural para tu perfil — pero lo más poderoso. Le muestras que tú también tienes necesidades que no dependen de él.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 10 — Si él reacciona mal a tu distancia</div>
+          <div class="script-msg">
+            <p>Entiendo que te genera incomodidad. Pero si yo no puedo tener espacio para mí sin que eso sea un problema, eso me dice algo importante sobre la dinámica que tenemos.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Nombras la dinámica sin atacarlo. Le das información real sobre lo que ves — y a ti misma también.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div>
+        <div class="section-title">La conversación más importante</div>
+        <div class="section-sub">Cuando decides hablar de lo que realmente está pasando entre los dos</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">💬</span>
+        <div>
+          <div class="sit-title">Quieres saber si esto tiene futuro</div>
+          <div class="sit-desc">No como ultimátum — como conversación honesta entre dos adultos.</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 11 — Para abrir la conversación real</div>
+          <div class="script-msg">
+            <p>Quiero hablar de algo que llevo tiempo pensando — no para pelearnos sino para entendernos. ¿Cuándo tienes un momento con calma para eso?</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Pides la conversación antes de tenerla. Eso le da tiempo de prepararse — y te da información sobre si quiere tenerla.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 12 — Durante la conversación, si él se cierra</div>
+          <div class="script-msg">
+            <p>Noto que esto te cuesta. No tienes que tener todas las respuestas ahora. Pero sí necesito que me digas si quieres tener esta conversación — porque yo sí quiero tenerla.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Le das espacio pero no cedes el terreno. No haces la conversación por los dos.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 13 — Si él evita responder qué quiere</div>
+          <div class="script-msg">
+            <p>Okay. Entiendo que no tienes una respuesta clara. Lo que sí me queda claro es que yo necesito a alguien que pueda estar presente — no solo cuando le resulta cómodo. Necesito tiempo para pensar en eso.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No le das un ultimátum pero sí le dices la verdad. Y te la dices a ti también.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div>
+        <div class="section-title">Cuando decides soltar</div>
+        <div class="section-sub">Los mensajes para cerrar desde un lugar de dignidad — no de dolor</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">🦋</span>
+        <div>
+          <div class="sit-title">Decidiste que necesitas salir de esta dinámica</div>
+          <div class="sit-desc">No por enojo — por claridad.</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 14 — Para cerrar con claridad</div>
+          <div class="script-msg">
+            <p>He estado pensando mucho y quiero ser honesta: lo que tenemos no me está dando lo que necesito. No es culpa tuya ni mía — somos personas con necesidades que no están siendo cubiertas. Voy a tomar distancia.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Cierras sin drama, sin acusaciones y sin dejar la puerta abierta al "a ver si cambia". Eso es poder real.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 15 — Si él dice "pero yo sí te quiero"</div>
+          <div class="script-msg">
+            <p>Te creo. Y yo también te quiero. Pero el querer sin la disponibilidad emocional no es suficiente para mí. Eso es algo que he aprendido de mí misma.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No niegas sus sentimientos. Pero tampoco dejas que sean suficientes si no van acompañados de presencia real.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- fin perfil-0 -->
+
+<!-- ═══ PERFIL 1: LA ADICTA A LA INTENSIDAD ═══ -->
+<div class="perfil-content section-wrap" id="perfil-1">
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <div class="section-title">Cuando la ansiedad sube y quieres escribirle</div>
+        <div class="section-sub">El momento más peligroso para tu perfil — el impulso de hacer algo</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">📱</span>
+        <div>
+          <div class="sit-title">Son las 11pm y llevas horas sin saber de él</div>
+          <div class="sit-desc">La ansiedad está alta. El impulso de escribir es casi físico.</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 1 — El que nunca deberías mandar (pero a veces mandas)</div>
+          <div class="script-context">Si vas a escribirle algo, primero escríbelo en un papel o en las notas del celular. Espera 30 minutos. Si después sigues queriendo mandarlo, entonces manda esto:</div>
+          <div class="script-msg">
+            <p>Estaba pensando en ti. ¿Cómo estás?</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Tres palabras. Sin ansiedad visible. Sin necesidad disfrazada. Le deja el espacio de responder o no — y te da información sin que hayas mostrado todas tus cartas.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 2 — Si llevas días sin escribirle y quieres retomar</div>
+          <div class="script-msg">
+            <p>Hola. Hace días que no hablamos. ¿Cómo vas?</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Simple, directo, sin explicaciones ni disculpas. No le cuentas que lo extrañaste toda la semana. Eso es poder.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <div class="section-title">Cuando la intensidad baja y sientes que "se acabó"</div>
+        <div class="section-sub">Tu perfil interpreta la calma como pérdida — esto te ayuda a leerlo diferente</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">😶</span>
+        <div>
+          <div class="sit-title">Él está tranquilo y tú sientes que algo falta</div>
+          <div class="sit-desc">No hay drama, no hay tensión — y eso te genera más ansiedad que una pelea.</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 3 — Para explorar sin crear conflicto</div>
+          <div class="script-msg">
+            <p>Oye, ¿cómo estamos tú y yo? No porque algo esté mal — solo quiero saber cómo te sientes conmigo en este momento.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Satisfaces tu necesidad de "sentir algo" sin crear un drama artificial. Le haces una pregunta real — y su respuesta te dice cómo está él de verdad.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 4 — Si tú misma sientes que te estás aburriendo</div>
+          <div class="script-context">Antes de mandarlo, pregúntate: ¿estoy aburrida de él o de la calma? Si la respuesta es "de la calma", no mandes nada. Si es de él, entonces:</div>
+          <div class="script-msg">
+            <p>Siento que últimamente estamos en piloto automático. ¿Tú lo notas también? Me gustaría que hiciéramos algo diferente juntos.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Propones algo concreto en vez de crear tensión. Eso es intensidad sana — no drama.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <div class="section-title">Cuando hubo una pelea intensa y quieres reconciliarte</div>
+        <div class="section-sub">El momento donde más riesgo tienes de reforzar el ciclo</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">🔥</span>
+        <div>
+          <div class="sit-title">Después de una discusión fuerte</div>
+          <div class="sit-desc">El impulso de reconciliarte rápido es enorme — porque la intensidad de la reconciliación es adictiva.</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 5 — Para reconciliarte sin borrar lo que pasó</div>
+          <div class="script-context">Espera al menos 12 horas después de la pelea. Luego:</div>
+          <div class="script-msg">
+            <p>Ya se me bajó todo. ¿Cómo estás tú? Creo que los dos dijimos cosas desde un mal momento. Cuando quieras, me gustaría hablar con calma de lo que pasó.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No borras el conflicto. No haces como si no hubiera pasado. Abres la puerta a hablar de verdad — en vez de a una reconciliación que solo prolonga el ciclo.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 6 — Si él busca reconciliarse rápido sin hablar</div>
+          <div class="script-msg">
+            <p>Me alegra que quieras reconciliarte. Yo también quiero. Pero necesito que primero hablemos de lo que pasó — no para seguir peleando sino para no repetirlo.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No rechazas la reconciliación — le pones una condición sana. Eso rompe el ciclo pelea-reencuentro-pelea.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <div class="section-title">Mensajes que nunca deberías mandar</div>
+        <div class="section-sub">Los que alimentan el ciclo de intensidad sin resolver nada</div>
+      </div>
+    </div>
+    <div class="not-section">
+      <div class="not-title">🚫 Evita estos mensajes</div>
+      <div class="not-item">
+        "¿Sabes qué? Olvídalo todo. Ya no importa."
+        <div class="not-why">Drama disfrazado de indiferencia. Él sabe exactamente lo que significa — y refuerza el ciclo.</div>
+      </div>
+      <div class="not-item">
+        "Necesito que me digas AHORA si esto tiene futuro o no"
+        <div class="not-why">Ultimátum desde la ansiedad. Raramente genera la respuesta que buscas.</div>
+      </div>
+      <div class="not-item">
+        "Si no me respondes en una hora, se acabó"
+        <div class="not-why">Si no lo cumples, pierdes credibilidad. Si lo cumples desde la ansiedad, pierdes información.</div>
+      </div>
+      <div class="not-item">
+        Mensajes largos a las 2am explicando todo lo que sientes
+        <div class="not-why">La ansiedad nocturna no es el mejor momento para comunicar nada importante.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div>
+        <div class="section-title">La conversación que tu perfil necesita tener</div>
+        <div class="section-sub">Hablar de lo que realmente buscas — sin hacerlo una pelea</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">💬</span>
+        <div>
+          <div class="sit-title">Quieres decirle que necesitas más presencia</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 7</div>
+          <div class="script-msg">
+            <p>Quiero contarte algo sobre mí — no para que cambies sino para que me entiendas mejor. Para mí el contacto y la presencia son importantes. No necesito que estés disponible todo el tiempo, pero sí de forma consistente. ¿Eso es algo que puedes darme?</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Le hablas de ti, no de lo que él hace mal. Le haces una pregunta directa que requiere una respuesta real.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 8 — Si él dice "es que yo soy así"</div>
+          <div class="script-msg">
+            <p>Lo entiendo. Y yo soy como soy también. La pregunta es si lo que cada uno necesita es compatible — no si alguno de los dos está mal.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No te rindes ni lo atacas. Pones el tema real sobre la mesa: compatibilidad, no culpa.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div>
+        <div class="section-title">Cuando decides soltar</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header"><span class="sit-ico">🌊</span><div><div class="sit-title">Cerrando desde la claridad, no desde el dolor</div></div></div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 9</div>
+          <div class="script-msg">
+            <p>Creo que los dos sabemos que esto ya no está funcionando como ninguno de los dos quiere. Lo que sentimos es real — pero real no siempre significa suficiente. Necesito salir de este ciclo.</p>
+          </div>
+          <div class="script-why">💡 Cierras sin negar lo que hubo. Sin drama. Con honestidad.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- fin perfil-1 -->
+
+<!-- ═══ PERFIL 2: LA QUE BUSCA SU REFLEJO ═══ -->
+<div class="perfil-content section-wrap" id="perfil-2">
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <div class="section-title">Cuando su silencio te hace sentir que fallaste</div>
+        <div class="section-sub">La trampa más común de tu perfil — tomar su distancia como información sobre ti</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">💫</span>
+        <div>
+          <div class="sit-title">Él está frío y tú ya estás revisando qué hiciste mal</div>
+          <div class="sit-desc">Tu mente busca el error tuyo antes de considerar que puede ser algo de él.</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 1 — Para preguntar sin asumir que fallaste</div>
+          <div class="script-msg">
+            <p>Noto que estás diferente estos días. ¿Está pasando algo?</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No asumes que es por ti. Le preguntas directamente — y su respuesta te dice si es algo de él o algo de la relación.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 2 — Si él dice "no es nada" pero sigue frío</div>
+          <div class="script-msg">
+            <p>Okay, te creo. Pero yo sigo sintiéndolo diferente. Si en algún momento quieres compartir algo, aquí estoy.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No te convences de que estás exagerando. Confías en lo que percibes — y lo dices sin dramatismo.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 3 — Para cuando la ansiedad ya subió y quieres buscar validación</div>
+          <div class="script-context">Este es el momento donde más riesgo tienes. Antes de escribirle algo, pregúntate: ¿estoy buscando saber cómo está él o estoy buscando que me diga que todo está bien entre nosotros? Si es lo segundo, este es el mensaje:</div>
+          <div class="script-msg">
+            <p>Quería preguntarte algo — ¿estamos bien tú y yo? Sé que puede sonar inseguro pero prefiero preguntarlo a quedarme dando vueltas.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Eres honesta sobre tu vulnerabilidad sin convertirla en una carga para él. Le das la oportunidad de tranquilizarte — o de ser honesto si algo pasa.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <div class="section-title">Cuando necesitas validación pero quieres pedirla diferente</div>
+        <div class="section-sub">Cómo expresar tu necesidad sin que se sienta como una exigencia</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">💛</span>
+        <div>
+          <div class="sit-title">Necesitas sentir que le importas</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 4 — Para pedir afecto directamente</div>
+          <div class="script-msg">
+            <p>Oye, hoy necesito escuchar que todo está bien entre nosotros. ¿Me lo puedes decir?</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Pides lo que necesitas de forma directa y sin rodeos. Eso es mucho más poderoso que esperar que lo adivine.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 5 — Si él no responde como esperabas</div>
+          <div class="script-msg">
+            <p>Gracias por responder. Noto que te cuesta este tipo de cosas — y también noto que eso me afecta más de lo que me gustaría. Es algo que estoy trabajando.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Le das información honesta sobre ti sin hacerlo responsable de tu bienestar. Eso cambia la dinámica.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <div class="section-title">Cuando él usa el silencio para controlarte</div>
+        <div class="section-sub">Reconocer el patrón — y no caer en él</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">🔇</span>
+        <div>
+          <div class="sit-title">Él desaparece cada vez que pides algo o hay conflicto</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 6 — Para nombrar el patrón</div>
+          <div class="script-msg">
+            <p>He notado que cuando hay algo difícil entre nosotros, desapareces. Quiero hablarte de eso — no para atacarte sino porque ese patrón me afecta mucho y quiero entenderlo.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Nombras lo que ves sin acusar. Le das la oportunidad de explicarlo — o de confirmar que es así.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 7 — Si él dice que "necesita espacio para procesar"</div>
+          <div class="script-msg">
+            <p>Entiendo que necesitas espacio. ¿Cuánto tiempo necesitas? No te lo pregunto para presionarte — me lo pregunto para saber cómo manejar yo mi propia ansiedad mientras tanto.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Le pides algo concreto. Y te haces cargo de tu propia ansiedad — no se la pasas a él.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <div class="section-title">Mensajes que nunca deberías mandar</div>
+      </div>
+    </div>
+    <div class="not-section">
+      <div class="not-title">🚫 Evita estos mensajes</div>
+      <div class="not-item">
+        "¿Ya no te gusto? ¿Estás con alguien más? ¿Qué hice mal?"
+        <div class="not-why">Tres preguntas desde el miedo. Él las va a leer como inseguridad — y puede usarlas para distanciarse más.</div>
+      </div>
+      <div class="not-item">
+        "Tranquilo, ya sé que soy muy intensa"
+        <div class="not-why">Te disculpas por sentir. Eso no es humildad — es borrarte.</div>
+      </div>
+      <div class="not-item">
+        "Está bien, no importa" — repetido más de una vez
+        <div class="not-why">Cada vez que lo dices y no es verdad, te alejas un poco más de ti misma.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div>
+        <div class="section-title">La conversación sobre lo que necesitas en una relación</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header"><span class="sit-ico">💬</span><div><div class="sit-title">Decirle lo que necesitas sin que suene como exigencia</div></div></div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 8</div>
+          <div class="script-msg">
+            <p>Quiero contarte algo sobre cómo funciono yo. No siempre me resulta fácil sentirme segura en una relación — necesito constancia más que intensidad. ¿Es algo que puedes darme?</p>
+          </div>
+          <div class="script-why">💡 Le hablas de ti, no de lo que él hace mal. Y le haces una pregunta que requiere una respuesta honesta.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 9 — Si él dice "no sabía que eso te afectaba tanto"</div>
+          <div class="script-msg">
+            <p>Sí, me afecta. Y está bien que ahora lo sepas. Lo que hago con esa información depende de los dos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div><div class="section-title">Cuando decides soltar</div></div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header"><span class="sit-ico">💫</span><div><div class="sit-title">Cerrando desde tu propio valor — no desde el dolor</div></div></div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 10</div>
+          <div class="script-msg">
+            <p>He llegado a una conclusión: necesito estar con alguien que me haga sentir segura de forma consistente — no solo cuando él decide estar disponible. Eso no lo estoy encontrando aquí, y me lo merezco.</p>
+          </div>
+          <div class="script-why">💡 Cierras desde tu valor propio — no desde el enojo ni el dolor. Eso es un cierre real.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- fin perfil-2 -->
+
+<!-- ═══ PERFIL 3: LA ENAMORADA DEL POTENCIAL ═══ -->
+<div class="perfil-content section-wrap" id="perfil-3">
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <div class="section-title">Cuando él promete cambiar y no lo hace</div>
+        <div class="section-sub">El ciclo más costoso de tu perfil — esperar la versión que imaginaste</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">🦋</span>
+        <div>
+          <div class="sit-title">Él prometió algo y volvió a incumplirlo</div>
+          <div class="sit-desc">Tu primer impulso es entender por qué y darle otra oportunidad.</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 1 — Para nombrar el incumplimiento sin dramatismo</div>
+          <div class="script-msg">
+            <p>Ya pasó lo mismo que la vez anterior. No te lo digo para atacarte — te lo digo porque cuando esto se repite, me resulta difícil seguir confiando. ¿Qué está pasando realmente?</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No lo perdonas automáticamente. Pides una explicación real — y eso le exige que piense antes de responder.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 2 — Si él dice "es que las cosas se complicaron"</div>
+          <div class="script-msg">
+            <p>Entiendo que las cosas se complican. Lo que necesito saber es si esto es una excepción o un patrón. Porque si es un patrón, necesito saberlo para tomar decisiones desde un lugar claro.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Le pides que sea honesto sobre sí mismo. Su respuesta te va a dar la información que necesitas — aunque no sea la que quieres escuchar.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <div class="section-title">Cuando quieres saber si él realmente quiere crecer</div>
+        <div class="section-sub">La pregunta más importante para tu perfil</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">🌱</span>
+        <div>
+          <div class="sit-title">Él habla de querer mejorar pero no lo ves en sus acciones</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 3 — Para separar el discurso de las acciones</div>
+          <div class="script-msg">
+            <p>Me alegra que quieras crecer — de verdad. Lo que yo necesito ver son acciones, no solo intenciones. No porque no te crea, sino porque las intenciones sin acciones no cambian nada en la práctica.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No lo acusas de mentir. Pero le dejas claro que las palabras no son suficientes para ti.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 4 — Para hacer la pregunta directa</div>
+          <div class="script-msg">
+            <p>Tengo que preguntarte algo con honestidad: ¿estás trabajando en esto para ti — o para que yo me quede? Porque la diferencia importa mucho.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Es la pregunta que tu perfil raramente hace — pero que más información te da.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <div class="section-title">Cuando él te muestra su "mejor versión" para retenerte</div>
+        <div class="section-sub">Aprender a leer cuándo el cambio es real y cuándo es estratégico</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header">
+        <span class="sit-ico">✨</span>
+        <div>
+          <div class="sit-title">Cuando sientes que estás a punto de irte y él "cambia"</div>
+        </div>
+      </div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 5 — Para no descalificar el cambio pero tampoco dejarte llevar</div>
+          <div class="script-msg">
+            <p>Noto que estás haciendo un esfuerzo — y lo valoro. Lo que también voy a observar es si ese esfuerzo se mantiene cuando ya no sienta que me estoy yendo.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: No lo rechazas ni lo recibes con los brazos abiertos. Le dices la verdad: el tiempo va a ser el que hable.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 6 — Si él se molesta porque "nada le alcanza"</div>
+          <div class="script-msg">
+            <p>No es que nada te alcance. Es que llevo mucho tiempo esperando ver algo consistente — y aprendí que los cambios se miden en meses, no en días. No es un ataque, es honestidad.</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Defiendes tu posición sin agresividad. Le explicas tu lógica — y eso es mucho más poderoso que ceder.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <div class="section-title">Mensajes que nunca deberías mandar</div>
+      </div>
+    </div>
+    <div class="not-section">
+      <div class="not-title">🚫 Evita estos mensajes</div>
+      <div class="not-item">
+        "Sé que puedes lograrlo, yo confío en ti"
+        <div class="not-why">Le refuerzas el discurso del potencial sin pedir acciones concretas. Eso le enseña que las palabras son suficientes.</div>
+      </div>
+      <div class="not-item">
+        "Está bien, te doy más tiempo"
+        <div class="not-why">¿Cuánto tiempo llevas dándole más tiempo? Si no hay una fecha o una condición concreta, esto no tiene fondo.</div>
+      </div>
+      <div class="not-item">
+        "No importa, lo importante es que quieres cambiar"
+        <div class="not-why">El querer sin el hacer no cambia nada en tu vida cotidiana con él.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div>
+        <div class="section-title">La conversación sobre cuánto tiempo más</div>
+        <div class="section-sub">La que más cuesta tener — y la más necesaria</div>
+      </div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header"><span class="sit-ico">⏳</span><div><div class="sit-title">Necesitas saber si esto tiene fecha de cambio real</div></div></div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 7</div>
+          <div class="script-msg">
+            <p>Quiero ser honesta contigo: llevo mucho tiempo esperando ver cambios concretos. No te lo digo como ultimátum — te lo digo porque me merezco saber si lo que espero es realista o no. ¿Qué me puedes decir?</p>
+          </div>
+          <div class="script-why">💡 Por qué funciona: Le haces responsable de darte información real sobre sí mismo. Eso es lo más valioso que puedes pedir.</div>
+        </div>
+        <div class="script-divider"></div>
+        <div class="script-block">
+          <div class="script-label">Mensaje 8 — Si él no puede darte una respuesta concreta</div>
+          <div class="script-msg">
+            <p>Entiendo que no tienes una respuesta. Eso también es información para mí. Necesito tiempo para pensar qué hago con eso.</p>
+          </div>
+          <div class="script-why">💡 Su falta de respuesta es una respuesta. Y tú la estás leyendo correctamente.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div><div class="section-title">Cuando decides soltar el potencial y elegirte a ti</div></div>
+    </div>
+    <div class="situacion">
+      <div class="sit-header"><span class="sit-ico">🦋</span><div><div class="sit-title">El cierre más difícil para tu perfil — y el más necesario</div></div></div>
+      <div class="sit-body">
+        <div class="script-block">
+          <div class="script-label">Mensaje 9</div>
+          <div class="script-msg">
+            <p>Te quiero. Y sé que tú también tienes buenas intenciones. Pero he aprendido que no puedo construir mi vida sobre el potencial de alguien — necesito construirla sobre lo que hay ahora. Y lo que hay ahora no es suficiente para mí. Eso no te hace malo — me hace honesta conmigo misma.</p>
+          </div>
+          <div class="script-why">💡 El cierre más maduro que puede dar tu perfil. Sin drama, sin acusaciones, sin dejar la puerta abierta al "a ver si cambia". Solo la verdad.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- fin perfil-3 -->
+
+<!-- CIERRE -->
+<div style="max-width:720px;margin:0 auto;padding:0 1.5rem 4rem">
+  <div class="closing">
+    <h3>Antes de cerrar esta guía</h3>
+    <p>Ningún mensaje va a cambiar quién es él. Lo que sí puede cambiar es la forma en que te comunicas desde tu propio lugar — y la información que obtienes de sus respuestas. Esa información es tuya. Úsala.</p>
+  </div>
+</div>
+
+<script>
+/* ── Lee el perfil de la URL o del selector ── */
+function leerPerfil() {
+  var params = new URLSearchParams(window.location.search);
+  var r = params.get('r');
+  var p = 0;
+  if (r) {
+    try {
+      var datos = JSON.parse(atob(decodeURIComponent(r)));
+      if (datos.ella !== undefined) p = parseInt(datos.ella);
+    } catch(e) {}
+  }
+  return p;
+}
+
+var ICONOS = ['🌹','🌊','💫','🦋'];
+var NOMBRES = ['La Reparadora','La Adicta a la Intensidad','La que Busca su Reflejo','La Enamorada del Potencial'];
+
+function mostrarPerfil(idx) {
+  if (idx === undefined) {
+    var sel = document.getElementById('sel-perfil');
+    idx = sel ? parseInt(sel.value) : 0;
+  }
+  document.querySelectorAll('.perfil-content').forEach(function(el){
+    el.classList.remove('active');
+  });
+  var target = document.getElementById('perfil-' + idx);
+  if (target) target.classList.add('active');
+  var iconEl = document.getElementById('cover-icon');
+  var nameEl = document.getElementById('cover-name');
+  if (iconEl) iconEl.innerHTML = ICONOS[idx] || '🌹';
+  if (nameEl) nameEl.innerHTML = NOMBRES[idx] || '';
+  var sel = document.getElementById('sel-perfil');
+  if (sel) sel.value = idx;
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', function() {
+  var p = leerPerfil();
+  mostrarPerfil(p);
+  // Se veio da URL, oculta o seletor demo
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('r')) {
+    var demo = document.getElementById('demo-selector');
+    if (demo) demo.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>

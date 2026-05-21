@@ -1,23 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2386359905182369');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2386359905182369&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2386359905182369');fbq('track','PageView');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Descubre tu Apego · Test Emocional Gratuito</title>
@@ -55,7 +39,7 @@ const CFG = {
   // ============================================================
 
   // 🔗 1. Link de tu checkout en Hotmart / Kiwify / Stripe
-  URL_CHECKOUT: "https://pay.hotmart.com/B105912832J",
+  URL_CHECKOUT: "https://pay.hotmart.com/B105912832J?checkoutMode=10",
 
   // 🔗 2. URL completa de tu página de reporte (donde está reportes-emocionales.html)
   //       Ejemplo: "https://tusitio.com/reporte.html"
@@ -87,7 +71,7 @@ const CFG = {
   --green:#3AB47A;--green-bg:rgba(58,180,122,.1);--green-bd:rgba(58,180,122,.3);
   --muted:rgba(18,16,26,.45);
 }
-html,body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--txt);overflow-x:hidden;-webkit-text-size-adjust:100%;min-height:100vh}
+html,body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--txt);overflow-x:clip;-webkit-text-size-adjust:100%;min-height:100vh}
 .page{display:none!important}.page.active{display:block!important}
 
 /* ── TIPOGRAFIA ── */
@@ -212,7 +196,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 .tr-ico{font-size:2rem}
 
 /* ── CHECKOUT MODAL ── */
-.co-ov{background:rgba(0,0,0,.65);display:none;align-items:flex-end;justify-content:center;min-height:500px;position:relative;z-index:20}
+.co-ov{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(0,0,0,.78);align-items:flex-end;justify-content:center;overflow:hidden}
 .co-ov.open{display:flex}
 .co-pan{background:var(--ink3);border-top:1px solid var(--bd-rose);border-radius:20px 20px 0 0;padding:1.5rem 1.2rem;width:100%;max-height:92vh;overflow-y:auto}
 .co-h{font-family:'Playfair Display',serif;font-size:1.05rem;color:#fff;text-align:center;margin-bottom:1.1rem}
@@ -442,7 +426,6 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 }
 .wa-cta-below{margin-top:1.5rem;text-align:center}
 
-.co-ov.open{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;z-index:9999!important;display:flex!important;align-items:flex-end!important;justify-content:center!important;background:rgba(0,0,0,.75)!important}
 </style>
 </head>
 <body>
@@ -453,7 +436,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 <div id="pg-land" class="page active">
   <div class="lp-bg">
     <nav class="lp-nav">
-      <div class="lp-logo">descubre tu apego</div>
+      <div class="lp-logo">❤️ descubre tu apego</div>
       <span class="tag tag-rose">gratis</span>
     </nav>
     <div class="hero-grid">
@@ -696,7 +679,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <button class="btn btn-rose" onclick="goToQuiz1()" style="max-width:380px;margin:0 auto">✨ Iniciar test gratis</button>
     <div style="font-size:11px;color:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;gap:5px;margin-top:10px"><span>🔒</span>sin spam · datos protegidos</div>
   </div>
-  <footer>© 2025 Descubre tu Apego · Solo con fines informativos · No reemplaza la atención psicológica profesional<br><a href="/privacidad.html" style="color:rgba(255,255,255,.25);font-size:10px;text-decoration:none">Política de Privacidad</a></footer>
+  <footer>© 2025 Descubre tu Apego · Solo con fines informativos · No reemplaza la atención psicológica profesional · <a href="/privacidad.html" style="color:rgba(255,255,255,.3);text-decoration:none;font-size:10px">Política de Privacidad</a></footer>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -773,10 +756,10 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 <div id="pg-venda" class="page">
   <div class="wrap">
 
-    <!-- Cabeçalho resultado parcial -->
-    <div style="text-align:center;margin-bottom:1.5rem">
-      <span class="tag tag-green" style="display:inline-flex;margin-bottom:.9rem">✓ Los dos perfiles analizados</span>
-      <div style="display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-bottom:1rem">
+    <!-- PERFIS -->
+    <div style="text-align:center;margin-bottom:1rem">
+      <span class="tag tag-green" style="display:inline-flex;margin-bottom:.8rem">✓ Los dos perfiles analizados</span>
+      <div style="display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-bottom:.8rem">
         <div style="text-align:center">
           <div id="v-icon-ella" style="font-size:2rem;margin-bottom:4px">🌹</div>
           <div style="font-size:11px;color:var(--txt3)">Tu perfil</div>
@@ -789,10 +772,30 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
           <div id="v-type-el" class="serif" style="font-size:13px;color:var(--gold);font-style:italic"></div>
         </div>
       </div>
-      <div class="card" style="text-align:center;padding:.9rem">
+      <div class="card" style="text-align:center;padding:.8rem;margin-bottom:1rem">
         <div style="font-size:11px;color:var(--txt3);margin-bottom:3px">Dinámica identificada</div>
         <div id="v-dinamica" class="serif" style="font-size:16px;color:#fff;font-weight:700"></div>
       </div>
+    </div>
+
+    <!-- FRASE PERSONALIZADA -->
+    <div style="border-left:3px solid var(--rose);padding:.9rem 1rem;background:rgba(200,75,106,.07);border-radius:0 12px 12px 0;margin-bottom:.8rem">
+      <p id="v-frase1" style="font-size:14px;color:#fff;line-height:1.75;margin:0;font-style:italic"></p>
+    </div>
+    <div style="border-left:3px solid rgba(200,75,106,.3);padding:.7rem 1rem;background:rgba(200,75,106,.03);border-radius:0 10px 10px 0;margin-bottom:1rem">
+      <p id="v-frase2" style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.65;margin:0"></p>
+    </div>
+
+    <!-- CURIOSIDADE -->
+    <div class="card" style="text-align:center;padding:.9rem;margin-bottom:1rem">
+      <div style="font-size:10px;color:var(--txt3);margin-bottom:.3rem">La pregunta que responde tu análisis</div>
+      <div id="v-curiosidad" class="serif" style="font-size:.95rem;color:#fff;font-style:italic;line-height:1.4"></div>
+    </div>
+
+    <!-- BENEFÍCIOS BLOQUEADOS -->
+    <div class="card card-rose" style="margin-bottom:1rem">
+      <div style="font-size:10px;color:var(--rose-mid);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.6rem">🔒 Lo que no sabrás si no desbloqueas</div>
+      <div id="v-perder"></div>
     </div>
 
     <!-- Lock box -->
@@ -837,6 +840,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
   <!-- CHECKOUT MODAL -->
   <div class="co-ov" id="co-overlay">
     <div class="co-pan">
+      
               <span class="timer-num" id="tm-min">15</span>
         <span class="timer-sep">:</span>
         <span class="timer-num" id="tm-sec">00</span>
@@ -858,17 +862,18 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <span id="co-total-base">$11.99</span>
       </div>
 
+      
             <!-- Total dinâmico -->
       <div class="total-row">
         <span>Total</span>
-        <span id="co-total-dyn"></span>
+        $11.99
       </div>
 
       <div style="font-size:11px;color:var(--txt3);text-align:center;margin-bottom:11px">Pago seguro · Redireccionamiento a checkout externo</div>
 
       <!-- 🔗 BOTÃO CHECKOUT — Coloque seu link aqui -->
       <a id="co-btn" href="URL_CHECKOUT_AQUI" target="_blank" class="btn btn-rose" onclick="return validarCO()" style="text-decoration:none;margin-bottom:5px">
-        🔒 Finalizar pago · $<span id="co-btn-total"></span>
+        🔒 Finalizar pago · $11.99
       </a>
 
       <button class="btn-cls" onclick="fecharCO()">← Volver al resultado</button>
@@ -967,7 +972,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <button class="btn btn-ghost" onclick="reiniciar()" style="font-size:12px">Hacer el test de nuevo</button>
     </div>
   </div>
-  <footer>© 2025 Descubre tu Apego · Solo con fines informativos · No reemplaza la atención psicológica profesional<br><a href="/privacidad.html" style="color:rgba(255,255,255,.25);font-size:10px;text-decoration:none">Política de Privacidad</a></footer>
+  <footer>© 2025 Descubre tu Apego · Solo con fines informativos · No reemplaza la atención psicológica profesional · <a href="/privacidad.html" style="color:rgba(255,255,255,.3);text-decoration:none;font-size:10px">Política de Privacidad</a></footer>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -1248,37 +1253,71 @@ function calcDin() {
 /* ─── TELA DE VENDA ─── */
 function mostrarVenda() {
   var ella=PE[S.iElla], el=PEL[S.sEl], d=S.din;
-  // Header
-  set('v-icon-ella',ella.icon);
-  set('v-type-ella',ella.type);
-  set('v-icon-el',el?'👨':'👨');
-  set('v-type-el',el?el.type:S.sEl);
-  set('v-dinamica',d.name);
-  // Bundle info
+
+  // ── Perfis ──
+  var iconEl = document.getElementById('v-icon-ella');
+  if(iconEl) iconEl.innerHTML = ella.icon;
+  set('v-type-ella', ella.type);
+  set('v-icon-el', el?'👨':'👨');
+  set('v-type-el', el?el.type:S.sEl);
+  set('v-dinamica', d.name);
+
+  // ── Frase principal personalizada pelas respostas ──
+  var f1 = getFrasePrincipal(S.iElla, S.sEl, S.q1ans);
+  var el1 = document.getElementById('v-frase1');
+  if(el1 && f1) el1.innerHTML = '“'+f1+'”';
+
+  // ── Frase 2 individual ──
+  var el2 = document.getElementById('v-frase2');
+  if(el2) el2.textContent = getFrase2(S.iElla, S.q1ans);
+
+  // ── Curiosidade individual ──
+  var elc = document.getElementById('v-curiosidad');
+  if(elc) elc.textContent = getCuriosidad(S.iElla, S.q1ans);
+
+  // ── Benefícios individuais ──
+  var pw = document.getElementById('v-perder');
+  if(pw) {
+    var bens = getBeneficios(S.iElla, S.q1ans);
+    pw.innerHTML='';
+    bens.forEach(function(item){
+      var d2=document.createElement('div');
+      d2.style.cssText='display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.82);line-height:1.5;margin-bottom:6px';
+      d2.innerHTML='<span style="color:#ff4d6d;flex-shrink:0;font-weight:700;margin-top:1px">✗</span><span>'+item+'</span>';
+      pw.appendChild(d2);
+    });
+  }
+
+  // ── Bundle info ──
   set('bi-p1',''+CFG.PRECIO_DIAG_SOLO.toFixed(2));
   set('bi-p2',''+CFG.PRECIO_COMPAT_SOLO.toFixed(2));
   var normal=(CFG.PRECIO_DIAG_SOLO+CFG.PRECIO_COMPAT_SOLO).toFixed(2);
   set('bi-normal',''+normal);
   set('bi-tachado',''+CFG.PRECIO_TACHADO.toFixed(2));
   set('bi-price-main','$'+CFG.PRECIO_BUNDLE.toFixed(2));
-  // Checkout modal init
+
+  // ── Checkout modal init ──
   set('co-price-h',CFG.PRECIO_BUNDLE.toFixed(2));
   set('co-total-base','$'+CFG.PRECIO_BUNDLE.toFixed(2));
-  set('co-total-dyn','$'+CFG.PRECIO_BUNDLE.toFixed(2));
-  set('co-btn-total',CFG.PRECIO_BUNDLE.toFixed(2));
+
   showPage('pg-venda');
 }
 
 /* ─── CHECKOUT ─── */
-function abrirCO() { document.getElementById('co-overlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function abrirCO() {
+  // Gera URL de retorno com resultados codificados
+  try {
+    var codigo = btoa(JSON.stringify({ ella: S.iElla, el: S.sEl }));
+    var retorno = encodeURIComponent(CFG.URL_RETORNO + '?status=paid&r=' + codigo);
+    var url = CFG.URL_CHECKOUT + '?redirect=' + retorno;
+    window.location.href = url;
+  } catch(e) {
+    window.location.href = CFG.URL_CHECKOUT;
+  }
+}
 function fecharCO() { document.getElementById('co-overlay').classList.remove('open'); pararTimer(); }
 
-function toggleOB() {
-  S.ob=document.getElementById('ob-chk').checked;
-  var t=S.ob?(CFG.PRECIO_BUNDLE+9.90):CFG.PRECIO_BUNDLE;
-  var f='$'+t.toFixed(2);
-  set('co-total-dyn',f); set('co-btn-total',t.toFixed(2));
-}
+function toggleOB(){}
 
 function validarCO() {
   var n=document.getElementById('co-name').value.trim();
@@ -1303,19 +1342,8 @@ function validarCO() {
 }
 
 /* ─── TIMER ─── */
-function iniciarTimer() {
-  pararTimer();
-  var secs=CFG.TIMER_SECS;
-  function tick(){
-    secs--; if(secs<0){ pararTimer(); return; }
-    var m=Math.floor(secs/60), s=secs%60;
-    set('tm-min',String(m).padStart(2,'0'));
-    set('tm-sec',String(s).padStart(2,'0'));
-  }
-  tick();
-  S.timer=setInterval(tick,1000);
-}
-function pararTimer(){ if(S.timer){ clearInterval(S.timer); S.timer=null; } }
+function iniciarTimer(){}
+function pararTimer(){}
 
 /* ─── PAINEL FINAL ─── */
 function gerarPainel() {
@@ -1408,6 +1436,121 @@ function numbItems(id,items){
   });
 }
 function reiniciar(){ limpiar(); S={q1cur:0,q1ans:[],q1sel:null,q2cur:0,q2ans:[],q2sel:null,iElla:null,sEl:null,din:null,ob:false,timer:null}; showPage('pg-land'); }
+
+
+/* ─── FRASES PERSONALIZADAS PELA RESPOSTA REAL ─── */
+function getFrasePrincipal(iElla, sEl, q1ans) {
+  var r0 = q1ans[0]||0; // Quando ele some
+  var r3 = q1ans[3]||0; // Se acreditou que ia mudar
+  var r5 = q1ans[5]||0; // Como reage quando está perdendo
+  var r7 = q1ans[7]||0; // Frase que mais a descreve
+
+  var texR0 = ["sientes una ansiedad que te consume","te duele pero esperas — ya sabes cómo es él","te preguntas qué hiciste mal y repasas todo en tu cabeza","también te distancias — no persigues a nadie"][r0]||"";
+  var texR3 = ["esperaste mucho tiempo a que cambiara","hay momentos donde ves quién podría ser","aprendiste que no puedes cambiar a nadie","aceptas a las personas como son o te vas"][r3]||"";
+  var texR5 = ["te esfuerzas más — haces todo para que no se vaya","te angustias profundamente — el solo pensarlo te paraliza","te vuelves más fría para protegerte primero","lo enfrentas — necesitas saber si quiere seguir"][r5]||"";
+  var texR7 = ["que tal vez si cambias algo en ti, las cosas van a mejorar","que no entiendes cómo alguien que te quiere puede hacerte daño","que sabías que esto iba a pasar — siempre pasa lo mismo","que esto no está bien y necesitas decidir qué hacer"][r7]||"";
+
+  var map = {
+    "0-Evitativo": "Cuando él desaparece, "+texR0+". Eso no es sensibilidad excesiva — es tu sistema emocional respondiendo exactamente como fue programado. Tu análisis explica qué lo activa, por qué es tan difícil ignorarlo, y el paso específico para recuperar tu centro cuando él no está.",
+    "0-Narcisista": "Dijiste "+texR3+". Tu análisis revela por qué alguien con su perfil usa exactamente esa esperanza tuya para mantenerte cerca — y qué distingue un cambio real de uno estratégico.",
+    "0-Imaturo": "Cuando sientes que lo estás perdiendo, "+texR5+". Tu análisis explica por qué alguien con su perfil activa ese mecanismo en ti — y la señal concreta que te dice cuándo ese esfuerzo tiene retorno real.",
+    "0-Seguro": "Te describes como la que da más de lo que recibe pero no puede parar. Tu análisis explica de dónde viene ese patrón de cuidado compulsivo — y por qué puede activarse incluso con alguien que sí está disponible para ti.",
+    "1-Evitativo": "Cuando él desaparece, "+texR0+". Tu análisis revela el mecanismo neurológico exacto por el que su frialdad se convierte en atracción para ti — y cómo interrumpir ese circuito sin perder tu capacidad de sentir intensamente.",
+    "1-Narcisista": "Dijiste "+texR7+". Tu análisis explica por qué alguien con su perfil sabe exactamente cuándo activar esa confusión en ti — y cuál es la diferencia entre amor real y lo que él te ofrece.",
+    "1-Imaturo": "Cuando sientes que lo estás perdiendo, "+texR5+". Tu análisis revela por qué las reconciliaciones tan intensas son el motor que mantiene el ciclo vivo — y cómo salir de él sin perder tu intensidad natural.",
+    "1-Seguro": "Te atrajo el hombre intenso que te hace sentir todo al máximo. Tu análisis explica por qué tu sistema nervioso interpreta la calma como ausencia de amor — y el trabajo interno que te permite quedarte en algo bueno sin sabotearlo.",
+    "2-Evitativo": "Cuando él se cierra, "+texR0+". Tu análisis revela por qué su distancia activa exactamente esa respuesta en ti — y cómo dejar de leer su comportamiento como información sobre tu valor.",
+    "2-Narcisista": "Dijiste "+texR7+". Tu análisis explica el mecanismo exacto con el que alguien con su perfil administra tu validación — dando lo justo para que te quedes, nunca suficiente para que te sientas segura.",
+    "2-Imaturo": "Cuando él se cierra, te sientes invisible y empiezas a dudar de ti misma. Tu análisis revela cómo la inmadurez emocional de alguien puede tener ese nivel de efecto sobre tu autoestima — sin que él ni siquiera lo sepa.",
+    "2-Seguro": "Dijiste que necesitas sentir que la relación va hacia algo sólido. Tu análisis explica por qué tu historia emocional puede hacer que confundas seguridad con indiferencia — incluso cuando él sí está presente de verdad.",
+    "3-Evitativo": "Dijiste "+texR3+". Tu análisis revela la diferencia entre el potencial real y el que alguien con su perfil muestra estratégicamente para retenerte — y las preguntas concretas que te ayudan a distinguirlos.",
+    "3-Narcisista": "Dijiste "+texR7+". Tu análisis explica por qué alguien con su perfil activa esa pregunta en ti de forma casi calculada — y qué evidencia concreta distingue a quien quiere crecer de quien usa ese discurso.",
+    "3-Imaturo": "Dijiste "+texR7+". Tu análisis revela la diferencia entre inmadurez emocional real y simple falta de voluntad — y la única pregunta que te dice con honestidad si vale la pena seguir esperando.",
+    "3-Seguro": "Cuando sientes que lo estás perdiendo, "+texR5+". Tu análisis explica por qué tu mente puede buscar problemas donde no los hay — y cuál es el primer paso para quedarte en algo bueno sin sabotearlo."
+  };
+  return map[iElla+"-"+sEl] || "";
+}
+
+/* ─── FRASE 2 POR PERFIL DELA ─── */
+/* ─── FRASE 2 INDIVIDUAL POR RESPOSTA ─── */
+function getFrase2(iElla, q1ans) {
+  var r2 = q1ans[2]||0; // Como age quando ele se fecha
+  var r6 = q1ans[6]||0; // Como se descreve no relacionamento
+
+  var texR2 = ["intentas conectar más — quieres que se abra contigo","te frustras pero te quedas — sabes que en el fondo te quiere","te sientes invisible y empiezas a dudar de ti misma","pones distancia — si él no está presente, tú tampoco"][r2]||"";
+  var texR6 = ["la que da más de lo que recibe pero no puede parar","la que se engancha fuerte y le cuesta soltar","la que siempre está pendiente de cómo está él","la que necesita sentir que la relación va hacia algo sólido"][r6]||"";
+
+  var map = [
+    // 0: Reparadora
+    "Te describes como "+texR6+". Eso tiene una raíz específica — no es tu personalidad, es un patrón aprendido. El análisis explica exactamente de dónde viene y el primer paso concreto para cambiarlo.",
+    // 1: Adicta a la Intensidad
+    "Cuando él se cierra, "+texR2+". Eso activa en ti algo que va más allá de la relación — es tu sistema nervioso buscando la intensidad que aprendió a necesitar. El análisis revela cómo recalibrarlo.",
+    // 2: La que Busca su Reflejo
+    "Cuando él se cierra, "+texR2+". No es que seas demasiado sensible — es que tu bienestar emocional está conectado a señales externas que no puedes controlar. El análisis te explica cómo recuperar ese centro.",
+    // 3: Enamorada del Potencial
+    "Te describes como "+texR6+". Esa característica tuya — ver lo que otros no ven — es un don real. El problema es cuando ese don se usa contra ti. El análisis revela cómo redirigirlo hacia ti misma."
+  ];
+  return map[iElla]||"";
+}
+
+/* ─── CURIOSIDADE INDIVIDUAL ─── */
+function getCuriosidad(iElla, q1ans) {
+  var r4 = q1ans[4]||0; // Como se sente quando ele dá atenção
+  var r5 = q1ans[5]||0; // Como reage quando está perdendo
+
+  var texR4 = ["un alivio tan grande que casi justifica el dolor de la espera","feliz, pero con miedo de que no dure","validada — era lo que sabías que existía entre ustedes","agradecida, pero más alerta — sabes que puede volver a irse"][r4]||"";
+  var texR5 = ["te esfuerzas más — haces todo para que no se vaya","te angustias profundamente","te vuelves más fría para protegerte","lo enfrentas directamente"][r5]||"";
+
+  var map = [
+    "Cuando él finalmente te da atención, sientes "+texR4+". ¿Por qué ese alivio es tan intenso — y qué dice eso sobre lo que estás buscando?",
+    "Cuando sientes que lo estás perdiendo, "+texR5+". ¿Por qué esa respuesta se activa tan fuerte — incluso cuando una parte de ti sabe que no debería?",
+    "Cuando él se aleja, "+texR5+". ¿Qué queda de ti cuando él no está — más allá de lo que sientes por él?",
+    "Cuando sientes que lo estás perdiendo, "+texR5+". ¿Cuánto tiempo llevas esperando la versión de él que imaginaste la primera vez?"
+  ];
+  return map[iElla]||"";
+}
+
+/* ─── BENEFÍCIOS INDIVIDUAIS ─── */
+function getBeneficios(iElla, q1ans) {
+  var r1 = q1ans[1]||0; // Tipo de homem que atraiu
+  var r3 = q1ans[3]||0; // Se acreditou que mudaria
+  var r7 = q1ans[7]||0; // Frase quando alguém a falha
+
+  var tipoHombre = ["el que necesita ser entendido","el intenso y apasionado","el misterioso e inalcanzable","el estable y seguro"][r1]||"";
+  var creyoCambio = r3 < 2; // 0 ou 1 = sim acreditou
+
+  var base = [
+    // Reparadora
+    [
+      "El mecanismo exacto por el que te enamoras de "+tipoHombre+" — y cómo se activa en tu cerebro",
+      creyoCambio ? "Por qué esperaste que cambiara — y la señal real que te dice si puede hacerlo" : "Por qué una parte de ti sigue buscando a alguien que necesite ser salvado",
+      "Cómo dejar de priorizar el bienestar de él sobre el tuyo — sin dejar de ser quien eres",
+      "El primer paso concreto para romper el patrón esta semana"
+    ],
+    // Adicta
+    [
+      "Por qué te atrajo "+tipoHombre+" — y el circuito neurológico que mantiene esa atracción",
+      "El momento exacto en que una relación intensa cruza la línea hacia la adicción emocional",
+      creyoCambio ? "Cómo saber si lo que sientes es amor real o dependencia disfrazada de esperanza" : "Cómo atraer intensidad real sin necesitar el caos para sentirte viva",
+      "El método para regular tu sistema nervioso cuando la ansiedad sube y él no responde"
+    ],
+    // Reflejo
+    [
+      "Por qué su distancia activa en ti esa sensación de haber fallado — aunque no hayas hecho nada",
+      "El patrón que él usa — consciente o no — para desestabilizarte cuando empiezas a sentirte segura",
+      creyoCambio ? "La diferencia entre potencial real y el que él muestra para retenerte" : "Cómo reconstruir tu identidad sin depender de lo que él piensa de ti",
+      "Los 3 pasos para que él vuelva a valorarte sin que tengas que rogarle"
+    ],
+    // Potencial
+    [
+      "Por qué te enamoraste de "+tipoHombre+" — y la diferencia entre verle potencial y idealizarlo",
+      creyoCambio ? "La señal concreta que distingue a quien quiere crecer de quien usa ese discurso para retenerte" : "Por qué tu mente busca potencial donde ya no hay señales reales de cambio",
+      "La pregunta que revela si estás enamorada de él o de la historia que te contaste sobre él",
+      "Cuándo es el momento de soltar — y cómo hacerlo sin sentirte traidora de lo que creyeron juntos"
+    ]
+  ];
+  return base[iElla]||base[0];
+}
 
 /* ─── INIT ─── */
 document.addEventListener('DOMContentLoaded', verificarStatusPagamento);

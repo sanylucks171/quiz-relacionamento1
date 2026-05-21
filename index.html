@@ -1251,18 +1251,15 @@ function renderQ2() {
   set('q2-lbl','Pregunta '+(S.q2cur+1));
   set('q2-txt',q.t);
   renderOpts('q2-opts',q.o,selectQ2,'sel-gold');
-  S.q2sel=null; setBtnOff('q2-next');
+  S.q2sel=null;
+  var nb2=document.getElementById('q2-next'); if(nb2){nb2.disabled=true;nb2.className='btn btn-off';nb2.style.cssText='margin-top:1.3rem';}
 }
 function selectQ2(i,el) {
-  selOpt('q2-opts','sel-gold'); el.classList.add('sel-gold');
-  el.querySelectorAll('.opt-lt').forEach(function(lt){lt.style.background='var(--gold)';lt.style.borderColor='var(--gold)';lt.style.color='#fff'});
+  document.querySelectorAll('#q2-opts .opt').forEach(function(o){ o.classList.remove('sel'); o.classList.remove('sel-gold'); });
+  el.classList.add('sel-gold');
+  el.querySelectorAll('.opt-lt').forEach(function(lt){lt.style.background='var(--gold)';lt.style.borderColor='var(--gold)';lt.style.color='#fff';});
   S.q2sel=i;
-  var btn = document.getElementById('q2-next');
-  btn.disabled=false;
-  btn.className='btn btn-rose';
-  btn.style.background='';
-  btn.style.opacity='1';
-  btn.style.cursor='pointer';
+  setBtnOn('q2-next','btn-rose');
 }
 function nextQ2() {
   if(S.q2sel===null)return;
@@ -1444,23 +1441,31 @@ function showTab(i) {
 function set(id,v){ 
   var el=document.getElementById(id); 
   if(!el) return;
-  if(typeof v === 'string' && v.indexOf('<') === -1 && v.length < 100) {
-    el.textContent=v;
-  } else {
-    el.innerHTML=v;
-  }
+  el.innerHTML=v;
 }
 function animBar(id,pct){ var el=document.getElementById(id); if(!el)return; el.style.width='0%'; setTimeout(function(){el.style.width=pct+'%';},120); }
-function setBtnOff(id){ var b=document.getElementById(id); b.disabled=true; b.className='btn btn-off'; }
-function setBtnOn(id,cls){ 
-  var b=document.getElementById(id); 
-  b.disabled=false; 
-  b.removeAttribute('disabled');
-  b.className='btn '+cls; 
-  b.style.opacity='1';
-  b.style.cursor='pointer';
-  b.style.pointerEvents='auto';
+function setBtnOff(id){
+  var b=document.getElementById(id);
+  if(!b) return;
+  b.disabled=true;
+  b.className='btn btn-off';
+  b.style.cssText='margin-top:1.3rem;cursor:not-allowed;opacity:0.5';
 }
+function setBtnOn(id,cls){
+  var b=document.getElementById(id);
+  if(!b)return;
+  b.removeAttribute('disabled');
+  b.className='btn '+cls;
+  b.style.cssText='margin-top:1.3rem';
+}
+function setBtnOff(id){
+  var b=document.getElementById(id);
+  if(!b)return;
+  b.setAttribute('disabled','disabled');
+  b.className='btn btn-off';
+  b.style.cssText='margin-top:1.3rem';
+}
+
 function selOpt(wrapId,cls){ document.querySelectorAll('#'+wrapId+' .opt').forEach(function(o){ o.classList.remove('sel'); o.classList.remove('sel-gold'); o.querySelectorAll('.opt-lt').forEach(function(l){l.style.background='';l.style.borderColor='';l.style.color='';}); }); }
 function renderOpts(wrapId,options,onSelect,selCls) {
   var wrap=document.getElementById(wrapId); wrap.innerHTML='';

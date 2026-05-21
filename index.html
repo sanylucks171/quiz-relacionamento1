@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23C84B6A'/%3E%3Ctext y='.9em' font-size='60' x='50%25' text-anchor='middle' dy='0.1em'%3E%F0%9F%92%97%3C/text%3E%3C/svg%3E">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -20,7 +19,6 @@ src="https://www.facebook.com/tr?id=2386359905182369&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23C84B6A'/><text y='.9em' font-size='60' x='50%25' text-anchor='middle' dy='0.1em'>❤️</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Descubre tu Apego · Test Emocional Gratuito</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,7 +101,7 @@ html,body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--txt
 .btn-green{background:linear-gradient(135deg,#2ECC71,#27AE60);color:#fff}
 .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.14);color:var(--txt2);font-size:13px;min-height:44px;padding:10px}
 .btn-ghost:hover{border-color:rgba(255,255,255,.28);color:#fff}
-.btn-off{background:var(--ink4);color:rgba(255,255,255,.3);cursor:not-allowed;opacity:0.4}
+.btn-off{background:var(--ink4);color:rgba(255,255,255,.3);cursor:not-allowed}
 
 /* ── CARDS ── */
 .card{background:var(--ink3);border:1px solid var(--bd);border-radius:15px;padding:1.1rem}
@@ -230,15 +228,15 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 .bi-check{color:var(--green);flex-shrink:0;margin-top:1px;font-weight:700}
 
 /* ── ORDER BUMP ── */
-
-
-
-
-
-
-
-
-
+.ob{border:2px dashed var(--gold-bd);border-radius:13px;padding:13px;background:var(--gold-bg)}
+.ob-lbl{display:flex;align-items:flex-start;gap:11px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ob-lbl input[type=checkbox]{min-width:21px;height:21px;margin-top:2px;accent-color:var(--gold);cursor:pointer;flex-shrink:0}
+.ob-tag{font-size:10px;font-weight:700;color:var(--gold);letter-spacing:.07em;text-transform:uppercase;margin-bottom:4px}
+.ob-tit{font-size:13px;font-weight:600;color:#fff;margin-bottom:4px;line-height:1.4}
+.ob-desc{font-size:12px;color:rgba(255,255,255,.38);line-height:1.5;margin-bottom:7px}
+.ob-pr{display:flex;align-items:center;gap:7px}
+.ob-old{font-size:11px;color:rgba(255,255,255,.22);text-decoration:line-through}
+.ob-new{font-size:14px;font-weight:700;color:var(--gold)}
 
 /* ── TOTAL ── */
 .total-row{display:flex;justify-content:space-between;align-items:center;background:var(--gold-bg);border:1px solid var(--gold-bd);border-radius:10px;padding:11px 13px;margin:.6rem 0}
@@ -247,7 +245,11 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 .sec-note{display:flex;align-items:center;justify-content:center;gap:5px;font-size:10px;color:var(--txt3);margin-top:5px}
 .btn-cls{background:transparent;border:none;color:var(--txt3);font-size:13px;cursor:pointer;width:100%;padding:10px;font-family:'DM Sans',sans-serif;min-height:44px}
 
-
+/* ── TIMER ── */
+.timer-bar{background:var(--ink2);border:1px solid var(--bd-rose);border-radius:12px;padding:10px 14px;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px}
+.timer-num{font-size:20px;font-weight:700;color:#fff;font-family:'Playfair Display',serif;min-width:24px;text-align:center}
+.timer-sep{color:var(--rose-mid);font-weight:700}
+.timer-lbl{font-size:11px;color:var(--txt3)}
 
 /* ── PAINEL FINAL ── */
 .rpt{max-width:600px;margin:0 auto;padding:1.4rem 1.2rem 4rem}
@@ -441,9 +443,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 .wa-cta-below{margin-top:1.5rem;text-align:center}
 
 .co-ov.open{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;z-index:9999!important;display:flex!important;align-items:flex-end!important;justify-content:center!important;background:rgba(0,0,0,.75)!important}
-@keyframes urgencia{0%,100%{opacity:1}50%{opacity:.5}}
 </style>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23C84B6A'/><text y='.9em' font-size='60' x='50%25' text-anchor='middle' dy='0.1em'>❤️</text></svg>">
 </head>
 <body>
 
@@ -696,7 +696,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <button class="btn btn-rose" onclick="goToQuiz1()" style="max-width:380px;margin:0 auto">✨ Iniciar test gratis</button>
     <div style="font-size:11px;color:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;gap:5px;margin-top:10px"><span>🔒</span>sin spam · datos protegidos</div>
   </div>
-  <footer>© 2025 Descubre tu Apego · Solo con fines informativos · No reemplaza la atención psicológica profesional<br><a href="/privacidad.html" style="color:rgba(255,255,255,.25);font-size:10px;text-decoration:none">Política de Privacidad</a> · <a href="/privacidad.html" style="color:rgba(255,255,255,.25);font-size:10px;text-decoration:none">Términos de Uso</a></footer>
+  <footer>© 2025 Descubre tu Apego · Solo con fines informativos · No reemplaza la atención psicológica profesional<br><a href="/privacidad.html" style="color:rgba(255,255,255,.25);font-size:10px;text-decoration:none">Política de Privacidad</a></footer>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -715,7 +715,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <div id="q1-lbl" style="font-size:10px;color:var(--rose-mid);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem">Pregunta 1</div>
     <div id="q1-txt" class="serif" style="font-size:clamp(1rem,3.8vw,1.4rem);color:#fff;line-height:1.35;margin-bottom:1.3rem"></div>
     <div id="q1-opts" style="display:flex;flex-direction:column;gap:9px"></div>
-    <button class="btn btn-off" id="q1-next" onclick="nextQ1()" style="margin-top:1.3rem">Siguiente →</button>
+    <button class="btn btn-off" id="q1-next" disabled onclick="nextQ1()" style="margin-top:1.3rem">Siguiente →</button>
   </div>
 </div>
 
@@ -763,7 +763,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <div id="q2-lbl" style="font-size:10px;color:var(--gold);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem">Pregunta 1</div>
     <div id="q2-txt" class="serif" style="font-size:clamp(1rem,3.8vw,1.4rem);color:#fff;line-height:1.35;margin-bottom:1.3rem"></div>
     <div id="q2-opts" style="display:flex;flex-direction:column;gap:9px"></div>
-    <button class="btn btn-off" id="q2-next" onclick="nextQ2()" style="margin-top:1.3rem">Siguiente →</button>
+    <button class="btn btn-off" id="q2-next" disabled onclick="nextQ2()" style="margin-top:1.3rem">Siguiente →</button>
   </div>
 </div>
 
@@ -773,70 +773,33 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 <div id="pg-venda" class="page">
   <div class="wrap">
 
-    <!-- ── TIMER DE PRIVACIDADE ── -->
-    <div id="privacy-timer-bar" style="background:rgba(200,75,106,.08);border:1px solid rgba(200,75,106,.25);border-radius:12px;padding:.9rem 1rem;margin-bottom:1.2rem;text-align:center">
-      <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:4px">
-        <span style="font-size:12px">⚠️</span>
-        <span style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.4">Por razones de privacidad, tus respuestas serán eliminadas en:</span>
+    <!-- Cabeçalho resultado parcial -->
+    <div style="text-align:center;margin-bottom:1.5rem">
+      <span class="tag tag-green" style="display:inline-flex;margin-bottom:.9rem">✓ Los dos perfiles analizados</span>
+      <div style="display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-bottom:1rem">
+        <div style="text-align:center">
+          <div id="v-icon-ella" style="font-size:2rem;margin-bottom:4px">🌹</div>
+          <div style="font-size:11px;color:var(--txt3)">Tu perfil</div>
+          <div id="v-type-ella" class="serif" style="font-size:13px;color:var(--rose-mid);font-style:italic"></div>
+        </div>
+        <div style="font-size:1.8rem;color:var(--bd-rose)">↔</div>
+        <div style="text-align:center">
+          <div id="v-icon-el" style="font-size:2rem;margin-bottom:4px">👨</div>
+          <div style="font-size:11px;color:var(--txt3)">Perfil de él</div>
+          <div id="v-type-el" class="serif" style="font-size:13px;color:var(--gold);font-style:italic"></div>
+        </div>
       </div>
-      <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:4px">
-        <span id="ptimer-min" style="font-size:1.8rem;font-weight:800;color:#ff4d6d;font-family:'Playfair Display',serif">15</span>
-        <span style="color:#ff4d6d;font-weight:700;font-size:1.4rem">:</span>
-        <span id="ptimer-sec" style="font-size:1.8rem;font-weight:800;color:#ff4d6d;font-family:'Playfair Display',serif">00</span>
-      </div>
-      <div style="font-size:11px;color:rgba(255,255,255,.3)">Una vez eliminadas, tendrás que volver a realizar el test para acceder a tu análisis</div>
-    </div>
-
-    <!-- ── PERFIL DELA — conexão emocional ── -->
-    <div style="text-align:center;margin-bottom:1.2rem">
-      <div id="v-icon-ella" style="font-size:3rem;margin-bottom:.5rem">🌹</div>
-      <div style="font-size:10px;color:var(--rose-mid);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem">Tu perfil emocional</div>
-      <div id="v-type-ella" class="serif" style="font-size:1.6rem;color:#fff;font-style:italic;margin-bottom:.8rem"></div>
-    </div>
-
-    <!-- ── FRASES DE CONEXÃO ── -->
-    <div style="margin-bottom:1.2rem;display:flex;flex-direction:column;gap:.8rem">
-      <div style="border-left:3px solid var(--rose);padding:.8rem 1rem;background:rgba(200,75,106,.06);border-radius:0 10px 10px 0">
-        <p id="v-frase1" style="font-size:14px;color:#fff;line-height:1.65;margin:0;font-style:italic"></p>
-      </div>
-      <div style="border-left:3px solid var(--rose-mid);padding:.8rem 1rem;background:rgba(200,75,106,.04);border-radius:0 10px 10px 0">
-        <p id="v-frase2" style="font-size:14px;color:rgba(255,255,255,.8);line-height:1.65;margin:0;font-style:italic"></p>
-      </div>
-      <div style="border-left:3px solid var(--gold);padding:.8rem 1rem;background:rgba(200,155,60,.06);border-radius:0 10px 10px 0">
-        <p id="v-frase3" style="font-size:14px;color:rgba(255,255,255,.8);line-height:1.65;margin:0"></p>
+      <div class="card" style="text-align:center;padding:.9rem">
+        <div style="font-size:11px;color:var(--txt3);margin-bottom:3px">Dinámica identificada</div>
+        <div id="v-dinamica" class="serif" style="font-size:16px;color:#fff;font-weight:700"></div>
       </div>
     </div>
 
-    <!-- ── PERFIS DOS DOIS ── -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.2rem">
-      <div style="text-align:center;flex:1">
-        <div style="font-size:10px;color:var(--txt3);margin-bottom:3px">Tú</div>
-        <div id="v-type-ella-sm" class="serif" style="font-size:12px;color:var(--rose-mid);font-style:italic"></div>
-      </div>
-      <div style="font-size:1.4rem;color:var(--bd-rose)">↔</div>
-      <div style="text-align:center;flex:1">
-        <div style="font-size:10px;color:var(--txt3);margin-bottom:3px">Él</div>
-        <div id="v-type-el" class="serif" style="font-size:12px;color:var(--gold);font-style:italic"></div>
-      </div>
-    </div>
-
-    <!-- ── CURIOSIDADE ── -->
-    <div class="card" style="margin-bottom:1.2rem;text-align:center;padding:1rem 1.2rem">
-      <div style="font-size:11px;color:var(--txt3);margin-bottom:.5rem">La pregunta que responde tu análisis</div>
-      <div id="v-curiosidad" class="serif" style="font-size:1rem;color:#fff;font-style:italic;line-height:1.4"></div>
-    </div>
-
-    <!-- ── LO QUE PERDERÁS ── -->
-    <div class="card card-rose" style="margin-bottom:1.2rem">
-      <div style="font-size:10px;color:var(--rose-mid);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.8rem">🔒 Lo que no sabrás si no desbloqueas</div>
-      <div id="v-perder" style="display:flex;flex-direction:column;gap:7px"></div>
-      <div style="margin-top:.8rem;font-size:11px;color:rgba(255,255,255,.3);text-align:center">+ La dinámica entre los dos · El veredicto real · Tu plan de 8 semanas</div>
-    </div>
-
-    <!-- ── DINÂMICA ── -->
-    <div class="card" style="text-align:center;padding:.9rem;margin-bottom:1.2rem">
-      <div style="font-size:10px;color:var(--txt3);margin-bottom:3px">Dinámica identificada entre los dos</div>
-      <div id="v-dinamica" class="serif" style="font-size:15px;color:#fff;font-weight:700"></div>
+    <!-- Lock box -->
+    <div class="card card-gold" style="text-align:center;margin-bottom:1rem">
+      <div style="font-size:1.3rem;margin-bottom:6px">🔒</div>
+      <div class="serif" style="font-size:1rem;color:#fff;margin-bottom:.4rem">Tu reporte completo está listo</div>
+      <p style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.55">Desbloquea el análisis profundo de los 6 pilares psicológicos: tu tipo emocional, el de él, la dinámica, la química, el desgaste y el veredicto.</p>
     </div>
 
     <!-- Bundle price -->
@@ -874,6 +837,11 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
   <!-- CHECKOUT MODAL -->
   <div class="co-ov" id="co-overlay">
     <div class="co-pan">
+              <span class="timer-num" id="tm-min">15</span>
+        <span class="timer-sep">:</span>
+        <span class="timer-num" id="tm-sec">00</span>
+        <div style="font-size:11px;color:var(--txt3)">minutos</div>
+      </div>
 
       <div class="co-h">Tu reporte · $<span id="co-price-h"></span></div>
 
@@ -890,17 +858,17 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <span id="co-total-base">$11.99</span>
       </div>
 
-      <!-- Total dinâmico -->
+            <!-- Total dinâmico -->
       <div class="total-row">
         <span>Total</span>
-        <span id="co-total-dyn">$11.99</span>
+        <span id="co-total-dyn"></span>
       </div>
 
       <div style="font-size:11px;color:var(--txt3);text-align:center;margin-bottom:11px">Pago seguro · Redireccionamiento a checkout externo</div>
 
       <!-- 🔗 BOTÃO CHECKOUT — Coloque seu link aqui -->
-      <a id="co-btn" href="https://pay.hotmart.com/B105912832J" target="_blank" class="btn btn-rose" onclick="return validarCO()" style="text-decoration:none;margin-bottom:5px">
-        🔒 Finalizar pago · $11.99
+      <a id="co-btn" href="URL_CHECKOUT_AQUI" target="_blank" class="btn btn-rose" onclick="return validarCO()" style="text-decoration:none;margin-bottom:5px">
+        🔒 Finalizar pago · $<span id="co-btn-total"></span>
       </a>
 
       <button class="btn-cls" onclick="fecharCO()">← Volver al resultado</button>
@@ -999,7 +967,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <button class="btn btn-ghost" onclick="reiniciar()" style="font-size:12px">Hacer el test de nuevo</button>
     </div>
   </div>
-  <footer>© 2025 Descubre tu Apego · Solo con fines informativos · No reemplaza la atención psicológica profesional<br><a href="/privacidad.html" style="color:rgba(255,255,255,.25);font-size:10px;text-decoration:none">Política de Privacidad</a> · <a href="/privacidad.html" style="color:rgba(255,255,255,.25);font-size:10px;text-decoration:none">Términos de Uso</a></footer>
+  <footer>© 2025 Descubre tu Apego · Solo con fines informativos · No reemplaza la atención psicológica profesional<br><a href="/privacidad.html" style="color:rgba(255,255,255,.25);font-size:10px;text-decoration:none">Política de Privacidad</a></footer>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -1222,7 +1190,7 @@ function selectQ1(i,el) {
   selOpt('q1-opts','sel'); el.classList.add('sel'); S.q1sel=i; setBtnOn('q1-next','btn-rose');
 }
 function nextQ1() {
-  if(S.q1sel===null){ return; }
+  if(S.q1sel===null)return;
   S.q1ans.push(S.q1sel); S.q1cur++;
   if(S.q1cur<Q1.length){ renderQ1(); } else { calcElla(); mostrarTrans(); }
 }
@@ -1251,18 +1219,17 @@ function renderQ2() {
   set('q2-lbl','Pregunta '+(S.q2cur+1));
   set('q2-txt',q.t);
   renderOpts('q2-opts',q.o,selectQ2,'sel-gold');
-  S.q2sel=null;
-  var nb2=document.getElementById('q2-next'); if(nb2){nb2.disabled=true;nb2.className='btn btn-off';nb2.style.cssText='margin-top:1.3rem';}
+  S.q2sel=null; setBtnOff('q2-next');
 }
 function selectQ2(i,el) {
-  document.querySelectorAll('#q2-opts .opt').forEach(function(o){ o.classList.remove('sel'); o.classList.remove('sel-gold'); });
-  el.classList.add('sel-gold');
-  el.querySelectorAll('.opt-lt').forEach(function(lt){lt.style.background='var(--gold)';lt.style.borderColor='var(--gold)';lt.style.color='#fff';});
-  S.q2sel=i;
-  setBtnOn('q2-next','btn-rose');
+  selOpt('q2-opts','sel-gold'); el.classList.add('sel-gold');
+  // Mudar cor da letra para gold
+  el.querySelectorAll('.opt-lt').forEach(function(lt){lt.style.background='var(--gold)';lt.style.borderColor='var(--gold)';lt.style.color='#fff'});
+  S.q2sel=i; setBtnOn('q2-next','btn-gold');
+  document.getElementById('q2-next').style.background='linear-gradient(135deg,#C89B3C,#A07828)';
 }
 function nextQ2() {
-  if(S.q2sel===null){ return; }
+  if(S.q2sel===null)return;
   S.q2ans.push(S.q2sel); S.q2cur++;
   if(S.q2cur<Q2.length){ renderQ2(); } else { calcEl(); calcDin(); guardar(); mostrarVenda(); }
 }
@@ -1282,46 +1249,11 @@ function calcDin() {
 function mostrarVenda() {
   var ella=PE[S.iElla], el=PEL[S.sEl], d=S.din;
   // Header
-  // Icon — usa innerHTML para garantir render do emoji
-  var iconEl = document.getElementById('v-icon-ella');
-  if (iconEl) iconEl.innerHTML = '<span style="font-size:3rem">' + ella.icon + '</span>';
-  set('v-type-ella', ella.type);
-  set('v-type-ella-sm', ella.type);
-  set('v-icon-el', el ? '👨' : '👨');
-  set('v-type-el', el ? el.type : S.sEl);
-  set('v-dinamica', d.name);
-
-  // ── Frase cirúrgica — combinação dela + dele ──
-  var chave16 = S.iElla + '-' + S.sEl;
-  var fraseCirurgica = FRASES16[chave16] || '';
-  var frase1El = document.getElementById('v-frase1');
-  if (frase1El && fraseCirurgica) {
-    frase1El.innerHTML = '"' + fraseCirurgica + '"';
-  }
-
-  // ── Frases 2 e 3 do CONEXAO original ──
-  var cx = CONEXAO[S.iElla];
-  if (cx) {
-    set('v-frase2', '"' + cx.frase2 + '"');
-    set('v-frase3', cx.frase3);
-    set('v-curiosidad', cx.curiosidad);
-  }
-
-  // ── Benefícios reescritos por perfil dela ──
-  var bens = BENEFICIOS_PERFIL[S.iElla] || [];
-  var perderWrap = document.getElementById('v-perder');
-  if (perderWrap) {
-    perderWrap.innerHTML = '';
-    bens.forEach(function(item) {
-      var d2 = document.createElement('div');
-      d2.style.cssText = 'display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.82);line-height:1.5';
-      d2.innerHTML = '<span style="color:#ff4d6d;flex-shrink:0;margin-top:2px;font-weight:700">✗</span><span>' + item + '</span>';
-      perderWrap.appendChild(d2);
-    });
-  }
-
-  // ── Inicia timer de privacidade ──
-  iniciarPrivacyTimer();
+  set('v-icon-ella',ella.icon);
+  set('v-type-ella',ella.type);
+  set('v-icon-el',el?'👨':'👨');
+  set('v-type-el',el?el.type:S.sEl);
+  set('v-dinamica',d.name);
   // Bundle info
   set('bi-p1',''+CFG.PRECIO_DIAG_SOLO.toFixed(2));
   set('bi-p2',''+CFG.PRECIO_COMPAT_SOLO.toFixed(2));
@@ -1338,22 +1270,15 @@ function mostrarVenda() {
 }
 
 /* ─── CHECKOUT ─── */
-function abrirCO() {
-  document.getElementById('co-overlay').classList.add('open');
-  // Scroll para o topo para mostrar o checkout
-  setTimeout(function() {
-    var panel = document.querySelector('.co-pan');
-    if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    document.body.style.overflow = "hidden";
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, 100);
-}
-function fecharCO() {
-  document.getElementById('co-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
+function abrirCO() { document.getElementById('co-overlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function fecharCO() { document.getElementById('co-overlay').classList.remove('open'); pararTimer(); }
 
-
+function toggleOB() {
+  S.ob=document.getElementById('ob-chk').checked;
+  var t=S.ob?(CFG.PRECIO_BUNDLE+9.90):CFG.PRECIO_BUNDLE;
+  var f='$'+t.toFixed(2);
+  set('co-total-dyn',f); set('co-btn-total',t.toFixed(2));
+}
 
 function validarCO() {
   var n=document.getElementById('co-name').value.trim();
@@ -1378,8 +1303,19 @@ function validarCO() {
 }
 
 /* ─── TIMER ─── */
-function iniciarTimer(){}
-function pararTimer(){}
+function iniciarTimer() {
+  pararTimer();
+  var secs=CFG.TIMER_SECS;
+  function tick(){
+    secs--; if(secs<0){ pararTimer(); return; }
+    var m=Math.floor(secs/60), s=secs%60;
+    set('tm-min',String(m).padStart(2,'0'));
+    set('tm-sec',String(s).padStart(2,'0'));
+  }
+  tick();
+  S.timer=setInterval(tick,1000);
+}
+function pararTimer(){ if(S.timer){ clearInterval(S.timer); S.timer=null; } }
 
 /* ─── PAINEL FINAL ─── */
 function gerarPainel() {
@@ -1438,34 +1374,10 @@ function showTab(i) {
 }
 
 /* ─── HELPERS ─── */
-function set(id,v){ 
-  var el=document.getElementById(id); 
-  if(!el) return;
-  el.innerHTML=v;
-}
+function set(id,v){ var el=document.getElementById(id); if(el){ if(typeof v==='string'&&v.length>20||v.toString().indexOf('<')===-1){ el.textContent=v; }else{ el.innerHTML=v; } } }
 function animBar(id,pct){ var el=document.getElementById(id); if(!el)return; el.style.width='0%'; setTimeout(function(){el.style.width=pct+'%';},120); }
-function setBtnOff(id){
-  var b=document.getElementById(id);
-  if(!b) return;
-  b.disabled=true;
-  b.className='btn btn-off';
-  b.style.cssText='margin-top:1.3rem;cursor:not-allowed;opacity:0.5';
-}
-function setBtnOn(id,cls){
-  var b=document.getElementById(id);
-  if(!b)return;
-  b.className='btn '+cls;
-  b.style.opacity='1';
-  b.style.cursor='pointer';
-}
-function setBtnOff(id){
-  var b=document.getElementById(id);
-  if(!b)return;
-  b.className='btn btn-off';
-  b.style.opacity='0.4';
-  b.style.cursor='not-allowed';
-}
-
+function setBtnOff(id){ var b=document.getElementById(id); b.disabled=true; b.className='btn btn-off'; }
+function setBtnOn(id,cls){ var b=document.getElementById(id); b.disabled=false; b.className='btn '+cls; }
 function selOpt(wrapId,cls){ document.querySelectorAll('#'+wrapId+' .opt').forEach(function(o){ o.classList.remove('sel'); o.classList.remove('sel-gold'); o.querySelectorAll('.opt-lt').forEach(function(l){l.style.background='';l.style.borderColor='';l.style.color='';}); }); }
 function renderOpts(wrapId,options,onSelect,selCls) {
   var wrap=document.getElementById(wrapId); wrap.innerHTML='';
@@ -1496,112 +1408,6 @@ function numbItems(id,items){
   });
 }
 function reiniciar(){ limpiar(); S={q1cur:0,q1ans:[],q1sel:null,q2cur:0,q2ans:[],q2sel:null,iElla:null,sEl:null,din:null,ob:false,timer:null}; showPage('pg-land'); }
-
-
-/* ─── DADOS DE CONEXÃO EMOCIONAL POR PERFIL ─── */
-const CONEXAO = [
-  /* 0: La Reparadora */
-  {
-    frase1: "Probablemente llevas años sintiéndote responsable de las emociones de alguien que nunca te pidió que lo salvaras.",
-    frase2: "Y cuando él finalmente se abre contigo, sientes algo que pocas personas entienden: que tu amor tiene un propósito.",
-    frase3: "Lo que el análisis completo revela es por qué esa sensación se convierte en una trampa — y cómo salir de ella sin perder tu capacidad de amar.",
-    curiosidad: "¿Por qué sientes que si dejas de cuidarlo, perderás el amor?",
-    perder: [
-      "La raíz exacta de por qué te enamoras de quien necesita ser salvado",
-      "El detonante emocional que activa tu patrón cada vez que él sufre",
-      "Por qué cada vez que intentas alejarte, algo te jala de regreso",
-      "El plan de 8 semanas para romper el ciclo sin perder quién eres"
-    ]
-  },
-  /* 1: La Adicta a la Intensidad */
-  {
-    frase1: "Para ti, una relación sin tensión se siente como una habitación sin oxígeno.",
-    frase2: "Y cuando hay calma, una parte de ti empieza a buscar inconscientemente la tormenta — sin siquiera darte cuenta.",
-    frase3: "Lo que el análisis completo revela es por qué tu sistema nervioso confunde ansiedad con amor — y qué puedes hacer para recalibrarlo.",
-    curiosidad: "¿Por qué las relaciones estables te aburren aunque sepas que son buenas para ti?",
-    perder: [
-      "Por qué tu cerebro literalmente procesa la angustia como pasión",
-      "El origen exacto de tu necesidad de intensidad emocional",
-      "Cómo reconocer a alguien que te da amor real — sin confundirlo con indiferencia",
-      "Técnicas para regular tu sistema nervioso sin perder tu intensidad natural"
-    ]
-  },
-  /* 2: La que Busca su Reflejo */
-  {
-    frase1: "Hay momentos en que no sabes muy bien quién eres cuando no estás en relación con alguien.",
-    frase2: "Y cuando él se aleja, no es solo su presencia lo que extrañas — es la versión de ti misma que sientes cuando estás con él.",
-    frase3: "Lo que el análisis completo revela es de dónde viene esa necesidad y cómo construir una identidad propia que no dependa de nadie.",
-    curiosidad: "¿Qué queda de ti cuando él no está?",
-    perder: [
-      "Por qué tu bienestar emocional fluctúa según el humor de él",
-      "El momento exacto de tu historia donde aprendiste que el amor es condicional",
-      "Cómo dejar de buscar en otros la validación que solo puedes darte tú",
-      "Los 3 primeros pasos para construir autoestima real desde adentro"
-    ]
-  },
-  /* 3: La Enamorada del Potencial */
-  {
-    frase1: "Tú no te enamoras de quien él es — te enamoras de quien sabes que podría llegar a ser.",
-    frase2: "Y cada pequeño destello de esa versión mejor te convence de que si te quedas un poco más, él va a aparecer.",
-    frase3: "Lo que el análisis completo revela es por qué esa visión es tu mayor fortaleza y, al mismo tiempo, lo que más te ha costado.",
-    curiosidad: "¿Cuánto tiempo llevas esperando la versión de él que imaginaste la primera vez?",
-    perder: [
-      "Por qué tu don de ver potencial en los demás puede usarse en tu contra",
-      "La diferencia entre potencial real y potencial que él usa para retenerte",
-      "Cómo dirigir esa visión hacia alguien que también trabaja en crecer",
-      "Cuándo es el momento de soltar — y cómo hacerlo sin sentirte traidora"
-    ]
-  }
-];
-
-
-/* ─── 16 FRASES CIRÚRGICAS — uma por combinação de perfil ─── */
-const FRASES16 = {
-  "0-Evitativo": "Mencionaste que cuando él desaparece, una parte de ti siente alivio cuando vuelve — aunque el dolor de la espera haya sido real. Eso tiene un nombre psicológico exacto, y tu análisis explica por qué ese alivio se convierte en el gancho más difícil de soltar.",
-  "0-Narcisista": "Dijiste que te quedas porque crees que tu amor puede cambiarlo. Tu análisis revela por qué alguien con su perfil usa exactamente esa creencia para mantenerte cerca — y qué está pasando realmente cuando él muestra vulnerabilidad.",
-  "0-Imaturo": "Respondiste que esperas que él cambie, y que a veces lo hace un poco. Tu análisis explica por qué esos pequeños cambios son suficientes para reactivar tu esperanza — y cuándo ese patrón tiene fecha de vencimiento.",
-  "0-Seguro": "Indicaste que las relaciones sin tensión a veces se sienten vacías. Tu análisis explica por qué lo que interpretas como falta de chispa es algo que tu sistema emocional nunca aprendió a reconocer como amor.",
-  "1-Evitativo": "Respondiste que su distancia te atrae más que su presencia. Tu análisis revela el mecanismo neurológico exacto por el que su frialdad activa en ti una respuesta que confundes con deseo — y cómo romper ese circuito.",
-  "1-Narcisista": "Dijiste que cuando la relación se calma, sientes que algo falta. Tu análisis explica por qué alguien con su perfil sabe exactamente cuándo volver a encender la intensidad — y por qué eso no es amor, aunque se sienta así.",
-  "1-Imaturo": "Mencionaste que las reconciliaciones son muy intensas. Tu análisis revela por qué esa intensidad del reencuentro es el motor que mantiene el ciclo vivo — y qué está pasando en tu cerebro cada vez que ocurre.",
-  "1-Seguro": "Indicaste que las relaciones estables a veces te aburren. Tu análisis explica por qué tu sistema nervioso interpreta la calma como ausencia de amor — y cuál es el primer paso para recalibrarlo sin perder tu intensidad.",
-  "2-Evitativo": "Respondiste que su silencio te hace sentir que hiciste algo mal. Tu análisis revela por qué alguien con su perfil genera exactamente esa sensación — y cómo dejar de tomar su distancia como información sobre tu valor.",
-  "2-Narcisista": "Dijiste que buscas señales constantes de que él todavía te quiere. Tu análisis explica el mecanismo que alguien con su perfil usa para administrar esas señales — dando justo lo suficiente para que te quedes, nunca lo suficiente para que te sientas segura.",
-  "2-Imaturo": "Mencionaste que tu estado de ánimo depende de cómo estuvo él ese día. Tu análisis revela por qué alguien con su perfil —sin darse cuenta— tiene ese nivel de control sobre tu bienestar, y cómo recuperar ese poder.",
-  "2-Seguro": "Indicaste que a veces dudas de tus sentimientos hacia él. Tu análisis explica por qué lo que sientes no es falta de amor — es tu historia emocional confundiendo seguridad con indiferencia.",
-  "3-Evitativo": "Respondiste que ves en él algo que nadie más ve. Tu análisis revela la diferencia entre el potencial real y el que él muestra para que te quedes — y cómo distinguirlos.",
-  "3-Narcisista": "Dijiste que crees que con el amor correcto él puede cambiar. Tu análisis explica por qué alguien con su perfil activa esa creencia casi de forma calculada — y la evidencia concreta que distingue a quien quiere crecer de quien usa ese discurso.",
-  "3-Imaturo": "Mencionaste que él tiene buenas intenciones pero no las cumple. Tu análisis revela la diferencia entre inmadurez emocional real y falta de voluntad — y la única pregunta que te dice si vale la pena seguir esperando.",
-  "3-Seguro": "Indicaste que sientes que algo falta aunque la relación vaya bien. Tu análisis explica por qué tu mente busca un problema donde no hay ninguno — y cuál es el trabajo interno que te permite quedarte en algo bueno sin sabotearlo."
-};
-
-/* ─── BENEFÍCIOS REESCRITOS POR PERFIL ─── */
-const BENEFICIOS_PERFIL = [
-  [ // 0: La Reparadora
-    "El truco psicológico que él usa para que sigas eligiéndolo a él antes que a ti misma — sin que te des cuenta",
-    "Por qué cuando intentas alejarte algo dentro de ti siempre cede, y cómo cortarlo de raíz",
-    "La señal exacta que revela si él puede cambiar de verdad o solo cuando le conviene",
-    "El método para dejar de necesitar su aprobación sin tener que dejar de amarlo"
-  ],
-  [ // 1: La Adicta a la Intensidad
-    "Por qué tu cerebro procesa su frialdad como atracción — y cómo revertir ese circuito desde adentro",
-    "El momento exacto en que una relación intensa cruza la línea hacia la adicción emocional",
-    "Cómo saber si lo que sientes por él es amor real o dependencia disfrazada de pasión",
-    "El primer paso concreto para atraer intensidad sin necesitar el caos para sentirte viva"
-  ],
-  [ // 2: La que Busca su Reflejo
-    "El patrón que él usa para desestabilizarte justo cuando empiezas a sentirte segura contigo misma",
-    "Por qué su silencio te afecta más que sus palabras — y qué dice eso de tu historia",
-    "El método de 3 pasos para que él vuelva a valorarte sin que tengas que rogarle ni perseguirlo",
-    "Cómo reconstruir tu identidad propia sin depender de lo que él piensa o deja de pensar de ti"
-  ],
-  [ // 3: La Enamorada del Potencial
-    "Cómo distinguir si él realmente quiere crecer — o si solo usa ese discurso para retenerte",
-    "La pregunta que revela si estás enamorada de él o de la historia que te contaste sobre él",
-    "Por qué seguir esperando su mejor versión puede costarte años que no vas a recuperar",
-    "El patrón que tienen en común los hombres que prometen cambiar pero nunca dan el primer paso"
-  ]
-];
 
 /* ─── INIT ─── */
 document.addEventListener('DOMContentLoaded', verificarStatusPagamento);

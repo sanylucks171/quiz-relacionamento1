@@ -772,41 +772,56 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 <div id="pg-venda" class="page">
   <div class="wrap">
 
-    <!-- Cabeçalho resultado parcial -->
-    <div style="text-align:center;margin-bottom:1.5rem">
-      <span class="tag tag-green" style="display:inline-flex;margin-bottom:.9rem">✓ Los dos perfiles analizados</span>
-      <div style="display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-bottom:1rem">
-        <div style="text-align:center">
-          <div id="v-icon-ella" style="font-size:2rem;margin-bottom:4px">🌹</div>
-          <div style="font-size:11px;color:var(--txt3)">Tu perfil</div>
-          <div id="v-type-ella" class="serif" style="font-size:13px;color:var(--rose-mid);font-style:italic"></div>
-        </div>
-        <div style="font-size:1.8rem;color:var(--bd-rose)">↔</div>
-        <div style="text-align:center">
-          <div id="v-icon-el" style="font-size:2rem;margin-bottom:4px">👨</div>
-          <div style="font-size:11px;color:var(--txt3)">Perfil de él</div>
-          <div id="v-type-el" class="serif" style="font-size:13px;color:var(--gold);font-style:italic"></div>
-        </div>
+    <!-- ── PERFIL DELA — conexão emocional ── -->
+    <div style="text-align:center;margin-bottom:1.2rem">
+      <div id="v-icon-ella" style="font-size:3rem;margin-bottom:.5rem">🌹</div>
+      <div style="font-size:10px;color:var(--rose-mid);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem">Tu perfil emocional</div>
+      <div id="v-type-ella" class="serif" style="font-size:1.6rem;color:#fff;font-style:italic;margin-bottom:.8rem"></div>
+    </div>
+
+    <!-- ── FRASES DE CONEXÃO ── -->
+    <div style="margin-bottom:1.2rem;display:flex;flex-direction:column;gap:.8rem">
+      <div style="border-left:3px solid var(--rose);padding:.8rem 1rem;background:rgba(200,75,106,.06);border-radius:0 10px 10px 0">
+        <p id="v-frase1" style="font-size:14px;color:#fff;line-height:1.65;margin:0;font-style:italic"></p>
       </div>
-      <div class="card" style="text-align:center;padding:.9rem">
-        <div style="font-size:11px;color:var(--txt3);margin-bottom:3px">Dinámica identificada</div>
-        <div id="v-dinamica" class="serif" style="font-size:16px;color:#fff;font-weight:700"></div>
+      <div style="border-left:3px solid var(--rose-mid);padding:.8rem 1rem;background:rgba(200,75,106,.04);border-radius:0 10px 10px 0">
+        <p id="v-frase2" style="font-size:14px;color:rgba(255,255,255,.8);line-height:1.65;margin:0;font-style:italic"></p>
+      </div>
+      <div style="border-left:3px solid var(--gold);padding:.8rem 1rem;background:rgba(200,155,60,.06);border-radius:0 10px 10px 0">
+        <p id="v-frase3" style="font-size:14px;color:rgba(255,255,255,.8);line-height:1.65;margin:0"></p>
       </div>
     </div>
 
-    <!-- Perfil revelado parcialmente -->
-    <div class="card card-rose" style="text-align:center;margin-bottom:.8rem;padding:1rem">
-      <div style="font-size:10px;color:var(--txt3);margin-bottom:4px;letter-spacing:.08em;text-transform:uppercase">Tu tipo emocional</div>
-      <div id="v-reveal-icon" class="serif" style="font-size:1.8rem;margin-bottom:4px">🌹</div>
-      <div id="v-reveal-name" class="serif" style="font-size:1.1rem;color:#fff;font-style:italic;margin-bottom:4px"></div>
-      <div id="v-reveal-teaser" style="font-size:12px;color:var(--txt2);line-height:1.5;max-width:340px;margin:0 auto"></div>
+    <!-- ── PERFIS DOS DOIS ── -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.2rem">
+      <div style="text-align:center;flex:1">
+        <div style="font-size:10px;color:var(--txt3);margin-bottom:3px">Tú</div>
+        <div id="v-type-ella-sm" class="serif" style="font-size:12px;color:var(--rose-mid);font-style:italic"></div>
+      </div>
+      <div style="font-size:1.4rem;color:var(--bd-rose)">↔</div>
+      <div style="text-align:center;flex:1">
+        <div style="font-size:10px;color:var(--txt3);margin-bottom:3px">Él</div>
+        <div id="v-type-el" class="serif" style="font-size:12px;color:var(--gold);font-style:italic"></div>
+      </div>
     </div>
 
-    <!-- Lock box -->
-    <div class="card card-gold" style="text-align:center;margin-bottom:1rem">
-      <div style="font-size:1.3rem;margin-bottom:6px">🔒</div>
-      <div class="serif" style="font-size:1rem;color:#fff;margin-bottom:.4rem">Tu reporte completo está listo</div>
-      <p style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.55">Desbloquea el análisis profundo de los 6 pilares psicológicos: tu tipo emocional, el de él, la dinámica, la química, el desgaste y el veredicto.</p>
+    <!-- ── CURIOSIDADE ── -->
+    <div class="card" style="margin-bottom:1.2rem;text-align:center;padding:1rem 1.2rem">
+      <div style="font-size:11px;color:var(--txt3);margin-bottom:.5rem">La pregunta que responde tu análisis</div>
+      <div id="v-curiosidad" class="serif" style="font-size:1rem;color:#fff;font-style:italic;line-height:1.4"></div>
+    </div>
+
+    <!-- ── LO QUE PERDERÁS ── -->
+    <div class="card card-rose" style="margin-bottom:1.2rem">
+      <div style="font-size:10px;color:var(--rose-mid);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.8rem">🔒 Lo que no sabrás si no desbloqueas</div>
+      <div id="v-perder" style="display:flex;flex-direction:column;gap:7px"></div>
+      <div style="margin-top:.8rem;font-size:11px;color:rgba(255,255,255,.3);text-align:center">+ La dinámica entre los dos · El veredicto real · Tu plan de 8 semanas</div>
+    </div>
+
+    <!-- ── DINÂMICA ── -->
+    <div class="card" style="text-align:center;padding:.9rem;margin-bottom:1.2rem">
+      <div style="font-size:10px;color:var(--txt3);margin-bottom:3px">Dinámica identificada entre los dos</div>
+      <div id="v-dinamica" class="serif" style="font-size:15px;color:#fff;font-weight:700"></div>
     </div>
 
     <!-- Bundle price -->
@@ -1251,16 +1266,34 @@ function calcDin() {
 function mostrarVenda() {
   var ella=PE[S.iElla], el=PEL[S.sEl], d=S.din;
   // Header
-  set('v-icon-ella',ella.icon);
-  set('v-type-ella',ella.type);
-  set('v-icon-el',el?'👨':'👨');
-  set('v-type-el',el?el.type:S.sEl);
-  set('v-dinamica',d.name);
-  // Reveal parcial
-  var pe = PE[S.iElla];
-  set('v-reveal-icon', pe.icon);
-  set('v-reveal-name', pe.type);
-  set('v-reveal-teaser', pe.teaser ? pe.teaser.substring(0,120)+'...' : '');
+  // Icon — usa innerHTML para garantir render do emoji
+  var iconEl = document.getElementById('v-icon-ella');
+  if (iconEl) iconEl.innerHTML = '<span style="font-size:3rem">' + ella.icon + '</span>';
+  set('v-type-ella', ella.type);
+  set('v-type-ella-sm', ella.type);
+  set('v-icon-el', el ? '👨' : '👨');
+  set('v-type-el', el ? el.type : S.sEl);
+  set('v-dinamica', d.name);
+
+  // ── Conexão emocional personalizada por perfil ──
+  var cx = CONEXAO[S.iElla];
+  if (cx) {
+    set('v-frase1', '"' + cx.frase1 + '"');
+    set('v-frase2', '"' + cx.frase2 + '"');
+    set('v-frase3', cx.frase3);
+    set('v-curiosidad', cx.curiosidad);
+    // Lista do que ela vai perder
+    var perderWrap = document.getElementById('v-perder');
+    if (perderWrap) {
+      perderWrap.innerHTML = '';
+      cx.perder.forEach(function(item) {
+        var d2 = document.createElement('div');
+        d2.style.cssText = 'display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.75)';
+        d2.innerHTML = '<span style="color:var(--rose-mid);flex-shrink:0;margin-top:1px">✗</span><span>' + item + '</span>';
+        perderWrap.appendChild(d2);
+      });
+    }
+  }
   // Bundle info
   set('bi-p1',''+CFG.PRECIO_DIAG_SOLO.toFixed(2));
   set('bi-p2',''+CFG.PRECIO_COMPAT_SOLO.toFixed(2));
@@ -1377,7 +1410,7 @@ function showTab(i) {
 }
 
 /* ─── HELPERS ─── */
-function set(id,v){ var el=document.getElementById(id); if(el){ if(typeof v==='string'&&v.length>20||v.toString().indexOf('<')===-1){ el.textContent=v; }else{ el.innerHTML=v; } } }
+function set(id,v){ var el=document.getElementById(id); if(el){ el.innerHTML=v; } }
 function animBar(id,pct){ var el=document.getElementById(id); if(!el)return; el.style.width='0%'; setTimeout(function(){el.style.width=pct+'%';},120); }
 function setBtnOff(id){ var b=document.getElementById(id); b.disabled=true; b.className='btn btn-off'; }
 function setBtnOn(id,cls){ var b=document.getElementById(id); b.disabled=false; b.className='btn '+cls; }
@@ -1411,6 +1444,63 @@ function numbItems(id,items){
   });
 }
 function reiniciar(){ limpiar(); S={q1cur:0,q1ans:[],q1sel:null,q2cur:0,q2ans:[],q2sel:null,iElla:null,sEl:null,din:null,ob:false,timer:null}; showPage('pg-land'); }
+
+
+/* ─── DADOS DE CONEXÃO EMOCIONAL POR PERFIL ─── */
+const CONEXAO = [
+  /* 0: La Reparadora */
+  {
+    frase1: "Probablemente llevas años sintiéndote responsable de las emociones de alguien que nunca te pidió que lo salvaras.",
+    frase2: "Y cuando él finalmente se abre contigo, sientes algo que pocas personas entienden: que tu amor tiene un propósito.",
+    frase3: "Lo que el análisis completo revela es por qué esa sensación se convierte en una trampa — y cómo salir de ella sin perder tu capacidad de amar.",
+    curiosidad: "¿Por qué sientes que si dejas de cuidarlo, perderás el amor?",
+    perder: [
+      "La raíz exacta de por qué te enamoras de quien necesita ser salvado",
+      "El detonante emocional que activa tu patrón cada vez que él sufre",
+      "Por qué cada vez que intentas alejarte, algo te jala de regreso",
+      "El plan de 8 semanas para romper el ciclo sin perder quién eres"
+    ]
+  },
+  /* 1: La Adicta a la Intensidad */
+  {
+    frase1: "Para ti, una relación sin tensión se siente como una habitación sin oxígeno.",
+    frase2: "Y cuando hay calma, una parte de ti empieza a buscar inconscientemente la tormenta — sin siquiera darte cuenta.",
+    frase3: "Lo que el análisis completo revela es por qué tu sistema nervioso confunde ansiedad con amor — y qué puedes hacer para recalibrarlo.",
+    curiosidad: "¿Por qué las relaciones estables te aburren aunque sepas que son buenas para ti?",
+    perder: [
+      "Por qué tu cerebro literalmente procesa la angustia como pasión",
+      "El origen exacto de tu necesidad de intensidad emocional",
+      "Cómo reconocer a alguien que te da amor real — sin confundirlo con indiferencia",
+      "Técnicas para regular tu sistema nervioso sin perder tu intensidad natural"
+    ]
+  },
+  /* 2: La que Busca su Reflejo */
+  {
+    frase1: "Hay momentos en que no sabes muy bien quién eres cuando no estás en relación con alguien.",
+    frase2: "Y cuando él se aleja, no es solo su presencia lo que extrañas — es la versión de ti misma que sientes cuando estás con él.",
+    frase3: "Lo que el análisis completo revela es de dónde viene esa necesidad y cómo construir una identidad propia que no dependa de nadie.",
+    curiosidad: "¿Qué queda de ti cuando él no está?",
+    perder: [
+      "Por qué tu bienestar emocional fluctúa según el humor de él",
+      "El momento exacto de tu historia donde aprendiste que el amor es condicional",
+      "Cómo dejar de buscar en otros la validación que solo puedes darte tú",
+      "Los 3 primeros pasos para construir autoestima real desde adentro"
+    ]
+  },
+  /* 3: La Enamorada del Potencial */
+  {
+    frase1: "Tú no te enamoras de quien él es — te enamoras de quien sabes que podría llegar a ser.",
+    frase2: "Y cada pequeño destello de esa versión mejor te convence de que si te quedas un poco más, él va a aparecer.",
+    frase3: "Lo que el análisis completo revela es por qué esa visión es tu mayor fortaleza y, al mismo tiempo, lo que más te ha costado.",
+    curiosidad: "¿Cuánto tiempo llevas esperando la versión de él que imaginaste la primera vez?",
+    perder: [
+      "Por qué tu don de ver potencial en los demás puede usarse en tu contra",
+      "La diferencia entre potencial real y potencial que él usa para retenerte",
+      "Cómo dirigir esa visión hacia alguien que también trabaja en crecer",
+      "Cuándo es el momento de soltar — y cómo hacerlo sin sentirte traidora"
+    ]
+  }
+];
 
 /* ─── INIT ─── */
 document.addEventListener('DOMContentLoaded', verificarStatusPagamento);

@@ -459,7 +459,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <button onclick="goToIntro()" style="background:var(--rose);color:#fff;border:none;border-radius:20px;padding:7px 16px;font-size:12px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer">Hacer el test →</button>
     </nav>
     <div style="background:linear-gradient(90deg,#9B2D4A,#C84B6A,#9B2D4A);padding:6px;text-align:center;font-size:11px;font-weight:700;color:#fff;letter-spacing:.04em">
-      ⚡ Solo disponible de forma gratuita por tiempo limitado — Tu análisis se elimina en 15 min
+      ⚡ Acceso gratuito por tiempo limitado · Miles de mujeres están haciendo el test ahora
     </div>
     <div class="hero-grid">
       <div class="hero-txt">
@@ -782,7 +782,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <button onclick="goToQuiz1()" style="width:100%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);color:#fff;border:none;border-radius:14px;padding:17px;font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;box-shadow:0 8px 28px rgba(200,75,106,.45);letter-spacing:.01em;margin-bottom:.7rem">
           Estoy lista para saber la verdad →
         </button>
-        <p style="font-size:11px;color:rgba(255,255,255,.2);margin:0">Gratis · 6 preguntas sobre ti · 3 sobre él</p>
+        <p style="font-size:11px;color:rgba(255,255,255,.2);margin:0">Solo 5 minutos — puede cambiar cómo ves todo</p>
       </div>
 
     </div>
@@ -826,13 +826,13 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <div style="margin-bottom:1.2rem">
         <div style="margin-bottom:.8rem">
           <label style="display:block;font-size:10px;color:var(--rose-mid);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px">Tu nombre</label>
-          <input type="text" id="inp-nombre-ella" placeholder="¿Cómo te llamas?" autocomplete="given-name"
+          <input type="text" id="inp-nombre-ella" placeholder="Tu nombre (para personalizar tu análisis)" autocomplete="given-name"
             style="width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 14px;color:#fff;font-size:14px;font-family:'DM Sans',sans-serif;outline:none"
             oninput="guardarNombres()">
         </div>
         <div>
           <label style="display:block;font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px">Nombre de él</label>
-          <input type="text" id="inp-nombre-el" placeholder="¿Cómo se llama él?" autocomplete="off"
+          <input type="text" id="inp-nombre-el" placeholder="Su nombre (aparecerá en tu reporte)" autocomplete="off"
             style="width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 14px;color:#fff;font-size:14px;font-family:'DM Sans',sans-serif;outline:none"
             oninput="guardarNombres()">
         </div>
@@ -941,26 +941,6 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <p style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.6">Elaborado con base en tus respuestas usando principios de psicología del apego y análisis de patrones relacionales. No es un test genérico — es un espejo de lo que respondiste.</p>
     </div>
 
-    <!-- Bundle price -->
-    <div class="bundle-box">
-      <div style="font-size:11px;color:var(--txt3);margin-bottom:.5rem">Lo que incluye tu reporte</div>
-      <div class="bundle-includes">
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Análisis Emocional Personalizado</strong> — tu tipo, tu patrón, tus detonantes ($<span id="bi-p1"></span>)</span></div>
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Perfil Psicológico de Él</strong> — Evitativo, Narcisista, Imaturo o Seguro ($<span id="bi-p2"></span>)</span></div>
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Dinámica entre los dos</strong> — por qué se atraen y por qué se destruyen</span></div>
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Pronóstico Emocional</strong> — el veredicto honesto sobre esta relación</span></div>
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Reporte Digital Interactivo</strong> — los 6 pilares psicológicos, acceso inmediato en pantalla</span></div>
-      </div>
-      <div style="text-align:center;margin-top:.8rem">
-        <div style="font-size:11px;color:rgba(255,255,255,.28);margin-bottom:2px">Valor normal: $<span id="bi-normal"></span></div>
-        <div style="font-size:11px;color:var(--txt3);text-decoration:line-through;margin-bottom:4px">Antes: $<span id="bi-tachado"></span></div>
-        <div class="serif" id="bi-price-main" style="font-size:2.4rem;font-weight:800;color:var(--gold)"></div>
-        <div style="font-size:12px;color:var(--txt3);margin-top:2px">acceso inmediato · reporte interactivo en pantalla</div>
-      </div>
-    </div>
-
-    <div style="font-size:11px;color:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;gap:5px;margin:.8rem 0">🛡 7 días de garantía · sin preguntas</div>
-
     <!-- SOCIAL PROOF COUNTER -->
     <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:.8rem;margin-bottom:.8rem;display:flex;align-items:center;justify-content:center;gap:10px">
       <div style="display:flex">
@@ -975,6 +955,28 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       🔓 Desbloquear mi reporte completo
     </button>
     <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.25);margin-bottom:1rem">Acceso inmediato · Pago único · 7 días de garantía</p>
+
+    <!-- Bundle price -->
+    <div class="bundle-box">
+      <div style="font-size:11px;color:var(--txt3);margin-bottom:.5rem">Lo que incluye tu reporte</div>
+      <div class="bundle-includes">
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Análisis Emocional Personalizado</strong> — tu tipo, tu patrón, tus detonantes (<span style="color:var(--gold)">$19.99</span>)</span></div>
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Perfil Psicológico de Él</strong> — Evitativo, Narcisista, Imaturo o Seguro (<span style="color:var(--gold)">$19.99</span>)</span></div>
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Dinámica entre los dos</strong> — por qué se atraen y por qué se destruyen</span></div>
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Pronóstico Emocional</strong> — el veredicto honesto sobre esta relación</span></div>
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Reporte Digital Interactivo</strong> — los 6 pilares psicológicos, acceso inmediato en pantalla</span></div>
+      </div>
+      <div style="text-align:center;margin-top:.8rem">
+        <div style="font-size:11px;color:rgba(255,255,255,.28);margin-bottom:2px">Valor normal: <span id="bi-normal">$39.98</span></div>
+        <div style="font-size:11px;color:var(--txt3);text-decoration:line-through;margin-bottom:4px">Antes: $<span id="bi-tachado">39.98</span></div>
+        <div class="serif" id="bi-price-main" style="font-size:2.4rem;font-weight:800;color:var(--gold)"></div>
+        <div style="font-size:12px;color:var(--txt3);margin-top:2px">acceso inmediato · reporte interactivo en pantalla</div>
+      </div>
+    </div>
+
+    <div style="font-size:11px;color:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;gap:5px;margin:.8rem 0">🛡 7 días de garantía · sin preguntas</div>
+
+
 
     <!-- BENEFÍCIOS BLOQUEADOS -->
     <div class="card card-rose" style="margin-bottom:1.2rem">
@@ -1004,7 +1006,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 
       <div class="fi">
         <label>Tu nombre</label>
-        <input type="text" id="co-name" placeholder="¿Cómo te llamas?" autocomplete="name">
+        <input type="text" id="co-name" placeholder="Tu nombre (para personalizar tu análisis)" autocomplete="name">
         <label>Email para recibir tu reporte</label>
         <input type="email" id="co-email" placeholder="tu@email.com" autocomplete="email" inputmode="email">
       </div>
@@ -1380,7 +1382,7 @@ function goToQuiz1() {
 }
 function renderQ1() {
   var q=Q1[S.q1cur], pct=Math.round(((S.q1cur+1)/Q1.length)*100);
-  set('q1-meta','Pregunta '+(S.q1cur+1)+' de '+Q1.length);
+  set('q1-meta','Pregunta '+(S.q1cur+1)+' de 6');
   set('q1-pct',pct+'%');
   document.getElementById('q1-bar').style.width=pct+'%';
   set('q1-lbl','Pregunta '+(S.q1cur+1));

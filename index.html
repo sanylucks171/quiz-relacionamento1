@@ -426,6 +426,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 }
 .wa-cta-below{margin-top:1.5rem;text-align:center}
 
+@keyframes pulse-green{0%,100%{box-shadow:0 0 0 0 rgba(76,175,80,.4)}50%{box-shadow:0 0 0 6px rgba(76,175,80,0)}}
 </style>
 <!-- Google Analytics GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HC8SFRJ0V5"></script>
@@ -447,6 +448,9 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <div class="lp-logo"><span style="color:#C84B6A;margin-right:5px;font-style:normal;font-family:sans-serif;font-size:14px">❤</span>descubre tu apego</div>
       <button onclick="goToQuiz1()" style="background:var(--rose);color:#fff;border:none;border-radius:20px;padding:7px 16px;font-size:12px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer">Hacer el test →</button>
     </nav>
+    <div style="background:linear-gradient(90deg,#9B2D4A,#C84B6A,#9B2D4A);padding:6px;text-align:center;font-size:11px;font-weight:700;color:#fff;letter-spacing:.04em">
+      ⚡ Solo disponible de forma gratuita por tiempo limitado — Tu análisis se elimina en 15 min
+    </div>
     <div class="hero-grid">
       <div class="hero-txt">
         <span class="tag tag-rose tag-pulse" style="margin-bottom:.8rem;display:inline-flex">✓ Gratis · 5 min · resultado inmediato</span>
@@ -461,6 +465,19 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         </button>
         <div class="hero-trust">
           <span>100% gratis</span><span class="tdot"></span><span>5 minutos</span><span class="tdot"></span><span>+12,000 mujeres</span>
+        </div>
+
+        <!-- LIVE COUNTER -->
+        <div style="display:flex;align-items:center;gap:8px;margin-top:.8rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:30px;padding:8px 16px;width:fit-content">
+          <span style="width:8px;height:8px;border-radius:50%;background:#4CAF50;display:inline-block;animation:pulse-green 1.5s infinite"></span>
+          <span id="live-counter" style="font-size:13px;color:#fff;font-weight:600"></span>
+          <span style="font-size:12px;color:rgba(255,255,255,.45)">haciendo el test ahora</span>
+        </div>
+        <div id="live-counter-msg" style="font-size:11px;color:#4CAF50;font-weight:600;margin-top:4px;opacity:0;transition:opacity .4s;height:16px">↑ Una mujer más acaba de entrar</div>
+
+        <!-- METHODOLOGY BADGE -->
+        <div style="margin-top:.7rem;font-size:11px;color:rgba(255,255,255,.35);line-height:1.5;max-width:320px">
+          🧠 Basado en +12,000 respuestas analizadas y patrones validados por psicólogos especializados en apego emocional
         </div>
       </div>
       <!-- Phones desktop -->
@@ -870,9 +887,20 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 
     <div style="font-size:11px;color:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;gap:5px;margin:.8rem 0">🛡 7 días de garantía · sin preguntas</div>
 
-    <button class="btn btn-rose" onclick="abrirCO()" style="margin-bottom:1rem">
+    <!-- SOCIAL PROOF COUNTER -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:.8rem">
+      <div style="display:flex;margin-right:2px">
+        <span style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:10px;margin-left:-6px">👩🏻</span>
+        <span style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#9B2D4A,#C84B6A);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:10px;margin-left:-6px">👩🏽</span>
+        <span style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#C84B6A,#E8748F);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:10px;margin-left:-6px">👩🏾</span>
+      </div>
+      <span style="font-size:12px;color:rgba(255,255,255,.55)"><span id="checkout-counter" style="color:#fff;font-weight:700"></span> mujeres desbloquearon su diagnóstico hoy</span>
+    </div>
+
+    <button class="btn btn-rose" onclick="abrirCO()" style="margin-bottom:.6rem">
       🔓 Desbloquear mi reporte completo
     </button>
+    <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.25);margin-bottom:1rem">Acceso inmediato · Pago único · 7 días de garantía</p>
 
     <!-- BENEFÍCIOS BLOQUEADOS -->
     <div class="card card-rose" style="margin-bottom:1.2rem">
@@ -1424,6 +1452,20 @@ function mostrarVenda() {
     }
   }
 
+  // ── Contador de checkout ──
+  var ccEl = document.getElementById('checkout-counter');
+  if(ccEl) {
+    var ccBase = 178 + Math.floor(Math.random() * 8); // 178-185
+    ccEl.textContent = ccBase;
+    // Sobe ocasionalmente
+    setInterval(function(){
+      if(Math.random() < 0.25 && ccBase < 247) {
+        ccBase++;
+        ccEl.textContent = ccBase;
+      }
+    }, 12000);
+  }
+
   // ── Inicia timer ──
   iniciarVendaTimer();
 
@@ -1791,8 +1833,48 @@ function gaEvent(name, params) {
   if(typeof gtag !== 'undefined') gtag('event', name, params||{});
 }
 
+
+/* ─── CONTADOR AO VIVO — sobe enquanto a pessoa está na página ─── */
+function iniciarContador() {
+  var el = document.getElementById('live-counter');
+  var msgEl = document.getElementById('live-counter-msg');
+  if(!el) return;
+
+  // Começa num número aleatório entre 38 e 52
+  var base = 38 + Math.floor(Math.random() * 15);
+  var maxVal = 89;
+  el.textContent = base;
+
+  // Sobe 1 a cada 8-15 segundos
+  function subir() {
+    if(base < maxVal) {
+      base++;
+      el.textContent = base;
+      // Mostra aviso quando sobe
+      if(msgEl) {
+        msgEl.style.opacity = '1';
+        msgEl.textContent = '↑ Una mujer más acaba de entrar';
+        setTimeout(function(){ msgEl.style.opacity = '0'; }, 2500);
+      }
+    }
+    // Próxima subida em 8 a 18 segundos
+    setTimeout(subir, 8000 + Math.floor(Math.random() * 10000));
+  }
+
+  // Pequena flutuação ocasional (±1) sem aviso
+  setInterval(function(){
+    if(Math.random() < 0.3) {
+      var v = Math.random() < 0.7 ? 1 : -1;
+      base = Math.max(31, Math.min(maxVal, base + v));
+      el.textContent = base;
+    }
+  }, 5000);
+
+  setTimeout(subir, 6000 + Math.floor(Math.random() * 6000));
+}
+
 /* ─── INIT ─── */
-document.addEventListener('DOMContentLoaded', verificarStatusPagamento);
+document.addEventListener('DOMContentLoaded', function(){ verificarStatusPagamento(); iniciarContador(); });
 </script>
 </body>
 </html>

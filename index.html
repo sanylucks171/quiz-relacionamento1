@@ -130,6 +130,34 @@ html,body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--txt
 /* ── BLUR ── */
 .blr{filter:blur(5px);user-select:none;pointer-events:none}
 
+/* ── FEEDBACK FLASH após selecionar resposta ── */
+.feedback-flash{position:fixed;bottom:0;left:0;right:0;z-index:8888;padding:0 1.2rem 1.4rem;pointer-events:none;transform:translateY(100%);transition:transform .35s cubic-bezier(.2,.9,.3,1),opacity .3s}
+.feedback-flash.show{transform:translateY(0);pointer-events:auto}
+.feedback-inner{max-width:560px;margin:0 auto;background:rgba(14,12,22,.96);border:1px solid rgba(200,75,106,.35);border-radius:16px;padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:.8rem;backdrop-filter:blur(12px);box-shadow:0 -4px 40px rgba(200,75,106,.2)}
+.feedback-bar{width:3px;border-radius:2px;background:linear-gradient(180deg,#C84B6A,#E8748F);flex-shrink:0;align-self:stretch;min-height:36px}
+.feedback-txt{font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;font-style:italic}
+.feedback-sub{font-size:11px;color:rgba(200,75,106,.7);margin-top:3px;font-weight:600}
+
+/* ── ANALIZANDO PAGE ── */
+.analizando-page{min-height:100vh;background:#0D0B17;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.4rem;text-align:center;position:relative;overflow:hidden}
+.analizando-page::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(200,75,106,.18) 0%,transparent 65%);pointer-events:none}
+@keyframes orbit{0%{transform:rotate(0deg) translateX(38px) rotate(0deg)}100%{transform:rotate(360deg) translateX(38px) rotate(-360deg)}}
+@keyframes orbit2{0%{transform:rotate(180deg) translateX(28px) rotate(-180deg)}100%{transform:rotate(540deg) translateX(28px) rotate(-540deg)}}
+@keyframes pulseRing{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.12);opacity:.9}}
+@keyframes typewriter{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:translateY(0)}}
+.az-orbit-wrap{position:relative;width:90px;height:90px;margin:0 auto 1.8rem}
+.az-core{position:absolute;inset:0;margin:auto;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);display:flex;align-items:center;justify-content:center;font-size:1.3rem;animation:pulseRing 2s ease-in-out infinite;box-shadow:0 0 30px rgba(200,75,106,.5)}
+.az-dot{position:absolute;top:50%;left:50%;width:9px;height:9px;border-radius:50%;margin:-4.5px}
+.az-dot1{background:#C89B3C;animation:orbit 2.2s linear infinite}
+.az-dot2{background:#E8748F;animation:orbit2 1.6s linear infinite}
+.az-steps{display:flex;flex-direction:column;gap:.5rem;margin:1.4rem 0;max-width:340px;width:100%}
+.az-step{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.65rem 1rem;font-size:12px;color:rgba(255,255,255,.4);text-align:left;transition:all .5s}
+.az-step.done{color:#fff;border-color:rgba(58,180,122,.3);background:rgba(58,180,122,.06)}
+.az-step.active{color:#fff;border-color:rgba(200,75,106,.3);background:rgba(200,75,106,.07);animation:typewriter .4s ease}
+.az-step-ico{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
+.az-step.done .az-step-ico{background:rgba(58,180,122,.2);color:#3AB47A}
+.az-step.active .az-step-ico{background:rgba(200,75,106,.2);color:#C84B6A}
+
 /* ── LANDING ── */
 .lp-bg{background:var(--ink2);position:relative;overflow:hidden}
 .lp-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(200,75,106,.17) 0%,transparent 60%);pointer-events:none}
@@ -809,6 +837,45 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
   </div>
 </div>
 
+<!-- FEEDBACK FLASH GLOBAL -->
+<div id="feedback-flash" class="feedback-flash">
+  <div class="feedback-inner">
+    <div class="feedback-bar"></div>
+    <div>
+      <div class="feedback-txt" id="feedback-txt"></div>
+      <div class="feedback-sub" id="feedback-sub"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PG ANALIZANDO — Claude API
+     ══════════════════════════════════════════════════ -->
+<div id="pg-analizando" class="page">
+  <div class="analizando-page">
+    <div style="position:relative;z-index:2;width:100%;max-width:400px">
+      <div class="az-orbit-wrap">
+        <div class="az-core">🧠</div>
+        <div class="az-dot az-dot1"></div>
+        <div class="az-dot az-dot2"></div>
+      </div>
+      <div style="font-size:10px;color:rgba(200,75,106,.7);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem">Análisis en progreso</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,4vw,1.6rem);color:#fff;line-height:1.3;margin-bottom:.5rem">
+        Construyendo <em style="color:var(--rose-mid)">tu análisis</em> personal
+      </h2>
+      <p style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:1.6rem;line-height:1.6">Tus respuestas están siendo procesadas. Un momento.</p>
+      <div class="az-steps">
+        <div class="az-step active" id="az-s0"><div class="az-step-ico">◎</div><span>Leyendo tu patrón emocional...</span></div>
+        <div class="az-step" id="az-s1"><div class="az-step-ico">◎</div><span>Identificando el perfil de él...</span></div>
+        <div class="az-step" id="az-s2"><div class="az-step-ico">◎</div><span>Cruzando la dinámica entre los dos...</span></div>
+        <div class="az-step" id="az-s3"><div class="az-step-ico">◎</div><span>Generando tu análisis personalizado...</span></div>
+        <div class="az-step" id="az-s4"><div class="az-step-ico">◎</div><span>Preparando tu reporte...</span></div>
+      </div>
+      <p style="font-size:11px;color:rgba(255,255,255,.18);margin-top:1rem">Esto puede tomar unos segundos</p>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════════════════════════════════════════
      PG 3 · TRANSIÇÃO — Agora sobre ele
      ══════════════════════════════════════════════════ -->
@@ -1370,6 +1437,78 @@ function limpiarURL() {
     window.history.replaceState({},'',window.location.pathname);
 }
 
+/* ─── FEEDBACK FLASH DATA ─── */
+var FB_Q1 = [
+  // Q1[0]: Él te deja en visto
+  ["Esa angustia que sientes tiene raíces más profundas que él solo.","El análisis va a decirte exactamente de dónde viene.",
+   "Aprendiste a normalizar el dolor esperando. Eso dice mucho.","El análisis revela cómo ese patrón se formó.",
+   "Convertir su silencio en tu culpa es un patrón muy específico.","Y tiene una explicación concreta en tu historia.",
+   "Esa autoprotección es sabia — y también tiene su propia historia.","El análisis va a mostrarte qué está detrás de eso."],
+  // Q1[1]: él se pone frío
+  ["Buscar conexión cuando él se cierra es un reflejo aprendido.","No es debilidad — es un mecanismo que el análisis va a revelar.",
+   "Tolerar sin límites dice mucho de lo que aprendiste a aceptar.","El análisis va a mostrarte de dónde viene esa paciencia.",
+   "Cuando él se va, tú también desapareces. Eso no es coincidencia.","Es uno de los patrones más importantes que el análisis revela.",
+   "Respetar el espacio ajeno a veces viene de no pedir el propio.","El análisis va a explorar eso contigo."],
+  // Q1[2]: Con suficiente amor él va a cambiar
+  ["Esa espera tan larga tiene un nombre — y el análisis lo revela.","Es uno de los patrones más comunes y más dolorosos.",
+   "Ver potencial donde otros no lo ven puede ser un don... o una trampa.","El análisis te dice cuándo es cada cosa.",
+   "Aprendiste algo que a muchas les cuesta años entender.","El análisis va a mostrarte cómo aplicarlo a esta relación.",
+   "Esa claridad es una fortaleza real. El análisis va a confirmarlo.","Y también va a revelar qué dinámicas todavía te afectan."],
+  // Q1[3]: después de días fríos él vuelve cariñoso
+  ["Ese alivio tan intenso es la señal más importante de tu respuesta.","Indica algo profundo sobre cómo funciona tu sistema emocional.",
+   "Alegría mezclada con miedo. Eso es lo que sostiene este ciclo.","El análisis explica el mecanismo exacto detrás de esa sensación.",
+   "Tu cuerpo ya sabe que el ciclo se repite. Eso no es paranoia.","Es una forma de protección — y el análisis va a revelarlo.",
+   "Esa alerta que sientes es tu instinto protegiéndote.","El análisis va a decirte cómo usarla mejor."],
+  // Q1[4]: cómo eres cuando estás enamorada
+  ["Darte entera tiene un costo que no siempre ves mientras lo haces.","El análisis revela exactamente cuánto te ha costado ese patrón.",
+   "Esa intensidad con la que te enganchas — ¿de dónde viene?","El análisis tiene la respuesta. Y es más específica de lo que crees.",
+   "Tu bienestar conectado a su mirada. El análisis explica por qué.","Y cómo recuperar tu centro independientemente de él.",
+   "Buscar certeza en el amor es completamente válido.","El análisis va a decirte si estás buscándola en el lugar correcto."],
+  // Q1[5]: alguien te decepciona
+  ["Tomar responsabilidad de lo que no fue tuyo es un patrón muy reconocible.","Y tiene una raíz muy concreta que el análisis va a revelar.",
+   "La sorpresa ante el dolor ajeno dice mucho de tu confianza profunda.","El análisis explica cómo ese rasgo tuyo interactúa con él.",
+   "Esperar el dolor antes de que llegue es otra forma de protegerse.","El análisis revela qué herida está detrás de esa anticipación.",
+   "Esa capacidad de pausar y evaluar es una fortaleza real.","El análisis va a confirmar exactamente por qué."]
+];
+var FB_Q2 = [
+  // Q2[0]: tienen un problema
+  ["El silencio como respuesta es una de las formas más dolorosas de rechazo.","El análisis va a explicar qué hay detrás de ese patrón en él.",
+   "Cómo de repente el que lastimó se convierte en el que necesita consuelo.","Eso tiene un nombre en psicología — y el análisis lo revela.",
+   "El ciclo de explosión y olvido es un patrón muy específico en él.","Y explica mucho de lo que viviste.",
+   "La madurez emocional es más rara de lo que parece.","El análisis va a decirte qué significa eso para tu relación."],
+  // Q2[1]: en el día a día
+  ["Presente físicamente, ausente emocionalmente. Eso tiene nombre.","Y el análisis revela exactamente qué tipo de patrón es en él.",
+   "La imprevisibilidad constante mantiene tu sistema en alerta todo el tiempo.","El análisis explica cómo eso te afecta a nivel emocional.",
+   "Cuando su estado de ánimo controla el ambiente, tú no tienes hogar.","El análisis revela la dinámica exacta entre los dos.",
+   "La consistencia es el lenguaje del amor que pocas veces se enseña.","El análisis va a explorar qué significa eso para ustedes."],
+  // Q2[2]: pasas por algo difícil
+  ["No poder recibir tu dolor es una limitación profunda en él.","El análisis revela si eso puede cambiar — o no.",
+   "Necesitar ser el protagonista incluso en tu dolor — eso dice todo.","El análisis identifica exactamente qué tipo de patrón es eso.",
+   "Las buenas intenciones sin herramientas tienen un costo real.","El análisis va a explicar qué esperar de alguien así.",
+   "Ser vista en el dolor es una de las formas más profundas de amor.","El análisis va a revelarte cuánto vale eso en una relación."]
+];
+
+var _fbTimer = null;
+function mostrarFeedback(qIndex, ansIndex, isQ2) {
+  var data = isQ2 ? FB_Q2 : FB_Q1;
+  var row = data[qIndex];
+  if(!row) return;
+  var txt = row[ansIndex*2]||'';
+  var sub = row[ansIndex*2+1]||'';
+  if(!txt) return;
+  document.getElementById('feedback-txt').textContent = txt;
+  document.getElementById('feedback-sub').textContent = sub;
+  var fl = document.getElementById('feedback-flash');
+  fl.classList.add('show');
+  if(_fbTimer) clearTimeout(_fbTimer);
+  _fbTimer = setTimeout(function(){ fl.classList.remove('show'); }, 2200);
+}
+function ocultarFeedback() {
+  var fl = document.getElementById('feedback-flash');
+  if(fl) fl.classList.remove('show');
+  if(_fbTimer) clearTimeout(_fbTimer);
+}
+
 /* ─── QUIZ 1 ─── */
 function goToIntro() {
   showPage('pg-intro');
@@ -1381,8 +1520,9 @@ function goToQuiz1() {
   showPage('pg-q1'); renderQ1();
 }
 function renderQ1() {
+  ocultarFeedback();
   var q=Q1[S.q1cur], pct=Math.round(((S.q1cur+1)/Q1.length)*100);
-  set('q1-meta','Pregunta '+(S.q1cur+1)+' de 6');
+  set('q1-meta','Pregunta '+(S.q1cur+1)+' de '+Q1.length);
   set('q1-pct',pct+'%');
   document.getElementById('q1-bar').style.width=pct+'%';
   set('q1-lbl','Pregunta '+(S.q1cur+1));
@@ -1392,8 +1532,22 @@ function renderQ1() {
 }
 function selectQ1(i,el) {
   selOpt('q1-opts','sel'); el.classList.add('sel'); S.q1sel=i; setBtnOn('q1-next','btn-rose');
+  mostrarFeedback(S.q1cur, i, false);
+  // Auto-avança após 2s se usuária não clicar no botão
+  if(_fbTimer) clearTimeout(_fbTimer);
+  _fbTimer = setTimeout(function(){
+    ocultarFeedback();
+    if(S.q1sel===i) nextQ1Auto();
+  }, 2400);
+}
+var _q1auto = false;
+function nextQ1Auto() {
+  if(S.q1sel===null) return;
+  S.q1ans.push(S.q1sel); S.q1cur++;
+  if(S.q1cur<Q1.length){ renderQ1(); } else { calcElla(); mostrarTrans(); }
 }
 function nextQ1() {
+  ocultarFeedback();
   if(S.q1sel===null)return;
   S.q1ans.push(S.q1sel); S.q1cur++;
   if(S.q1cur<Q1.length){ renderQ1(); } else { calcElla(); mostrarTrans(); }
@@ -1428,15 +1582,26 @@ function renderQ2() {
 }
 function selectQ2(i,el) {
   selOpt('q2-opts','sel-gold'); el.classList.add('sel-gold');
-  // Mudar cor da letra para gold
   el.querySelectorAll('.opt-lt').forEach(function(lt){lt.style.background='var(--gold)';lt.style.borderColor='var(--gold)';lt.style.color='#fff'});
   S.q2sel=i; setBtnOn('q2-next','btn-gold');
   document.getElementById('q2-next').style.background='linear-gradient(135deg,#C89B3C,#A07828)';
+  mostrarFeedback(S.q2cur, i, true);
+  if(_fbTimer) clearTimeout(_fbTimer);
+  _fbTimer = setTimeout(function(){
+    ocultarFeedback();
+    if(S.q2sel===i) nextQ2Auto();
+  }, 2400);
 }
-function nextQ2() {
+function nextQ2Auto() {
   if(S.q2sel===null)return;
   S.q2ans.push(S.q2sel); S.q2cur++;
-  if(S.q2cur<Q2.length){ renderQ2(); } else { calcEl(); calcDin(); guardar(); mostrarVenda(); }
+  if(S.q2cur<Q2.length){ renderQ2(); } else { calcEl(); calcDin(); guardar(); iniciarAnalizando(); }
+}
+function nextQ2() {
+  ocultarFeedback();
+  if(S.q2sel===null)return;
+  S.q2ans.push(S.q2sel); S.q2cur++;
+  if(S.q2cur<Q2.length){ renderQ2(); } else { calcEl(); calcDin(); guardar(); iniciarAnalizando(); }
 }
 function calcEl() {
   var votos={Evitativo:0,Narcisista:0,Imaturo:0,Seguro:0};
@@ -1448,6 +1613,65 @@ function calcDin() {
   var ella=PE[S.iElla].type.replace('La ','').split(' ')[0];
   var key=ella+'+'+S.sEl;
   S.din=DIN[key]||DIN_DEF;
+}
+
+/* ─── ANALIZANDO — Claude API ─── */
+var AI_FRASE = '';
+var AI_FRASE2 = '';
+function iniciarAnalizando() {
+  showPage('pg-analizando');
+  AI_FRASE = ''; AI_FRASE2 = '';
+  var steps = ['az-s0','az-s1','az-s2','az-s3','az-s4'];
+  var cur = 0;
+  function activarStep(i) {
+    steps.forEach(function(id,j){
+      var el=document.getElementById(id);
+      if(!el)return;
+      el.classList.remove('active','done');
+      if(j<i) { el.classList.add('done'); el.querySelector('.az-step-ico').textContent='✓'; }
+      else if(j===i) { el.classList.add('active'); el.querySelector('.az-step-ico').textContent='◎'; }
+      else { el.querySelector('.az-step-ico').textContent='◎'; }
+    });
+  }
+  activarStep(0);
+  // Avança steps visualmente
+  var delays = [900, 1700, 2500, 3200];
+  delays.forEach(function(d,i){ setTimeout(function(){ activarStep(i+1); }, d); });
+  // Chama Claude API
+  var ella = PE[S.iElla];
+  var el   = PEL[S.sEl]||{type:S.sEl};
+  var din  = S.din||DIN_DEF;
+  var nombre = getNombreElla();
+  var nombreEl = getNombreEl();
+  var q1txts = Q1.map(function(q,i){ return q.t+' → '+q.o[S.q1ans[i]||0]; });
+  var q2txts = Q2.map(function(q,i){ return q.t+' → '+q.o[S.q2ans[i]||0]; });
+  var prompt = 'Eres una psicóloga especialista en apego emocional y dinámicas relacionales. Con base en las respuestas de '+nombre+' a un test emocional, escribe DOS párrafos cortos, profundamente personalizados y emocionalmente intensos para la página de resultados.\n\n'
+    +'PERFIL DE ELLA: '+ella.type+'\nPERFIL DE ÉL: '+el.type+'\nDINÁMICA: '+din.name+'\n\n'
+    +'RESPUESTAS DE ELLA:\n'+q1txts.join('\n')+'\n\n'
+    +'RESPUESTAS SOBRE ÉL:\n'+q2txts.join('\n')+'\n\n'
+    +'INSTRUCCIONES:\n'
+    +'- Párrafo 1 (FRASE_PRINCIPAL, máx 60 palabras): Una frase en primera persona del test dirigida a '+nombre+'. Debe mencionar su nombre, referenciar 1-2 de sus respuestas ESPECÍFICAS y nombrar el patrón detectado. Que sienta que fue escrita solo para ella. Usar cursiva emocional. Estilo: íntimo, honesto, sin eufemismos.\n'
+    +'- Párrafo 2 (FRASE_2, máx 55 palabras): Un párrafo explicativo que describe con precisión la dinámica observada entre ella y él, usando las respuestas concretas. Sin mencionar el nombre.\n\n'
+    +'Responde SOLO con este formato JSON sin backticks:\n{"f1":"...párrafo 1...","f2":"...párrafo 2..."}\n'
+    +'Usa el nombre '+nombre+' al menos una vez en f1. Sin comillas tipográficas en el JSON.';
+  fetch('/api/analisar', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({ prompt: prompt })
+  }).then(function(r){ return r.json(); })
+    .then(function(data){
+      try {
+        var txt = (data.content||[]).map(function(b){return b.text||'';}).join('');
+        var clean = txt.replace(/```json|```/g,'').trim();
+        var parsed = JSON.parse(clean);
+        AI_FRASE  = parsed.f1 || '';
+        AI_FRASE2 = parsed.f2 || '';
+      } catch(e){ AI_FRASE=''; AI_FRASE2=''; }
+    }).catch(function(){ AI_FRASE=''; AI_FRASE2=''; })
+    .finally(function(){
+      // Garante que steps de animação terminaram antes de passar
+      setTimeout(function(){ activarStep(4); setTimeout(function(){ mostrarVenda(); }, 600); }, 3800);
+    });
 }
 
 /* ─── TELA DE VENDA ─── */
@@ -1470,24 +1694,30 @@ function mostrarVenda() {
   if(revName) revName.textContent = ella.type;
   if(revDesc) revDesc.textContent = ella.desc ? ella.desc.substring(0,120)+'...' : '';
 
-  // ── Lock copy personalizada ──
+   // ── Lock copy com nome ──
+  var nElla = getNombreElla();
   var lockCopies = [
-    "Lo que encontramos en ti va más allá de lo que cualquier persona cercana se ha atrevido a decirte.",
-    "Lo que encontramos explica por qué tu sistema emocional funciona diferente — y por qué eso no es un defecto.",
-    "Lo que encontramos revela algo que llevas tiempo sintiendo pero no has podido nombrar.",
-    "Lo que encontramos explica por qué ves en él algo que nadie más ve — y lo que eso te ha costado."
+    (nElla!=='tú'?nElla+', lo':'Lo')+' que encontramos en ti va más allá de lo que cualquier persona cercana se ha atrevido a decirte.',
+    (nElla!=='tú'?nElla+', lo':'Lo')+' que encontramos explica por qué tu sistema emocional funciona diferente — y por qué eso no es un defecto.',
+    (nElla!=='tú'?nElla+', lo':'Lo')+' que encontramos revela algo que llevas tiempo sintiendo pero no has podido nombrar.',
+    (nElla!=='tú'?nElla+', lo':'Lo')+' que encontramos explica por qué ves en él algo que nadie más ve — y lo que eso te ha costado.'
   ];
   var lockEl = document.getElementById('v-lock-copy');
   if(lockEl) lockEl.textContent = lockCopies[S.iElla] || lockCopies[0];
 
-  // ── Frase principal personalizada pelas respostas ──
-  var f1 = getFrasePrincipal(S.iElla, S.sEl, S.q1ans);
+  // ── Frase principal — IA ou fallback ──
   var el1 = document.getElementById('v-frase1');
-  if(el1 && f1) el1.innerHTML = '“'+f1+'”';
+  if(el1) {
+    var f1 = AI_FRASE || getFrasePrincipal(S.iElla, S.sEl, S.q1ans);
+    el1.innerHTML = f1 ? '“'+f1+'”' : '';
+  }
 
-  // ── Frase 2 individual ──
+  // ── Frase 2 — IA ou fallback ──
   var el2 = document.getElementById('v-frase2');
-  if(el2) el2.textContent = getFrase2(S.iElla, S.q1ans);
+  if(el2) {
+    var f2 = AI_FRASE2 || getFrase2(S.iElla, S.q1ans);
+    el2.textContent = f2 || '';
+  }
 
   // ── Curiosidade individual ──
   var elc = document.getElementById('v-curiosidad');
@@ -1519,7 +1749,6 @@ function mostrarVenda() {
   set('co-total-base','$'+CFG.PRECIO_BUNDLE.toFixed(2));
 
   // ── Saudação com nome ──
-  var nElla = getNombreElla();
   var nEl   = getNombreEl();
   var greet = document.getElementById('v-greeting');
   if(greet) {

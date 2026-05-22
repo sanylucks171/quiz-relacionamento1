@@ -427,6 +427,14 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 .wa-cta-below{margin-top:1.5rem;text-align:center}
 
 </style>
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HC8SFRJ0V5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HC8SFRJ0V5');
+</script>
 </head>
 <body>
 
@@ -1253,6 +1261,7 @@ function limpiarURL() {
 /* ─── QUIZ 1 ─── */
 function goToQuiz1() {
   S.q1cur=0; S.q1ans=[]; S.q1sel=null;
+  gaEvent('quiz_start');
   showPage('pg-q1'); renderQ1();
 }
 function renderQ1() {
@@ -1288,6 +1297,7 @@ function mostrarTrans() {
 /* ─── QUIZ 2 ─── */
 function goToQuiz2() {
   S.q2cur=0; S.q2ans=[]; S.q2sel=null;
+  gaEvent('quiz1_complete');
   showPage('pg-q2'); renderQ2();
 }
 function renderQ2() {
@@ -1409,11 +1419,13 @@ function mostrarVenda() {
   // ── Inicia timer ──
   iniciarVendaTimer();
 
+  gaEvent('reached_sales_page', {perfil_ella: S.iElla, perfil_el: S.sEl});
   showPage('pg-venda');
 }
 
 /* ─── CHECKOUT ─── */
 function abrirCO() {
+  gaEvent('click_buy_button', {perfil_ella: S.iElla, perfil_el: S.sEl});
   try {
     // Salva resultados no localStorage antes de ir para Hotmart
     // O reporte vai ler daqui quando a pessoa voltar após pagar
@@ -1763,6 +1775,12 @@ function iniciarVendaTimer() {
   }
   tick();
   _vtimer = setInterval(tick, 1000);
+}
+
+
+/* ─── GOOGLE ANALYTICS 4 — EVENTOS DE FUNIL ─── */
+function gaEvent(name, params) {
+  if(typeof gtag !== 'undefined') gtag('event', name, params||{});
 }
 
 /* ─── INIT ─── */

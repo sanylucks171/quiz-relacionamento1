@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://connect.facebook.net" crossorigin>
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2386359905182369');fbq('track','PageView');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Descubre tu Apego · Test Emocional Gratuito</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"></noscript>
 
 <script>
 /* ============================================================
@@ -18,7 +22,7 @@
    2. Reemplaza el bloque:
         <span>👩🏻</span>
       por:
-        <img src="/img/mariana.jpg" alt="Mariana">
+        <img loading="lazy" src="/img/mariana.jpg" alt="Mariana">
    Las fotos deben ser cuadradas, mínimo 60x60px.
    ============================================================
 
@@ -48,9 +52,9 @@ const CFG = {
 
   // 💲 Precios
   PRECIO_BUNDLE:    11.99,   // precio actual mostrado
-  PRECIO_TACHADO:   39.90,   // precio "antes de"
-  PRECIO_DIAG_SOLO:  5.99,   // componente 1
-  PRECIO_COMPAT_SOLO: 5.99,  // componente 2 (suma que muestra el valor)
+  PRECIO_TACHADO:   39.98,   // precio "antes de"
+  PRECIO_DIAG_SOLO:  19.99,   // componente 1
+  PRECIO_COMPAT_SOLO: 19.99,  // componente 2 (suma que muestra el valor)
 
   // 🔁 Parámetro que tu plataforma envía al redirigir tras el pago
   PARAM_STATUS: "status",   // ?status=paid  |  ?status=approved
@@ -435,7 +439,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 .intro-sub{font-size:14px;color:rgba(255,255,255,.45);line-height:1.7;max-width:340px;margin:0 auto 2rem;position:relative;z-index:1}
 </style>
 <!-- Google Analytics GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HC8SFRJ0V5"></script>
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-HC8SFRJ0V5"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -522,7 +526,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <div class="wa-topbar">
           <div class="wa-back">‹</div>
           <div class="wa-contact-photo">
-            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face" alt="Grupo" style="width:36px;height:36px;border-radius:50%;object-fit:cover">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face" alt="Grupo" style="width:36px;height:36px;border-radius:50%;object-fit:cover">
           </div>
           <div class="wa-contact-info">
             <div class="wa-contact-name">Grupo: Test Emocional ❤️</div>
@@ -538,7 +542,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
           <!-- Mensaje 1: Mariana -->
           <div class="wa-msg-row">
             <div class="wa-avatar">
-              <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face" alt="Mariana">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face" alt="Mariana">
             </div>
             <div class="wa-msg received">
               <div class="wa-sender-name">M.T. · Ciudad de México</div>
@@ -553,7 +557,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
           <!-- Mensaje 2: Camila -->
           <div class="wa-msg-row">
             <div class="wa-avatar">
-              <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=80&h=80&fit=crop&crop=face" alt="Camila">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=80&h=80&fit=crop&crop=face" alt="Camila">
             </div>
             <div class="wa-msg received">
               <div class="wa-sender-name">C.R. · Buenos Aires</div>
@@ -568,7 +572,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
           <!-- Mensaje 3: Valentina -->
           <div class="wa-msg-row">
             <div class="wa-avatar">
-              <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=80&h=80&fit=crop&crop=face" alt="Valentina">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=80&h=80&fit=crop&crop=face" alt="Valentina">
             </div>
             <div class="wa-msg received">
               <div class="wa-sender-name">V.L. · Bogotá</div>
@@ -582,7 +586,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
           <!-- Mensaje 4: Juliana -->
           <div class="wa-msg-row">
             <div class="wa-avatar">
-              <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=80&h=80&fit=crop&crop=face" alt="Juliana">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=80&h=80&fit=crop&crop=face" alt="Juliana">
             </div>
             <div class="wa-msg received">
               <div class="wa-sender-name">J.M. · Santiago</div>
@@ -597,7 +601,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
           <!-- Mensaje 5: Ana -->
           <div class="wa-msg-row">
             <div class="wa-avatar">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face" alt="Ana">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face" alt="Ana">
             </div>
             <div class="wa-msg received">
               <div class="wa-sender-name">A.P. · Lima</div>
@@ -611,7 +615,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
           <!-- Mensaje 6: Beatriz -->
           <div class="wa-msg-row">
             <div class="wa-avatar">
-              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Beatriz">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Beatriz">
             </div>
             <div class="wa-msg received">
               <div class="wa-sender-name">B.S. · Caracas</div>
@@ -625,7 +629,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 
           <!-- Typing indicator -->
           <div class="wa-msg-row">
-            <div class="wa-avatar"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face" alt="Mariana"></div>
+            <div class="wa-avatar"><img loading="lazy" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face" alt="Mariana"></div>
             <div class="wa-msg received">
               <div class="wa-typing">
                 <span></span><span></span><span></span>
@@ -731,8 +735,6 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <!-- Fundo com gradiente emocional -->
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(200,75,106,.18) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(155,45,74,.12) 0%,transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(200,75,106,.08) 0%,transparent 50%);pointer-events:none"></div>
 
-    <!-- Imagem de fundo sutil -->
-    <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1516589091380-5d8e87df6999?w=800&q=60&auto=format') center/cover no-repeat;opacity:.07;pointer-events:none"></div>
 
     <!-- Conteúdo -->
     <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2.5rem 1.4rem;text-align:center">
@@ -943,33 +945,33 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <div class="bundle-box">
       <div style="font-size:11px;color:var(--txt3);margin-bottom:.5rem">Lo que incluye tu reporte</div>
       <div class="bundle-includes">
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Diagnóstico Emocional de Ti</strong> — tipo, patrón, detonantes ($<span id="bi-p1"></span>)</span></div>
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Perfil Emocional de Él</strong> — Evitativo, Narcisista, Imaturo o Seguro ($<span id="bi-p2"></span>)</span></div>
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Análisis Emocional Personalizado</strong> — tu tipo, tu patrón, tus detonantes ($<span id="bi-p1"></span>)</span></div>
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Perfil Psicológico de Él</strong> — Evitativo, Narcisista, Imaturo o Seguro ($<span id="bi-p2"></span>)</span></div>
         <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Dinámica entre los dos</strong> — por qué se atraen y por qué se destruyen</span></div>
         <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Pronóstico Emocional</strong> — el veredicto honesto sobre esta relación</span></div>
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Reporte PDF Completo</strong> — los 6 pilares psicológicos</span></div>
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Reporte Digital Interactivo</strong> — los 6 pilares psicológicos, acceso inmediato en pantalla</span></div>
       </div>
       <div style="text-align:center;margin-top:.8rem">
         <div style="font-size:11px;color:rgba(255,255,255,.28);margin-bottom:2px">Valor normal: $<span id="bi-normal"></span></div>
         <div style="font-size:11px;color:var(--txt3);text-decoration:line-through;margin-bottom:4px">Antes: $<span id="bi-tachado"></span></div>
         <div class="serif" id="bi-price-main" style="font-size:2.4rem;font-weight:800;color:var(--gold)"></div>
-        <div style="font-size:12px;color:var(--txt3);margin-top:2px">acceso inmediato · PDF + reporte online</div>
+        <div style="font-size:12px;color:var(--txt3);margin-top:2px">acceso inmediato · reporte interactivo en pantalla</div>
       </div>
     </div>
 
     <div style="font-size:11px;color:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;gap:5px;margin:.8rem 0">🛡 7 días de garantía · sin preguntas</div>
 
     <!-- SOCIAL PROOF COUNTER -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:.8rem">
-      <div style="display:flex;margin-right:2px">
-        <span style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:10px;margin-left:-6px">👩🏻</span>
-        <span style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#9B2D4A,#C84B6A);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:10px;margin-left:-6px">👩🏽</span>
-        <span style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#C84B6A,#E8748F);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:10px;margin-left:-6px">👩🏾</span>
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:.8rem;margin-bottom:.8rem;display:flex;align-items:center;justify-content:center;gap:10px">
+      <div style="display:flex">
+        <span style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:11px;margin-left:-6px">👩🏻</span>
+        <span style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#9B2D4A,#C84B6A);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:11px;margin-left:-8px">👩🏽</span>
+        <span style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#C84B6A,#E8748F);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:11px;margin-left:-8px">👩🏾</span>
       </div>
-      <span style="font-size:12px;color:rgba(255,255,255,.55)"><span id="checkout-counter" style="color:#fff;font-weight:700"></span> mujeres desbloquearon su diagnóstico hoy</span>
+      <span style="font-size:13px;color:rgba(255,255,255,.7)"><span id="checkout-counter" style="color:#fff;font-weight:800;font-size:15px"></span> mujeres ya desbloquearon su diagnóstico hoy</span>
     </div>
 
-    <button class="btn btn-rose" onclick="abrirCO()" style="margin-bottom:.6rem">
+    <button class="btn btn-rose" onclick="abrirCO()" style="margin-bottom:.6rem;font-size:16px;padding:16px">
       🔓 Desbloquear mi reporte completo
     </button>
     <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.25);margin-bottom:1rem">Acceso inmediato · Pago único · 7 días de garantía</p>

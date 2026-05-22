@@ -427,6 +427,12 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 .wa-cta-below{margin-top:1.5rem;text-align:center}
 
 @keyframes pulse-green{0%,100%{box-shadow:0 0 0 0 rgba(76,175,80,.4)}50%{box-shadow:0 0 0 6px rgba(76,175,80,0)}}
+/* ── INTRO PAGE ── */
+.intro-page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.4rem;text-align:center;background:var(--ink);position:relative;overflow:hidden}
+.intro-page::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(200,75,106,.15) 0%,transparent 65%);pointer-events:none}
+.intro-thought{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,3.5vw,1.5rem);color:#fff;font-style:italic;line-height:1.5;max-width:420px;margin:0 auto 1.5rem;position:relative;z-index:1}
+.intro-thought::before{content:'\201C';font-size:4rem;color:rgba(200,75,106,.25);position:absolute;top:-20px;left:-10px;font-family:'Playfair Display',serif;line-height:1}
+.intro-sub{font-size:14px;color:rgba(255,255,255,.45);line-height:1.7;max-width:340px;margin:0 auto 2rem;position:relative;z-index:1}
 </style>
 <!-- Google Analytics GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HC8SFRJ0V5"></script>
@@ -446,7 +452,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
   <div class="lp-bg">
     <nav class="lp-nav">
       <div class="lp-logo"><span style="color:#C84B6A;margin-right:5px;font-style:normal;font-family:sans-serif;font-size:14px">❤</span>descubre tu apego</div>
-      <button onclick="goToQuiz1()" style="background:var(--rose);color:#fff;border:none;border-radius:20px;padding:7px 16px;font-size:12px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer">Hacer el test →</button>
+      <button onclick="goToIntro()" style="background:var(--rose);color:#fff;border:none;border-radius:20px;padding:7px 16px;font-size:12px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer">Hacer el test →</button>
     </nav>
     <div style="background:linear-gradient(90deg,#9B2D4A,#C84B6A,#9B2D4A);padding:6px;text-align:center;font-size:11px;font-weight:700;color:#fff;letter-spacing:.04em">
       ⚡ Solo disponible de forma gratuita por tiempo limitado — Tu análisis se elimina en 15 min
@@ -460,7 +466,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <p style="font-size:clamp(13px,2vw,15px);color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:1.2rem">
           Descubre tu patrón emocional — y el de él. Gratis en 5 minutos.
         </p>
-        <button class="btn btn-rose" onclick="goToQuiz1()" style="font-size:16px;padding:16px;margin-bottom:.6rem">
+        <button class="btn btn-rose" onclick="goToIntro()" style="font-size:16px;padding:16px;margin-bottom:.6rem">
           ✨ Hacer el test gratis →
         </button>
         <div class="hero-trust">
@@ -496,7 +502,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       </div>
     </div>
     <div class="mob-pill">
-      <div class="pill" onclick="goToQuiz1()" style="cursor:pointer"><div style="font-size:1.3rem;flex-shrink:0">👩🏻‍💻</div><div><span style="font-size:12px;font-weight:600;color:var(--rose-mid);display:block;text-align:left">¿Por qué sigues eligiendo al mismo tipo de hombre?</span><span style="font-size:11px;color:rgba(255,255,255,.5);display:block;text-align:left">Toca aquí para descubrirlo gratis →</span></div></div>
+      <div class="pill" onclick="goToIntro()" style="cursor:pointer"><div style="font-size:1.3rem;flex-shrink:0">👩🏻‍💻</div><div><span style="font-size:12px;font-weight:600;color:var(--rose-mid);display:block;text-align:left">¿Por qué sigues eligiendo al mismo tipo de hombre?</span><span style="font-size:11px;color:rgba(255,255,255,.5);display:block;text-align:left">Toca aquí para descubrirlo gratis →</span></div></div>
     </div>
   </div>
 
@@ -640,7 +646,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       </div><!-- fin wa-phone -->
 
       <div class="wa-cta-below">
-        <button class="btn btn-rose" onclick="goToQuiz1()" style="max-width:360px;margin:0 auto">
+        <button class="btn btn-rose" onclick="goToIntro()" style="max-width:360px;margin:0 auto">
           Hacer el test ahora →
         </button>
         <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:.7rem">
@@ -665,12 +671,12 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <h2 class="s-h2">He escuchado esto <em>miles de veces</em></h2>
     <p class="serif" style="font-size:clamp(14px,2.2vw,16px);color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:1.1rem;font-style:italic">Mujeres que no entienden por qué siguen eligiendo al mismo tipo de hombre. Que saben que algo está mal — pero no pueden soltar. Que se preguntan si son ellas el problema. No lo son. Hay un patrón. Y tiene nombre.</p>
     <div class="pgrid">
-      <div class="pc"><div class="pc-i">💔</div><div class="pc-t">Su distancia te atrae más que su presencia</div><div class="pc-d">Cuando se aleja, lo deseas más. Cuando se acerca, algo en ti se incomoda.</div></div>
-      <div class="pc"><div class="pc-i">🔁</div><div class="pc-t">Ves quién podría ser — no quién es</div><div class="pc-d">Y esperas. Y justificas. Y das una oportunidad más.</div></div>
-      <div class="pc"><div class="pc-i">😶</div><div class="pc-t">La calma se siente como indiferencia</div><div class="pc-d">Una relación sin tensión parece que no tiene nada. Y eso te preocupa.</div></div>
-      <div class="pc"><div class="pc-i">💫</div><div class="pc-t">Dudas de lo que sientes</div><div class="pc-d">¿Estoy exagerando? ¿Soy demasiado intensa? ¿Es normal sentir esto?</div></div>
+      <div class="pc"><div class="pc-i">💔</div><div class="pc-t" style="font-style:italic;color:rgba(255,255,255,.9)">"Sé que debería irme. Pero cuando él aparece, todo se borra."</div><div class="pc-d">Y lo odias en ti misma — pero no puedes evitarlo.</div></div>
+      <div class="pc"><div class="pc-i">🔁</div><div class="pc-t" style="font-style:italic;color:rgba(255,255,255,.9)">"Veo quién podría ser — y eso me mantiene aquí."</div><div class="pc-d">No es él quien te retiene. Es la versión de él que inventaste.</div></div>
+      <div class="pc"><div class="pc-i">😶</div><div class="pc-t" style="font-style:italic;color:rgba(255,255,255,.9)">"¿Soy yo el problema? ¿Soy demasiado intensa?"</div><div class="pc-d">No. Hay un patrón. Y tiene un nombre muy específico.</div></div>
+      <div class="pc"><div class="pc-i">⏳</div><div class="pc-t" style="font-style:italic;color:rgba(255,255,255,.9)">"Llevo meses esperando que algo cambie."</div><div class="pc-d">¿Cuánto tiempo más? Tu análisis tiene una respuesta honesta.</div></div>
     </div>
-    <button class="btn btn-rose" onclick="goToQuiz1()" style="margin-top:.8rem;font-size:15px">
+    <button class="btn btn-rose" onclick="goToIntro()" style="margin-top:.8rem;font-size:15px">
       Quiero entender qué está pasando →
     </button>
     <p style="font-size:11px;color:rgba(255,255,255,.25);text-align:center;margin-top:.5rem">Gratis · Sin registro · Resultado inmediato</p>
@@ -688,7 +694,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <div class="mc"><div style="font-size:1.3rem;margin-bottom:5px">🔒</div><div style="font-size:12px;color:rgba(255,255,255,.2)">La dinámica</div><div style="font-size:10px;color:rgba(200,75,106,.4);margin-top:4px;font-style:italic">solo lo revela el test</div></div>
         <div class="mc"><div style="font-size:1.3rem;margin-bottom:5px">🔒</div><div style="font-size:12px;color:rgba(255,255,255,.2)">El veredicto</div><div style="font-size:10px;color:rgba(200,75,106,.4);margin-top:4px;font-style:italic">solo lo revela el test</div></div>
       </div>
-      <button class="btn btn-rose" onclick="goToQuiz1()" style="max-width:340px;margin:0 auto">Descubrir qué hay entre nosotros →</button>
+      <button class="btn btn-rose" onclick="goToIntro()" style="max-width:340px;margin:0 auto">Descubrir qué hay entre nosotros →</button>
     </div>
   </div>
 
@@ -709,10 +715,76 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
   <div class="fcta">
     <h2 class="serif" style="font-size:clamp(1.3rem,4vw,2rem);color:#fff;margin-bottom:.6rem">Ya es hora de entender <em style="color:var(--rose-mid)">qué está pasando.</em></h2>
     <p style="font-size:13px;color:rgba(255,255,255,.36);margin-bottom:1.5rem;line-height:1.65">Gratis. 5 minutos. Sin juicios — solo claridad.</p>
-    <button class="btn btn-rose" onclick="goToQuiz1()" style="max-width:380px;margin:0 auto">✨ Empezar ahora — es gratis</button>
+    <button class="btn btn-rose" onclick="goToIntro()" style="max-width:380px;margin:0 auto">✨ Empezar ahora — es gratis</button>
     <div style="font-size:11px;color:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;gap:5px;margin-top:10px"><span>🔒</span>sin spam · datos protegidos</div>
   </div>
   <footer>© 2025 Descubre tu Apego · Solo con fines informativos · No reemplaza la atención psicológica profesional · <a href="/privacidad.html" style="color:rgba(255,255,255,.3);text-decoration:none;font-size:10px">Política de Privacidad</a></footer>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
+     PG INTRO — antes do quiz
+     ══════════════════════════════════════════════════ -->
+<div id="pg-intro" class="page">
+  <div style="min-height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden;background:#0d0a14">
+
+    <!-- Fundo com gradiente emocional -->
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(200,75,106,.18) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(155,45,74,.12) 0%,transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(200,75,106,.08) 0%,transparent 50%);pointer-events:none"></div>
+
+    <!-- Imagem de fundo sutil -->
+    <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1516589091380-5d8e87df6999?w=800&q=60&auto=format') center/cover no-repeat;opacity:.07;pointer-events:none"></div>
+
+    <!-- Conteúdo -->
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2.5rem 1.4rem;text-align:center">
+
+      <!-- Pensamento em destaque -->
+      <div style="margin-bottom:2rem;max-width:400px">
+        <div style="font-size:48px;color:rgba(200,75,106,.3);font-family:'Playfair Display',serif;line-height:.8;margin-bottom:.5rem;text-align:left;padding-left:8px">"</div>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,4vw,1.6rem);color:#fff;font-style:italic;line-height:1.45;margin:0 0 1rem">
+          Nadie me entiende cuando intento explicar por qué no puedo simplemente dejarlo ir.
+        </p>
+        <p style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;margin:0">
+          No es debilidad. No es que no lo intentes.<br>
+          Es un patrón — <strong style="color:rgba(255,255,255,.85)">y tiene una explicación.</strong>
+        </p>
+      </div>
+
+      <!-- Divider -->
+      <div style="width:50px;height:1px;background:linear-gradient(90deg,transparent,rgba(200,75,106,.6),transparent);margin:0 auto 2rem"></div>
+
+      <!-- Lo que el test revela -->
+      <div style="margin-bottom:2rem;width:100%;max-width:360px">
+        <p style="font-size:10px;color:rgba(200,75,106,.7);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem">Este test va a decirte</p>
+        <div style="display:flex;flex-direction:column;gap:.7rem">
+          <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
+            <span style="font-size:1.1rem;flex-shrink:0">💔</span>
+            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Por qué <strong style="color:#fff">siempre el mismo tipo</strong> de hombre</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
+            <span style="font-size:1.1rem;flex-shrink:0">🔍</span>
+            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Qué tipo emocional es él — <strong style="color:#fff">con nombre y patrón</strong></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
+            <span style="font-size:1.1rem;flex-shrink:0">🔗</span>
+            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Por qué <strong style="color:#fff">duele tanto y no puedes soltar</strong></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
+            <span style="font-size:1.1rem;flex-shrink:0">🔮</span>
+            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Qué dice el <strong style="color:#fff">pronóstico real</strong> de esta dinámica</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="width:100%;max-width:380px">
+        <button onclick="goToQuiz1()" style="width:100%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);color:#fff;border:none;border-radius:14px;padding:17px;font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;box-shadow:0 8px 28px rgba(200,75,106,.45);letter-spacing:.01em;margin-bottom:.7rem">
+          Estoy lista para saber la verdad →
+        </button>
+        <p style="font-size:11px;color:rgba(255,255,255,.2);margin:0">Gratis · 6 preguntas sobre ti · 3 sobre él</p>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -1295,6 +1367,10 @@ function limpiarURL() {
 }
 
 /* ─── QUIZ 1 ─── */
+function goToIntro() {
+  showPage('pg-intro');
+  window.scrollTo({top:0});
+}
 function goToQuiz1() {
   S.q1cur=0; S.q1ans=[]; S.q1sel=null;
   gaEvent('quiz_start');

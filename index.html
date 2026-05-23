@@ -486,8 +486,10 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <div class="lp-logo"><span style="color:#C84B6A;margin-right:5px;font-style:normal;font-family:sans-serif;font-size:14px">❤</span>descubre tu apego</div>
       <button onclick="goToIntro()" style="background:var(--rose);color:#fff;border:none;border-radius:20px;padding:7px 16px;font-size:12px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer">Hacer el test →</button>
     </nav>
-    <div style="background:linear-gradient(90deg,#9B2D4A,#C84B6A,#9B2D4A);padding:6px;text-align:center;font-size:11px;font-weight:700;color:#fff;letter-spacing:.04em">
-      ⚡ Acceso gratuito por tiempo limitado · Miles de mujeres están haciendo el test ahora
+    <div style="background:linear-gradient(90deg,#9B2D4A,#C84B6A,#9B2D4A);padding:8px;text-align:center;font-size:11px;font-weight:700;color:#fff;letter-spacing:.04em;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">
+      <span>⚡ Acceso gratuito por tiempo limitado</span>
+      <span style="background:rgba(0,0,0,.25);border-radius:20px;padding:2px 10px;font-size:12px" id="banner-timer"></span>
+      <span>Miles de mujeres están haciendo el test ahora</span>
     </div>
     <div class="hero-grid">
       <div class="hero-txt">
@@ -496,11 +498,12 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
           Lo que sientes por él <em style="color:var(--rose-mid)">no debería doler tanto</em>
         </h1>
         <p style="font-size:clamp(13px,2vw,15px);color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:1.2rem">
-          Descubre tu patrón emocional — y el de él. Gratis en 5 minutos.
+          Descubre por qué él se aleja justo cuando más lo necesitas — y qué dice eso de los dos.
         </p>
         <button class="btn btn-rose" onclick="goToIntro()" style="font-size:16px;padding:16px;margin-bottom:.6rem">
           ✨ Hacer el test gratis →
         </button>
+        <div style="text-align:center;font-size:11px;color:rgba(255,255,255,.3);margin-top:-4px;margin-bottom:.4rem">El test es gratis · Resultado en 5 min · 100% confidencial</div>
         <div class="hero-trust">
           <span>100% gratis</span><span class="tdot"></span><span>5 minutos</span><span class="tdot"></span><span>+12,000 mujeres</span>
         </div>
@@ -518,21 +521,27 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
           🧠 Basado en +12,000 respuestas analizadas y patrones validados por psicólogos especializados en apego emocional
         </div>
       </div>
-      <!-- Phones desktop -->
-      <div class="phones">
-        <div class="ph" style="width:80px;height:150px;transform:rotate(-8deg);top:34px;right:66px;box-shadow:0 10px 28px rgba(0,0,0,.35);z-index:1;opacity:.55">
-          <div class="ph-scr" style="height:140px"><div class="ph-notch"></div><div style="font-size:1.5rem">👩🏽</div><div style="font-size:7px;font-weight:700;color:var(--rose-dk);text-transform:uppercase">tu perfil</div><div style="height:3px;width:55%;border-radius:2px;background:linear-gradient(90deg,var(--rose),var(--gold));margin-top:5px"></div></div>
+      <!-- Result Preview -->
+      <div style="display:flex;flex-direction:column;gap:.7rem;max-width:270px;width:100%;flex-shrink:0">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(200,75,106,.3);border-radius:16px;padding:1.1rem">
+          <div style="font-size:9px;color:rgba(200,75,106,.8);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.7rem">&#10003; Tu an&#225;lisis personalizado</div>
+          <div style="background:rgba(200,75,106,.1);border-left:3px solid #C84B6A;border-radius:0 8px 8px 0;padding:.7rem;margin-bottom:.8rem;font-size:12px;color:#fff;font-style:italic;line-height:1.6">"Andrea, cuando &#233;l se aleja, tu mente busca qu&#233; hiciste mal. Eso no es debilidad &#8212; tiene una ra&#237;z concreta que el an&#225;lisis revela."</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:.6rem">
+            <span style="font-size:1rem">&#x1F4AB;</span>
+            <div><div style="font-size:10px;color:rgba(255,255,255,.4)">Tu perfil</div><div style="font-size:12px;color:#E8748F;font-weight:700">La que Busca su Reflejo</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:1rem">&#x1F512;</span>
+            <div><div style="font-size:10px;color:rgba(255,255,255,.4)">Perfil de &#233;l</div><div style="font-size:12px;color:rgba(200,155,60,.4);filter:blur(5px);user-select:none;font-weight:700">El Emocionalmente In...</div></div>
+          </div>
+          <div style="margin-top:.7rem;font-size:10px;color:rgba(200,75,106,.55);text-align:center;border-top:1px solid rgba(255,255,255,.05);padding-top:.6rem">&#x1F512; Perfil de &#233;l se revela al desbloquear</div>
         </div>
-        <div class="ph" style="width:110px;height:212px;transform:rotate(-3deg);top:70px;left:46px;box-shadow:0 18px 50px rgba(0,0,0,.5);z-index:3">
-          <div class="ph-scr" style="height:202px"><div class="ph-notch"></div><div style="font-size:1.6rem">👩🏻‍💻</div><div style="font-size:7px;font-weight:700;color:var(--rose-dk)">pregunta 3 de 8</div><div style="width:60%;height:3px;background:linear-gradient(90deg,var(--rose),var(--gold));border-radius:2px;margin:4px 0"></div><div style="font-size:6px;color:#888;padding:0 7px;line-height:1.4;text-align:center">Cuando él desaparece y vuelve, ¿qué sientes?</div></div>
+        <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:.8rem;display:flex;align-items:center;gap:.7rem">
+          <span>&#x1F512;</span>
+          <div><div style="font-size:10px;color:rgba(255,255,255,.3)">Din&#225;mica identificada</div><div style="font-size:13px;color:rgba(255,255,255,.08);filter:blur(5px);font-weight:700;user-select:none">Atracci&#243;n Compleja</div></div>
         </div>
-        <div class="ph" style="width:92px;height:178px;transform:rotate(5deg);top:126px;right:16px;box-shadow:0 13px 36px rgba(0,0,0,.4);z-index:2">
-          <div class="ph-scr" style="height:168px"><div class="ph-notch"></div><div style="font-size:1.6rem">👨🏻</div><div style="font-size:7px;font-style:italic;font-family:'Playfair Display',serif;color:var(--rose-dk)">perfil de él</div><div style="font-size:6px;color:rgba(200,75,106,.5)">patrón identificado</div><div style="margin-top:5px;width:76%;background:#FFF0F4;border-radius:4px;padding:4px 6px"><div style="font-size:6px;color:var(--rose-dk);font-weight:700">████████████</div></div></div>
-        </div>
-        <div class="fbg" style="top:42px;left:8px;transform:rotate(-2deg)"><span style="width:6px;height:6px;border-radius:50%;background:var(--rose)"></span>Sobre ella + sobre él</div>
-        <div class="fbg" style="bottom:84px;right:4px;transform:rotate(3deg)"><span style="width:6px;height:6px;border-radius:50%;background:var(--rose)"></span>Reporte unificado</div>
       </div>
-    </div>
+    </div><!-- /hero-grid -->
     <div class="mob-pill">
       <div class="pill" onclick="goToIntro()" style="cursor:pointer"><div style="font-size:1.3rem;flex-shrink:0">👩🏻‍💻</div><div><span style="font-size:12px;font-weight:600;color:var(--rose-mid);display:block;text-align:left">¿Por qué sigues eligiendo al mismo tipo de hombre?</span><span style="font-size:11px;color:rgba(255,255,255,.5);display:block;text-align:left">Toca aquí para descubrirlo gratis →</span></div></div>
     </div>
@@ -2154,7 +2163,7 @@ function iniciarContador() {
   if(!el) return;
 
   // Começa num número aleatório entre 38 e 52
-  var base = 38 + Math.floor(Math.random() * 15);
+  var base = 127 + Math.floor(Math.random() * 18);
   var maxVal = 89;
   el.textContent = base;
 
@@ -2187,7 +2196,16 @@ function iniciarContador() {
 }
 
 /* ─── INIT ─── */
-document.addEventListener('DOMContentLoaded', function(){ verificarStatusPagamento(); iniciarContador(); });
+document.addEventListener('DOMContentLoaded', function(){
+  verificarStatusPagamento();
+  iniciarContador();
+  var bt = document.getElementById('banner-timer');
+  if(bt){
+    var bm=17, bs=Math.floor(Math.random()*59)+1;
+    function tickB(){ bt.textContent=(bm<10?'0':'')+bm+':'+(bs<10?'0':'')+bs; if(bs>0){bs--;}else if(bm>0){bm--;bs=59;}else{bm=17;bs=59;} }
+    tickB(); setInterval(tickB,1000);
+  }
+});
 </script>
 </body>
 </html>

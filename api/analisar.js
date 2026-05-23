@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-001:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -26,6 +26,8 @@ export default async function handler(req, res) {
     );
 
     const data = await response.json();
+    console.log('GEMINI RESPOSTA:', JSON.stringify(data).slice(0, 300));
+
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
     const match = text.match(/\{[\s\S]*\}/);
     if (!match) throw new Error('Sem JSON: ' + JSON.stringify(data).slice(0, 300));

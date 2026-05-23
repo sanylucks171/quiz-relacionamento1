@@ -972,12 +972,33 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <!-- PERFIL DELA — visível e completo -->
     <div style="text-align:center;margin-bottom:1rem">
       <span class="tag tag-green" style="display:inline-flex;margin-bottom:.8rem">&#10003; Tu an&#225;lisis est&#225; listo</span>
-      <div style="background:linear-gradient(135deg,rgba(200,75,106,.12),rgba(200,75,106,.06));border:1px solid rgba(200,75,106,.2);border-radius:16px;padding:1.2rem">
-        <div style="font-size:10px;color:var(--rose-mid);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem">Tu tipo emocional</div>
-        <div id="v-reveal-icon" style="font-size:2.5rem;margin-bottom:.4rem">&#127801;</div>
-        <div id="v-reveal-name" class="serif" style="font-size:1.3rem;color:#fff;font-style:italic;margin-bottom:.4rem"></div>
-        <div id="v-reveal-desc" style="font-size:12px;color:rgba(255,255,255,.5);line-height:1.6;max-width:300px;margin:0 auto"></div>
+      <!-- Dois perfis lado a lado -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-bottom:.8rem">
+
+        <!-- Perfil dela — visível -->
+        <div style="text-align:center;flex:1">
+          <div id="v-reveal-icon" style="font-size:2rem;margin-bottom:4px">&#127801;</div>
+          <div style="font-size:11px;color:var(--txt3)">Tu perfil</div>
+          <div id="v-reveal-name" class="serif" style="font-size:13px;color:var(--rose-mid);font-style:italic"></div>
+        </div>
+
+        <div style="font-size:1.6rem;color:var(--bd-rose);flex-shrink:0">&#8596;</div>
+
+        <!-- Perfil dele — bloqueado -->
+        <div style="flex:1;text-align:center;position:relative">
+          <div style="filter:blur(6px);pointer-events:none;user-select:none">
+            <div id="v-icon-el-top" style="font-size:2rem;margin-bottom:4px">&#128104;</div>
+            <div style="font-size:11px;color:var(--txt3)">Perfil de <span id="v-el-name-top" style="color:rgba(200,155,60,.7)">&#233;l</span></div>
+            <div id="v-type-el-top" class="serif" style="font-size:13px;color:var(--gold);font-style:italic"></div>
+          </div>
+          <div onclick="abrirCO()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer">
+            <div style="font-size:1.4rem">&#128274;</div>
+            <div style="font-size:10px;color:rgba(200,75,106,.9);font-weight:700;margin-top:2px">Desbloquear</div>
+          </div>
+        </div>
+
       </div>
+      <div id="v-reveal-desc" style="display:none"></div>
     </div>
 
     <!-- FRASE PERSONALIZADA — só sobre ela -->
@@ -988,7 +1009,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <!-- DIVISOR -->
     <div style="display:flex;align-items:center;gap:10px;margin:1.2rem 0">
       <div style="flex:1;height:1px;background:rgba(255,255,255,.07)"></div>
-      <span style="font-size:11px;color:rgba(255,255,255,.25);white-space:nowrap">Esto fue gratis. Lo que sigue, cambia todo.</span>
+      <span style="font-size:11px;color:rgba(255,255,255,.25);white-space:nowrap">Tu análisis personal está listo. Ahora puedes desbloquear la dinámica completa con él.</span>
       <div style="flex:1;height:1px;background:rgba(255,255,255,.07)"></div>
     </div>
 
@@ -1734,6 +1755,8 @@ function actualizarBotones() {
   if(elUp) elUp.textContent = (nEl && nEl !== "él") ? nEl : "él";
   var hdr = document.getElementById("upsell-header");
   if(hdr && nEl && nEl !== "él") hdr.textContent = "🔒 Análisis completo de " + nEl + " + Pronóstico";
+  var elTop = document.getElementById("v-el-name-top");
+  if(elTop) elTop.textContent = (nEl && nEl !== "él") ? nEl : "él";
 }
 function mostrarVenda() {
   var ella=PE[S.iElla], el=PEL[S.sEl], d=S.din;
@@ -1744,6 +1767,7 @@ function mostrarVenda() {
   set('v-type-ella', ella.type);
   set('v-icon-el', el?'👨':'👨');
   set('v-type-el', el?el.type:S.sEl);
+  set('v-type-el-top', el?el.type:S.sEl);
   set('v-dinamica', d.name);
 
   // ── Reveal do perfil dela ──

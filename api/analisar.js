@@ -20,14 +20,16 @@ export default async function handler(req, res) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { maxOutputTokens: 400, temperature: 0.85 }
+          generationConfig: {
+            maxOutputTokens: 2000,
+            temperature: 0.85,
+            thinkingConfig: { thinkingBudget: 0 }
+          }
         }),
       }
     );
 
     const data = await response.json();
-    console.log('GEMINI RESPOSTA:', JSON.stringify(data).slice(0, 300));
-
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
     const match = text.match(/\{[\s\S]*\}/);
     if (!match) throw new Error('Sem JSON: ' + JSON.stringify(data).slice(0, 300));

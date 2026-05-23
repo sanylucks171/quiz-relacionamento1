@@ -1682,13 +1682,21 @@ function iniciarAnalizando() {
   var nombreEl = getNombreEl();
   var q1txts = Q1.map(function(q,i){ return q.t+' → '+q.o[S.q1ans[i]||0]; });
   var q2txts = Q2.map(function(q,i){ return q.t+' → '+q.o[S.q2ans[i]||0]; });
-  var prompt = 'Eres una psicóloga especialista en apego emocional. Tu único objetivo es que ' + nombre + ' sienta que el test la entiende — y que NECESITE el análisis completo para saber qué hacer.\n\n'
+  var prompt = 'Eres un experto en lectura fría, psicología del comportamiento y apego emocional. Tu misión es hacer que ' + nombre + ' sienta que el test la vio de verdad, como nadie lo había hecho. Hablas directo, sin eufemismos. Como alguien que ya sabe todo sobre ella y ahora se lo confirma.\n\n'
     + 'PERFIL DE ELLA: ' + ella.type + '\nPERFIL DE ÉL: ' + el.type + '\nDINÁMICA: ' + din.name + '\n\n'
-    + 'SUS RESPUESTAS:\n' + q1txts.join('\n') + '\n' + q2txts.join('\n') + '\n\n'
-    + 'f1 (máx 2 frases): Nombra a ' + nombre + ' directamente. Menciona UN patrón que ella reconocerá. TERMINA insinuando que la explicación está en el análisis completo, sin darla. Sin citar ejemplos.\n'
-    + 'f2 (máx 2 frases): Describe la dinámica entre los dos. TERMINA diciendo que el análisis revela el mecanismo exacto, sin explicarlo.\n'
-    + 'REGLAS: NUNCA expliques el por qué. Solo nómbralo. Sin asteriscos ni markdown. Tono íntimo y preciso.\n\n'
-    + 'Responde SOLO con JSON sin backticks: {"f1":"...","f2":"..."}';  var _startTime = Date.now();
+    + 'RESPUESTAS EXACTAS DE ELLA:\n' + q1txts.join('\n') + '\nRESPUESTAS SOBRE ÉL:\n' + q2txts.join('\n') + '\n\n'
+    + 'GENERA DOS TEXTOS:\n'
+    + 'f1 — LECTURA FRÍA (máx 3 frases):\n'
+    + 'Empieza nombrando a ' + nombre + ' directamente. Cita algo TEXTUAL y CONCRETO que ella respondió (usa sus palabras exactas o muy cercanas). Dílo como una verdad obvia que ella ya sabía pero nunca había escuchado tan claro. Termina con una frase que la haga sentir que hay algo más específico sobre ella que el análisis revela. Estilo: directo, íntimo, sin rodeos. Como leer su mente.\n'
+    + 'f2 — PROMESA DEL DESBLOQUEO (máx 2 frases):\n'
+    + 'Describe con precisión qué está pasando DENTRO DE ÉL cuando actúa así (usa psicología del apego, comportamiento evitativo, narcisismo, inmadurez emocional según su perfil). Nombra el mecanismo real que lo mueve. Termina prometiendo que el análisis completo revela exactamente ese mecanismo y cómo afecta a ' + nombre + ' — para que ella entienda de una vez por qué él actúa así y qué puede hacer.\n'
+    + 'REGLAS CRÍTICAS:\n'
+    + '- f1 es solo sobre ELLA. NO menciones a él en f1.\n'
+    + '- f2 es sobre ÉL y la dinámica. NO menciones a ' + nombre + ' en f2.\n'
+    + '- Cita respuestas textuales o muy cercanas, no parafrasees de forma genérica.\n'
+    + '- Sin asteriscos, sin comillas tipográficas, sin markdown.\n'
+    + '- Tono: como una persona que ya sabe. Directo y íntimo.\n\n'
+    + 'Responde SOLO con JSON sin backticks: {"f1":"...","f2":"..."}'; var _startTime = Date.now();
   fetch('/api/analisar', {
     method:'POST',
     headers:{'Content-Type':'application/json'},

@@ -990,8 +990,13 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <p id="v-frase2" style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.65;margin:0"></p>
     </div>
 
-    <!-- CURIOSIDADE -->
-    
+    <!-- CTA ANTECIPADO -->
+    <div id="early-cta" style="display:none;margin:1.2rem 0">
+      <button onclick="abrirCO()" style="width:100%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);color:#fff;border:none;border-radius:14px;padding:16px;font-size:15px;font-weight:700;cursor:pointer">
+        🔓 Desbloquear mi análisis completo por $11.99
+      </button>
+      <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.3);margin-top:6px">Acceso inmediato · 7 días de garantía</p>
+    </div>
 
     <!-- REVEAL DO PERFIL — antes do lock -->
     <div style="text-align:center;margin-bottom:1rem;padding:1.2rem;background:linear-gradient(135deg,rgba(200,75,106,.12),rgba(200,75,106,.06));border:1px solid rgba(200,75,106,.2);border-radius:16px">
@@ -1042,12 +1047,6 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <div style="font-size:11px;color:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;gap:5px;margin:.8rem 0">🛡 7 días de garantía · sin preguntas</div>
 
 
-
-    <!-- BENEFÍCIOS BLOQUEADOS -->
-    <div class="card card-rose" style="margin-bottom:1.2rem">
-      <div style="font-size:10px;color:var(--rose-mid);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.6rem">🔒 Lo que no sabrás si no desbloqueas</div>
-      <div id="v-perder"></div>
-    </div>
 
     <!-- Testimonios -->
     <div style="margin:1.6rem 0">
@@ -1713,6 +1712,8 @@ function mostrarVenda() {
     var f2 = AI_FRASE2 || getFrase2(S.iElla, S.q1ans);
     el2.textContent = f2 || '';
   }
+  var eCTA = document.getElementById('early-cta');
+  if(eCTA) eCTA.style.display = 'block';
 
   // ── Curiosidade individual ──
   var elc = document.getElementById('v-curiosidad');

@@ -1776,8 +1776,8 @@ function iniciarAnalizando() {
   var prompt = 'Eres un sistema experto en psicología del comportamiento. Genera dos textos que demuestren que el resultado viene directamente de las respuestas de ' + nombre + '.\\n\\n'
     + 'PERFIL: ' + ella.type + ' / ' + el.type + ' / ' + din.name + '\\n\\n'
     + 'RESPUESTAS ELLA:\\n' + q1txts.join('\\n') + '\\nRESPUESTAS ÉL:\\n' + q2txts.join('\\n') + '\\n\\n'
-    + 'f1 (2 frases, SOLO ella): Cita TEXTUALMENTE una respuesta suya sobre cómo reacciona cuando él se distancia. Identifica su perfil conductual (Apego Reactivo / Aceptación Silenciosa / Autocrítica Compensatoria / Retraimiento Defensivo). Explica el impacto del patrón. Termina diciendo que su informe detalla el punto ciego. PROHIBIDO: mencionar a él por nombre, explicar la solución.\\n\\n'
-    + 'f2 (2 frases, SOLO él): Pregunta por qué ' + (S.nombreEl||'él') + ' se aleja cuando todo va bien. Cita datos que ella dio sobre él. Di que NO es falta de amor sino mecanismo de defensa por saturación de intimidad. Di que el análisis revela el disparador exacto y el protocolo para que vuelva a buscarla sin que ella se rebaje. PROHIBIDO: evitativo, narcisista, imaturo, diagnóstico. No menciones a ' + nombre + '.\\n\\n'
+    + 'f1 (2 frases, SOLO ella): Cita TEXTUALMENTE una respuesta suya sobre cómo reacciona cuando él se distancia. Nómbrala por su perfil conductual (Apego Reactivo / Aceptación Silenciosa / Autocrítica Compensatoria / Retraimiento Defensivo). Describe brevemente qué activa ese patrón — pero NO lo expliques del todo. Termina con una pregunta abierta que incomoda, algo que ella no puede responder sola. PROHIBIDO: dar consejos, explicar la causa raíz, mencionar soluciones, mencionar a él por nombre.\\n\\n'
+    + 'f2 (2 frases, SOLO él): Describe con precisión el comportamiento concreto de ' + (S.nombreEl||'él') + ' usando los datos que ella dio — sin etiquetarlo ni diagnosticarlo. Di que ese comportamiento tiene un nombre específico en psicología conductual, pero NO lo reveles. Di que el análisis completo identifica el detonador exacto que lo activa — y que conocerlo cambia completamente cómo ella debe actuar. PROHIBIDO: mecanismo de defensa, saturación de intimidad, evitativo, narcisista, imaturo, cualquier explicación del por qué. No menciones a ' + nombre + '.\\n\\n'
     + 'Sin asteriscos ni markdown. Tono científico pero íntimo.\\n\\n'
     + 'Responde SOLO con JSON sin backticks: {"f1":"...","f2":"..."}';; var _startTime = Date.now();
   fetch('/api/analisar', {
@@ -2055,13 +2055,13 @@ function getFrasePrincipal(iElla, sEl, q1ans) {
   var nElla = getNombreElla();
   var nEl   = getNombreEl();
   var perfiles = [
-    { cita:"sientes una ansiedad que no puedes controlar — revisas el celular cada rato", perfil:"Apego Reactivo", impacto:"Tu sistema emocional entra en alerta máxima ante cualquier señal de distancia. Ese patrón genera presión constante en él y retroalimenta el ciclo sin que lo notes." },
-    { cita:"te duele pero esperas — ya sabes que así es él", perfil:"Aceptación Silenciosa", impacto:"Has normalizado el dolor como parte de la relación. Ese ajuste silencioso baja tu umbral emocional y sabotea tu equilibrio sin que lo percibas." },
-    { cita:"te preguntas qué hiciste mal y repasas toda la conversación", perfil:"Autocrítica Compensatoria", impacto:"Asumes la responsabilidad emocional de los dos automáticamente. Ese hábito crea un punto ciego que reescribe el guión de la relación en tu contra." },
-    { cita:"si él no escribe, tú tampoco — no persigues a nadie", perfil:"Retraimiento Defensivo", impacto:"Usas el orgullo como escudo ante el rechazo. Aunque crees que mantienes el control, este patrón genera un vacío de comunicación que valida los peores miedos de " + nEl + "." }
+    { cita:"sientes una ansiedad que no puedes controlar — revisas el celular cada rato", perfil:"Apego Reactivo", pregunta:"¿Y si la razón por la que él se aleja tiene que ver exactamente con eso que haces cuando lo sientes alejarse?" },
+    { cita:"te duele pero esperas — ya sabes que así es él", perfil:"Aceptación Silenciosa", pregunta:"¿Cuánto de lo que sientes por él es amor real — y cuánto es el hábito de esperar que algo cambie?" },
+    { cita:"te preguntas qué hiciste mal y repasas toda la conversación", perfil:"Autocrítica Compensatoria", pregunta:"¿Y si el problema no es lo que hiciste — sino algo que llevas repitiendo desde mucho antes de conocerlo?" },
+    { cita:"si él no escribe, tú tampoco — no persigues a nadie", perfil:"Retraimiento Defensivo", pregunta:"¿Qué pasaría si lo que crees que es control es exactamente lo que él necesita para alejarse sin culpa?" }
   ];
   var p = perfiles[r0] || perfiles[0];
-  return nElla + ', al analizar tu respuesta: “' + p.cita + '”, nuestro sistema identificó que activas el perfil de “' + p.perfil + '”. ' + p.impacto + ' Tu informe detalla con precisión analítica cómo este punto ciego está saboteando la relación.';
+  return nElla + ', al revisar tu respuesta: “' + p.cita + '”, nuestro sistema identificó que activas el perfil de “' + p.perfil + '”. ' + p.pregunta + ' Tu informe detalla el punto ciego específico detrás de este patrón.';
 }
 
 function getFrase2(iElla, q1ans) {
@@ -2074,7 +2074,7 @@ function getFrase2(iElla, q1ans) {
     "cómo se distancia justo cuando la relación parece estar en su mejor momento"
   ];
   var dato = dados[r4] || dados[2];
-  return '¿Por qué ' + nEl + ' se aleja o se muestra indiferente justo cuando la relación parece estar en su mejor momento? Al procesar los datos de ' + dato + ', la psicología muestra que esto no es falta de amor, sino un mecanismo de defensa por saturación de intimidad. El análisis completo revela el disparador exacto que enciende este miedo en él y el protocolo recomendado para que vuelva a buscarte sin que tengas que rebajarte.';
+  return nEl + ' muestra ' + dato + '. Ese comportamiento tiene un nombre concreto en psicología conductual — pero no es algo que se pueda entender solo desde afuera. El análisis completo identifica el detonador exacto que lo activa en él, y por qué conocerlo cambia completamente cómo deberías actuar.';
 }
 
 function getCuriosidad(iElla, q1ans) {

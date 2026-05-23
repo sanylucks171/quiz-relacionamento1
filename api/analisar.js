@@ -26,11 +26,13 @@ export default async function handler(req, res) {
     );
 
     const data = await response.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    console.log('GEMINI RESPOSTA COMPLETA:', JSON.stringify(data).slice(0, 500));
 
-    // Extrai só o bloco JSON da resposta, seja onde for
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    console.log('TEXTO EXTRAIDO:', text.slice(0, 200));
+
     const match = text.match(/\{[\s\S]*\}/);
-    if (!match) throw new Error('Sem JSON na resposta: ' + text.slice(0, 100));
+    if (!match) throw new Error('Sem JSON: ' + JSON.stringify(data).slice(0, 300));
 
     const parsed = JSON.parse(match[0]);
     return res.status(200).json({ content: [{ text: JSON.stringify(parsed) }] });

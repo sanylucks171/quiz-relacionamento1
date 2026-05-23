@@ -1,4 +1,5 @@
-export const config = { api: { bodyParser: true } };
+Cola o arquivo inteiro no GitHub:
+javascriptexport const config = { api: { bodyParser: true } };
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -14,7 +15,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -26,11 +27,7 @@ export default async function handler(req, res) {
     );
 
     const data = await response.json();
-    console.log('GEMINI RESPOSTA COMPLETA:', JSON.stringify(data).slice(0, 500));
-
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-    console.log('TEXTO EXTRAIDO:', text.slice(0, 200));
-
     const match = text.match(/\{[\s\S]*\}/);
     if (!match) throw new Error('Sem JSON: ' + JSON.stringify(data).slice(0, 300));
 

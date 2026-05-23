@@ -1003,9 +1003,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 
     <!-- Lock box -->
     <div class="card card-gold" style="margin-bottom:1rem;padding:1.2rem">
-      <div style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.6rem">Tu análisis está listo</div>
       <p id="v-lock-copy" class="serif" style="font-size:1rem;color:#fff;line-height:1.5;margin-bottom:.5rem;font-style:italic"></p>
-      <p style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.6">Elaborado con base en tus respuestas usando principios de psicología del apego y análisis de patrones relacionales. No es un test genérico — es un espejo de lo que respondiste.</p>
     </div>
 
     <!-- SOCIAL PROOF COUNTER -->
@@ -1645,15 +1643,16 @@ function iniciarAnalizando() {
   var nombreEl = getNombreEl();
   var q1txts = Q1.map(function(q,i){ return q.t+' → '+q.o[S.q1ans[i]||0]; });
   var q2txts = Q2.map(function(q,i){ return q.t+' → '+q.o[S.q2ans[i]||0]; });
-  var prompt = 'Eres una psicóloga especialista en apego emocional y dinámicas relacionales. Con base en las respuestas de '+nombre+' a un test emocional, escribe DOS párrafos cortos, profundamente personalizados y emocionalmente intensos para la página de resultados.\n\n'
-    +'PERFIL DE ELLA: '+ella.type+'\nPERFIL DE ÉL: '+el.type+'\nDINÁMICA: '+din.name+'\n\n'
-    +'RESPUESTAS DE ELLA:\n'+q1txts.join('\n')+'\n\n'
-    +'RESPUESTAS SOBRE ÉL:\n'+q2txts.join('\n')+'\n\n'
-    +'INSTRUCCIONES:\n'
-    +'- Párrafo 1 (FRASE_PRINCIPAL, máx 60 palabras): Una frase en primera persona del test dirigida a '+nombre+'. Debe mencionar su nombre, referenciar 1-2 de sus respuestas ESPECÍFICAS y nombrar el patrón detectado. Que sienta que fue escrita solo para ella. Usar cursiva emocional. Estilo: íntimo, honesto, sin eufemismos.\n'
-    +'- Párrafo 2 (FRASE_2, máx 55 palabras): Un párrafo explicativo que describe con precisión la dinámica observada entre ella y él, usando las respuestas concretas. Sin mencionar el nombre.\n\n'
-    +'Responde SOLO con este formato JSON sin backticks:\n{"f1":"...párrafo 1...","f2":"...párrafo 2..."}\n'
-    +'Usa el nombre '+nombre+' al menos una vez en f1. Sin comillas tipográficas en el JSON.';
+  var prompt = 'Eres una psicóloga especialista en apego emocional. Con base en las respuestas de ' + nombre + ' genera DOS textos cortos y poderosos.\n\n'
+    + 'PERFIL DE ELLA: ' + ella.type + '\nPERFIL DE ÉL: ' + el.type + '\nDINÁMICA: ' + din.name + '\n\n'
+    + 'SUS RESPUESTAS:\n' + q1txts.join('\n') + '\n' + q2txts.join('\n') + '\n\n'
+    + 'REGLAS:\n'
+    + '- Sin asteriscos ni markdown\n'
+    + '- f1: max 2 frases. Menciona el nombre ' + nombre + '. Referencia UNA respuesta concreta. Tono íntimo.\n'
+    + '- f2: max 2 frases. Describe la dinámica entre los dos. Sin nombre.\n'
+    + '- Estilo: psicóloga que la conoce de verdad. Sin clichés.\n\n'
+    + 'Responde SOLO con este JSON sin backticks ni texto extra: {"f1":"...","f2":"..."}';
+  var _startTime = Date.now();
   fetch('/api/analisar', {
     method:'POST',
     headers:{'Content-Type':'application/json'},
@@ -1669,8 +1668,10 @@ function iniciarAnalizando() {
       } catch(e){ AI_FRASE=''; AI_FRASE2=''; }
     }).catch(function(){ AI_FRASE=''; AI_FRASE2=''; })
     .finally(function(){
-      // Garante que steps de animação terminaram antes de passar
-      setTimeout(function(){ activarStep(4); setTimeout(function(){ mostrarVenda(); }, 600); }, 3800);
+      // Espera animação terminar (mínimo 4s) depois mostra resultado
+      var elapsed = Date.now() - _startTime;
+      var remaining = Math.max(0, 4000 - elapsed);
+      setTimeout(function(){ activarStep(4); setTimeout(function(){ mostrarVenda(); }, 500); }, remaining);
     });
 }
 
@@ -1696,14 +1697,8 @@ function mostrarVenda() {
 
    // ── Lock copy com nome ──
   var nElla = getNombreElla();
-  var lockCopies = [
-    (nElla!=='tú'?nElla+', lo':'Lo')+' que encontramos en ti va más allá de lo que cualquier persona cercana se ha atrevido a decirte.',
-    (nElla!=='tú'?nElla+', lo':'Lo')+' que encontramos explica por qué tu sistema emocional funciona diferente — y por qué eso no es un defecto.',
-    (nElla!=='tú'?nElla+', lo':'Lo')+' que encontramos revela algo que llevas tiempo sintiendo pero no has podido nombrar.',
-    (nElla!=='tú'?nElla+', lo':'Lo')+' que encontramos explica por qué ves en él algo que nadie más ve — y lo que eso te ha costado.'
-  ];
   var lockEl = document.getElementById('v-lock-copy');
-  if(lockEl) lockEl.textContent = lockCopies[S.iElla] || lockCopies[0];
+  if(lockEl) lockEl.textContent = '';
 
   // ── Frase principal — IA ou fallback ──
   var el1 = document.getElementById('v-frase1');
@@ -1748,18 +1743,7 @@ function mostrarVenda() {
   set('co-price-h',CFG.PRECIO_BUNDLE.toFixed(2));
   set('co-total-base','$'+CFG.PRECIO_BUNDLE.toFixed(2));
 
-  // ── Saudação com nome ──
-  var nEl   = getNombreEl();
-  var greet = document.getElementById('v-greeting');
-  if(greet) {
-    if(nElla !== 'tú' && nEl !== 'él') {
-      greet.textContent = nElla + ', este es tu análisis — y el de ' + nEl + '.';
-    } else if(nElla !== 'tú') {
-      greet.textContent = nElla + ', este es tu análisis emocional.';
-    } else {
-      greet.textContent = '';
-    }
-  }
+  var nEl = getNombreEl();
 
   // ── Contador de checkout ──
   var ccEl = document.getElementById('checkout-counter');

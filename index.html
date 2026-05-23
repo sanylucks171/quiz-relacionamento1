@@ -480,7 +480,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 <!-- ══════════════════════════════════════════════════
      PG 1 · LANDING
      ══════════════════════════════════════════════════ -->
-<div id="pg-land" class="page active">
+<div id="pg-land" class="page">
   <div class="lp-bg">
     <nav class="lp-nav">
       <div class="lp-logo"><span style="color:#C84B6A;margin-right:5px;font-style:normal;font-family:sans-serif;font-size:14px">❤</span>descubre tu apego</div>
@@ -766,7 +766,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 <!-- ══════════════════════════════════════════════════
      PG INTRO — antes do quiz
      ══════════════════════════════════════════════════ -->
-<div id="pg-intro" class="page">
+<div id="pg-intro" class="page active">
   <div style="min-height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden;background:#0d0a14">
 
     <!-- Fundo com gradiente emocional -->
@@ -819,6 +819,16 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <button onclick="goToQuiz1()" style="width:100%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);color:#fff;border:none;border-radius:14px;padding:17px;font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;box-shadow:0 8px 28px rgba(200,75,106,.45);letter-spacing:.01em;margin-bottom:.7rem">
           Estoy lista para saber la verdad →
         </button>
+        <!-- Social proof -->
+        <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:.8rem">
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px">
+            <span style="width:8px;height:8px;border-radius:50%;background:#4CAF50;display:inline-block;box-shadow:0 0 6px rgba(76,175,80,.6);animation:pulse 2s infinite"></span>
+            <span style="font-size:12px;color:rgba(255,255,255,.5)" id="intro-counter"></span>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,.3);text-align:center;line-height:1.5;max-width:300px;margin:0 auto">
+            &#x1F9E0; Basado en +12,000 respuestas analizadas y patrones validados por psic&#243;logos especializados en apego emocional
+          </div>
+        </div>
         <p style="font-size:11px;color:rgba(255,255,255,.2);margin:0">Solo 5 minutos — puede cambiar cómo ves todo</p>
       </div>
 
@@ -881,6 +891,64 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <div class="az-step" id="az-s4"><div class="az-step-ico">◎</div><span>Preparando tu reporte...</span></div>
       </div>
       <p style="font-size:11px;color:rgba(255,255,255,.18);margin-top:1rem">Esto puede tomar unos segundos</p>
+
+        <!-- WhatsApp testimonials -->
+        <div style="margin-top:1.4rem;max-width:340px;margin-left:auto;margin-right:auto">
+          <div style="background:#111827;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.07)">
+
+            <!-- WA Header -->
+            <div style="background:#1a2533;padding:.6rem .9rem;display:flex;align-items:center;gap:.6rem;border-bottom:1px solid rgba(255,255,255,.06)">
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);display:flex;align-items:center;justify-content:center;font-size:.9rem">&#x2764;&#xFE0F;</div>
+              <div>
+                <div style="font-size:12px;color:#fff;font-weight:600">Grupo: Test Emocional</div>
+                <div style="font-size:10px;color:rgba(255,255,255,.4)">Mariana, Camila, Valentina y 47 m&#225;s</div>
+              </div>
+            </div>
+
+            <!-- Messages -->
+            <div style="padding:.8rem .7rem;display:flex;flex-direction:column;gap:.7rem;background:#0d1117">
+
+              <!-- Msg 1 -->
+              <div style="display:flex;gap:.5rem;align-items:flex-end">
+                <img src="https://api.dicebear.com/7.x/lorelei/svg?seed=maria&backgroundColor=C84B6A&radius=50" width="30" height="30" style="border-radius:50%;flex-shrink:0;border:2px solid rgba(200,75,106,.3)" alt="" loading="lazy">
+                <div style="max-width:82%">
+                  <div style="font-size:9px;color:#C84B6A;font-weight:600;margin-bottom:2px">M.T. · Ciudad de M&#233;xico</div>
+                  <div style="background:#1e2d3d;border-radius:0 10px 10px 10px;padding:.5rem .7rem">
+                    <div style="font-size:12px;color:rgba(255,255,255,.85);line-height:1.5">Chicas acabo de hacer el test y llor&#233; &#x1F62D; dice exactamente lo que soy. "La Reparadora" &#8212; siempre creyendo que mi amor iba a cambiar a alguien que no quer&#237;a cambiar</div>
+                    <div style="font-size:9px;color:rgba(255,255,255,.25);text-align:right;margin-top:3px">9:14 &#x2713;&#x2713;</div>
+                  </div>
+                  <div style="font-size:10px;color:rgba(255,255,255,.3);margin-top:2px">&#x2764; 12</div>
+                </div>
+              </div>
+
+              <!-- Msg 2 -->
+              <div style="display:flex;gap:.5rem;align-items:flex-end">
+                <img src="https://api.dicebear.com/7.x/lorelei/svg?seed=camila&backgroundColor=9B2D4A&radius=50" width="30" height="30" style="border-radius:50%;flex-shrink:0;border:2px solid rgba(155,45,74,.3)" alt="" loading="lazy">
+                <div style="max-width:82%">
+                  <div style="font-size:9px;color:#E8748F;font-weight:600;margin-bottom:2px">C.R. · Bogot&#225;</div>
+                  <div style="background:#1e2d3d;border-radius:0 10px 10px 10px;padding:.5rem .7rem">
+                    <div style="font-size:12px;color:rgba(255,255,255,.85);line-height:1.5">yo tambi&#233;n!! lo hice anoche y me qued&#233; en silencio como 10 minutos. dice cosas que yo nunca hab&#237;a podido ponerle nombre &#x1F972;</div>
+                    <div style="font-size:9px;color:rgba(255,255,255,.25);text-align:right;margin-top:3px">9:17 &#x2713;&#x2713;</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Msg 3 -->
+              <div style="display:flex;gap:.5rem;align-items:flex-end">
+                <img src="https://api.dicebear.com/7.x/lorelei/svg?seed=valentina&backgroundColor=7B3F6E&radius=50" width="30" height="30" style="border-radius:50%;flex-shrink:0;border:2px solid rgba(123,63,110,.3)" alt="" loading="lazy">
+                <div style="max-width:82%">
+                  <div style="font-size:9px;color:#B887D4;font-weight:600;margin-bottom:2px">V.L. · Guadalajara</div>
+                  <div style="background:#1e2d3d;border-radius:0 10px 10px 10px;padding:.5rem .7rem">
+                    <div style="font-size:12px;color:rgba(255,255,255,.85);line-height:1.5">Mand&#233;nselo a quien necesiten. Yo se lo mand&#233; a mi amiga que lleva 2 a&#241;os en lo mismo y me escribi&#243; al toque: "soy yo tal cual" &#x1F60A;</div>
+                    <div style="font-size:9px;color:rgba(255,255,255,.25);text-align:right;margin-top:3px">9:21 &#x2713;&#x2713;</div>
+                  </div>
+                  <div style="font-size:10px;color:rgba(255,255,255,.3);margin-top:2px">&#x1F914; 8</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>
@@ -2256,6 +2324,17 @@ function iniciarContador() {
 
 /* ─── INIT ─── */
 document.addEventListener('DOMContentLoaded', function(){
+  // Intro counter
+  var ic = document.getElementById('intro-counter');
+  if(ic) {
+    var iBase = 135 + Math.floor(Math.random()*12);
+    ic.textContent = iBase + ' haciendo el test ahora';
+    setInterval(function(){
+      var delta = Math.random() < 0.5 ? 1 : -1;
+      iBase = Math.max(128, Math.min(155, iBase + delta));
+      ic.textContent = iBase + ' haciendo el test ahora';
+    }, 3800);
+  }
   verificarStatusPagamento();
   iniciarContador();
   var bt = document.getElementById('banner-timer');

@@ -963,22 +963,39 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <!-- PERFIS -->
     <div style="text-align:center;margin-bottom:1rem">
       <span class="tag tag-green" style="display:inline-flex;margin-bottom:.8rem">✓ Los dos perfiles analizados</span>
-      <div style="display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-bottom:.8rem">
-        <div style="text-align:center">
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:.8rem">
+
+        <!-- PERFIL DELA — visível -->
+        <div style="text-align:center;flex:1">
           <div id="v-icon-ella" style="font-size:2rem;margin-bottom:4px">🌹</div>
           <div style="font-size:11px;color:var(--txt3)">Tu perfil</div>
           <div id="v-type-ella" class="serif" style="font-size:13px;color:var(--rose-mid);font-style:italic"></div>
         </div>
-        <div style="font-size:1.8rem;color:var(--bd-rose)">↔</div>
-        <div style="text-align:center">
-          <div id="v-icon-el" style="font-size:2rem;margin-bottom:4px">👨</div>
-          <div style="font-size:11px;color:var(--txt3)">Perfil de él</div>
-          <div id="v-type-el" class="serif" style="font-size:13px;color:var(--gold);font-style:italic"></div>
+
+        <div style="font-size:1.8rem;color:var(--bd-rose);flex-shrink:0">↔</div>
+
+        <!-- PERFIL DELE — bloqueado -->
+        <div style="flex:1;text-align:center;position:relative">
+          <div style="filter:blur(6px);pointer-events:none;user-select:none">
+            <div id="v-icon-el" style="font-size:2rem;margin-bottom:4px">👨</div>
+            <div style="font-size:11px;color:var(--txt3)">Perfil de él</div>
+            <div id="v-type-el" class="serif" style="font-size:13px;color:var(--gold);font-style:italic"></div>
+          </div>
+          <div onclick="abrirCO()" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer">
+            <div style="font-size:1.4rem">🔒</div>
+            <div style="font-size:10px;color:rgba(200,75,106,.9);font-weight:700;margin-top:2px">Desbloquear</div>
+          </div>
         </div>
+
       </div>
-      <div class="card" style="text-align:center;padding:.8rem;margin-bottom:1rem">
+
+      <!-- DINÂMICA — bloqueada -->
+      <div class="card" style="text-align:center;padding:.8rem;margin-bottom:1rem;position:relative;overflow:hidden">
         <div style="font-size:11px;color:var(--txt3);margin-bottom:3px">Dinámica identificada</div>
-        <div id="v-dinamica" class="serif" style="font-size:16px;color:#fff;font-weight:700"></div>
+        <div id="v-dinamica" class="serif" style="font-size:16px;color:#fff;font-weight:700;filter:blur(5px);user-select:none;pointer-events:none"></div>
+        <div onclick="abrirCO()" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;cursor:pointer;background:rgba(13,11,23,.6)">
+          <span style="font-size:12px;color:rgba(200,75,106,.9);font-weight:700">🔒 Solo visible en el análisis completo</span>
+        </div>
       </div>
     </div>
 
@@ -990,6 +1007,13 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <p id="v-frase2" style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.65;margin:0"></p>
     </div>
 
+    <!-- CTA ANTECIPADO -->
+    <div id="early-cta" style="display:none;margin:0;height:0;overflow:hidden">
+      <button onclick="abrirCO()" style="width:100%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);color:#fff;border:none;border-radius:14px;padding:16px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(200,75,106,.4)">
+        🔓 Desbloquear mi análisis completo por &#36;11.99
+      </button>
+      <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.3);margin-top:6px">Acceso inmediato · 7 días de garantía</p>
+    </div>
     <!-- CURIOSIDADE -->
     
 
@@ -1001,10 +1025,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <div id="v-reveal-desc" style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;max-width:300px;margin:0 auto"></div>
     </div>
 
-    <!-- Lock box -->
-    <div class="card card-gold" style="margin-bottom:1rem;padding:1.2rem">
-      <p id="v-lock-copy" class="serif" style="font-size:1rem;color:#fff;line-height:1.5;margin-bottom:.5rem;font-style:italic"></p>
-    </div>
+
 
     <!-- SOCIAL PROOF COUNTER -->
     <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:.8rem;margin-bottom:.8rem;display:flex;align-items:center;justify-content:center;gap:10px">
@@ -1690,7 +1711,7 @@ function mostrarVenda() {
   var revDesc = document.getElementById('v-reveal-desc');
   if(revIcon) revIcon.innerHTML = ella.icon;
   if(revName) revName.textContent = ella.type;
-  if(revDesc) revDesc.textContent = ella.desc ? ella.desc.substring(0,120)+'...' : '';
+  if(revDesc) revDesc.textContent = ella.desc ? ella.desc.substring(0,70)+'...' : '';
 
    // ── Lock copy com nome ──
   var nElla = getNombreElla();
@@ -1710,6 +1731,8 @@ function mostrarVenda() {
     var f2 = AI_FRASE2 || getFrase2(S.iElla, S.q1ans);
     el2.textContent = f2 || '';
   }
+  var eCTA = document.getElementById('early-cta');
+  if(eCTA){ eCTA.style.display='block'; eCTA.style.height='auto'; eCTA.style.margin='1.2rem 0'; }
 
   // ── Curiosidade individual ──
   var elc = document.getElementById('v-curiosidad');
@@ -1773,7 +1796,7 @@ function abrirCO() {
     localStorage.setItem('de_resultado', resultados);
     localStorage.setItem('de_ts', Date.now().toString());
   } catch(e) {}
-  window.location.href = CFG.URL_CHECKOUT;
+  window.open(CFG.URL_CHECKOUT, '_blank');
 }
 function fecharCO() { document.getElementById('co-overlay').classList.remove('open'); pararTimer(); }
 

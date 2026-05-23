@@ -1645,15 +1645,18 @@ function iniciarAnalizando() {
   var nombreEl = getNombreEl();
   var q1txts = Q1.map(function(q,i){ return q.t+' → '+q.o[S.q1ans[i]||0]; });
   var q2txts = Q2.map(function(q,i){ return q.t+' → '+q.o[S.q2ans[i]||0]; });
-  var prompt = 'Eres una psicóloga especialista en apego emocional y dinámicas relacionales. Con base en las respuestas de '+nombre+' a un test emocional, escribe DOS párrafos cortos, profundamente personalizados y emocionalmente intensos para la página de resultados.\n\n'
-    +'PERFIL DE ELLA: '+ella.type+'\nPERFIL DE ÉL: '+el.type+'\nDINÁMICA: '+din.name+'\n\n'
-    +'RESPUESTAS DE ELLA:\n'+q1txts.join('\n')+'\n\n'
-    +'RESPUESTAS SOBRE ÉL:\n'+q2txts.join('\n')+'\n\n'
-    +'INSTRUCCIONES:\n'
-    +'- Párrafo 1 (FRASE_PRINCIPAL, máx 60 palabras): Una frase en primera persona del test dirigida a '+nombre+'. Debe mencionar su nombre, referenciar 1-2 de sus respuestas ESPECÍFICAS y nombrar el patrón detectado. Que sienta que fue escrita solo para ella. Usar cursiva emocional. Estilo: íntimo, honesto, sin eufemismos.\n'
-    +'- Párrafo 2 (FRASE_2, máx 55 palabras): Un párrafo explicativo que describe con precisión la dinámica observada entre ella y él, usando las respuestas concretas. Sin mencionar el nombre.\n\n'
-    +'Responde SOLO con este formato JSON sin backticks:\n{"f1":"...párrafo 1...","f2":"...párrafo 2..."}\n'
-    +'Usa el nombre '+nombre+' al menos una vez en f1. Sin comillas tipográficas en el JSON.';
+  var prompt = 'var prompt = 'Eres una psicóloga especialista en apego emocional. Con base en las respuestas de '+nombre+' genera DOS textos cortos y poderosos para su página de resultados.\n\n'
+    +'PERFIL DE ELLA: '+ella.type+'\n'
+    +'PERFIL DE ÉL: '+el.type+'\n'
+    +'DINÁMICA: '+din.name+'\n\n'
+    +'SUS RESPUESTAS:\n'+q1txts.join('\n')+'\n'+q2txts.join('\n')+'\n\n'
+    +'REGLAS IMPORTANTES:\n'
+    +'- Sin asteriscos, sin markdown, sin comillas tipográficas\n'
+    +'- f1: máx 2 frases, menciona el nombre '+nombre+', referencia UNA respuesta concreta suya\n'
+    +'- f2: máx 2 frases, describe la dinámica entre los dos con precisión\n'
+    +'- Tono: íntimo, honesto, directo. Como si lo dijera una psicóloga que la conoce\n\n'
+    +'Responde SOLO con este JSON sin backticks ni markdown:\n'
+    +'{"f1":"...","f2":"..."}';
   fetch('/api/analisar', {
     method:'POST',
     headers:{'Content-Type':'application/json'},

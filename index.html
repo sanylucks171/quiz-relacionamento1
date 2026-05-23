@@ -480,22 +480,6 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 <!-- ══════════════════════════════════════════════════
      PG 1 · LANDING
      ══════════════════════════════════════════════════ -->
-<!-- PG SEM DADOS — fallback quando pagou em outro dispositivo -->
-<div id="pg-pago-sem-dados" class="page">
-  <div style="min-height:100vh;background:#0D0B17;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center">
-    <div style="font-size:3rem;margin-bottom:1rem">✅</div>
-    <h2 style="font-family:'Playfair Display',serif;color:#fff;font-size:1.4rem;margin-bottom:.8rem">¡Tu pago fue confirmado!</h2>
-    <p style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;max-width:360px;margin-bottom:1.5rem">
-      Para ver tu análisis completo, necesitas abrirlo en el mismo navegador y dispositivo donde hiciste el test.<br><br>
-      Si ya lo hiciste ahí, haz clic en el botón de abajo.
-    </p>
-    <button onclick="cargarDesdePago()" style="background:linear-gradient(135deg,#C84B6A,#9B2D4A);color:#fff;border:none;border-radius:14px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:1rem">
-      Ver mi análisis completo
-    </button>
-    <p style="font-size:12px;color:rgba(255,255,255,.25)">Si tienes problemas, escríbenos por WhatsApp</p>
-  </div>
-</div>
-
 <div id="pg-land" class="page active">
   <div class="lp-bg">
     <nav class="lp-nav">
@@ -1034,8 +1018,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 
     <!-- CTA ANTECIPADO -->
     <div id="early-cta" style="display:none;margin:0;height:0;overflow:hidden">
-      <button onclick="abrirCO()" style="width:100%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);color:#fff;border:none;border-radius:14px;padding:16px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(200,75,106,.4)">
-        🔓 Desbloquear mi análisis completo por &#36;11.99
+      <button onclick="abrirCO()" style="width:100%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);color:#fff;border:none;border-radius:14px;padding:16px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(200,75,106,.4)"><span id="btn-early-txt">🔓 Desbloquear mi análisis completo por &#36;11.99</span>
       </button>
       <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.3);margin-top:6px">Acceso inmediato · 7 días de garantía</p>
     </div>
@@ -1062,8 +1045,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <span style="font-size:13px;color:rgba(255,255,255,.7)"><span id="checkout-counter" style="color:#fff;font-weight:800;font-size:15px"></span> mujeres ya desbloquearon su diagnóstico hoy por <strong style="color:#E8748F">&#36;11.99</strong></span>
     </div>
 
-    <button class="btn btn-rose" onclick="abrirCO()" style="margin-bottom:.6rem;font-size:16px;padding:16px">
-      🔓 Desbloquear mi reporte completo
+    <button class="btn btn-rose" onclick="abrirCO()" style="margin-bottom:.6rem;font-size:16px;padding:16px"><span id="btn-main-txt">🔓 Desbloquear mi reporte completo</span>
     </button>
     <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.25);margin-bottom:1rem">Acceso inmediato · Pago único · 7 días de garantía</p>
 
@@ -1465,29 +1447,15 @@ function showPage(id) {
 function verificarStatusPagamento() {
   var params = new URLSearchParams(window.location.search);
   var st = params.get(CFG.PARAM_STATUS);
-  if (st==='paid'||st==='approved'||st==='completed'||st==='1') {
-    limpiarURL();
-    var ok = cargar();
-    if (ok && S.iElla!==null && S.sEl!==null) {
-      // Tem dados do quiz — gera o relatório completo
-      calcElla(); calcEl(); calcDin();
-      showPage('pg-report');
+  if (st==='paid'||st==='approved'||st==='completed') {
+    cargar();
+    if (S.iElla!==null && S.sEl!==null) {
+      calcDin();
+      limpiarURL();
       gerarPainel();
     } else {
-      // Pagou mas não tem dados (outra aba/dispositivo) — mostra mensagem
-      showPage('pg-pago-sem-dados');
+      limpiarURL();
     }
-  }
-}
-function cargarDesdePago() {
-  var ok = cargar();
-  if(ok && S.iElla!==null && S.sEl!==null) {
-    calcElla(); calcEl(); calcDin();
-    showPage('pg-report');
-    gerarPainel();
-  } else {
-    alert('No encontramos tus respuestas. Por favor, realiza el test nuevamente en este dispositivo.');
-    showPage('pg-land');
   }
 }
 function limpiarURL() {
@@ -1733,6 +1701,15 @@ function iniciarAnalizando() {
 }
 
 /* ─── TELA DE VENDA ─── */
+function actualizarBotones() {
+  var nEl = getNombreEl();
+  var precio = "$11.99";
+  var txt = (nEl && nEl !== "él") ? "🔓 Desbloquear: mi perfil + el perfil de " + nEl + " — " + precio : "🔓 Desbloquear mi análisis completo por " + precio;
+  var b1 = document.getElementById("btn-early-txt");
+  var b2 = document.getElementById("btn-main-txt");
+  if(b1) b1.textContent = txt;
+  if(b2) b2.textContent = txt;
+}
 function mostrarVenda() {
   var ella=PE[S.iElla], el=PEL[S.sEl], d=S.din;
 
@@ -1803,6 +1780,7 @@ function mostrarVenda() {
   set('co-total-base','$'+CFG.PRECIO_BUNDLE.toFixed(2));
 
   var nEl = getNombreEl();
+  actualizarBotones();
 
   // ── Contador de checkout ──
   var ccEl = document.getElementById('checkout-counter');
@@ -1829,15 +1807,13 @@ function mostrarVenda() {
 function abrirCO() {
   gaEvent('click_buy_button', {perfil_ella: S.iElla, perfil_el: S.sEl});
   try {
-    // Salva tudo em ambos os formatos para garantir
-    var dados = {q1ans:S.q1ans, iElla:S.iElla, q2ans:S.q2ans, sEl:S.sEl};
-    localStorage.setItem('de_s', JSON.stringify(dados));
-    localStorage.setItem('de_resultado', JSON.stringify({ella:S.iElla, el:S.sEl}));
+    // Salva resultados no localStorage antes de ir para Hotmart
+    // O reporte vai ler daqui quando a pessoa voltar após pagar
+    var resultados = JSON.stringify({ ella: S.iElla, el: S.sEl });
+    localStorage.setItem('de_resultado', resultados);
     localStorage.setItem('de_ts', Date.now().toString());
   } catch(e) {}
-  // Abre Hotmart — ela vai redirecionar de volta com ?status=paid
-  var checkoutUrl = CFG.URL_CHECKOUT + '&src=descubretuapego&redirectTo=' + encodeURIComponent(window.location.origin + window.location.pathname + '?status=paid');
-  window.open(checkoutUrl, '_blank');
+  window.open(CFG.URL_CHECKOUT, '_blank');
 }
 function fecharCO() { document.getElementById('co-overlay').classList.remove('open'); pararTimer(); }
 

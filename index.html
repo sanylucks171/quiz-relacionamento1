@@ -2068,22 +2068,8 @@ function getFrasePrincipal(iElla, sEl, q1ans) {
 }
 
 function getFrase2(iElla, q1ans) {
-  var r4 = q1ans[4]||0;
   var nEl = getNombreEl();
-  var dados = [
-    "sus silencios repentinos y su frialdad sin razón aparente",
-    "cómo su actitud cambia sin previo aviso",
-    "sus altibajos emocionales sin explicación lógica",
-    "cómo se distancia justo cuando la relación parece estar en su mejor momento"
-  ];
-  var dato = dados[r4] || dados[2];
-  var texF2 = [
-    '¿Por qué ' + nEl + ' se borra o se pone distante justo cuando parecía que todo avanzaba bien? No es que te haya dejado de querer de la noche a la mañana, ni tampoco es que sea un monstruo calculador. La realidad es más simple y frustrante: cuando la conexión se vuelve muy intensa, en su mente se activa una alarma inconsciente que lo obliga a retroceder para recuperar el control de su espacio. El análisis completo te revela el momento exacto en que esa alarma se enciende en él y el paso a paso práctico para que vuelva a buscarte, sin que tú tengas que rebajarte ni perder tu dignidad.',
-    '¿Por qué ' + nEl + ' cambia de actitud sin previo aviso, como si la persona cálida que conociste se apagara de repente? No es un juego, ni tampoco es que te esté probando. Hay algo muy concreto que se dispara en él cuando la relación empieza a sentirse demasiado real — y no tiene que ver con lo que tú hiciste o dejaste de hacer. El análisis completo identifica ese detonador exacto y te explica, paso a paso, cómo actuar para que él vuelva sin que tengas que perseguirlo ni perderte a ti misma.',
-    '¿Por qué ' + nEl + ' tiene esos altibajos que no tienen ninguna lógica aparente — un día presente y al siguiente como si no existieras? La respuesta no está en lo que pasó entre ustedes la última vez que hablaron. Hay un patrón en él que se activa por dentro, en momentos muy específicos, y que no tiene nada que ver con sus sentimientos hacia ti. El análisis completo te muestra exactamente cuándo y por qué ocurre, y el paso a paso concreto para que deje de desaparecer.',
-    '¿Por qué ' + nEl + ' se aleja o se pone frío justo cuando la relación parece estar en su mejor momento? No es que te haya dejado de querer de la noche a la mañana, ni tampoco es que sea un monstruo calculador. La realidad es más simple y frustrante: cuando la conexión se vuelve muy intensa, en su mente se activa una alarma inconsciente que lo obliga a retroceder para recuperar el control de su espacio. El análisis completo te revela el momento exacto en que esa alarma se enciende en él y el paso a paso práctico para que vuelva a buscarte, sin que tú tengas que rebajarte ni perder tu dignidad.'
-  ];
-  return texF2[r4] || texF2[0];
+  return '¿Por qué ' + nEl + ' se aleja o se pone frío justo cuando la relación parece estar en su mejor momento? No es que te haya dejado de querer de la noche a la mañana, ni tampoco es que sea un monstruo calculador. La realidad con él es más frustrante: cuando la conexión se vuelve muy intensa, en su mente se activa una alarma inconsciente que lo obliga a retroceder para recuperar el control de su espacio. El análisis completo te revela el momento exacto en que esa alarma se enciende en él y el paso a paso práctico para que vuelva a buscarte, sin que tú tengas que rebajarte ni perder tu dignidad.';
 }
 
 function getCuriosidad(iElla, q1ans) {

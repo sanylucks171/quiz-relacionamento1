@@ -1773,13 +1773,12 @@ function iniciarAnalizando() {
   var nombreEl = getNombreEl();
   var q1txts = Q1.map(function(q,i){ return q.t+' → '+q.o[S.q1ans[i]||0]; });
   var q2txts = Q2.map(function(q,i){ return q.t+' → '+q.o[S.q2ans[i]||0]; });
-  var prompt = 'Eres un sistema experto en psicología del comportamiento. Genera dos textos que demuestren que el resultado viene directamente de las respuestas de ' + nombre + '.\\n\\n'
-    + 'PERFIL: ' + ella.type + ' / ' + el.type + ' / ' + din.name + '\\n\\n'
-    + 'RESPUESTAS ELLA:\\n' + q1txts.join('\\n') + '\\nRESPUESTAS ÉL:\\n' + q2txts.join('\\n') + '\\n\\n'
-    + 'f1 (2-3 frases, SOLO ella): Cita su respuesta real. Describe la CONTRADICCIÓN entre lo que ella intenta hacer con la mente y lo que termina haciendo por el impulso de la ansiedad. Habla de cosas concretas: revisar el celular, la culpa, el miedo a haber arruinado todo. Termina con el punto ciego que la mantiene atrapada en ese ciclo — sin resolverlo. PROHIBIDO: términos clínicos (apego reactivo, saturación, retraimiento), consejos, soluciones, nombres de perfiles, mencionar a él por nombre.\\n\\n'
-    + 'f2 (2-3 frases, SOLO él): Usa los datos concretos que ella dio sobre ' + (S.nombreEl||'él') + '. Describe su comportamiento de manera íntima y sin diagnosticarlo — como lo haría una amiga que lo conoce bien, no un psicólogo. Di que no es que dejó de quererla ni que es un monstruo calculador. Deja la explicación real a medias — di que el análisis completo revela el momento exacto en que eso se activa en él y el paso a paso para que vuelva a buscarla sin que ella pierda su dignidad. PROHIBIDO: términos clínicos, diagnósticos, cualquier explicación del mecanismo. No menciones a ' + nombre + '.\\n\\n'
-    + 'Sin asteriscos ni markdown. Tono íntimo, directo, como una amiga que te dice la verdad.\\n\\n'
-    + 'Responde SOLO con JSON sin backticks: {"f1":"...","f2":"..."}';; var _startTime = Date.now();
+  var prompt = 'Genera dos textos cortos y directos para el preview del quiz. El tono es de una amiga que te dice la verdad — sin psicología de libro, sin drama.\\n\\n'
+    + 'RESPUESTAS DE ELLA:\\n' + q1txts.join('\\n') + '\\n\\nRESPUESTAS SOBRE ÉL:\\n' + q2txts.join('\\n') + '\\n\\n'
+    + 'f1 (SOLO ella, máx 4 frases cortas): Empieza con su nombre ' + nombre + '. Menciona un microcomportamiento concreto de sus respuestas (revisar el celular, repasar mensajes, digitar y borrar). Describe la contradicción entre lo que intenta hacer y lo que termina haciendo. Abre un loop — termina con algo que ella no puede responder sola, pero NO des la respuesta. PROHIBIDO: términos clínicos, "punto ciego", "patrón", diagnósticos, consejos. Usa <span style="display:block;margin-top:.75rem"></span> entre párrafos.\\n\\n'
+    + 'f2 (SOLO él, máx 4 frases cortas): Pregunta por qué ' + (S.nombreEl||'él') + ' se pone frío o distante. Di que no dejó de quererla de un día para otro. Deja la explicación a medias — di que el análisis muestra cuándo ocurre y qué hacer. PROHIBIDO: términos clínicos, diagnósticos, "alarma inconsciente", cualquier explicación del mecanismo. No menciones a ' + nombre + '. Usa <span style="display:block;margin-top:.75rem"></span> entre párrafos.\\n\\n'
+    + 'Frases cortas. Sin asteriscos ni markdown. Tono de cansancio, no de amenaza.\\n\\n'
+    + 'Responde SOLO con JSON sin backticks: {"f1":"...","f2":"..."}';;; var _startTime = Date.now();
   fetch('/api/analisar', {
     method:'POST',
     headers:{'Content-Type':'application/json'},
@@ -1856,7 +1855,7 @@ function mostrarVenda() {
   var el2 = document.getElementById('v-frase2');
   if(el2) {
     var f2 = AI_FRASE2 || getFrase2(S.iElla, S.q1ans);
-    el2.textContent = f2 || '';
+    el2.innerHTML = f2 || '';
   }
   var eCTA = document.getElementById('early-cta');
   if(eCTA){ eCTA.style.display='block'; eCTA.style.height='auto'; eCTA.style.margin='.8rem 0 0'; }
@@ -2056,20 +2055,20 @@ function getFrasePrincipal(iElla, sEl, q1ans) {
   var nEl   = getNombreEl();
   var textos = [
     // Opción 0: revisa el celular sin parar
-    nElla + ', al analizar tu respuesta, queda clara una contradicción que te desgasta por dentro. Te dices que no vas a obsesionarte — y al mismo tiempo no puedes evitar revisar su última conexión, si vio lo que publicaste, si algo cambió en su estado. No sufres solo por su silencio; sufres porque en algún momento de esa espera empiezas a darle vueltas a la cabeza y a preguntarte si fuiste tú quien arruinó algo sin darse cuenta. Ese es el punto ciego exacto que tu informe detalla: por qué terminas buscando la falla en ti cuando es él quien desaparece.',
+    nElla + ', revisas su última conexión. Ves que estuvo activo hace veinte minutos y no escribió.<span style="display:block;margin-top:.75rem"></span>Empiezas a repasar lo que dijiste. Buscas el momento exacto en que algo cambió.<span style="display:block;margin-top:.75rem"></span>Probablemente no hubo ningún momento. Pero eso no detiene el ciclo.<span style="display:block;margin-top:.75rem"></span>Tu informe detalla por qué tu mente va ahí primero — y por qué eso te desgasta más que su silencio.',
     // Opción 1: te duele pero esperas
-    nElla + ', al analizar tu respuesta, aparece algo que pocas mujeres se atreven a decirse en voz alta. Sabes perfectamente que duele — y aun así te quedas. No porque seas ingenua, sino porque una parte de ti todavía cree que si esperas lo suficiente, él va a aparecer siendo el que sientes que puede ser. El problema no es la espera: es lo que esa espera le está haciendo a tu forma de verte a ti misma. Tu informe detalla exactamente cómo ese patrón se instaló en ti y qué lo sigue alimentando.',
+    nElla + ', sabes que duele. Y aun así esperas.<span style="display:block;margin-top:.75rem"></span>No porque no te importe — sino porque una parte de ti sigue creyendo que algo va a cambiar si das un poco más.<span style="display:block;margin-top:.75rem"></span>Tu informe muestra qué está sosteniendo esa espera. Y no es lo que crees.',
     // Opción 2: te preguntas qué hiciste mal
-    nElla + ', al analizar tu respuesta, lo primero que llama la atención es lo rápido que tu mente convierte su silencio en tu error. Repasas la última conversación buscando el momento exacto en que algo se torció — aunque probablemente no hubo ninguno. Esa culpa automática no es debilidad: es un hábito muy específico que aprendiste antes de él, y que ahora funciona como un bucle. Tu informe detalla de dónde viene ese bucle y por qué sigue reiniciándose cada vez que él se aleja.',
+    nElla + ', cuando él desaparece, tu mente hace algo muy específico: repasa todo.<span style="display:block;margin-top:.75rem"></span>Buscas el mensaje que enviaste de más. Lo que dijiste el otro día. El momento en que algo se torció.<span style="display:block;margin-top:.75rem"></span>Casi nunca encuentras nada concreto. Pero la búsqueda no para.<span style="display:block;margin-top:.75rem"></span>Tu informe detalla qué está alimentando ese ciclo.',
     // Opción 3: si él no escribe, tú tampoco
-    nElla + ', al analizar tu respuesta sobre cómo manejas su distancia, queda clara una contradicción que te desgasta por dentro. Intentas actuar fría y te repites que no vas a perseguir a nadie — pero la verdad es que sigues revisando el celular para ver si ya se conectó o si vio tus historias. No sufres solo por su silencio; sufres porque, en el fondo, empiezas a darle vueltas a la cabeza y a creer que tal vez fuiste tú quien arruinó las cosas. Ese es el verdadero punto ciego que tu informe personal detalla: por qué terminas castigándote a ti misma con la culpa cada vez que él se aleja.'
+    nElla + ', intentas actuar fría. Te prometes no escribirle primero. Pero entras al chat solo para ver si sigue en línea, miras si vio lo que publicaste o si cambió algo en su estado.<span style="display:block;margin-top:.75rem"></span>Haces todo para que él crea que no te importa... pero esa pantalla es lo único que tienes en la mente. Tu perfil revela que hay una pequeña reacción silenciosa que tienes en esos momentos, y es lo primero que tu informe detalla.'
   ];
   return textos[r0] || textos[0];
 }
 
 function getFrase2(iElla, q1ans) {
   var nEl = getNombreEl();
-  return '¿Por qué ' + nEl + ' se aleja o se pone frío justo cuando la relación parece estar en su mejor momento? No es que te haya dejado de querer de la noche a la mañana, ni tampoco es que sea un monstruo calculador. La realidad con él es más frustrante: cuando la conexión se vuelve muy intensa, en su mente se activa una alarma inconsciente que lo obliga a retroceder para recuperar el control de su espacio. El análisis completo te revela el momento exacto en que esa alarma se enciende en él y el paso a paso práctico para que vuelva a buscarte, sin que tú tengas que rebajarte ni perder tu dignidad.';
+  return '¿Por qué ' + nEl + ' se pone frío justo cuando todo parecía ir bien? No es coincidencia. Hay un detonante muy específico en su mente que se activa en esos momentos.<span style="display:block;margin-top:.75rem"></span>Cada vez que él se distancia, tú cometes un error invisible intentando solucionarlo, y eso es exactamente lo que valida su silencio. El análisis completo muestra cuál es ese detonante y qué hacer hoy para que vuelva a buscarte sin que tengas que rebajarte.';
 }
 
 function getCuriosidad(iElla, q1ans) {

@@ -1049,7 +1049,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <div style="text-align:center;flex:1">
           <div id="v-reveal-icon" style="font-size:2rem;margin-bottom:4px">&#127801;</div>
           <div style="font-size:11px;color:var(--txt3)">Tu perfil</div>
-          <div id="v-reveal-name" class="serif" style="font-size:13px;color:var(--rose-mid);font-style:italic"></div>
+          <div id="v-reveal-name" class="serif" style="font-size:14px;color:#fff;font-style:italic;font-weight:800;letter-spacing:.01em;text-shadow:0 0 20px rgba(232,116,143,.5)"></div>
         </div>
 
         <div style="font-size:1.6rem;color:var(--bd-rose);flex-shrink:0">&#8596;</div>
@@ -1094,7 +1094,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <!-- Overlay de restrição -->
         <div style="position:absolute;inset:0;background:rgba(10,8,20,.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);z-index:2;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;pointer-events:none">
           <span style="font-size:1.6rem">🔒</span>
-          <span style="font-size:10px;color:rgba(200,155,60,.8);font-weight:700;letter-spacing:.1em;text-transform:uppercase">Contenido restringido</span>
+          <span style="font-size:10px;color:rgba(200,155,60,.9);font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:center;line-height:1.4">Solo visible<br>tras el desbloqueo</span>
         </div>
 
         <!-- Perfil dele bloqueado -->
@@ -1103,27 +1103,33 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
             <div style="filter:blur(4px);font-size:1.4rem;user-select:none;pointer-events:none" id="v-icon-el">&#128104;</div>
             <span style="position:absolute;font-size:.9rem">&#128274;</span>
           </div>
-          <div style="flex:1">
-            <div style="font-size:11px;color:rgba(255,255,255,.35)">Perfil de <span id="v-el-name-upsell" style="color:rgba(200,155,60,.6)">&#233;l</span></div>
-            <div style="font-size:12px;color:rgba(200,155,60,.25);filter:blur(5px);user-select:none;font-weight:600" id="v-type-el">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</div>
+          <div style="flex:1;overflow:hidden">
+            <div style="font-size:11px;color:rgba(200,155,60,.7);font-weight:600;margin-bottom:2px">Perfil de <span id="v-el-name-upsell">&#233;l</span></div>
+            <div style="font-size:12px;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden">
+              <span>Por qué actúa así contigo cuando se siente </span><span style="filter:blur(4px);user-select:none">presionado emocionalmente y qué...</span>
+            </div>
           </div>
         </div>
 
         <!-- Dinâmica bloqueada -->
         <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.03);border-radius:10px;padding:.7rem">
           <span style="font-size:1.1rem;flex-shrink:0">&#128274;</span>
-          <div style="flex:1">
-            <div style="font-size:11px;color:rgba(255,255,255,.35)">Din&#225;mica entre los dos</div>
-            <div style="font-size:12px;color:rgba(255,255,255,.12);filter:blur(5px);user-select:none;font-weight:600" id="v-dinamica">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</div>
+          <div style="flex:1;overflow:hidden">
+            <div style="font-size:11px;color:rgba(200,155,60,.7);font-weight:600;margin-bottom:2px">Din&#225;mica entre los dos</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden">
+              <span>El patrón exacto que los </span><span style="filter:blur(4px);user-select:none">conecta y los separa en ciclos que...</span>
+            </div>
           </div>
         </div>
 
         <!-- Pronóstico bloqueado -->
         <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.03);border-radius:10px;padding:.7rem">
           <span style="font-size:1.1rem;flex-shrink:0">&#128274;</span>
-          <div style="flex:1">
-            <div style="font-size:11px;color:rgba(255,255,255,.35)">Pron&#243;stico emocional</div>
-            <div style="font-size:12px;color:rgba(255,255,255,.12);filter:blur(5px);user-select:none">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</div>
+          <div style="flex:1;overflow:hidden">
+            <div style="font-size:11px;color:rgba(200,155,60,.7);font-weight:600;margin-bottom:2px">Pron&#243;stico emocional</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden">
+              <span>Lo que va a pasar entre ustedes </span><span style="filter:blur(4px);user-select:none">si nada cambia en los próximos...</span>
+            </div>
           </div>
         </div>
 
@@ -1137,7 +1143,24 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <button onclick="abrirCO()" style="width:100%;background:linear-gradient(135deg,#C89B3C,#9B7420);color:#fff;border:none;border-radius:12px;padding:15px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.01em;box-shadow:0 4px 20px rgba(200,155,60,.25)">
           <span id="btn-early-txt">&#128275; Desbloquear An&#225;lisis Completo y Protocolo de Acci&#243;n &#8212; $11.99</span>
         </button>
-        <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.25);margin-top:6px">Acceso inmediato &#183; 7 d&#237;as de garant&#237;a</p>
+        <div style="text-align:center;margin-top:8px">
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:4px">
+            <span style="font-size:10px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:3px">🔒 Pago 100% seguro</span>
+            <span style="font-size:10px;color:rgba(255,255,255,.2)">|</span>
+            <span style="font-size:10px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:3px">✅ 7 días de garantía</span>
+            <span style="font-size:10px;color:rgba(255,255,255,.2)">|</span>
+            <span style="font-size:10px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:3px">⚡ Acceso inmediato</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;opacity:.4">
+            <span style="font-size:13px" title="Visa">💳</span>
+            <span style="font-size:10px;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.05em">VISA</span>
+            <span style="font-size:10px;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.05em">MASTERCARD</span>
+            <span style="font-size:10px;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.05em">AMEX</span>
+            <span style="font-size:10px;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.05em">NEQUI</span>
+            <span style="font-size:10px;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.05em">EFECTY</span>
+            <span style="font-size:10px;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.05em">OXXO</span>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -2274,6 +2297,84 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 });
 </script>
-<script src="funil-copy.js"></script>
+<script>
+/* ═══════════════════════════════════════════════════
+   funil-copy.js — Motor de copy da tela de vendas
+   Lógica: Âncora (micro-fato) + Ponto Ciego (apego oculto)
+   Nenhum diagnóstico é entregue antes da compra.
+═══════════════════════════════════════════════════ */
+
+// ── 1. Mapper de micro-fatos (verbos no presente, conectores gramaticais) ──
+function getMicroFatos(respostas) {
+  var fatoGatilhoMap = {
+    0: "su repentino cambio de actitud",
+    1: "esa última discusión entre ustedes",
+    2: "ese momento de desconfianza",
+    3: "la rutina que se instaló"
+  };
+
+  var tempoAfastadoMap = {
+    0: "hace días",
+    1: "las últimas semanas",
+    2: "meses",
+    3: "esa última noche"
+  };
+
+  var comportamentoRecenteMap = {
+    0: "te deja en visto",
+    1: "responde frío y cortante",
+    2: "desaparece sin avisar",
+    3: "evita hablar de lo que siente"
+  };
+
+  return {
+    fato_gatilho:          fatoGatilhoMap[respostas[3]]  || "su distanciamiento",
+    tempo_afastado:        tempoAfastadoMap[respostas[4]] || "un tiempo",
+    comportamento_recente: comportamentoRecenteMap[respostas[5]] || "se aleja"
+  };
+}
+
+// ── 2. Gerador de textos da tela de vendas ──
+function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
+  var mf = getMicroFatos(respostas);
+  var sp = '<span style="display:block;margin-top:.75rem"></span>';
+
+  var slots = {
+
+    slot_0: {
+      f1: nombreUsuario + ', llevas ' + mf.tempo_afastado + ' manteniendo la distancia. No escribes primero, no insistes, intentas preservar algo de dignidad después de ' + mf.fato_gatilho + '.'
+        + sp + 'Lo que no sabes es que ese silencio tuyo está activando algo muy específico en la mente de ' + nombrePareja + ' — algo que él no te diría aunque se lo preguntaras directamente.'
+        + sp + 'Esa interpretación está tomando una dirección que tú no puedes ver desde donde estás. Hay un momento preciso en que el silencio deja de ser una ventaja y se convierte en un riesgo irreversible. Tu análisis completo revela cuál es ese límite antes de que sea tarde.',
+      f2: 'Lo que está pasando en la mente de ' + nombrePareja + ' ahora mismo tiene una lógica que tú no puedes ver desde afuera. El análisis completo la expone — y con ella, el único paso que puede cambiar la dirección de esto antes de que sea demasiado tarde.'
+    },
+
+    slot_2: {
+      f1: nombreUsuario + ', escribiste el mensaje. Lo leíste dos veces. Lo borraste.'
+        + sp + 'Ese momento —ese segundo de duda— dice más sobre tu situación con ' + nombrePareja + ' que cualquier conversación que hayan tenido.'
+        + sp + 'Porque la duda no viene de no saber qué sentir. Viene de no saber cómo él está leyendo cada movimiento tuyo en este momento. Y esa incertidumbre tiene una razón muy precisa que tu análisis identifica.',
+      f2: 'Lo que está pasando en la mente de ' + nombrePareja + ' ahora mismo tiene una lógica que tú no puedes ver desde afuera. El análisis completo la expone — y con ella, el único paso que puede cambiar la dirección de esto antes de que sea demasiado tarde.'
+    },
+
+    slot_3: {
+      f1: nombreUsuario + ', abres el chat. Ves "en línea". Esperas. Se desconecta y notas que él ' + mf.comportamento_recente + '.'
+        + sp + 'No es un hábito tonto — es tu intuición diciéndote que hay algo que todavía no entiendes de lo que está pasando en la mente de ' + nombrePareja + ' después de ' + mf.fato_gatilho + '.'
+        + sp + 'Lo que haces — o dejas de hacer — en las próximas horas importa más de lo que parece. Tu análisis completo revela la radiografía exacta de su mente en este momento y el único movimiento capaz de romper su frialdad.',
+      f2: 'Lo que está pasando en la mente de ' + nombrePareja + ' ahora mismo tiene una lógica que tú no puedes ver desde afuera. El análisis completo la expone — y con ella, el único paso que puede cambiar la dirección de esto antes de que sea demasiado tarde.'
+    }
+
+  };
+
+  // Seleção de slot por resposta r0 (Q1[0] — reação ao silêncio dele)
+  // r0=0 (revisa celular)    → slot_3 El Hábito Invisible
+  // r0=1 (espera)            → slot_0 Incomprensión Mutua
+  // r0=2 (qué hice mal)      → slot_2 El Mensaje Borrado
+  // r0=3 (actúa fría)        → slot_0 Incomprensión Mutua
+  var slotMap = { 0: 'slot_3', 1: 'slot_0', 2: 'slot_2', 3: 'slot_0' };
+  var slotKey = slotMap[respostas[0]] || 'slot_0';
+
+  return slots[slotKey];
+}
+
+</script>
 </body>
 </html>

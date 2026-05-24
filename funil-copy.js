@@ -44,7 +44,7 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
     slot_0: {
       f1: nombreUsuario + ', sé que desde ' + mf.tempo_afastado + ' vienes dando espacio. No escribes, no persigues, e intentas mantener la dignidad tras ' + mf.fato_gatilho + '.'
         + sp + 'El peligro real es que, en la mente de ' + nombrePareja + ', esa distancia tuya no se está leyendo como orgullo. Se está leyendo como indiferencia.'
-        + sp + 'Lo que crees que protege la relación es exactamente lo que le está dando permiso para alejarse sin culpa.',
+        + sp + 'Tu silencio no está generando el efecto emocional que crees. Y ahí está el punto crítico.',
       f2: '¿Por qué ' + nombrePareja + ' se mantiene frío justo ahora?'
         + sp + 'El análisis completo decodifica el perfil de apego que domina a ' + nombrePareja + ' durante su retiro e identifica el punto ciego que está dictando la distancia entre ustedes, antes de que este silencio se vuelva definitivo.'
     },

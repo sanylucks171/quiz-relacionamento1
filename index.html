@@ -1089,7 +1089,13 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <div style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem" id="upsell-header">&#128274; An&#225;lisis completo</div>
 
       <!-- 3 itens bloqueados -->
-      <div style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem">
+      <div style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;position:relative;border-radius:12px;overflow:hidden">
+
+        <!-- Overlay de restrição -->
+        <div style="position:absolute;inset:0;background:rgba(10,8,20,.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);z-index:2;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;pointer-events:none">
+          <span style="font-size:1.6rem">🔒</span>
+          <span style="font-size:10px;color:rgba(200,155,60,.8);font-weight:700;letter-spacing:.1em;text-transform:uppercase">Contenido restringido</span>
+        </div>
 
         <!-- Perfil dele bloqueado -->
         <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.03);border-radius:10px;padding:.7rem">
@@ -1794,38 +1800,9 @@ function iniciarAnalizando() {
   var nombreEl = getNombreEl();
   var q1txts = Q1.map(function(q,i){ return q.t+' → '+q.o[S.q1ans[i]||0]; });
   var q2txts = Q2.map(function(q,i){ return q.t+' → '+q.o[S.q2ans[i]||0]; });
-  var spacer = '<span style="display:block;margin-top:.75rem"></span>';
-  var prompt = 'Genera dos textos para el preview de un quiz emocional. Sigue la estructura EXACTA de los ejemplos.\\n\\n'
-    + 'RESPUESTAS DE ELLA:\\n' + q1txts.join('\\n') + '\\n\\nRESPUESTAS SOBRE ÉL:\\n' + q2txts.join('\\n') + '\\n\\n'
-    + 'f1 — ESTRUCTURA OBLIGATORIA (3 párrafos, adapta a las respuestas de ' + nombre + '):\\n'
-    + '"[nombre], intentas actuar fría. Te prometes no escribirle primero. Pero entras al chat solo para ver si sigue en línea, miras si vio lo que publicaste o si cambió algo en su estado.' + spacer + 'Y mientras tanto hay algo que haces en esos momentos — casi sin darte cuenta — que él lee de una forma muy distinta a como tú lo piensas.' + spacer + 'Haces todo para que él crea que no te importa... pero esa pantalla es lo único que tienes en la mente. Tu perfil revela esa reacción silenciosa, y es lo primero que tu informe detalla."\\n'
-    + 'Usa microcomportamientos concretos de sus respuestas reales. Usa ' + spacer + ' entre párrafos.\\n'
-    + 'FRASES PROHIBIDAS en f1: "¿Por qué siempre", "invisible", "punto ciego", "patrón", cualquier pregunta retórica al final.\\n\\n'
-    + 'f2 — ESTRUCTURA OBLIGATORIA (copia este formato):\\n'
-    + '"¿Por qué [nombre_él] se pone frío justo cuando todo parecía ir bien? No es coincidencia. Hay un detonante muy específico en su mente que se activa en esos momentos.' + spacer + 'Cada vez que él se distancia, tú cometes un error invisible intentando solucionarlo, y eso es exactamente lo que valida su silencio. El análisis completo muestra cuál es ese detonante y qué hacer hoy para que vuelva a buscarte sin que tengas que rebajarte."\\n'
-    + 'Adapta solo los detalles concretos del comportamiento de ' + (S.nombreEl||'él') + ' según sus respuestas. Usa ' + spacer + ' entre párrafos.\\n'
-    + 'FRASES PROHIBIDAS en f2: "No es que", "alarma inconsciente", "mecanismo", diagnósticos, términos clínicos. No menciones a ' + nombre + '.\\n\\n'
-    + 'Sin asteriscos ni markdown. Responde SOLO con JSON sin backticks: {"f1":"...","f2":"..."}';;; var _startTime = Date.now();
-  fetch('/api/analisar', {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({ prompt: prompt })
-  }).then(function(r){ return r.json(); })
-    .then(function(data){
-      try {
-        var txt = (data.content||[]).map(function(b){return b.text||'';}).join('');
-        var clean = txt.replace(/```json|```/g,'').trim();
-        var parsed = JSON.parse(clean);
-        AI_FRASE  = parsed.f1 || '';
-        AI_FRASE2 = parsed.f2 || '';
-      } catch(e){ AI_FRASE=''; AI_FRASE2=''; }
-    }).catch(function(){ AI_FRASE=''; AI_FRASE2=''; })
-    .finally(function(){
-      // Espera animação terminar (mínimo 4s) depois mostra resultado
-      var elapsed = Date.now() - _startTime;
-      var remaining = Math.max(0, 4000 - elapsed);
-      setTimeout(function(){ activarStep(4); setTimeout(function(){ mostrarVenda(); }, 500); }, remaining);
-    });
+  // Sem chamada de IA — funil-copy.js cuida dos textos
+  var _startTime = Date.now();
+  setTimeout(function(){ activarStep(4); setTimeout(function(){ mostrarVenda(); }, 500); }, 4000);
 }
 
 /* ─── TELA DE VENDA ─── */

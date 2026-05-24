@@ -884,24 +884,39 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 <div id="pg-analizando" class="page">
   <div class="analizando-page">
     <div style="position:relative;z-index:2;width:100%;max-width:400px">
-      <div class="az-orbit-wrap">
-        <div class="az-core">🧠</div>
-        <div class="az-dot az-dot1"></div>
-        <div class="az-dot az-dot2"></div>
+
+      <!-- Ícone central -->
+      <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,rgba(200,155,60,.15),rgba(200,155,60,.05));border:1px solid rgba(200,155,60,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;box-shadow:0 0 30px rgba(200,155,60,.1)">
+        <span style="font-size:1.8rem">🔍</span>
       </div>
-      <div style="font-size:10px;color:rgba(200,75,106,.7);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem">Análisis en progreso</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,4vw,1.6rem);color:#fff;line-height:1.3;margin-bottom:.5rem">
-        Construyendo <em style="color:var(--rose-mid)">tu análisis</em> personal
-      </h2>
-      <p style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:1.6rem;line-height:1.6">Tus respuestas están siendo procesadas. Un momento.</p>
-      <div class="az-steps">
-        <div class="az-step active" id="az-s0"><div class="az-step-ico">◎</div><span>Leyendo tu patrón emocional...</span></div>
-        <div class="az-step" id="az-s1"><div class="az-step-ico">◎</div><span>Identificando el perfil de él...</span></div>
-        <div class="az-step" id="az-s2"><div class="az-step-ico">◎</div><span>Cruzando la dinámica entre los dos...</span></div>
-        <div class="az-step" id="az-s3"><div class="az-step-ico">◎</div><span>Generando tu análisis personalizado...</span></div>
-        <div class="az-step" id="az-s4"><div class="az-step-ico">◎</div><span>Preparando tu reporte...</span></div>
+
+      <div style="font-size:10px;color:rgba(200,155,60,.8);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem">Sistema de análisis activo</div>
+
+      <!-- Chips de identificação -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:1rem;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:6px;background:rgba(200,75,106,.1);border:1px solid rgba(200,75,106,.25);border-radius:999px;padding:4px 12px">
+          <span style="font-size:11px">🌹</span>
+          <span id="az-name-ella" style="font-size:11px;color:rgba(232,116,143,.9);font-weight:600"></span>
+        </div>
+        <span style="font-size:10px;color:rgba(255,255,255,.2)">↔</span>
+        <div style="display:flex;align-items:center;gap:6px;background:rgba(200,155,60,.08);border:1px solid rgba(200,155,60,.2);border-radius:999px;padding:4px 12px">
+          <span style="font-size:11px">👤</span>
+          <span id="az-name-el" style="font-size:11px;color:rgba(200,155,60,.9);font-weight:600"></span>
+        </div>
       </div>
-      <p style="font-size:11px;color:rgba(255,255,255,.18);margin-top:1rem">Esto puede tomar unos segundos</p>
+
+      <h2 id="az-title" style="font-family:'Playfair Display',serif;font-size:clamp(1.05rem,4vw,1.35rem);color:#fff;line-height:1.3;margin-bottom:1.4rem;min-height:2.8rem;transition:opacity .25s">Mapeo Conductual Avanzado</h2>
+
+      <!-- Barra de progresso dourada -->
+      <div style="width:100%;background:rgba(255,255,255,.06);border-radius:999px;height:6px;margin-bottom:1rem;overflow:hidden">
+        <div id="az-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#C89B3C,#F0C060);border-radius:999px;transition:width .4s ease"></div>
+      </div>
+      <div id="az-pct" style="font-size:11px;color:rgba(200,155,60,.7);font-weight:700;text-align:right;margin-top:-8px;margin-bottom:1rem">0%</div>
+
+      <!-- Status dinâmico -->
+      <div id="az-status" style="min-height:36px;font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;text-align:center;transition:opacity .3s;padding:0 8px"></div>
+
+      <p style="font-size:10px;color:rgba(255,255,255,.12);margin-top:1.2rem">Los datos son procesados de forma privada y segura.</p>
 
         <!-- WhatsApp testimonials -->
         <div style="margin-top:1.4rem;max-width:340px;margin-left:auto;margin-right:auto">
@@ -1810,33 +1825,74 @@ var AI_FRASE2 = '';
 function iniciarAnalizando() {
   showPage('pg-analizando');
   AI_FRASE = ''; AI_FRASE2 = '';
-  var steps = ['az-s0','az-s1','az-s2','az-s3','az-s4'];
-  var cur = 0;
-  function activarStep(i) {
-    steps.forEach(function(id,j){
-      var el=document.getElementById(id);
-      if(!el)return;
-      el.classList.remove('active','done');
-      if(j<i) { el.classList.add('done'); el.querySelector('.az-step-ico').textContent='✓'; }
-      else if(j===i) { el.classList.add('active'); el.querySelector('.az-step-ico').textContent='◎'; }
-      else { el.querySelector('.az-step-ico').textContent='◎'; }
-    });
+
+  var nElla = getNombreElla() || 'ti';
+  var nEl   = getNombreEl()   || 'él';
+
+  var fases = [
+    {
+      pct:    0,
+      titulo: 'Mapeo Conductual Avanzado',
+      status: '⚙️ [Fase 1/4]: Iniciando escaneo sintáctico. Aislando variables de comportamiento de ' + nElla + '...'
+    },
+    {
+      pct:    25,
+      titulo: 'Procesamiento de Datos Cognitivos',
+      status: '🧠 [Fase 2/4]: Cruzando vectores de respuesta con nuestra base histórica de 14.720 relatos clínicos de apego...'
+    },
+    {
+      pct:    50,
+      titulo: 'Identificación de Patrones Dinámicos',
+      status: '🔍 [Fase 3/4]: Extrayendo el filtro cognitivo y el sesgo de silencio activo en la psicología de ' + nEl + '...'
+    },
+    {
+      pct:    75,
+      titulo: 'Generación de Matriz Emocional',
+      status: '📊 [Fase 4/4]: Estructurando nodos de decisión e identificando puntos de intervención. Compilando reporte...'
+    },
+    {
+      pct:    100,
+      titulo: 'Reporte Completo',
+      status: '✅ Análisis finalizado. Cargando tu reporte personal...'
+    }
+  ];
+
+  var bar    = document.getElementById('az-bar');
+  var pctEl  = document.getElementById('az-pct');
+  var status = document.getElementById('az-status');
+  var titulo = document.getElementById('az-title');
+
+  // Injeta nomes nos chips de identificação
+  var chipElla = document.getElementById('az-name-ella');
+  var chipEl   = document.getElementById('az-name-el');
+  if(chipElla) chipElla.textContent = nElla;
+  if(chipEl)   chipEl.textContent   = nEl;
+
+  function setFase(i) {
+    var f = fases[i];
+    // Barra e porcentagem
+    if(bar)   bar.style.width = f.pct + '%';
+    if(pctEl) pctEl.textContent = f.pct + '%';
+    // Título com fade
+    if(titulo) {
+      titulo.style.opacity = '0';
+      setTimeout(function(){ titulo.textContent = f.titulo; titulo.style.opacity = '1'; }, 220);
+    }
+    // Status com fade
+    if(status) {
+      status.style.opacity = '0';
+      setTimeout(function(){ status.textContent = f.status; status.style.opacity = '1'; }, 300);
+    }
   }
-  activarStep(0);
-  // Avança steps visualmente
-  var delays = [900, 1700, 2500, 3200];
-  delays.forEach(function(d,i){ setTimeout(function(){ activarStep(i+1); }, d); });
-  // Chama Claude API
-  var ella = PE[S.iElla];
-  var el   = PEL[S.sEl]||{type:S.sEl};
-  var din  = S.din||DIN_DEF;
-  var nombre = getNombreElla();
-  var nombreEl = getNombreEl();
-  var q1txts = Q1.map(function(q,i){ return q.t+' → '+q.o[S.q1ans[i]||0]; });
-  var q2txts = Q2.map(function(q,i){ return q.t+' → '+q.o[S.q2ans[i]||0]; });
-  // Sem chamada de IA — funil-copy.js cuida dos textos
-  var _startTime = Date.now();
-  setTimeout(function(){ activarStep(4); setTimeout(function(){ mostrarVenda(); }, 500); }, 4000);
+
+  // 5 fases em ~7s: 0s, 1.5s, 3s, 4.8s, 6.4s
+  var timing = [0, 1500, 3000, 4800, 6400];
+  timing.forEach(function(t, i) {
+    setTimeout(function(){ setFase(i); }, t);
+  });
+
+  // Transição para resultado após 100% + 800ms
+  setTimeout(function(){ mostrarVenda(); }, 7200);
 }
 
 /* ─── TELA DE VENDA ─── */
@@ -2365,24 +2421,24 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
       f1: nombreUsuario + ', desde hace ' + mf.tempo_afastado + ' vienes guardando tus palabras. Decidiste no buscarlo, no presionar. Para ti tiene sentido.'
         + sp + 'Pero mientras tú mantienes distancia, ' + nombrePareja + ' no siente silencio. Él está leyendo señales.'
         + sp + 'Y las está interpretando de una manera muy distinta a la que tú crees desde afuera. Tu informe identifica exactamente qué lectura está construyendo él sobre ti mientras dejas pasar el tiempo.',
-      f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue un patrón emocional específico — no es aleatorio ni definitivo.'
-        + sp + 'El análisis completo identifica cómo está interpretando esta distancia, qué refuerza su postura y en qué momento exacto esa dinámica todavía puede cambiar.'
+      f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
+        + sp + 'El informe completo desarma el rompecabezas de su comportamiento actual: qué piensa cuando no te escribe, qué frena sus ganas de buscarte y el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
     },
 
     slot_2: {
       f1: nombreUsuario + ', escribiste algo. Lo releíste. Lo borraste.'
         + sp + 'Esa duda tiene una base real. En este momento, ' + nombrePareja + ' está leyendo cada movimiento tuyo bajo un filtro que no coincide con tu intención.'
         + sp + 'Tu análisis identifica cuál es ese filtro y por qué está alterando la forma en que él interpreta tus señales.',
-      f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue un patrón emocional específico — no es aleatorio ni definitivo.'
-        + sp + 'El análisis completo identifica cómo está interpretando esta distancia, qué refuerza su postura y en qué momento exacto esa dinámica todavía puede cambiar.'
+      f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
+        + sp + 'El informe completo desarma el rompecabezas de su comportamiento actual: qué piensa cuando no te escribe, qué frena sus ganas de buscarte y el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
     },
 
     slot_3: {
       f1: nombreUsuario + ', abres el chat. Ves que estuvo activo. Cierras. Vuelves a abrir.'
         + sp + 'Eso no es ansiedad sin sentido. Es tu intuición detectando que algo se está moviendo en la mente de ' + nombrePareja + '.'
         + sp + 'Hay un factor de apego operando en él justo ahora. Algo que condiciona cómo va a interpretar cualquier movimiento tuyo en las próximas horas. Tu análisis lo mapea.',
-      f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue un patrón emocional específico — no es aleatorio ni definitivo.'
-        + sp + 'El análisis completo identifica cómo está interpretando esta distancia, qué refuerza su postura y en qué momento exacto esa dinámica todavía puede cambiar.'
+      f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
+        + sp + 'El informe completo desarma el rompecabezas de su comportamiento actual: qué piensa cuando no te escribe, qué frena sus ganas de buscarte y el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
     }
 
   };

@@ -1773,12 +1773,18 @@ function iniciarAnalizando() {
   var nombreEl = getNombreEl();
   var q1txts = Q1.map(function(q,i){ return q.t+' → '+q.o[S.q1ans[i]||0]; });
   var q2txts = Q2.map(function(q,i){ return q.t+' → '+q.o[S.q2ans[i]||0]; });
-  var prompt = 'Genera dos textos cortos y directos para el preview del quiz. El tono es de una amiga que te dice la verdad — sin psicología de libro, sin drama.\\n\\n'
+  var spacer = '<span style="display:block;margin-top:.75rem"></span>';
+  var prompt = 'Genera dos textos para el preview de un quiz emocional. Sigue la estructura EXACTA de los ejemplos.\\n\\n'
     + 'RESPUESTAS DE ELLA:\\n' + q1txts.join('\\n') + '\\n\\nRESPUESTAS SOBRE ÉL:\\n' + q2txts.join('\\n') + '\\n\\n'
-    + 'f1 (SOLO ella, máx 4 frases cortas): Empieza con su nombre ' + nombre + '. Menciona un microcomportamiento concreto de sus respuestas (revisar el celular, repasar mensajes, digitar y borrar). Describe la contradicción entre lo que intenta hacer y lo que termina haciendo. Abre un loop — termina con algo que ella no puede responder sola, pero NO des la respuesta. PROHIBIDO: términos clínicos, "punto ciego", "patrón", diagnósticos, consejos. Usa <span style="display:block;margin-top:.75rem"></span> entre párrafos.\\n\\n'
-    + 'f2 (SOLO él, máx 4 frases cortas): Pregunta por qué ' + (S.nombreEl||'él') + ' se pone frío o distante. Di que no dejó de quererla de un día para otro. Deja la explicación a medias — di que el análisis muestra cuándo ocurre y qué hacer. PROHIBIDO: términos clínicos, diagnósticos, "alarma inconsciente", cualquier explicación del mecanismo. No menciones a ' + nombre + '. Usa <span style="display:block;margin-top:.75rem"></span> entre párrafos.\\n\\n'
-    + 'Frases cortas. Sin asteriscos ni markdown. Tono de cansancio, no de amenaza.\\n\\n'
-    + 'Responde SOLO con JSON sin backticks: {"f1":"...","f2":"..."}';;; var _startTime = Date.now();
+    + 'f1 — ESTRUCTURA OBLIGATORIA (3 párrafos, adapta a las respuestas de ' + nombre + '):\\n'
+    + '"[nombre], intentas actuar fría. Te prometes no escribirle primero. Pero entras al chat solo para ver si sigue en línea, miras si vio lo que publicaste o si cambió algo en su estado.' + spacer + 'Y mientras tanto hay algo que haces en esos momentos — casi sin darte cuenta — que él lee de una forma muy distinta a como tú lo piensas.' + spacer + 'Haces todo para que él crea que no te importa... pero esa pantalla es lo único que tienes en la mente. Tu perfil revela esa reacción silenciosa, y es lo primero que tu informe detalla."\\n'
+    + 'Usa microcomportamientos concretos de sus respuestas reales. Usa ' + spacer + ' entre párrafos.\\n'
+    + 'FRASES PROHIBIDAS en f1: "¿Por qué siempre", "invisible", "punto ciego", "patrón", cualquier pregunta retórica al final.\\n\\n'
+    + 'f2 — ESTRUCTURA OBLIGATORIA (copia este formato):\\n'
+    + '"¿Por qué [nombre_él] se pone frío justo cuando todo parecía ir bien? No es coincidencia. Hay un detonante muy específico en su mente que se activa en esos momentos.' + spacer + 'Cada vez que él se distancia, tú cometes un error invisible intentando solucionarlo, y eso es exactamente lo que valida su silencio. El análisis completo muestra cuál es ese detonante y qué hacer hoy para que vuelva a buscarte sin que tengas que rebajarte."\\n'
+    + 'Adapta solo los detalles concretos del comportamiento de ' + (S.nombreEl||'él') + ' según sus respuestas. Usa ' + spacer + ' entre párrafos.\\n'
+    + 'FRASES PROHIBIDAS en f2: "No es que", "alarma inconsciente", "mecanismo", diagnósticos, términos clínicos. No menciones a ' + nombre + '.\\n\\n'
+    + 'Sin asteriscos ni markdown. Responde SOLO con JSON sin backticks: {"f1":"...","f2":"..."}';;; var _startTime = Date.now();
   fetch('/api/analisar', {
     method:'POST',
     headers:{'Content-Type':'application/json'},
@@ -2055,13 +2061,13 @@ function getFrasePrincipal(iElla, sEl, q1ans) {
   var nEl   = getNombreEl();
   var textos = [
     // Opción 0: revisa el celular sin parar
-    nElla + ', revisas su última conexión. Ves que estuvo activo hace veinte minutos y no escribió.<span style="display:block;margin-top:.75rem"></span>Empiezas a repasar lo que dijiste. Buscas el momento exacto en que algo cambió.<span style="display:block;margin-top:.75rem"></span>Probablemente no hubo ningún momento. Pero eso no detiene el ciclo.<span style="display:block;margin-top:.75rem"></span>Tu informe detalla por qué tu mente va ahí primero — y por qué eso te desgasta más que su silencio.',
+    nElla + ', revisas su última conexión. Ves que estuvo activo hace veinte minutos y no escribió.<span style="display:block;margin-top:.75rem"></span>Empiezas a repasar lo que dijiste. Buscas el momento exacto en que algo cambió. Y mientras tanto el celular sigue ahí, en la mano, aunque ya no haya nada nuevo que ver.<span style="display:block;margin-top:.75rem"></span>No es solo su silencio lo que duele. Es que en algún momento de esa espera empiezas a creer que la falla está en ti. Tu informe detalla por qué tu mente va ahí primero — y qué hace eso contigo cada vez que se repite.',
     // Opción 1: te duele pero esperas
-    nElla + ', sabes que duele. Y aun así esperas.<span style="display:block;margin-top:.75rem"></span>No porque no te importe — sino porque una parte de ti sigue creyendo que algo va a cambiar si das un poco más.<span style="display:block;margin-top:.75rem"></span>Tu informe muestra qué está sosteniendo esa espera. Y no es lo que crees.',
+    nElla + ', sabes que duele. Y aun así esperas.<span style="display:block;margin-top:.75rem"></span>No porque seas ingenua — sino porque una parte de ti todavía recuerda cómo era cuando todo estaba bien, y eso hace que la espera parezca razonable. Que valga la pena.<span style="display:block;margin-top:.75rem"></span>El problema no es la espera en sí. Es lo que esa espera le está haciendo a tu forma de verte a ti misma. Tu informe muestra exactamente qué la está sosteniendo — y no es lo que crees.',
     // Opción 2: te preguntas qué hiciste mal
-    nElla + ', cuando él desaparece, tu mente hace algo muy específico: repasa todo.<span style="display:block;margin-top:.75rem"></span>Buscas el mensaje que enviaste de más. Lo que dijiste el otro día. El momento en que algo se torció.<span style="display:block;margin-top:.75rem"></span>Casi nunca encuentras nada concreto. Pero la búsqueda no para.<span style="display:block;margin-top:.75rem"></span>Tu informe detalla qué está alimentando ese ciclo.',
+    nElla + ', cuando él desaparece, tu mente hace algo muy específico: repasa todo.<span style="display:block;margin-top:.75rem"></span>Buscas el mensaje que enviaste de más. Lo que dijiste el otro día. El momento exacto en que algo se torció. Y aunque casi nunca encuentras nada concreto, la búsqueda no para.<span style="display:block;margin-top:.75rem"></span>Esa culpa automática no es debilidad — es un hábito muy específico que funciona como un bucle. Tu informe detalla qué lo está alimentando y por qué se reinicia solo cada vez que él se aleja.',
     // Opción 3: si él no escribe, tú tampoco
-    nElla + ', intentas actuar fría. Te prometes no escribirle primero. Pero entras al chat solo para ver si sigue en línea, miras si vio lo que publicaste o si cambió algo en su estado.<span style="display:block;margin-top:.75rem"></span>Haces todo para que él crea que no te importa... pero esa pantalla es lo único que tienes en la mente. Tu perfil revela que hay una pequeña reacción silenciosa que tienes en esos momentos, y es lo primero que tu informe detalla.'
+    nElla + ', intentas actuar fría. Te prometes no escribirle primero. Pero entras al chat solo para ver si sigue en línea, miras si vio lo que publicaste o si cambió algo en su estado.<span style="display:block;margin-top:.75rem"></span>Y mientras tanto hay algo que haces en esos momentos — casi sin darte cuenta — que él lee de una forma muy distinta a como tú lo piensas.<span style="display:block;margin-top:.75rem"></span>Haces todo para que él crea que no te importa... pero esa pantalla es lo único que tienes en la mente. Tu perfil revela esa reacción silenciosa, y es lo primero que tu informe detalla.'
   ];
   return textos[r0] || textos[0];
 }

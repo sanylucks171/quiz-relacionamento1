@@ -1418,7 +1418,28 @@ const Q2 = [
        "Escucha un momento, pero de alguna forma termina hablando de él",
        "Quiere ayudarte pero no sabe cómo — y termina todo peor",
        "Se sienta contigo, pregunta y no te juzga"],
-    p:["Evitativo","Narcisista","Imaturo","Seguro"] }
+    p:["Evitativo","Narcisista","Imaturo","Seguro"] },
+
+  { t:"¿Qué crees que desencadenó este distanciamiento entre ustedes?",
+    o:["Cambió su actitud de la nada — sin pelea, sin razón aparente",
+       "Tuvimos una discusión y desde entonces algo quedó roto",
+       "Hubo un momento de desconfianza que nunca se resolvió del todo",
+       "No fue algo puntual — la rutina fue apagando todo poco a poco"],
+    p:[] },
+
+  { t:"¿Cuánto tiempo llevan así?",
+    o:["Días — es algo reciente pero ya me pesa",
+       "Semanas — hay una distancia que no desaparece",
+       "Meses — ya no sé cuándo fue la última vez que estuvo de verdad presente",
+       "Desde esa última noche — algo cambió y no volvió a ser igual"],
+    p:[] },
+
+  { t:"En este momento, ¿cuál describe mejor la actitud de él contigo?",
+    o:["Me deja en visto — lee y no responde",
+       "Responde, pero frío y cortante — como si yo le molestara",
+       "Desaparece días y luego vuelve como si nada hubiera pasado",
+       "Está presente pero evita cualquier conversación que vaya a algo profundo"],
+    p:[] }
 ];
 
 /* ─── DATOS: PERFILES DE ÉL ─── */
@@ -1853,7 +1874,7 @@ function mostrarVenda() {
   // ── Frase principal — IA ou fallback ──
   var el1 = document.getElementById('v-frase1');
   if(el1) {
-    var f1 = AI_FRASE || getFrasePrincipal(S.iElla, S.sEl, S.q1ans);
+    var f1 = AI_FRASE || getFrasePrincipal(S.iElla, S.sEl, S.q1ans, S.q2ans);
     el1.innerHTML = f1 ? '“'+f1+'”' : '';
   }
 
@@ -2054,27 +2075,94 @@ function numbItems(id,items){
 function reiniciar(){ limpiar(); S={q1cur:0,q1ans:[],q1sel:null,q2cur:0,q2ans:[],q2sel:null,iElla:null,sEl:null,din:null,ob:false,timer:null}; showPage('pg-land'); }
 
 
+/* ─── MOTOR DE MICRO-FATOS ─── */
+function getMicroFatos(q1ans, q2ans) {
+  var q2 = q2ans || [];
+
+  // Q2[3] — gatilho (como âncora de identificação, não diagnóstico)
+  var fato_gatilho = [
+    "de su repentino cambio de actitud",
+    "de esa última discusión entre ustedes",
+    "de ese momento de desconfianza",
+    "de la rutina que se instaló"
+  ][q2[3]||0] || "de su distanciamiento";
+
+  // Q2[4] — tempo (âncora temporal)
+  var tempo_afastado = [
+    "hace días",
+    "las últimas semanas",
+    "meses",
+    "esa última noche"
+  ][q2[4]||0] || "un tiempo";
+
+  // Q2[5] — comportamento recente (âncora comportamental)
+  var comportamento_recente = [
+    "te deja en visto",
+    "responde frío y cortante",
+    "desaparece sin avisar",
+    "evita hablar de lo que siente"
+  ][q2[5]||0] || "se aleja";
+
+  return {
+    fato_gatilho:          fato_gatilho,
+    tempo_afastado:        tempo_afastado,
+    comportamento_recente: comportamento_recente
+  };
+}
+
 /* ─── FRASES PERSONALIZADAS PELA RESPOSTA REAL ─── */
-function getFrasePrincipal(iElla, sEl, q1ans) {
-  var r0 = q1ans[0]||0;
+function getFrasePrincipal(iElla, sEl, q1ans, q2ans) {
+  var r0    = q1ans[0]||0;
   var nElla = getNombreElla();
   var nEl   = getNombreEl();
+  var mf    = getMicroFatos(q1ans, q2ans||[]);
+  var sp    = '<span style="display:block;margin-top:.75rem"></span>';
   var textos = [
-    // Opción 0: revisa el celular sin parar
-    nElla + ', revisas su última conexión. Ves que estuvo activo hace veinte minutos y no escribió.<span style="display:block;margin-top:.75rem"></span>Empiezas a repasar lo que dijiste. Buscas el momento exacto en que algo cambió. Y mientras tanto el celular sigue ahí, en la mano, aunque ya no haya nada nuevo que ver.<span style="display:block;margin-top:.75rem"></span>No es solo su silencio lo que duele. Es que en algún momento de esa espera empiezas a creer que la falla está en ti. Tu informe detalla por qué tu mente va ahí primero — y qué hace eso contigo cada vez que se repite.',
-    // Opción 1: te duele pero esperas
-    nElla + ', sabes que duele. Y aun así esperas.<span style="display:block;margin-top:.75rem"></span>No porque seas ingenua — sino porque una parte de ti todavía recuerda cómo era cuando todo estaba bien, y eso hace que la espera parezca razonable. Que valga la pena.<span style="display:block;margin-top:.75rem"></span>El problema no es la espera en sí. Es lo que esa espera le está haciendo a tu forma de verte a ti misma. Tu informe muestra exactamente qué la está sosteniendo — y no es lo que crees.',
-    // Opción 2: te preguntas qué hiciste mal
-    nElla + ', cuando él desaparece, tu mente hace algo muy específico: repasa todo.<span style="display:block;margin-top:.75rem"></span>Buscas el mensaje que enviaste de más. Lo que dijiste el otro día. El momento exacto en que algo se torció. Y aunque casi nunca encuentras nada concreto, la búsqueda no para.<span style="display:block;margin-top:.75rem"></span>Esa culpa automática no es debilidad — es un hábito muy específico que funciona como un bucle. Tu informe detalla qué lo está alimentando y por qué se reinicia solo cada vez que él se aleja.',
-    // Opción 3: si él no escribe, tú tampoco
-    nElla + ', intentas actuar fría. Te prometes no escribirle primero. Pero entras al chat solo para ver si sigue en línea, miras si vio lo que publicaste o si cambió algo en su estado.<span style="display:block;margin-top:.75rem"></span>Y mientras tanto hay algo que haces en esos momentos — casi sin darte cuenta — que él lee de una forma muy distinta a como tú lo piensas.<span style="display:block;margin-top:.75rem"></span>Haces todo para que él crea que no te importa... pero esa pantalla es lo único que tienes en la mente. Tu perfil revela esa reacción silenciosa, y es lo primero que tu informe detalla.'
+    // SLOT 0 — Incomprensión Mutua
+    nElla + ', sé que desde ' + mf.tempo_afastado + ' vienes dando espacio. No escribes, no persigues, e intentas mantener la dignidad tras ' + mf.fato_gatilho + '.'
+    + sp + 'El peligro real es que, en la mente de ' + nEl + ', esa distancia tuya no se está leyendo como orgullo. Se está leyendo como indiferencia.'
+    + sp + 'Lo que crees que protege la relación es exactamente lo que le está dando permiso para alejarse sin culpa.',
+
+    // SLOT 1 — (descartado, usa Slot 0 como fallback)
+    nElla + ', sé que desde ' + mf.tempo_afastado + ' vienes dando espacio. No escribes, no persigues, e intentas mantener la dignidad tras ' + mf.fato_gatilho + '.'
+    + sp + 'El peligro real es que, en la mente de ' + nEl + ', esa distancia tuya no se está leyendo como orgullo. Se está leyendo como indiferencia.'
+    + sp + 'Lo que crees que protege la relación es exactamente lo que le está dando permiso para alejarse sin culpa.',
+
+    // SLOT 2 — El Mensaje Borrado
+    nElla + ', escribiste el mensaje. Lo leíste dos veces. Lo borraste.'
+    + sp + 'No porque falten ganas, sino porque desde ' + mf.tempo_afastado + ' sientes que él ' + mf.comportamento_recente + ' y no sabes cómo va a aterrizar en su mente. Temes que parezca demasiado. Que confirme lo que él ya sospecha.'
+    + sp + 'Esa duda —la de no saber cómo te lee él realmente— es el centro de todo.',
+
+    // SLOT 3 — El Hábito Invisible
+    nElla + ', abres el chat. Ves "en línea". Esperas. Se desconecta y notas que él ' + mf.comportamento_recente + '.'
+    + sp + 'Vuelves a entrar en diez minutos solo para ver si algo cambió tras ' + mf.fato_gatilho + '.'
+    + sp + 'Sabes que mirar esa pantalla no es un hábito tonto. Es la necesidad urgente de entender por qué alguien que estaba tan cerca ahora se siente tan lejos.'
   ];
   return textos[r0] || textos[0];
 }
 
 function getFrase2(iElla, q1ans) {
   var nEl = getNombreEl();
-  return '¿Por qué ' + nEl + ' se pone frío justo cuando todo parecía ir bien? No es coincidencia. Hay un detonante muy específico en su mente que se activa en esos momentos.<span style="display:block;margin-top:.75rem"></span>Cada vez que él se distancia, tú cometes un error invisible intentando solucionarlo, y eso es exactamente lo que valida su silencio. El análisis completo muestra cuál es ese detonante y qué hacer hoy para que vuelva a buscarte sin que tengas que rebajarte.';
+  var r0  = q1ans[0]||0;
+  var sp  = '<span style="display:block;margin-top:.75rem"></span>';
+  var textos = [
+    // SLOT 0 — Incomprensión Mutua
+    '¿Por qué ' + nEl + ' se mantiene frío justo ahora?'
+    + sp + 'El análisis completo decodifica el perfil de apego que domina a ' + nEl + ' durante su retiro e identifica el punto ciego que está dictando la distancia entre ustedes, antes de que este silencio se vuelva definitivo.',
+
+    // SLOT 1 — fallback = Slot 0
+    '¿Por qué ' + nEl + ' se mantiene frío justo ahora?'
+    + sp + 'El análisis completo decodifica el perfil de apego que domina a ' + nEl + ' durante su retiro e identifica el punto ciego que está dictando la distancia entre ustedes, antes de que este silencio se vuelva definitivo.',
+
+    // SLOT 2 — El Mensaje Borrado
+    'Cada vez que callas por miedo, él llena el vacío con sus propias inseguridades.'
+    + sp + 'El análisis completo decodifica la psicología de apego detrás de su retiro actual, revelando el perfil emocional de ' + nEl + ' y dándote la claridad que necesitas para entender lo que él oculta tras su distancia.',
+
+    // SLOT 3 — El Hábito Invisible
+    'Quedarte mirando la pantalla no va a resolver la distancia.'
+    + sp + 'El análisis completo expone la dinámica oculta de perfiles de apego entre ' + nEl + ' y tú, revelando el malentendido silencioso que congeló la conversación e identificando cómo actuar hoy con madurez psicológica.'
+  ];
+  return textos[r0] || textos[0];
 }
 
 function getCuriosidad(iElla, q1ans) {

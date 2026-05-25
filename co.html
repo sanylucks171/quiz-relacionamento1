@@ -2420,47 +2420,64 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
 
 <script>
 (function(){
-  var reviews = [
-    { name:"Valeria • 24 años",    initials:"V", text:"Entendí por qué me ignoraba y dejó de doler. Valió cada centavo." },
-    { name:"Camila • 31 años",     initials:"C", text:"Le apliqué lo que decía el informe y él volvió a escribirme esa misma noche." },
-    { name:"Gabriela • 28 años",   initials:"G", text:"Por fin entendí por qué se alejaba y volvía. Dejé de rogarle." },
-    { name:"Sofía • 26 años",      initials:"S", text:"Creía que era culpa mía. El test me mostró que era un patrón de él." },
-    { name:"Daniela • 29 años",    initials:"D", text:"Me costó aceptarlo, pero el informe explicó todo lo que yo no podía nombrar." },
-    { name:"Valentina • 23 años",  initials:"V", text:"Pensé que era demasiado sensible. Era su tipo de apego. Cambió todo." },
+  // Depoimentos durante o quiz — encorajadores, sem "valió cada centavo"
+  var reviewsQuiz = [
+    { name:"Valeria • 24 años",   initials:"V", text:"La pregunta 5 me dejó sin palabras. Era exactamente lo que vivía." },
+    { name:"Camila • 31 años",    initials:"C", text:"Nunca había podido ponerle nombre a lo que sentía." },
+    { name:"Gabriela • 28 años",  initials:"G", text:"Es la primera vez que algo describe tan bien lo que me pasa con él." },
+  ];
+
+  // Depoimentos no checkout — com prova de compra
+  var reviewsCheckout = [
+    { name:"Daniela • 29 años",  initials:"D", text:"Me costó aceptarlo, pero el informe valió cada centavo." },
+    { name:"Mariana • 26 años",  initials:"M", text:"Entendí el patrón detrás de su distancia y todo cambió esa misma noche." },
+    { name:"Sofía • 32 años",    initials:"S", text:"Por fin entendí por qué se alejaba y volvía. Dejé de rogarle." },
   ];
 
   var popup  = document.getElementById('sp-popup');
   var avatar = document.getElementById('sp-avatar');
-  var name   = document.getElementById('sp-name');
-  var text   = document.getElementById('sp-text');
-  var idx    = 0;
-  var timer  = null;
+  var nameEl = document.getElementById('sp-name');
+  var textEl = document.getElementById('sp-text');
+  var idx = 0;
+  var interval = null;
+
+  function isCheckout() {
+    var venda = document.getElementById('pg-venda');
+    return venda && venda.classList.contains('active');
+  }
 
   function show() {
+    var reviews = isCheckout() ? reviewsCheckout : reviewsQuiz;
     var r = reviews[idx % reviews.length];
     avatar.textContent = r.initials;
-    name.textContent   = r.name;
-    text.textContent   = r.text;
+    nameEl.textContent = r.name;
+    textEl.textContent = r.text;
     idx++;
 
-    // Fade in
-    popup.style.pointerEvents = 'none';
-    popup.style.opacity       = '1';
-    popup.style.transform     = 'translateY(0)';
+    popup.style.opacity   = '1';
+    popup.style.transform = 'translateY(0)';
 
-    // Fade out after 5s
-    timer = setTimeout(function(){
+    setTimeout(function(){
       popup.style.opacity   = '0';
       popup.style.transform = 'translateY(12px)';
     }, 5000);
   }
 
-  // First popup after 8s, then every 12s
+  function startLoop() {
+    var delay = isCheckout() ? 12000 : 22000; // checkout: 12s | quiz: 22s
+    if(interval) clearInterval(interval);
+    interval = setInterval(function(){
+      show();
+      // Recalcula delay ao mudar de contexto
+      startLoop();
+    }, delay);
+  }
+
+  // Primeiro popup após 10s, depois loop dinâmico
   setTimeout(function(){
     show();
-    setInterval(show, 12000);
-  }, 8000);
+    startLoop();
+  }, 10000);
 })();
 </script>
 </body>
-</html>

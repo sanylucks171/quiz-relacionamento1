@@ -84,7 +84,7 @@ html,body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--txt
 /* ── BOTÕES ── */
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:none;border-radius:14px;padding:17px 20px;font-size:16px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .18s,transform .14s,opacity .18s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;min-height:54px;text-decoration:none;line-height:1.25}
 .btn:active{transform:scale(.97)}
-.btn-rose{background:var(--rose);color:#fff;font-size:clamp(12px,3.5vw,16px)}.btn-rose:hover{background:var(--rose-dk)}
+.btn-rose{background:var(--rose);color:#fff}.btn-rose:hover{background:var(--rose-dk)}
 .btn-gold{background:linear-gradient(135deg,#C89B3C,#A07828);color:#fff}.btn-gold:hover{opacity:.9}
 .btn-green{background:linear-gradient(135deg,#2ECC71,#27AE60);color:#fff}
 .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.14);color:var(--txt2);font-size:13px;min-height:44px;padding:10px}
@@ -539,7 +539,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
           <div style="background:rgba(200,75,106,.1);border-left:3px solid #C84B6A;border-radius:0 8px 8px 0;padding:.7rem;margin-bottom:.8rem;font-size:12px;color:#fff;font-style:italic;line-height:1.6">"Andrea, cuando &#233;l se aleja, tu mente busca qu&#233; hiciste mal. Eso no es debilidad &#8212; tiene una ra&#237;z concreta que el an&#225;lisis revela."</div>
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:.6rem">
             <span style="font-size:1rem">&#x1F4AB;</span>
-            <div><div style="font-size:10px;color:rgba(255,255,255,.4)">Tu perfil</div><div style="font-size:12px;color:#E8748F;font-weight:700">Perfil Emocional: Tipo R-X</div></div>
+            <div><div style="font-size:10px;color:rgba(255,255,255,.4)">Tu perfil</div><div style="font-size:12px;color:#E8748F;font-weight:700">La que Busca su Reflejo</div></div>
           </div>
           <div style="display:flex;align-items:center;gap:8px">
             <span style="font-size:1rem">&#x1F512;</span>
@@ -729,7 +729,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <div class="pc"><div class="pc-i">⏳</div><div class="pc-t" style="font-style:italic;color:rgba(255,255,255,.9)">"Llevo meses esperando que algo cambie."</div><div class="pc-d">¿Cuánto tiempo más? Tu análisis tiene una respuesta honesta.</div></div>
     </div>
     <button class="btn btn-rose" onclick="goToIntro()" style="margin-top:.8rem;font-size:15px">
-      Hacer el test →
+      Quiero entender qué está pasando →
     </button>
     <p style="font-size:11px;color:rgba(255,255,255,.25);text-align:center;margin-top:.5rem">Gratis · Sin registro · Resultado inmediato</p>
   </div>
@@ -791,10 +791,11 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <div style="margin-bottom:2rem;max-width:400px">
         <div style="font-size:48px;color:rgba(200,75,106,.3);font-family:'Playfair Display',serif;line-height:.8;margin-bottom:.5rem;text-align:left;padding-left:8px">"</div>
         <p style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,4vw,1.6rem);color:#fff;font-style:italic;line-height:1.45;margin:0 0 1rem">
-          No estás imaginando señales: su ausencia sigue un patrón.
+          Nadie me entiende cuando intento explicar por qué no puedo simplemente dejarlo ir.
         </p>
         <p style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;margin:0">
-          Descubre por qué quedas atrapada en este ciclo y qué tipo de apego guía las reacciones de ambos.
+          No es debilidad. No es que no lo intentes.<br>
+          Es un patrón — <strong style="color:rgba(255,255,255,.85)">y tiene una explicación.</strong>
         </p>
       </div>
 
@@ -806,20 +807,20 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <p style="font-size:10px;color:rgba(200,75,106,.7);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem">Este test va a decirte</p>
         <div style="display:flex;flex-direction:column;gap:.7rem">
           <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
+            <span style="font-size:1.1rem;flex-shrink:0">💔</span>
+            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Por qué <strong style="color:#fff">siempre el mismo tipo</strong> de hombre</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
             <span style="font-size:1.1rem;flex-shrink:0">🔍</span>
-            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Qué pasa en su mente cuando decide ignorarte</span>
+            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Qué tipo emocional es él — <strong style="color:#fff">con nombre y patrón</strong></span>
           </div>
           <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
             <span style="font-size:1.1rem;flex-shrink:0">🔗</span>
-            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Por qué te obsesionas cuando él se vuelve ausente</span>
+            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Por qué <strong style="color:#fff">duele tanto y no puedes soltar</strong></span>
           </div>
           <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
-            <span style="font-size:1.1rem;flex-shrink:0">🧠</span>
-            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">El tipo de apego que activa tu ansiedad</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
-            <span style="font-size:1.1rem;flex-shrink:0">📊</span>
-            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Cómo romper hoy este ciclo de frialdad</span>
+            <span style="font-size:1.1rem;flex-shrink:0">🔮</span>
+            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Qué dice el <strong style="color:#fff">pronóstico real</strong> de esta dinámica</span>
           </div>
         </div>
       </div>
@@ -827,7 +828,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <!-- CTA -->
       <div style="width:100%;max-width:380px">
         <button onclick="goToQuiz1()" style="width:100%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);color:#fff;border:none;border-radius:14px;padding:17px;font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;box-shadow:0 8px 28px rgba(200,75,106,.45);letter-spacing:.01em;margin-bottom:.7rem">
-          Hacer el test →
+          Estoy lista para saber la verdad →
         </button>
         <!-- Social proof -->
         <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:.8rem">
@@ -836,10 +837,10 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
             <span style="font-size:12px;color:rgba(255,255,255,.5)" id="intro-counter"></span>
           </div>
           <div style="font-size:11px;color:rgba(255,255,255,.3);text-align:center;line-height:1.5;max-width:300px;margin:0 auto">
-            Miles de mujeres ya identificaron el patrón que las mantenía atrapadas. Muchas descubren la verdad recién en la pregunta 5.
+            &#x1F9E0; Basado en +12,000 respuestas analizadas y patrones validados por psic&#243;logos especializados en apego emocional
           </div>
         </div>
-        <p style="font-size:11px;color:rgba(255,255,255,.2);margin:0">Test gratuito · Sin registro · 5 minutos</p>
+        <p style="font-size:11px;color:rgba(255,255,255,.2);margin:0">Solo 5 minutos — puede cambiar cómo ves todo</p>
       </div>
 
     </div>
@@ -1109,7 +1110,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <!-- CAIXA DOURADA — upsell -->
     <div style="background:rgba(200,155,60,.06);border:1px solid rgba(200,155,60,.25);border-radius:16px;padding:1.2rem;margin-bottom:1rem">
 
-      <div style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem" id="upsell-header">&#128274; Entender tu perfil emocional + Lo que él no está diciendo</div>
+      <div style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem" id="upsell-header">&#128274; An&#225;lisis completo</div>
 
       <!-- 3 itens bloqueados -->
       <div style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;position:relative;border-radius:12px;overflow:hidden">
@@ -1164,7 +1165,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <!-- Botão CTA dourado -->
       <div id="early-cta" style="display:none;margin:0;height:0;overflow:hidden">
         <button onclick="abrirCO()" style="width:100%;background:linear-gradient(135deg,#C89B3C,#9B7420);color:#fff;border:none;border-radius:12px;padding:15px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.01em;box-shadow:0 4px 20px rgba(200,155,60,.25)">
-          <span id="btn-early-txt">&#128274; Desbloquear Análisis Combinado ($38.900 COP)</span>
+          <span id="btn-early-txt">&#128275; Desbloquear: el perfil de él + Dinámica Emocional — $38.900 COP</span>
         </button>
         <div style="text-align:center;margin-top:8px">
           <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:4px">
@@ -1395,11 +1396,11 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 <script>
 /* ─── DATOS: QUIZ 1 — SOBRE ELLA ─── */
 const Q1 = [
-  { t:"Él te deja en visto o desaparece un par de días. ¿Qué pasa dentro de ti?",
-    o:["Una angustia que no puedo controlar — reviso el celular cada rato",
-       "Me duele pero espero — ya sé que así es él",
-       "Me pregunto qué hice mal y repaso toda la conversación",
-       "Si él no escribe, yo tampoco — no persigo a nadie"] },
+  { t:"Cuando él aparece después de hacer daño, ¿qué pasa con más frecuencia?",
+    o:["Todo se borra — como si nunca hubiera pasado nada",
+       "Se le da una oportunidad más, siempre hay una más",
+       "Se actúa fría por fuera, pero por dentro se cede",
+       "Se mantienen los límites aunque duela"] },
 
   { t:"Estás con alguien y de repente él se pone frío, distante, como si no estuvieras. ¿Qué haces?",
     o:["Intento acercarme más — pregunto qué le pasa, quiero que se abra",
@@ -1425,11 +1426,11 @@ const Q1 = [
        "La que está muy pendiente de cómo está él y de cómo la ve",
        "La que necesita sentir que hay algo real y sólido, no solo intensidad"] },
 
-  { t:"Él hace algo que te duele. ¿Qué es lo primero que pasa por tu mente?",
-    o:["'Seguro hice algo mal, repaso todo para entender qué pasó'",
-       "'No entiendo cómo puede hacerme esto si dice quererme'",
-       "'Ya lo sabía, siempre termina pasando lo mismo'",
-       "'Esto no está bien y necesito pensar qué voy a hacer'"] }
+  { t:"Él te deja en visto o desaparece un par de días. ¿Qué pasa dentro de ti?",
+    o:["Una angustia que no puedo controlar — reviso el celular cada rato",
+       "Me duele pero espero — ya sé que así es él",
+       "Me pregunto qué hice mal y repaso toda la conversación",
+       "Si él no escribe, yo tampoco — no persigo a nadie"] }
 ];
 
 /* ─── DATOS: PERFILES DE ELLA ─── */
@@ -1761,7 +1762,7 @@ function calcElla() {
 function mostrarTrans() {
   var p=PE[S.iElla];
   set('tr-icon',p.icon);
-  set('tr-profile-name', p.displayType || p.type);
+  set('tr-profile-name',p.type);
   guardar();
   showPage('pg-trans');
 }
@@ -1924,7 +1925,7 @@ function mostrarVenda() {
   // ── Perfis ──
   var iconEl = document.getElementById('v-icon-ella');
   if(iconEl) iconEl.innerHTML = ella.icon;
-  set('v-type-ella', ella.displayType || ella.type);
+  set('v-type-ella', ella.type);
   set('v-icon-el', el?'👨':'👨');
   set('v-type-el', el?el.type:S.sEl);
   set('v-type-el-top', el?el.type:S.sEl);
@@ -1939,7 +1940,7 @@ function mostrarVenda() {
   var revName = document.getElementById('v-reveal-name');
   var revDesc = document.getElementById('v-reveal-desc');
   if(revIcon) revIcon.innerHTML = ella.icon;
-  if(revName) revName.textContent = ella.displayType || ella.type;
+  if(revName) revName.textContent = ella.type;
   if(revDesc) revDesc.textContent = ella.desc ? ella.desc.substring(0,70)+'...' : '';
 
    // ── Lock copy com nome ──
@@ -2397,6 +2398,7 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
 }
 
 </script>
+
 <!-- ── PROVA SOCIAL FLUTUANTE ── -->
 <div id="sp-popup" style="
   position:fixed;bottom:20px;left:16px;z-index:9999;
@@ -2473,11 +2475,15 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
     }, delay);
   }
 
-  // Primeiro popup após 10s, depois loop dinâmico
+  // Primeiro popup após 15s
   setTimeout(function(){
     show();
     startLoop();
-  }, 10000);
+  }, 15000);
 })();
+goToQuiz1();
 </script>
 </body>
+</html>
+</body>
+</html>

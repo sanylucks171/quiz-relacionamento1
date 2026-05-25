@@ -853,7 +853,6 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 <div id="pg-q1" class="page">
   <div class="wrap">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.8rem">
-      <button class="btn btn-ghost" onclick="showPage('pg-land')" style="width:auto;padding:8px 13px;font-size:12px;min-height:40px">← Volver</button>
       <div style="flex:1;min-width:0">
         <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--txt3);margin-bottom:4px"><span id="q1-meta">Pregunta 1 de 8</span><span id="q1-pct">12%</span></div>
         <div class="prog-bg"><div class="prog-fill prog-her" id="q1-bar" style="width:12%"></div></div>
@@ -1761,7 +1760,7 @@ function calcElla() {
 function mostrarTrans() {
   var p=PE[S.iElla];
   set('tr-icon',p.icon);
-  set('tr-profile-name',p.type);
+  set('tr-profile-name', p.displayType || p.type);
   guardar();
   showPage('pg-trans');
 }
@@ -1909,7 +1908,7 @@ function actualizarBotones() {
   var elUp = document.getElementById("v-el-name-upsell");
   if(elUp) elUp.textContent = (nEl && nEl !== "él") ? nEl : "él";
   var hdr = document.getElementById("upsell-header");
-  if(hdr) hdr.innerHTML = "&#128274; Entender tu perfil emocional + Lo que <strong>" + (nEl && nEl !== "él" ? nEl : "él") + "</strong> no está diciendo";
+  if(hdr) hdr.innerHTML = "&#128274; Entender tu perfil emocional + lo que la actitud de <strong>" + (nEl && nEl !== "él" ? nEl : "él") + "</strong> dice según tus respuestas.";
   var elTop = document.getElementById("v-el-name-top");
   if(elTop) elTop.textContent = (nEl && nEl !== "él") ? nEl : "él";
 }
@@ -1939,7 +1938,7 @@ function mostrarVenda() {
   var revName = document.getElementById('v-reveal-name');
   var revDesc = document.getElementById('v-reveal-desc');
   if(revIcon) revIcon.innerHTML = ella.icon;
-  if(revName) revName.textContent = ella.type;
+  if(revName) revName.textContent = ella.displayType || ella.type;
   if(revDesc) revDesc.textContent = ella.desc ? ella.desc.substring(0,70)+'...' : '';
 
    // ── Lock copy com nome ──
@@ -2375,9 +2374,9 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
     },
 
     slot_3: {
-      f1: nombreUsuario + ', abres el chat. Ves que estuvo activo. Cierras. Vuelves a abrir.'
-        + sp + 'Hay una lectura que ' + nombrePareja + ' está haciendo de ti ahora mismo — y es totalmente distinta a la que tú crees desde afuera.'
-        + sp + 'Pero mientras tú miras esa pantalla, él está construyendo una idea sobre ti. Y si esa interpretación sigue creciendo así — cambia completamente la forma en que volverá a acercarse.',
+      f1: nombreUsuario + ', tus respuestas en el test muestran que caíste en esa típica zona de hipervigilancia: abres el chat, ves si estuvo activo, cierras y vuelves a abrir.'
+        + sp + 'Mirando cómo reacciona ' + nombrePareja + ' cuando pones distancia, el patrón de comportamiento muestra que esto está provocando un efecto secundario en su mente. No es lo que estás imaginando, ni está funcionando como tú crees.'
+        + sp + 'Hay algo silencioso que él está interpretando de tu actitud ahora mismo — y si dejas que esa idea siga creciendo en su cabeza sin hacer nada, va a cambiar por completo la forma en que volverá a buscarte.',
       f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
         + sp + 'Hay una razón específica por la que él se acerca y se aleja — y qué frena sus ganas de buscarte. El desbloqueo muestra el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
     }

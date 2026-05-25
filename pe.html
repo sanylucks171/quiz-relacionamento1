@@ -539,7 +539,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
           <div style="background:rgba(200,75,106,.1);border-left:3px solid #C84B6A;border-radius:0 8px 8px 0;padding:.7rem;margin-bottom:.8rem;font-size:12px;color:#fff;font-style:italic;line-height:1.6">"Andrea, cuando &#233;l se aleja, tu mente busca qu&#233; hiciste mal. Eso no es debilidad &#8212; tiene una ra&#237;z concreta que el an&#225;lisis revela."</div>
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:.6rem">
             <span style="font-size:1rem">&#x1F4AB;</span>
-            <div><div style="font-size:10px;color:rgba(255,255,255,.4)">Tu perfil</div><div style="font-size:12px;color:#E8748F;font-weight:700">La que Busca su Reflejo</div></div>
+            <div><div style="font-size:10px;color:rgba(255,255,255,.4)">Tu perfil</div><div style="font-size:12px;color:#E8748F;font-weight:700">Perfil Emocional: Tipo R-X</div></div>
           </div>
           <div style="display:flex;align-items:center;gap:8px">
             <span style="font-size:1rem">&#x1F512;</span>
@@ -1110,7 +1110,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <!-- CAIXA DOURADA — upsell -->
     <div style="background:rgba(200,155,60,.06);border:1px solid rgba(200,155,60,.25);border-radius:16px;padding:1.2rem;margin-bottom:1rem">
 
-      <div style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem" id="upsell-header">&#128274; An&#225;lisis completo</div>
+      <div style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem" id="upsell-header">&#128274; Entender tu perfil emocional + Lo que él no está diciendo</div>
 
       <!-- 3 itens bloqueados -->
       <div style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;position:relative;border-radius:12px;overflow:hidden">
@@ -1165,7 +1165,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <!-- Botão CTA dourado -->
       <div id="early-cta" style="display:none;margin:0;height:0;overflow:hidden">
         <button onclick="abrirCO()" style="width:100%;background:linear-gradient(135deg,#C89B3C,#9B7420);color:#fff;border:none;border-radius:12px;padding:15px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.01em;box-shadow:0 4px 20px rgba(200,155,60,.25)">
-          <span id="btn-early-txt">&#128274; Desbloquear Análisis Conductual: lo que realmente activa su distancia — S/ 36,90</span>
+          <span id="btn-early-txt">&#128274; Desbloquear Análisis Combinado (S/ 36,90)</span>
         </button>
         <div style="text-align:center;margin-top:8px">
           <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:4px">
@@ -1434,16 +1434,16 @@ const Q1 = [
 
 /* ─── DATOS: PERFILES DE ELLA ─── */
 const PE = [
-  { icon:"🌹", type:"La Reparadora",       main:"Cuidado compulsivo",         bars:[78,85,71],
+  { icon:"🌹", type:"Perfil Emocional: Subtipo A-1", displayType:"Perfil: Ansiedad de Apego — Nivel Activo", main:"Cuidado compulsivo", bars:[78,85,71],
     desc:"Tu valor emocional está ligado a ser necesaria. Cuando él sufre, tú te activas. El problema es que esa necesidad de 'salvarlo' te deja sin energía para ti misma.",
     teaser:"Tienes un patrón profundo de atracción por la misión de sanar al otro. Los hombres emocionalmente inestables activan en ti un sentido de propósito que, en realidad, esconde una necesidad de amor incondicional que todavía no fue satisfecha." },
-  { icon:"🌊", type:"La Adicta a la Intensidad", main:"Adicción a la adrenalina", bars:[82,65,90],
+  { icon:"🌊", type:"Perfil Emocional: Tipo II", displayType:"Patrón: Hiper-Reactividad Emocional — Fase Crítica", main:"Adicción a la adrenalina", bars:[82,65,90],
     desc:"Tu sistema nervioso está calibrado para el drama. La calma se siente como indiferencia. Buscas el subidón emocional sin darte cuenta del costo enorme que tiene.",
     teaser:"Para ti, el amor sin caos se siente vacío. En algún momento de tu vida, el amor y el dolor fueron aprendidos juntos — y tu sistema emocional aprendió que 'intenso' significa 'verdadero'." },
-  { icon:"💫", type:"La que Busca su Reflejo", main:"Validación externa intensa", bars:[90,70,88],
+  { icon:"💫", type:"Perfil Emocional: Tipo R-X", displayType:"Perfil: Dependencia de Validación — Nivel Alto", main:"Validación externa intensa", bars:[90,70,88],
     desc:"Tu autoestima oscila según cómo te trate él. Cuando él está bien contigo, estás bien. Cuando se aleja, entras en pánico. Esa dependencia emocional alimenta el ciclo.",
     teaser:"Buscas en los demás la validación que todavía no encontraste en ti misma. Los hombres inestables crean espacios de incertidumbre que intentas llenar — y eso es lo que te mantiene en el ciclo." },
-  { icon:"🦋", type:"La Enamorada del Potencial", main:"Amor al potencial",      bars:[65,88,76],
+  { icon:"🦋", type:"Perfil Emocional: Subtipo P-4", displayType:"Patrón: Proyección Idealizada — Fase Activa", main:"Amor al potencial", bars:[65,88,76],
     desc:"Ves lo mejor en los demás antes de que ellos lo vean en sí mismos. El problema es que inviertes tu energía en una versión futura de él que puede nunca materializarse.",
     teaser:"No te enamoras del hombre que tienes enfrente, sino de lo que podría llegar a ser con tu amor. Ese rasgo es hermoso — pero puede ser aprovechado por quienes no quieren crecer." }
 ];
@@ -1898,8 +1898,8 @@ function actualizarBotones() {
   var nEl = getNombreEl();
   var precio = "S/ 36,90";
   var txt = (nEl && nEl !== "él")
-    ? "🔒 Desbloquear Análisis Conductual: lo que realmente activa su distancia — " + precio
-    : "🔒 Desbloquear Análisis Conductual: lo que realmente activa su distancia — " + precio;
+    ? "🔒 Desbloquear Análisis Combinado (S/ 36,90)"
+    : "🔒 Desbloquear Análisis Combinado (S/ 36,90)";
   var b1 = document.getElementById("btn-early-txt");
   var b2 = document.getElementById("btn-main-txt");
   if(b1) b1.textContent = txt;
@@ -1907,7 +1907,7 @@ function actualizarBotones() {
   var elUp = document.getElementById("v-el-name-upsell");
   if(elUp) elUp.textContent = (nEl && nEl !== "él") ? nEl : "él";
   var hdr = document.getElementById("upsell-header");
-  if(hdr && nEl && nEl !== "él") hdr.textContent = "🔒 Lo que él no está diciendo — " + nEl;
+  if(hdr) hdr.innerHTML = "&#128274; Entender tu perfil emocional + Lo que <strong>" + (nEl && nEl !== "él" ? nEl : "él") + "</strong> no está diciendo";
   var elTop = document.getElementById("v-el-name-top");
   if(elTop) elTop.textContent = (nEl && nEl !== "él") ? nEl : "él";
 }
@@ -1922,7 +1922,7 @@ function mostrarVenda() {
   // ── Perfis ──
   var iconEl = document.getElementById('v-icon-ella');
   if(iconEl) iconEl.innerHTML = ella.icon;
-  set('v-type-ella', ella.type);
+  set('v-type-ella', ella.displayType || ella.type);
   set('v-icon-el', el?'👨':'👨');
   set('v-type-el', el?el.type:S.sEl);
   set('v-type-el-top', el?el.type:S.sEl);
@@ -1937,7 +1937,7 @@ function mostrarVenda() {
   var revName = document.getElementById('v-reveal-name');
   var revDesc = document.getElementById('v-reveal-desc');
   if(revIcon) revIcon.innerHTML = ella.icon;
-  if(revName) revName.textContent = ella.type;
+  if(revName) revName.textContent = ella.displayType || ella.type;
   if(revDesc) revDesc.textContent = ella.desc ? ella.desc.substring(0,70)+'...' : '';
 
    // ── Lock copy com nome ──
@@ -2214,7 +2214,7 @@ function guardarNombres() {
   if(e) S.nombreElla = e.value.trim();
   if(l) S.nombreEl = l.value.trim();
 }
-function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+function capitalize(s) { if(!s) return s; return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase(); }
 function getNombreElla() { return capitalize(S.nombreElla) || 'tú'; }
 function getNombreEl()   { return capitalize(S.nombreEl)   || 'él'; }
 
@@ -2361,7 +2361,7 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
         + sp + 'Pero mientras tú mantienes distancia, ' + nombrePareja + ' no siente silencio. Él está leyendo señales.'
         + sp + 'Y las está interpretando de una manera que tú no puedes ver desde afuera. Si esa lectura sigue creciendo así — cambia completamente la forma en que él volverá a acercarse.',
       f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
-        + sp + 'Hay una razón específica por la que él se acerca y se aleja. Y no tiene nada que ver con indiferencia. El desbloqueo muestra qué está frenando el movimiento entre ustedes — y qué cambia la forma en que él te percibe ahora.'
+        + sp + 'Hay una razón específica por la que él se acerca y se aleja — y qué frena sus ganas de buscarte. El desbloqueo muestra el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
     },
 
     slot_2: {
@@ -2369,7 +2369,7 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
         + sp + 'Esa duda tiene una base real. En este momento, ' + nombrePareja + ' está interpretando tu silencio bajo un filtro que no coincide con tu intención.'
         + sp + 'Hay una lectura que él está haciendo de ti ahora mismo — y es totalmente distinta a la que tú crees desde afuera. El desbloqueo muestra exactamente qué es.',
       f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
-        + sp + 'Hay una razón específica por la que él se acerca y se aleja. Y no tiene nada que ver con indiferencia. El desbloqueo muestra qué está frenando el movimiento entre ustedes — y qué cambia la forma en que él te percibe ahora.'
+        + sp + 'Hay una razón específica por la que él se acerca y se aleja — y qué frena sus ganas de buscarte. El desbloqueo muestra el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
     },
 
     slot_3: {
@@ -2377,7 +2377,7 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
         + sp + 'Hay una lectura que ' + nombrePareja + ' está haciendo de ti ahora mismo — y es totalmente distinta a la que tú crees desde afuera.'
         + sp + 'Pero mientras tú miras esa pantalla, él está construyendo una idea sobre ti. Y si esa interpretación sigue creciendo así — cambia completamente la forma en que volverá a acercarse.',
       f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
-        + sp + 'Hay una razón específica por la que él se acerca y se aleja. Y no tiene nada que ver con indiferencia. El desbloqueo muestra qué está frenando el movimiento entre ustedes — y qué cambia la forma en que él te percibe ahora.'
+        + sp + 'Hay una razón específica por la que él se acerca y se aleja — y qué frena sus ganas de buscarte. El desbloqueo muestra el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
     }
 
   };
@@ -2387,6 +2387,7 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
   // r0=1 (espera)            → slot_0 Incomprensión Mutua
   // r0=2 (qué hice mal)      → slot_2 El Mensaje Borrado
   // r0=3 (actúa fría)        → slot_0 Incomprensión Mutua
+  // Q1[0]: 0=celular→slot_3 | 1=espera→slot_0 | 2=qué hice→slot_2 | 3=fría→slot_0
   var slotMap = { 0: 'slot_3', 1: 'slot_0', 2: 'slot_2', 3: 'slot_0' };
   var slotKey = slotMap[respostas[0]] || 'slot_0';
 

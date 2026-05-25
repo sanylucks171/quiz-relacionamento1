@@ -1165,7 +1165,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <!-- Botão CTA dourado -->
       <div id="early-cta" style="display:none;margin:0;height:0;overflow:hidden">
         <button onclick="abrirCO()" style="width:100%;background:linear-gradient(135deg,#C89B3C,#9B7420);color:#fff;border:none;border-radius:12px;padding:15px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.01em;box-shadow:0 4px 20px rgba(200,155,60,.25)">
-          <span id="btn-early-txt">&#128275; Ver lo que está pasando en su mente — $38.900 COP</span>
+          <span id="btn-early-txt">&#128274; Desbloquear Análisis Conductual: lo que realmente activa su distancia — $38.900 COP</span>
         </button>
         <div style="text-align:center;margin-top:8px">
           <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:4px">
@@ -1899,8 +1899,8 @@ function actualizarBotones() {
   var nEl = getNombreEl();
   var precio = "$38.900 COP";
   var txt = (nEl && nEl !== "él")
-    ? "🔓 Ver lo que está pasando en la mente de " + nEl + " — " + precio
-    : "🔓 Desbloquear el análisis completo — " + precio;
+    ? "🔒 Desbloquear Análisis Conductual: lo que realmente activa su distancia — " + precio
+    : "🔒 Desbloquear Análisis Conductual: lo que realmente activa su distancia — " + precio;
   var b1 = document.getElementById("btn-early-txt");
   var b2 = document.getElementById("btn-main-txt");
   if(b1) b1.textContent = txt;
@@ -1980,7 +1980,7 @@ function mostrarVenda() {
   var normal=(CFG.PRECIO_DIAG_SOLO+CFG.PRECIO_COMPAT_SOLO).toFixed(2);
   set('bi-normal',''+normal);
   set('bi-tachado',''+CFG.PRECIO_TACHADO.toFixed(2));
-  set('bi-price-main','$'+CFG.PRECIO_BUNDLE.toFixed(2));
+  set('bi-price-main','$38.900 COP');
 
   // ── Checkout modal init ──
   set('co-price-h',CFG.PRECIO_BUNDLE.toFixed(2));
@@ -2367,15 +2367,15 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
 
     slot_2: {
       f1: nombreUsuario + ', escribiste algo. Lo releíste. Lo borraste.'
-        + sp + 'Esa duda tiene una base real. En este momento, ' + nombrePareja + ' está leyendo cada movimiento tuyo bajo un filtro que no coincide con tu intención.'
-        + sp + 'Hay algo que él está leyendo en cada movimiento tuyo — y no tiene nada que ver con lo que tú quisiste decir. El desbloqueo muestra exactamente qué es.',
+        + sp + 'Esa duda tiene una base real. En este momento, ' + nombrePareja + ' está interpretando tu silencio bajo un filtro que no coincide con tu intención.'
+        + sp + 'Hay una lectura que él está haciendo de ti ahora mismo — y es totalmente distinta a la que tú crees desde afuera. El desbloqueo muestra exactamente qué es.',
       f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
         + sp + 'Hay una razón específica por la que él se acerca y se aleja. Y no tiene nada que ver con indiferencia. El desbloqueo muestra qué está frenando el movimiento entre ustedes — y qué cambia la forma en que él te percibe ahora.'
     },
 
     slot_3: {
       f1: nombreUsuario + ', abres el chat. Ves que estuvo activo. Cierras. Vuelves a abrir.'
-        + sp + 'Eso no es ansiedad sin sentido. Es tu intuición detectando que algo se está moviendo en la mente de ' + nombrePareja + '.'
+        + sp + 'Hay una lectura que ' + nombrePareja + ' está haciendo de ti ahora mismo — y es totalmente distinta a la que tú crees desde afuera.'
         + sp + 'Pero mientras tú miras esa pantalla, él está construyendo una idea sobre ti. Y si esa interpretación sigue creciendo así — cambia completamente la forma en que volverá a acercarse.',
       f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
         + sp + 'Hay una razón específica por la que él se acerca y se aleja. Y no tiene nada que ver con indiferencia. El desbloqueo muestra qué está frenando el movimiento entre ustedes — y qué cambia la forma en que él te percibe ahora.'

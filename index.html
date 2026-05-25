@@ -32,7 +32,7 @@
    Landing → Quiz 1 (sobre ella, 8 preguntas)
            → Transición "Ahora cuéntanos sobre él"
            → Quiz 2 (sobre él, 3 preguntas)
-           → Tela de Venta BUNDLE ($11.99 todo incluido)
+           → Tela de Venta BUNDLE ($9.99 todo incluido)
            → Checkout (Hotmart / Kiwify / Stripe)
            → [retorno con ?status=paid]
            → Painel Final Unificado (6 secciones)
@@ -51,8 +51,8 @@ const CFG = {
   URL_RETORNO:  "https://descubretuapego.online/reporte.html",
 
   // 💲 Precios
-  PRECIO_BUNDLE:    11.99,   // precio actual mostrado
-  PRECIO_TACHADO:   39.98,   // precio "antes de"
+  PRECIO_BUNDLE:    9.99,   // precio actual mostrado
+  PRECIO_TACHADO:   29.98,   // precio "antes de"
   PRECIO_DIAG_SOLO:  19.99,   // componente 1
   PRECIO_COMPAT_SOLO: 19.99,  // componente 2 (suma que muestra el valor)
 
@@ -791,11 +791,11 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <div style="margin-bottom:2rem;max-width:400px">
         <div style="font-size:48px;color:rgba(200,75,106,.3);font-family:'Playfair Display',serif;line-height:.8;margin-bottom:.5rem;text-align:left;padding-left:8px">"</div>
         <p style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,4vw,1.6rem);color:#fff;font-style:italic;line-height:1.45;margin:0 0 1rem">
-          Nadie me entiende cuando intento explicar por qué no puedo simplemente dejarlo ir.
+          Nadie me explica por qué él actúa así — y por qué yo sigo aquí.
         </p>
         <p style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;margin:0">
-          No es debilidad. No es que no lo intentes.<br>
-          Es un patrón — <strong style="color:rgba(255,255,255,.85)">y tiene una explicación.</strong>
+          No es falta de amor. No es que no lo intentes.<br>
+          Es una dinámica — <strong style="color:rgba(255,255,255,.85)">y tiene una explicación exacta.</strong>
         </p>
       </div>
 
@@ -807,16 +807,16 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <p style="font-size:10px;color:rgba(200,75,106,.7);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem">Este test va a decirte</p>
         <div style="display:flex;flex-direction:column;gap:.7rem">
           <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
-            <span style="font-size:1.1rem;flex-shrink:0">💔</span>
-            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Por qué <strong style="color:#fff">siempre el mismo tipo</strong> de hombre</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
             <span style="font-size:1.1rem;flex-shrink:0">🔍</span>
-            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Qué tipo emocional es él — <strong style="color:#fff">con nombre y patrón</strong></span>
+            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Por qué él <strong style="color:#fff">actúa así contigo</strong> — y qué hay detrás</span>
           </div>
           <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
             <span style="font-size:1.1rem;flex-shrink:0">🔗</span>
-            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Por qué <strong style="color:#fff">duele tanto y no puedes soltar</strong></span>
+            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Qué <strong style="color:#fff">dinámica real</strong> existe entre los dos</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
+            <span style="font-size:1.1rem;flex-shrink:0">🧠</span>
+            <span style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.4">Qué está pasando <strong style="color:#fff">en su mente</strong> cuando se aleja</span>
           </div>
           <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.7rem 1rem;text-align:left">
             <span style="font-size:1.1rem;flex-shrink:0">🔮</span>
@@ -828,7 +828,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <!-- CTA -->
       <div style="width:100%;max-width:380px">
         <button onclick="goToQuiz1()" style="width:100%;background:linear-gradient(135deg,#C84B6A,#9B2D4A);color:#fff;border:none;border-radius:14px;padding:17px;font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;box-shadow:0 8px 28px rgba(200,75,106,.45);letter-spacing:.01em;margin-bottom:.7rem">
-          Estoy lista para saber la verdad →
+          Quiero entender qué está pasando →
         </button>
         <!-- Social proof -->
         <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:.8rem">
@@ -1165,7 +1165,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <!-- Botão CTA dourado -->
       <div id="early-cta" style="display:none;margin:0;height:0;overflow:hidden">
         <button onclick="abrirCO()" style="width:100%;background:linear-gradient(135deg,#C89B3C,#9B7420);color:#fff;border:none;border-radius:12px;padding:15px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.01em;box-shadow:0 4px 20px rgba(200,155,60,.25)">
-          <span id="btn-early-txt">&#128275; Desbloquear: el perfil de él + Dinámica Emocional — $11.99</span>
+          <span id="btn-early-txt">&#128275; Ver lo que está pasando en su mente — $9.99</span>
         </button>
         <div style="text-align:center;margin-top:8px">
           <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:4px">
@@ -1196,7 +1196,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <span style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#9B2D4A,#C84B6A);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:11px;margin-left:-8px">👩🏽</span>
         <span style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#C84B6A,#E8748F);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:11px;margin-left:-8px">👩🏾</span>
       </div>
-      <span style="font-size:13px;color:rgba(255,255,255,.7)"><span id="checkout-counter" style="color:#fff;font-weight:800;font-size:15px"></span> mujeres ya desbloquearon su análisis de perfil hoy por <strong id="price-social-proof" style="color:#E8748F">$11.99</strong></span>
+      <span style="font-size:13px;color:rgba(255,255,255,.7)"><span id="checkout-counter" style="color:#fff;font-weight:800;font-size:15px"></span> mujeres ya desbloquearon su análisis de perfil hoy por <strong id="price-social-proof" style="color:#E8748F">$9.99</strong></span>
     </div>
 
     <button class="btn btn-rose" onclick="abrirCO()" style="margin-bottom:.6rem;font-size:16px;padding:16px">
@@ -1206,19 +1206,18 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
 
     <!-- Bundle price -->
     <div class="bundle-box">
-      <div style="font-size:11px;color:var(--txt3);margin-bottom:.5rem">Lo que incluye tu reporte</div>
+      <div style="font-size:11px;color:var(--txt3);text-align:center;margin-bottom:.9rem;letter-spacing:.04em">Lo que incluye tu reporte</div>
       <div class="bundle-includes">
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Análisis Emocional Personalizado</strong> — tu tipo, tu patrón, tus detonantes (<span style="color:var(--gold)">$19.99</span>)</span></div>
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Perfil Psicológico de Él</strong> — Evitativo, Narcisista, Imaturo o Seguro (<span style="color:var(--gold)">$19.99</span>)</span></div>
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Dinámica entre los dos</strong> — por qué se atraen y por qué se destruyen</span></div>
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Pronóstico Emocional</strong> — el veredicto honesto sobre esta relación</span></div>
-        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Reporte Digital Interactivo</strong> — los 6 pilares psicológicos, acceso inmediato en pantalla</span></div>
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Tu perfil emocional</strong> — tu tipo, tu patrón, tus detonantes</span></div>
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Perfil psicológico de él</strong> — <span style="color:rgba(255,255,255,.4);font-style:italic">el sistema lo identificó. Se revela en tu reporte.</span></span></div>
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Dinámica entre los dos</strong> — por qué se atraen y por qué se bloquean</span></div>
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Pronóstico emocional</strong> — el veredicto honesto sobre esta relación</span></div>
+        <div class="bi"><span class="bi-check">✓</span><span><strong style="color:#fff">Reporte interactivo</strong> — acceso inmediato en pantalla</span></div>
       </div>
-      <div style="text-align:center;margin-top:.8rem">
-        <div style="font-size:11px;color:rgba(255,255,255,.28);margin-bottom:2px">Valor normal: <span id="bi-normal">$39.98</span></div>
-        <div style="font-size:11px;color:var(--txt3);text-decoration:line-through;margin-bottom:4px">Antes: $<span id="bi-tachado">39.98</span></div>
+      <div style="text-align:center;margin-top:1rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06)">
+        <div style="font-size:11px;color:rgba(255,255,255,.25);margin-bottom:4px">Precio de hoy</div>
         <div class="serif" id="bi-price-main" style="font-size:2.4rem;font-weight:800;color:var(--gold)"></div>
-        <div style="font-size:12px;color:var(--txt3);margin-top:2px">acceso inmediato · reporte interactivo en pantalla</div>
+        <div style="font-size:11px;color:var(--txt3);margin-top:3px">acceso inmediato · pago único</div>
       </div>
     </div>
 
@@ -1262,21 +1261,21 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <!-- Resumo -->
       <div class="total-row" style="margin-bottom:.8rem">
         <span>Reporte Emocional Bundle</span>
-        <span id="co-total-base">$11.99</span>
+        <span id="co-total-base">$9.99</span>
       </div>
 
       
             <!-- Total dinâmico -->
       <div class="total-row">
         <span>Total</span>
-        $11.99
+        $9.99
       </div>
 
       <div style="font-size:11px;color:var(--txt3);text-align:center;margin-bottom:11px">Pago seguro · Redireccionamiento a checkout externo</div>
 
       <!-- 🔗 BOTÃO CHECKOUT — Coloque seu link aqui -->
       <a id="co-btn" href="URL_CHECKOUT_AQUI" target="_blank" class="btn btn-rose" onclick="return validarCO()" style="text-decoration:none;margin-bottom:5px">
-        <span id="btn-finalizar-txt">🔒 Finalizar pago · $11.99</span>
+        <span id="btn-finalizar-txt">🔒 Desbloquear lo que él no está diciendo · $9.99</span>
       </a>
 
       <button class="btn-cls" onclick="fecharCO()">← Volver al resultado</button>
@@ -1625,7 +1624,7 @@ function verificarStatusPagamento() {
   var st = params.get(CFG.PARAM_STATUS);
   if (st==='paid'||st==='approved'||st==='completed') {
     // ── Pixel: Purchase — pagamento confirmado ──
-    if(typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: 11.99, currency: 'USD' });
+    if(typeof fbq !== 'undefined') fbq('track', 'Purchase', { value: 9.99, currency: 'USD' });
     cargar();
     if (S.iElla!==null && S.sEl!==null) {
       calcDin();
@@ -1898,9 +1897,9 @@ function iniciarAnalizando() {
 /* ─── TELA DE VENDA ─── */
 function actualizarBotones() {
   var nEl = getNombreEl();
-  var precio = window._PRECIO_CONVERTIDO || "$11.99";
+  var precio = window._PRECIO_CONVERTIDO || "$9.99";
   var txt = (nEl && nEl !== "él")
-    ? "🔓 Desbloquear: el perfil de " + nEl + " + Dinámica Emocional — " + precio
+    ? "🔓 Ver lo que está pasando en la mente de " + nEl + " — " + precio
     : "🔓 Desbloquear el análisis completo — " + precio;
   var b1 = document.getElementById("btn-early-txt");
   var b2 = document.getElementById("btn-main-txt");
@@ -1909,7 +1908,7 @@ function actualizarBotones() {
   var elUp = document.getElementById("v-el-name-upsell");
   if(elUp) elUp.textContent = (nEl && nEl !== "él") ? nEl : "él";
   var hdr = document.getElementById("upsell-header");
-  if(hdr && nEl && nEl !== "él") hdr.textContent = "🔒 Análisis completo de " + nEl + " + Dinámica Emocional";
+  if(hdr && nEl && nEl !== "él") hdr.textContent = "🔒 Lo que él no está diciendo — " + nEl;
   var elTop = document.getElementById("v-el-name-top");
   if(elTop) elTop.textContent = (nEl && nEl !== "él") ? nEl : "él";
 }
@@ -1929,6 +1928,10 @@ function mostrarVenda() {
   set('v-type-el', el?el.type:S.sEl);
   set('v-type-el-top', el?el.type:S.sEl);
   set('v-dinamica', d.name);
+
+  // ── Perfil dele no bundle ──
+  var biPerfil = document.getElementById('bi-perfil-el');
+  if(biPerfil && el) biPerfil.textContent = el.type;
 
   // ── Reveal do perfil dela ──
   var revIcon = document.getElementById('v-reveal-icon');
@@ -2010,7 +2013,7 @@ function mostrarVenda() {
 /* ─── CHECKOUT ─── */
 function abrirCO() {
   // ── Pixel: InitiateCheckout — clicou em comprar ──
-  if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { value: 11.99, currency: 'USD' });
+  if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { value: 9.99, currency: 'USD' });
   // ── Clarity: clicou em comprar ──
   if(typeof clarity !== 'undefined') clarity('set', 'funil_step', 'checkout_click');
   gaEvent('click_buy_button', {perfil_ella: S.iElla, perfil_el: S.sEl});
@@ -2404,9 +2407,11 @@ function getMicroFatos(respostas) {
   };
 
   return {
-    fato_gatilho:          fatoGatilhoMap[respostas[3]]  || "su distanciamiento",
-    tempo_afastado:        tempoAfastadoMap[respostas[4]] || "un tiempo",
-    comportamento_recente: comportamentoRecenteMap[respostas[5]] || "se aleja"
+    // q1ans tem 6 itens → q2ans começa em [6]
+    // Q2[3]=gatilho → [9], Q2[4]=tempo → [10], Q2[5]=comportamento → [11]
+    fato_gatilho:          fatoGatilhoMap[respostas[9]]  || "su distanciamiento",
+    tempo_afastado:        tempoAfastadoMap[respostas[10]] || "un tiempo",
+    comportamento_recente: comportamentoRecenteMap[respostas[11]] || "se aleja"
   };
 }
 
@@ -2420,25 +2425,25 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
     slot_0: {
       f1: nombreUsuario + ', desde hace ' + mf.tempo_afastado + ' vienes guardando tus palabras. Decidiste no buscarlo, no presionar. Para ti tiene sentido.'
         + sp + 'Pero mientras tú mantienes distancia, ' + nombrePareja + ' no siente silencio. Él está leyendo señales.'
-        + sp + 'Y las está interpretando de una manera muy distinta a la que tú crees desde afuera. Tu informe identifica exactamente qué lectura está construyendo él sobre ti mientras dejas pasar el tiempo.',
+        + sp + 'Y las está interpretando de una manera que tú no puedes ver desde afuera. Si esa lectura sigue creciendo así — cambia completamente la forma en que él volverá a acercarse.',
       f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
-        + sp + 'El informe completo desarma el rompecabezas de su comportamiento actual: qué piensa cuando no te escribe, qué frena sus ganas de buscarte y el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
+        + sp + 'Hay una razón específica por la que él se acerca y se aleja. Y no tiene nada que ver con indiferencia. El desbloqueo muestra qué está frenando el movimiento entre ustedes — y qué cambia la forma en que él te percibe ahora.'
     },
 
     slot_2: {
       f1: nombreUsuario + ', escribiste algo. Lo releíste. Lo borraste.'
         + sp + 'Esa duda tiene una base real. En este momento, ' + nombrePareja + ' está leyendo cada movimiento tuyo bajo un filtro que no coincide con tu intención.'
-        + sp + 'Tu análisis identifica cuál es ese filtro y por qué está alterando la forma en que él interpreta tus señales.',
+        + sp + 'Hay algo que él está leyendo en cada movimiento tuyo — y no tiene nada que ver con lo que tú quisiste decir. El desbloqueo muestra exactamente qué es.',
       f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
-        + sp + 'El informe completo desarma el rompecabezas de su comportamiento actual: qué piensa cuando no te escribe, qué frena sus ganas de buscarte y el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
+        + sp + 'Hay una razón específica por la que él se acerca y se aleja. Y no tiene nada que ver con indiferencia. El desbloqueo muestra qué está frenando el movimiento entre ustedes — y qué cambia la forma en que él te percibe ahora.'
     },
 
     slot_3: {
       f1: nombreUsuario + ', abres el chat. Ves que estuvo activo. Cierras. Vuelves a abrir.'
         + sp + 'Eso no es ansiedad sin sentido. Es tu intuición detectando que algo se está moviendo en la mente de ' + nombrePareja + '.'
-        + sp + 'Hay un factor de apego operando en él justo ahora. Algo que condiciona cómo va a interpretar cualquier movimiento tuyo en las próximas horas. Tu análisis lo mapea.',
+        + sp + 'Pero mientras tú miras esa pantalla, él está construyendo una idea sobre ti. Y si esa interpretación sigue creciendo así — cambia completamente la forma en que volverá a acercarse.',
       f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
-        + sp + 'El informe completo desarma el rompecabezas de su comportamiento actual: qué piensa cuando no te escribe, qué frena sus ganas de buscarte y el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
+        + sp + 'Hay una razón específica por la que él se acerca y se aleja. Y no tiene nada que ver con indiferencia. El desbloqueo muestra qué está frenando el movimiento entre ustedes — y qué cambia la forma en que él te percibe ahora.'
     }
 
   };

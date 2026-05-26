@@ -1109,7 +1109,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <!-- CAIXA DOURADA — upsell -->
     <div style="background:rgba(200,155,60,.06);border:1px solid rgba(200,155,60,.25);border-radius:16px;padding:1.2rem;margin-bottom:1rem">
 
-      <div style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem" id="upsell-header">&#128274; An&#225;lisis completo</div>
+      <div style="font-size:15px;color:var(--gold);font-weight:800;line-height:1.4;margin-bottom:1rem;text-transform:none;letter-spacing:0" id="upsell-header">&#128274; Dinámica de pareja + lo que la actitud de él dice según tus respuestas.</div>
 
       <!-- 3 itens bloqueados -->
       <div style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;position:relative;border-radius:12px;overflow:hidden">
@@ -1908,7 +1908,7 @@ function actualizarBotones() {
   var elUp = document.getElementById("v-el-name-upsell");
   if(elUp) elUp.textContent = (nEl && nEl !== "él") ? nEl : "él";
   var hdr = document.getElementById("upsell-header");
-  if(hdr) hdr.innerHTML = "&#128274; Entender tu perfil emocional + lo que la actitud de <strong>" + (nEl && nEl !== "él" ? nEl : "él") + "</strong> dice según tus respuestas.";
+  if(hdr) { hdr.style.fontSize="15px"; hdr.style.fontWeight="800"; hdr.style.lineHeight="1.4"; hdr.style.textTransform="none"; hdr.style.letterSpacing="0"; hdr.innerHTML = "&#128274; Dinámica de pareja + lo que la actitud de <strong>" + (nEl && nEl !== "él" ? nEl : "él") + "</strong> dice según tus respuestas."; }
   var elTop = document.getElementById("v-el-name-top");
   if(elTop) elTop.textContent = (nEl && nEl !== "él") ? nEl : "él";
 }
@@ -2358,27 +2358,23 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
   var slots = {
 
     slot_0: {
-      f1: nombreUsuario + ', desde hace ' + mf.tempo_afastado + ' vienes guardando tus palabras. Decidiste no buscarlo, no presionar. Para ti tiene sentido.'
-        + sp + 'Pero mientras tú mantienes distancia, ' + nombrePareja + ' no siente silencio. Él está leyendo señales.'
-        + sp + 'Y las está interpretando de una manera que tú no puedes ver desde afuera. Si esa lectura sigue creciendo así — cambia completamente la forma en que él volverá a acercarse.',
-      f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
-        + sp + 'Hay una razón específica por la que él se acerca y se aleja — y qué frena sus ganas de buscarte. El desbloqueo muestra el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
+      f1: nombreUsuario + ', tus respuestas muestran que cuando él vuelve, una parte de ti elige creerle. Le das una oportunidad más porque ves algo en él que otros no ven — y eso tiene sentido.'
+        + sp + 'Pero lo que el análisis detecta es que mientras tú procesas con esperanza, ' + nombrePareja + ' está procesando con otra lógica completamente diferente. Y esa diferencia de lectura es exactamente lo que alimenta la distancia.'
+        + sp + 'Hay un punto ciego entre los dos que ninguno está nombrando — y mientras siga sin nombre, el ciclo va a continuar.',
+      f2: 'El análisis combinado muestra los principales patrones de comportamiento de ambos, de acuerdo con tus respuestas. No es un misterio, es un patrón.'
+        + sp + 'De acuerdo con los comportamientos evaluados, este informe permite identificar los rasgos y movimientos de ' + nombrePareja + ' que afectan directamente tus gatillos emocionales.'
     },
 
     slot_2: {
-      f1: nombreUsuario + ', escribiste algo. Lo releíste. Lo borraste.'
-        + sp + 'Esa duda tiene una base real. En este momento, ' + nombrePareja + ' está interpretando tu silencio bajo un filtro que no coincide con tu intención.'
-        + sp + 'Hay una lectura que él está haciendo de ti ahora mismo — y es totalmente distinta a la que tú crees desde afuera. El desbloqueo muestra exactamente qué es.',
-      f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
-        + sp + 'Hay una razón específica por la que él se acerca y se aleja — y qué frena sus ganas de buscarte. El desbloqueo muestra el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
+      f1: nombreUsuario + ', tus respuestas muestran que cuando sientes la distancia de ' + nombrePareja + ', tu mente entra de inmediato en un estado de alerta. Es lo que te empuja a dar mil vueltas en tu cabeza intentando descifrar qué hiciste mal o qué cambió, alterando por completo la dinámica entre ustedes.' + sp + 'Y aunque reconocer tus propios gatillos es fundamental para no perder el eje, la verdad es que del otro lado también existe una persona con comportamientos que dejan claro que hay alguien con una actitud identificada que choca de frente con tu dolor... creando un cortocircuito donde sientes que, por más que lo intentes, terminas perdiendo el control.',
+      f2: 'El análisis combinado muestra los principales patrones de comportamiento de ambos, de acuerdo con tus respuestas. No es un misterio, es un patrón.'
+        + sp + 'De acuerdo con los comportamientos evaluados, este informe permite identificar los rasgos y movimientos de ' + nombrePareja + ' que afectan directamente tus gatillos emocionales.'
     },
 
     slot_3: {
-      f1: nombreUsuario + ', tus respuestas en el test muestran que caíste en esa típica zona de hipervigilancia: abres el chat, ves si estuvo activo, cierras y vuelves a abrir.'
-        + sp + 'Mirando cómo reacciona ' + nombrePareja + ' cuando pones distancia, el patrón de comportamiento muestra que esto está provocando un efecto secundario en su mente. No es lo que estás imaginando, ni está funcionando como tú crees.'
-        + sp + 'Hay algo silencioso que él está interpretando de tu actitud ahora mismo — y si dejas que esa idea siga creciendo en su cabeza sin hacer nada, va a cambiar por completo la forma en que volverá a buscarte.',
-      f2: 'Lo que ocurre en la mente de ' + nombrePareja + ' ahora mismo sigue una lógica emocional clara — no es indiferencia real, ni el final definitivo.'
-        + sp + 'Hay una razón específica por la que él se acerca y se aleja — y qué frena sus ganas de buscarte. El desbloqueo muestra el movimiento exacto que puedes hacer hoy para cambiar el rumbo de esta historia.'
+      f1: nombreUsuario + ', tus respuestas muestran que cuando sientes la distancia de ' + nombrePareja + ', tu mente entra de inmediato en un estado de alerta. Es lo que te empuja a abrir el chat, revisar si estuvo activo, cerrar y volver a entrar buscando respuestas, alterando por completo la dinámica entre ustedes.' + sp + 'Y aunque reconocer tus propios gatillos es fundamental para no perder el eje, la verdad es que del otro lado también existe una persona con comportamientos que dejan claro que hay alguien con una actitud identificada que choca de frente con tu dolor... creando un cortocircuito donde sientes que, por más que lo intentes, terminas perdiendo el control.',
+      f2: 'El análisis combinado muestra los principales patrones de comportamiento de ambos, de acuerdo con tus respuestas. No es un misterio, es un patrón.'
+        + sp + 'De acuerdo con los comportamientos evaluados, este informe permite identificar los rasgos y movimientos de ' + nombrePareja + ' que afectan directamente tus gatillos emocionales.'
     }
 
   };
@@ -2389,7 +2385,9 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
   // r0=2 (qué hice mal)      → slot_2 El Mensaje Borrado
   // r0=3 (actúa fría)        → slot_0 Incomprensión Mutua
   // Q1[0]: 0=celular→slot_3 | 1=espera→slot_0 | 2=qué hice→slot_2 | 3=fría→slot_0
-  var slotMap = { 0: 'slot_3', 1: 'slot_0', 2: 'slot_2', 3: 'slot_0' };
+  // Q1[0]: 'Cuando él aparece después de hacer daño'
+  // 0=Todo se borra→slot_0 | 1=Una oportunidad→slot_0 | 2=Actúa fría→slot_3 | 3=Mantiene límites→slot_2
+  var slotMap = { 0: 'slot_0', 1: 'slot_0', 2: 'slot_3', 3: 'slot_2' };
   var slotKey = slotMap[respostas[0]] || 'slot_0';
 
   return slots[slotKey];

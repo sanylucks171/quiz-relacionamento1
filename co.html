@@ -1109,7 +1109,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
     <!-- CAIXA DOURADA — upsell -->
     <div style="background:rgba(200,155,60,.06);border:1px solid rgba(200,155,60,.25);border-radius:16px;padding:1.2rem;margin-bottom:1rem">
 
-      <div style="font-size:15px;color:var(--gold);font-weight:800;line-height:1.4;margin-bottom:1rem;text-transform:none;letter-spacing:0" id="upsell-header">&#128274; Dinámica de pareja + lo que la actitud de él dice según tus respuestas.</div>
+      <div style="font-size:15px;color:var(--gold);font-weight:800;line-height:1.4;margin-bottom:1rem;text-transform:none;letter-spacing:0" id="upsell-header">&#128274; Lo que él está interpretando de ti, según el patrón de tus respuestas.</div>
 
       <!-- 3 itens bloqueados -->
       <div style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;position:relative;border-radius:12px;overflow:hidden">
@@ -1164,7 +1164,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
       <!-- Botão CTA dourado -->
       <div id="early-cta" style="display:none;margin:0;height:0;overflow:hidden">
         <button onclick="abrirCO()" style="width:100%;background:linear-gradient(135deg,#C89B3C,#9B7420);color:#fff;border:none;border-radius:12px;padding:15px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.01em;box-shadow:0 4px 20px rgba(200,155,60,.25)">
-          <span id="btn-early-txt">&#128275; Desbloquear: el perfil de él + Dinámica Emocional — $38.900 COP</span>
+          <span id="btn-early-txt">&#128275; Desbloquear: el perfil de él + Dinámica Emocional — $27.999 COP</span>
         </button>
         <div style="text-align:center;margin-top:8px">
           <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:4px">
@@ -1195,7 +1195,7 @@ footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05);text-al
         <span style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#9B2D4A,#C84B6A);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:11px;margin-left:-8px">👩🏽</span>
         <span style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#C84B6A,#E8748F);border:2px solid #1a1a2e;display:flex;align-items:center;justify-content:center;font-size:11px;margin-left:-8px">👩🏾</span>
       </div>
-      <span style="font-size:13px;color:rgba(255,255,255,.7)"><span id="checkout-counter" style="color:#fff;font-weight:800;font-size:15px"></span> mujeres ya desbloquearon su análisis de perfil hoy por <strong id="price-social-proof" style="color:#E8748F">$38.900 COP</strong></span>
+      <span style="font-size:13px;color:rgba(255,255,255,.7)"><span id="checkout-counter" style="color:#fff;font-weight:800;font-size:15px"></span> mujeres ya desbloquearon su análisis de perfil hoy por <strong id="price-social-proof" style="color:#E8748F">$27.999 COP</strong></span>
     </div>
 
     <button class="btn btn-rose" onclick="abrirCO()" style="margin-bottom:.6rem;font-size:16px;padding:16px">
@@ -1897,11 +1897,11 @@ function iniciarAnalizando() {
 function actualizarBotones() {
   var nEl   = getNombreEl();
   var nElla = getNombreElla();
-  var precio = "$38.900 COP";
+  var precio = "$27.999 COP";
   var nombres = (nElla && nElla !== "tú" && nEl && nEl !== "él")
     ? "(" + nElla + " + " + nEl + ")"
     : "";
-  var txt = "🔒 Desbloquear Análisis Combinado " + nombres + " (" + precio + ")";
+  var txt = "🔒 Ver el análisis de " + nElla + " + " + nEl + " — " + precio;
   var b1 = document.getElementById("btn-early-txt");
   var b2 = document.getElementById("btn-main-txt");
   if(b1) b1.textContent = txt;
@@ -1909,7 +1909,7 @@ function actualizarBotones() {
   var elUp = document.getElementById("v-el-name-upsell");
   if(elUp) elUp.textContent = (nEl && nEl !== "él") ? nEl : "él";
   var hdr = document.getElementById("upsell-header");
-  if(hdr) { hdr.style.fontSize="15px"; hdr.style.fontWeight="800"; hdr.style.lineHeight="1.4"; hdr.style.textTransform="none"; hdr.style.letterSpacing="0"; hdr.innerHTML = "&#128274; Dinámica de pareja + lo que la actitud de <strong>" + (nEl && nEl !== "él" ? nEl : "él") + "</strong> dice según tus respuestas."; }
+  if(hdr) { hdr.style.fontSize="15px"; hdr.style.fontWeight="800"; hdr.style.lineHeight="1.4"; hdr.style.textTransform="none"; hdr.style.letterSpacing="0"; hdr.innerHTML = "&#128274; Lo que <strong>" + (nEl && nEl !== "él" ? nEl : "él") + "</strong> está interpretando de ti, según el patrón de tus respuestas."; }
   var elTop = document.getElementById("v-el-name-top");
   if(elTop) elTop.textContent = (nEl && nEl !== "él") ? nEl : "él";
 }
@@ -1981,7 +1981,7 @@ function mostrarVenda() {
   var normal=(CFG.PRECIO_DIAG_SOLO+CFG.PRECIO_COMPAT_SOLO).toFixed(2);
   set('bi-normal',''+normal);
   set('bi-tachado',''+CFG.PRECIO_TACHADO.toFixed(2));
-  set('bi-price-main','$38.900 COP');
+  set('bi-price-main','$27.999 COP');
 
   // ── Checkout modal init ──
   set('co-price-h',CFG.PRECIO_BUNDLE.toFixed(2));
@@ -2359,23 +2359,27 @@ function obterTextosVendas(nombreUsuario, nombrePareja, respostas) {
   var slots = {
 
     slot_0: {
-      f1: nombreUsuario + ', tus respuestas muestran que cuando él vuelve, una parte de ti elige creerle. Le das una oportunidad más porque ves algo en él que otros no ven — y eso tiene sentido.'
-        + sp + 'Pero lo que el análisis detecta es que mientras tú procesas con esperanza, ' + nombrePareja + ' está procesando con otra lógica completamente diferente. Y esa diferencia de lectura es exactamente lo que alimenta la distancia.'
+      f1: nombreUsuario + ', tus respuestas muestran que cuando él vuelve, una parte de ti elige creerle. Le das una oportunidad más — pero lo que el análisis detecta es que él no está interpretando ese gesto de la manera que tú esperas.'
+        + sp + 'Mientras tú procesas con esperanza, ' + nombrePareja + ' está procesando con otra lógica completamente diferente. Y esa diferencia de lectura es exactamente lo que alimenta la distancia.'
         + sp + 'Hay un punto ciego entre los dos que ninguno está nombrando — y mientras siga sin nombre, el ciclo va a continuar.',
-      f2: 'El análisis combinado muestra los principales patrones de comportamiento de ambos, de acuerdo con tus respuestas. No es un misterio, es un patrón.'
-        + sp + 'De acuerdo con los comportamientos evaluados, este informe permite identificar los rasgos y movimientos de ' + nombrePareja + ' que afectan directamente tus gatillos emocionales.'
+      f2: 'Lo que tus respuestas revelan sobre los dos no es casualidad — es un patrón que se repite.'
+        + sp + 'Y el informe muestra exactamente en qué punto los movimientos de ' + nombrePareja + ' están activando tus reacciones sin que ninguno de los dos lo esté viendo.'
     },
 
     slot_2: {
-      f1: nombreUsuario + ', tus respuestas muestran que cuando sientes la distancia de ' + nombrePareja + ', tu mente entra de inmediato en un estado de alerta. Es lo que te empuja a dar mil vueltas en tu cabeza intentando descifrar qué hiciste mal o qué cambió, alterando por completo la dinámica entre ustedes.' + sp + 'Y aunque reconocer tus propios gatillos es fundamental para no perder el eje, la verdad es que del otro lado también existe una persona con comportamientos que dejan claro que hay alguien con una actitud identificada que choca de frente con tu dolor... creando un cortocircuito donde sientes que, por más que lo intentes, terminas perdiendo el control.',
-      f2: 'El análisis combinado muestra los principales patrones de comportamiento de ambos, de acuerdo con tus respuestas. No es un misterio, es un patrón.'
-        + sp + 'De acuerdo con los comportamientos evaluados, este informe permite identificar los rasgos y movimientos de ' + nombrePareja + ' que afectan directamente tus gatillos emocionales.'
+      f1: nombreUsuario + ', tus respuestas muestran algo poco común: cuando él hace daño, una parte de ti logra sostener una posición aunque duela. No es fácil — y el análisis lo registra.'
+        + sp + 'Pero lo que también detecta es que mantener ese límite tiene un costo que ' + nombrePareja + ' no está viendo. Él no está interpretando tu postura como fortaleza — la está leyendo bajo un filtro completamente distinto al que tú imaginas.'
+        + sp + 'Esa diferencia entre lo que tú sostienes y lo que él lee es exactamente el punto ciego que está definiendo cómo va a moverse a partir de ahora.',
+      f2: 'Lo que tus respuestas revelan sobre los dos no es casualidad — es un patrón que se repite.'
+        + sp + 'Y el informe muestra exactamente en qué punto los movimientos de ' + nombrePareja + ' están activando tus reacciones sin que ninguno de los dos lo esté viendo.'
     },
 
     slot_3: {
-      f1: nombreUsuario + ', tus respuestas muestran que cuando sientes la distancia de ' + nombrePareja + ', tu mente entra de inmediato en un estado de alerta. Es lo que te empuja a abrir el chat, revisar si estuvo activo, cerrar y volver a entrar buscando respuestas, alterando por completo la dinámica entre ustedes.' + sp + 'Y aunque reconocer tus propios gatillos es fundamental para no perder el eje, la verdad es que del otro lado también existe una persona con comportamientos que dejan claro que hay alguien con una actitud identificada que choca de frente con tu dolor... creando un cortocircuito donde sientes que, por más que lo intentes, terminas perdiendo el control.',
-      f2: 'El análisis combinado muestra los principales patrones de comportamiento de ambos, de acuerdo con tus respuestas. No es un misterio, es un patrón.'
-        + sp + 'De acuerdo con los comportamientos evaluados, este informe permite identificar los rasgos y movimientos de ' + nombrePareja + ' que afectan directamente tus gatillos emocionales.'
+      f1: nombreUsuario + ', tus respuestas muestran que cuando sientes la distancia de ' + nombrePareja + ', haces algo que muy pocas reconocen: actúas fría por fuera mientras por dentro la incertidumbre te consume.'
+        + sp + 'Lo que el análisis identifica es que esa frialdad que proyectas no está llegando a ' + nombrePareja + ' como tú crees. Él no está leyendo distancia — está construyendo una interpretación completamente distinta de tu silencio.'
+        + sp + 'Y mientras esa lectura sigue creciendo en su cabeza sin que ninguno de los dos la nombre, está cambiando silenciosamente la forma en que él decide acercarse — o no hacerlo.',
+      f2: 'Lo que tus respuestas revelan sobre los dos no es casualidad — es un patrón que se repite.'
+        + sp + 'Y el informe muestra exactamente en qué punto los movimientos de ' + nombrePareja + ' están activando tus reacciones sin que ninguno de los dos lo esté viendo.'
     }
 
   };

@@ -24,11 +24,11 @@
 <!-- CFG inline — necessário antes de qualquer lógica JS -->
 <script>
 const CFG={
-  URL_CHECKOUT:"https://pay.hotmart.com/B105912832J?off=c9nx1nrr",
+  URL_CHECKOUT:"https://pay.hotmart.com/B105912832J?off=xqhpxqwb",
   URL_RETORNO:"https://descubretuapego.online/reporte.html",
-  PRECIO_BUNDLE:20.32,PRECIO_TACHADO:89.90,
+  PRECIO_BUNDLE:6000,PRECIO_TACHADO:89.90,
   PRECIO_DIAG_SOLO:44.90,PRECIO_COMPAT_SOLO:44.90,
-  PARAM_STATUS:"status",TIMER_SECS:900,MONEDA:"S/."
+  PARAM_STATUS:"status",TIMER_SECS:900,MONEDA:"$"
 };
 </script>
 
@@ -162,7 +162,7 @@ html,body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0
       <!-- ── PRUEBA SOCIAL SILENCIOSA ── -->
       <div class="az-social-proof">
         <span>⭐</span>
-        <span>Análisis número <strong style="color:rgba(255,255,255,.55)">#14,842</strong> generado con éxito en Perú hoy &mdash; tasa de precisión del <strong style="color:rgba(255,255,255,.55)">98.4%</strong></span>
+        <span>Análisis número <strong style="color:rgba(255,255,255,.55)">#17.203</strong> generado con éxito en Chile hoy &mdash; tasa de precisión del <strong style="color:rgba(255,255,255,.55)">98.4%</strong></span>
       </div>
 
       <div id="az-status" style="min-height:36px;font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;text-align:center;transition:opacity .3s;padding:0 8px"></div>
@@ -239,7 +239,7 @@ html,body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0
 </div>
 
 <!-- ══════════════════════════════════════════════════
-     PG VENDA — PAYWALL AL 10% (PERÚ · S/.)
+     PG VENDA — PAYWALL AL 10% (PERÚ · $)
      ══════════════════════════════════════════════════ -->
 <div id="pg-venda" class="page">
   <div class="wrap">
@@ -281,7 +281,7 @@ html,body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0
       <!-- CTA flotante sobre el desvanecimiento -->
       <div class="pw-cta-zone">
         <button class="pw-unlock-btn" id="pw-main-btn" onclick="abrirCO()">
-          🔐 Desbloquea el análisis completo — S/. 20.32
+          🔐 Desbloquea el análisis completo — $ 6.000
         </button>
         <div style="font-size:11px;color:rgba(255,255,255,.45);text-align:center;margin-bottom:.55rem;letter-spacing:.01em">
           Acceso inmediato &bull; Pago único &bull; 7 días de garantía
@@ -296,8 +296,8 @@ html,body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0
         <div class="pw-methods">
           <span>💳 VISA</span>
           <span>MASTERCARD</span>
-          <span>YAPE</span>
-          <span>PLIN</span>
+          <span>WEBPAY</span>
+          <span>MACH</span>
           <span>PAGO EFECTIVO</span>
           <span style="font-weight:900;letter-spacing:.02em">𝐏 PayPal</span>
         </div>
@@ -347,9 +347,9 @@ html,body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0
       <!-- Bloque de precio con ancoraje + glow dorado -->
       <div style="margin-top:1rem;padding-top:.9rem;border-top:1px solid rgba(200,155,60,.15)">
         <div style="text-align:center;margin-bottom:.6rem">
-          <div style="font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.3rem">Precio de hoy — Perú</div>
+          <div style="font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.3rem">Precio de hoy — Chile</div>
           <!-- Precio anterior tachado (ancoraje) -->
-          <div style="font-size:13px;color:rgba(255,255,255,.35);margin-bottom:.25rem;text-decoration:line-through;letter-spacing:.01em">S/. 69.90</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.35);margin-bottom:.25rem;text-decoration:line-through;letter-spacing:.01em">$ 24.990</div>
         </div>
         <!-- Precio actual con glow dorado -->
         <div style="
@@ -361,7 +361,7 @@ html,body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0
           box-shadow:0 0 18px rgba(255,215,0,.18), inset 0 0 12px rgba(255,215,0,.04);
           margin-bottom:.7rem;
         ">
-          <div class="serif" style="font-size:2.6rem;font-weight:900;color:#ffd700;line-height:1;letter-spacing:-.01em">S/. 20.32</div>
+          <div class="serif" style="font-size:2.6rem;font-weight:900;color:#ffd700;line-height:1;letter-spacing:-.01em">$ 6.000</div>
           <div style="font-size:10px;color:rgba(255,255,255,.38);margin-top:.35rem">acceso inmediato &nbsp;·&nbsp; pago único &nbsp;·&nbsp; 7 días de garantía</div>
         </div>
         <!-- Métodos de pago locales -->
@@ -378,9 +378,9 @@ html,body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0
           <span style="font-size:8px;color:rgba(255,255,255,.2)">•</span>
           <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,.6);letter-spacing:.04em">MASTERCARD</span>
           <span style="font-size:8px;color:rgba(255,255,255,.2)">•</span>
-          <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,.6);letter-spacing:.04em">YAPE</span>
+          <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,.6);letter-spacing:.04em">WEBPAY</span>
           <span style="font-size:8px;color:rgba(255,255,255,.2)">•</span>
-          <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,.6);letter-spacing:.04em">PLIN</span>
+          <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,.6);letter-spacing:.04em">MACH</span>
         </div>
       </div>
 
@@ -393,7 +393,7 @@ html,body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0
         <span style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#9B2D4A,#C84B6A);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:11px;margin-left:-8px">👩🏽</span>
         <span style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#C84B6A,#E8748F);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:11px;margin-left:-8px">👩🏾</span>
       </div>
-      <span style="font-size:13px;color:rgba(255,255,255,.7)"><span id="checkout-counter" style="color:#fff;font-weight:800;font-size:15px"></span> mujeres desbloquearon hoy por <strong style="color:var(--rose-mid)">S/. 20.32</strong></span>
+      <span style="font-size:13px;color:rgba(255,255,255,.7)"><span id="checkout-counter" style="color:#fff;font-weight:800;font-size:15px"></span> mujeres desbloquearon hoy por <strong style="color:var(--rose-mid)">$ 6.000</strong></span>
     </div>
 
     <!-- CTA REPETICIÓN -->
@@ -416,13 +416,13 @@ html,body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0
       <div style="font-size:10px;color:var(--txt3);text-align:center;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem">quienes ya desbloquearon</div>
       <div class="card card-rose" style="margin-bottom:8px;font-size:13px;color:var(--txt2);line-height:1.6">
         <div style="font-size:11px;color:var(--gold);margin-bottom:5px">★★★★★</div>
-        <strong style="display:block;color:rgba(255,255,255,.8);margin-bottom:4px">Valentina O. — Lima · PE</strong>
+        <strong style="display:block;color:rgba(255,255,255,.8);margin-bottom:4px">Valentina O. — Santiago · CL</strong>
         "Tres minutos y más claridad que en meses de terapia. Entendí exactamente por qué no podía dejarlo ir y qué papel tenía yo en el ciclo."
       </div>
       <div class="card" style="font-size:13px;color:var(--txt2);line-height:1.6">
         <div style="font-size:11px;color:var(--gold);margin-bottom:5px">★★★★★</div>
-        <strong style="display:block;color:rgba(255,255,255,.8);margin-bottom:4px">Daniela C. — Arequipa · PE</strong>
-        "El perfil de él me dejó sin palabras. Era exactamente él — sin que yo se lo dijera. El análisis completo vale cada sol."
+        <strong style="display:block;color:rgba(255,255,255,.8);margin-bottom:4px">Daniela C. — Valparaíso · CL</strong>
+        "El perfil de él me dejó sin palabras. Era exactamente él — sin que yo se lo dijera. El análisis completo vale cada peso."
       </div>
     </div>
 
@@ -441,7 +441,7 @@ html,body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0
         <span style="font-size:11px;color:var(--txt3)">min</span>
       </div>
 
-      <div class="co-h">Tu análisis completo · <span style="color:var(--gold)">S/. 20.32</span></div>
+      <div class="co-h">Tu análisis completo · <span style="color:var(--gold)">$ 6.000</span></div>
 
       <div class="fi">
         <label>Tu nombre</label>
@@ -453,17 +453,17 @@ html,body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0
       <!-- Resumen -->
       <div class="total-row" style="margin-bottom:.8rem">
         <span>Análisis Emocional Completo</span>
-        <span>S/. 20.32</span>
+        <span>$ 6.000</span>
       </div>
       <div class="total-row">
         <span>Total</span>
-        <span>S/. 20.32</span>
+        <span>$ 6.000</span>
       </div>
 
       <div style="font-size:11px;color:var(--txt3);text-align:center;margin-bottom:11px">Pago seguro · Redirección a checkout externo</div>
 
       <a id="co-btn" href="#" target="_blank" class="btn btn-rose" onclick="return validarCO()" style="text-decoration:none;margin-bottom:5px">
-        🔐 Finalizar pago · S/. 20.32
+        🔐 Finalizar pago · $ 6.000
       </a>
 
       <button class="btn-cls" onclick="fecharCO()">← Volver al resultado</button>
@@ -705,7 +705,7 @@ const DIN_DEF = {name:"Atracción Compleja",score:50,
  * visible → cuerpo libre (sin restricción de altura)
  * cut     → última frase con "..." (max-height:45px + overflow:hidden + fade)
  *
- * VOCABULARIO: tuteo peruano (tú/tu/ti — CERO voseo)
+ * VOCABULARIO: tuteo chileano (tú/tu/ti — CERO voseo)
  * TEXTOS: exactamente como entregó el cliente, sin frases extra
  */
 var PAYWALL_SLOTS = [
@@ -837,7 +837,7 @@ function verificarStatusPagamento() {
   var params=new URLSearchParams(window.location.search);
   var st=params.get(CFG.PARAM_STATUS);
   if(st==='paid'||st==='approved'||st==='completed'){
-    if(typeof fbq!=='undefined') fbq('track','Purchase',{value:20.32,currency:'PEN'});
+    if(typeof fbq!=='undefined') fbq('track','Purchase',{value:6000,currency:'CLP'});
     cargar();
     if(S.iElla!==null&&S.sEl!==null){calcDin();limpiarURL();gerarPainel();}
     else{limpiarURL();}
@@ -1095,7 +1095,7 @@ function mostrarVenda(){
     var suffix = (ellaDisplay && elDisplay)
       ? ' (' + ellaDisplay + ' + ' + elDisplay + ')'
       : '';
-    mainBtn.innerHTML = '🔐 Desbloquea el análisis completo' + suffix + ' — S/. 20.32';
+    mainBtn.innerHTML = '🔐 Desbloquea el análisis completo' + suffix + ' — $ 6.000';
   }
 
   /* ── Contador social proof ── */
@@ -1113,7 +1113,7 @@ function mostrarVenda(){
 
 /* ─── CHECKOUT ─── */
 function abrirCO(){
-  if(typeof fbq!=='undefined') fbq('track','InitiateCheckout',{value:20.32,currency:'PEN'});
+  if(typeof fbq!=='undefined') fbq('track','InitiateCheckout',{value:6000,currency:'CLP'});
   if(typeof clarity!=='undefined') clarity('set','funil_step','checkout_click');
   gaEvent('click_buy_button',{perfil_ella:S.iElla,perfil_el:S.sEl});
   try{
@@ -1266,7 +1266,7 @@ document.addEventListener('DOMContentLoaded',function(){
     {name:"Valeria • 24 años",  initials:"V", text:"La pregunta 5 me dejó sin palabras. Era exactamente lo que vivía con él."},
     {name:"Camila • 31 años",   initials:"C", text:"Nunca había podido ponerle nombre a lo que sentía hasta ahora."},
     {name:"Gabriela • 28 años", initials:"G", text:"Primera vez que algo describe tan bien lo que me pasa con él."},
-    {name:"Daniela • 29 años",  initials:"D", text:"El análisis completo valió cada sol. Entendí el ciclo al instante."},
+    {name:"Daniela • 29 años",  initials:"D", text:"El análisis completo valió cada peso. Entendí el ciclo al instante."},
     {name:"Mariana • 26 años",  initials:"M", text:"Entendí el patrón detrás de su distancia y todo cambió esa misma noche."},
     {name:"Sofía • 32 años",    initials:"S", text:"Por fin entendí por qué se alejaba y volvía. Dejé de rogarle."},
   ];

@@ -462,7 +462,7 @@ html,body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0
 
       <div style="font-size:11px;color:var(--txt3);text-align:center;margin-bottom:11px">Pago seguro · Redirección a checkout externo</div>
 
-      <a id="co-btn" href="#" target="_blank" class="btn btn-rose" onclick="return validarCO()" style="text-decoration:none;margin-bottom:5px">
+      <a id="co-btn" href="#" target="_self" class="btn btn-rose" onclick="return validarCO()" style="text-decoration:none;margin-bottom:5px">
         🔐 Finalizar pago · $ 6.000
       </a>
 
@@ -1129,11 +1129,9 @@ function validarCO(){
   var e=document.getElementById('co-email').value.trim();
   if(!n||!e||!e.includes('@')){alert('Completa tu nombre y tu email para continuar.');return false;}
   guardar();
-  /* Redirige directo al checkout de Hotmart — URL limpia para preservar el off= */
-  var btn=document.getElementById('co-btn');
-  btn.href   = CFG.URL_CHECKOUT;
-  btn.target = '_blank';
-  return true;
+  /* Fuerza navegación en la misma pestaña — evita bloqueo de pop-ups en browsers de apps */
+  window.location.href = CFG.URL_CHECKOUT;
+  return false; /* preventDefault: la navegación ya fue disparada por JS */
 }
 
 /* ─── TIMER URGENCIA ─── */
